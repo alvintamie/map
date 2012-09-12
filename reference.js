@@ -38,7 +38,7 @@ function insertReference() {
 			temp = document.createElement('div');
 			temp.setAttribute('id', "Reference" + i);
 			document.getElementById("contentReference").appendChild(temp);
-			document.getElementById("Reference"+i).innerHTML = referenceObject[i].title;
+			document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 		}
 	}
 	else if (readyRef==2) {
