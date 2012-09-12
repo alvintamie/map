@@ -35,7 +35,7 @@ function insertReference() {
 	temp.setAttribute('id', "contentReference");
 	temp.style.position = 'absolute';
 	temp.style.top = topbarHeight-9 + 'px';
-	temp.style.left = 1;
+	temp.style.left = 1 + 'px';
 	temp.style.width = referenceWidth-2 + 'px';
 	temp.style.height = referenceHeight-topbarHeight+7 +'px';
 	temp.style['overflow-x'] = 'hidden';
@@ -45,9 +45,9 @@ function insertReference() {
 	if (readyRef==1) {
 		for (var i=0; i<numberRef; i++) {
 			temp = document.createElement('div');
-			temp.setAttribute('id', "Reference" + i);
-			temp.style.left = 3 + 'px';
 			document.getElementById("contentReference").appendChild(temp);
+			temp.setAttribute('id', "Reference" + i);
+			temp.style.left = 2 + 'px';
 			document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 		}
 	}
