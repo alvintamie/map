@@ -144,17 +144,17 @@ var obj_dis_x;
 	
 	//for buttonscroll
 	var imgIn = new Image;
-	imgIn.src = 'image/zoomin.png';
+	imgIn.src = 'https://raw.github.com/alvi0010/map/master/image/zoomin.png';
 	var imgOut = new Image;
-	imgOut.src = 'image/zoomout.png';
+	imgOut.src = 'https://raw.github.com/alvi0010/map/master/image/zoomout.png';
 	var imgLeft = new Image;
-	imgLeft.src = 'image/shiftleft.png';
+	imgLeft.src = 'https://raw.github.com/alvi0010/map/master/image/shiftleft.png';
 	var imgRight = new Image;
-	imgRight.src = 'image/shiftright.png';
+	imgRight.src = 'https://raw.github.com/alvi0010/map/master/image/shiftright.png';
 	var imgUp = new Image;
-	imgUp.src = 'image/shiftup.png';
+	imgUp.src = 'https://raw.github.com/alvi0010/map/master/image/shiftup.png';
 	var imgDown = new Image;
-	imgDown.src = 'image/shiftdown.png';
+	imgDown.src = 'https://raw.github.com/alvi0010/map/master/image/shiftdown.png';
 	var lastMouseX;
 	var lastMouseY;
 	
