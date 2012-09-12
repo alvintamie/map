@@ -14,6 +14,7 @@ var overflowX = 1;
 function mouseDownReference(e){
 	divReference.style['z-index'] = zIndex;
 	console.log(document.getElementById("contentReference").style.top);
+	console.log(document.getElementById("contentReference").offsetTop);
 	zIndex += 1;
 	if(e.clientY-divReference.offsetTop<topbarHeight) {
 		if (e.clientX-divReference.offsetLeft<=parseInt(divReference.style.width)-minimizePosWidth) {
