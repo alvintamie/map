@@ -31,7 +31,7 @@ function insertReference() {
 	temp.setAttribute('id', "contentReference");
 	temp.style.height = topbarHeight + 'px';
 	divReference.appendChild(temp);
-	while (readyRef==0) waiting(500);
+	while (readyRef==0) {waiting(500); console.log("wait");}
 	if (readyRef==1) {
 		for (var i=0; i<numberRef; i++) {
 			temp = document.createElement('div');
