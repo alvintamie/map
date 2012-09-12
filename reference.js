@@ -9,6 +9,7 @@ var referencePosX;
 var referencePosY;
 var referenceWidth;
 var referenceHeight;
+var overflowX = 1;
 
 function mouseDownReference(e){
 	divReference.style['z-index'] = zIndex;
@@ -33,7 +34,7 @@ function insertReference() {
 	temp.setAttribute('id', "contentReference");
 	temp.style.position = 'absolute';
 	temp.style.top = topbarHeight + 'px';
-	temp.style.overflow = 'auto';
+	temp.style.overflow = 'scroll';
 	
 	while (readyRef==0) {waiting(500); console.log("wait");}
 	if (readyRef==1) {
