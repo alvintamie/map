@@ -31,8 +31,7 @@ function initializeMenu(){
 	referenceHeight = parseInt(divReference.style.height);
 	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
 	console.log ("before");
-	setTimeout(insertReference, 1000);
-	t1.start();
+	setTimeout(insertReference, 3000);
 	console.log("after");
 	
 	divSearch = document.getElementById("windowSearch");
