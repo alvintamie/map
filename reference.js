@@ -39,6 +39,7 @@ function insertReference() {
 		for (var i=0; i<numberRef; i++) {
 			temp = document.createElement('div');
 			temp.setAttribute('id', "Reference" + i);
+			temp.style.overflow = 'inherit';
 			document.getElementById("contentReference").appendChild(temp);
 			document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 		}
