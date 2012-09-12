@@ -31,7 +31,12 @@ function initializeMenu(){
 	referenceHeight = parseInt(divReference.style.height);
 	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
 	console.log ("before");
-	new Thread () {public void run() {insertReference();}}.start();
+	Thread t1 = new Thread () {
+		public void run() {
+			insertReference();	
+		}
+	};
+	t1.start();
 	console.log("after");
 	
 	divSearch = document.getElementById("windowSearch");
