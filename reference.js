@@ -36,7 +36,7 @@ function insertReference() {
 	temp.style.position = 'absolute';
 	temp.style.top = topbarHeight + 'px';
 	temp.style.width = referenceWidth + 'px';
-	temp.style.height = referenceHeight-tobarHeight +'px';
+	temp.style.height = referenceHeight-topbarHeight +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
 	
