@@ -12,6 +12,7 @@ var referenceHeight;
 
 function mouseDownReference(e){
 	divReference.style['z-index'] = zIndex;
+	console.log(document.getElementById("contentReference").style.top);
 	zIndex += 1;
 	if(e.clientY-divReference.offsetTop<topbarHeight) {
 		if (e.clientX-divReference.offsetLeft<=parseInt(divReference.style.width)-minimizePosWidth) {
