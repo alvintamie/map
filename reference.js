@@ -28,11 +28,12 @@ function mouseDownReference(e){
 
 function insertReference() {
 	var temp = document.createElement('div');
+	divReference.appendChild(temp);
 	temp.setAttribute('id', "contentReference");
+	temp.style.position = 'absolute';
 	temp.style.top = topbarHeight + 'px';
 	temp.style.overflow = 'auto';
-	temp.style.position = 'absolute';
-	divReference.appendChild(temp);
+	
 	while (readyRef==0) {waiting(500); console.log("wait");}
 	if (readyRef==1) {
 		for (var i=0; i<numberRef; i++) {
