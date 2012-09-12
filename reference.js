@@ -35,8 +35,10 @@ function insertReference() {
 	temp.setAttribute('id', "contentReference");
 	temp.style.position = 'absolute';
 	temp.style.top = topbarHeight + 'px';
+	temp.style.width = referenceWidth + 'px';
+	temp.style.height = referenceHeight-tobarHeight +'px';
 	temp.style['overflow-x'] = 'hidden';
-	temp.style['overflow-y'] = 'scroll';
+	temp.style['overflow-y'] = 'auto';
 	
 	while (readyRef==0) {waiting(500); console.log("wait");}
 	if (readyRef==1) {
