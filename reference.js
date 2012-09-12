@@ -30,13 +30,13 @@ function insertReference() {
 	var temp = document.createElement('div');
 	temp.setAttribute('id', "contentReference");
 	temp.style.height = topbarHeight + 'px';
-	document.getElementById("divReference").appendChild(temp);
+	divReference.appendChild(temp);
 	while (readyRef==0) waiting(500);
 	if (readyRef==1) {
 		for (var i=0; i<numberRef; i++) {
 			temp = document.createElement('div');
 			temp.setAttribute('id', "Reference" + i);
-			document.getElementById("divReference").appendChild(temp);
+			document.getElementById("contentReference").appendChild(temp);
 			document.getElementById("Reference"+i).innerHTML = referenceObject[i].title;
 		}
 	}
