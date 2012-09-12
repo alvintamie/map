@@ -13,8 +13,6 @@ var overflowX = 1;
 
 function mouseDownReference(e){
 	divReference.style['z-index'] = zIndex;
-	console.log(document.getElementById("contentReference").style.top);
-	console.log(document.getElementById("contentReference").offsetTop);
 	zIndex += 1;
 	if(e.clientY-divReference.offsetTop<topbarHeight) {
 		if (e.clientX-divReference.offsetLeft<=parseInt(divReference.style.width)-minimizePosWidth) {
@@ -47,7 +45,8 @@ function insertReference() {
 			temp = document.createElement('div');
 			document.getElementById("contentReference").appendChild(temp);
 			temp.setAttribute('id', "Reference" + i);
-			temp.style.left = 40 + 'px';
+			temp.style.position = 'absolute';
+			temp.style.left = 3 + 'px';
 			document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 		}
 	}
