@@ -45,7 +45,7 @@ function insertReference() {
 			temp = document.createElement('div');
 			document.getElementById("contentReference").appendChild(temp);
 			temp.setAttribute('id', "Reference" + i);
-			temp.style.position = 'absolute';
+			temp.style.position = 'relative';
 			temp.style.left = 3 + 'px';
 			document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 		}
