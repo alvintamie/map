@@ -34,10 +34,10 @@ function insertReference() {
 	divReference.appendChild(temp);
 	temp.setAttribute('id', "contentReference");
 	temp.style.position = 'absolute';
-	temp.style.top = topbarHeight-7 + 'px';
+	temp.style.top = topbarHeight-9 + 'px';
 	temp.style.left = 1;
 	temp.style.width = referenceWidth-2 + 'px';
-	temp.style.height = referenceHeight-topbarHeight+5 +'px';
+	temp.style.height = referenceHeight-topbarHeight+7 +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
 	
@@ -46,6 +46,7 @@ function insertReference() {
 		for (var i=0; i<numberRef; i++) {
 			temp = document.createElement('div');
 			temp.setAttribute('id', "Reference" + i);
+			temp.style.left = 3 + 'px';
 			document.getElementById("contentReference").appendChild(temp);
 			document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 		}
