@@ -30,7 +30,7 @@ function initializeMenu(){
 	referenceWidth = parseInt(divReference.style.width);
 	referenceHeight = parseInt(divReference.style.height);
 	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
-	//insertReference();
+	insertReference();
 	
 	divSearch = document.getElementById("windowSearch");
 	searchPosX = divSearch.offsetLeft;
