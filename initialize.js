@@ -31,9 +31,9 @@ var obj_dis_x;
 	img[1] = new Image();
 	img[2] = new Image();
 	imgObject[0]= new Image();
-	img[0].src = 'image/map1.png';
-	img[1].src = 'image/map2.png';
-	img[2].src = 'image/map3.png';
+	img[0].src = 'https://raw.github.com/alvi0010/map/master/image/map1.png';
+	img[1].src = 'https://raw.github.com/alvi0010/map/master/image/map2.png';
+	img[2].src = 'https://raw.github.com/alvi0010/map/master/image/map3.png';
 	imgObject[0].src = 'image/person.png';
 	
 	
@@ -80,7 +80,7 @@ var obj_dis_x;
 	var ctxMenu;
 	var actionAuthor=0;
 	var imgAuthor = new Image;
-	imgAuthor.src = 'image/author.jpg';
+	imgAuthor.src = 'https://raw.github.com/alvi0010/map/master/image/author.jpg';
 	
 // for resize canvas
 	var canvasMaxSizeX=1025;
@@ -127,12 +127,12 @@ var obj_dis_x;
 	var buttonMenuWidth = 50;
 	var	buttonMenuHeight = 20;
 	//var imgSearch = new Image;
-	//imgSearch.src = 'image/author.jpg';
+	//imgSearch.src = 'https://raw.github.com/alvi0010/map/master/image/author.jpg';
 	var divReference;
 	var divSearch;
 	var divAffiliation;
 	//var imgAffiliation = new Image;
-	//imgAffiliation.src = 'image/author.jpg';
+	//imgAffiliation.src = 'https://raw.github.com/alvi0010/map/master/image/author.jpg';
 	//var canvasSearch;
 	//var ctxSearch;
 	//var canvasAffiliation;
