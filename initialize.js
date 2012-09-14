@@ -158,4 +158,10 @@ var obj_dis_x;
 	var lastMouseX;
 	var lastMouseY;
 	
+	//Expand/Contract
+	var imgExpand = new Image;
+	imgExpand.src = 'https://raw.github.com/alvi0010/map/master/image/expand.png';
+	var imgContract = new Image;
+	imgContract.src = 'https://raw.github.com/alvi0010/map/master/image/contract.png';
+	
 	
