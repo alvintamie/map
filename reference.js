@@ -83,6 +83,7 @@ function insertReference(i) {
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement('div');
+	document.getElementById("Reference"+i).appendChild(temp);
 	temp.innerHTML = referenceObject[i].Abstract;
 	temp.setAttribute('id', "Reference" + i + "_abstract");
 	temp.style.position = 'relative';
@@ -92,7 +93,6 @@ function insertReference(i) {
 	abstractRefHeight[i] = temp.clientHeight;
 	temp.style.height = 0 + 'px';
 	temp.style.display = 'none';
-	document.getElementById("Reference"+i).appendChild(temp);
 	abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
 }
