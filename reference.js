@@ -75,7 +75,7 @@ function insertReference(i) {
 	temp.setAttribute('id', "Reference" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
-	temp.onclick = function () {showAbstractRef(i);};
+	//temp.onclick = function () {showAbstractRef(i);};
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + referenceObject[i].url + "')";
