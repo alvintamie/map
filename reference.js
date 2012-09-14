@@ -74,7 +74,7 @@ function insertReference(i) {
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "Reference" + i + "_image");
 	temp.src = imgExpand.src;
-	temp.setAttribute('onclick', 'showAbsractRef('+i+')');
+	temp.setAttribute('onclick', "showAbstractRef(i)");
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + referenceObject[i].url + "')";
@@ -129,7 +129,7 @@ function contractAbstractRef() {
 		setTimeout (contractAbstractRef(i), 10);
 	}
 	else if (!mode)
-		document.getElementById("Reference" + i + "_abstract").style.display = "none";
+		document.getElementById("Reference" + i + "_abstract").style.display = 'none';
 }
 	
 function changeViewReference() {
