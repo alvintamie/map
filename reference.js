@@ -88,9 +88,9 @@ function insertReference(i) {
 	temp.setAttribute('id', "Reference" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 9 + 'px';
-	temp.style.width = referenceWidth - 24 + 'px';
+	temp.style.width = referenceWidth - 30 + 'px';
 	temp.style.overflow = 'hidden';
-	abstractRefHeight[i] = temp3.client.height;
+	abstractRefHeight[i] = temp.client.height;
 	abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
 	temp.style.height = 0 + 'px';
