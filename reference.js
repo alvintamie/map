@@ -101,21 +101,17 @@ function showAbstractRef(i) {
 	console.log("show");
 	if (abstractRefMode[i]==0) {
 		document.getElementById("Reference" + i + "_image").src = imgContract.src;
-		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
+		document.getElementById("Reference" + i + "_abstract").style.display = 'block';
 		abstractRefMode[i] = 1;
-		//console.log(a.offsetLeft);
-		//console.log(a.offsetTop);
-		//a.style.height = "20px";
-		//console.log(hei);
-		//expandAbstractRef(i);
+		expandAbstractRef(i);
 	}
 	else {
 		document.getElementById("Reference" + i + "_image").src = imgExpand.src;
 		abstractRefMode[i] = 0;
-		//contractAbstractRef(i);
+		contractAbstractRef(i);
 	}
 }
-/*		
+		
 function expandAbstractRef(i) {
 	console.log("expand");
 	abstractRefState[i] += 1;
@@ -135,7 +131,7 @@ function contractAbstractRef(i) {
 	else if (!abstractRefMode[i])
 		document.getElementById("Reference" + i + "_abstract").style.display = 'none';
 }
-*/	
+	
 function changeViewReference() {
 	if (referenceStatus <= 0 && referenceIncrement==-1) {
 		referenceStatus = 1;
