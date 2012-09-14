@@ -118,7 +118,8 @@ function expandAbstractRef(i) {
 	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + 'px';
 	console.log(document.getElementById("Reference" + i + "_abstract").style.height);
 	if (abstractRefState[i]<abstractRefTotal && abstractRefMode[i]==1) {
-		setTimeout (function() {expandAbstractRef(i);}, 10);
+		setTimeout (function() {expandAbstractRef(i)}, 10);
+		console.log("if");
 	}
 }
 
