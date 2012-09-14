@@ -129,7 +129,7 @@ function contractAbstractRef(i) {
 	if (abstractRefState[i]>0 && !abstractRefMode[i]) {
 		setTimeout (contractAbstractRef(i), 10);
 	}
-	else if (!mode)
+	else if (!abstractRefMode[i])
 		document.getElementById("Reference" + i + "_abstract").style.display = 'none';
 }
 	
