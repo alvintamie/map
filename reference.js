@@ -98,7 +98,7 @@ function insertReference(i) {
 
 function showAbstractRef(i) {
 	console.log(i);
-	if (abstractRefMode==0) {
+	if (abstractRefMode[i]==0) {
 		document.getElementById("Reference" + i + "_image").src = imgContract.src;
 		document.getElementById("Reference" + i + "_abstract").style.display = 'block';
 		abstractRefMode[i] = 1;
