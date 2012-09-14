@@ -11,6 +11,11 @@ var referenceWidth;
 var referenceHeight;
 var overflowX = 1;
 
+var abstractRefHeight = new Array();
+var abstractRefState = new Array();
+var abstractRefMode = new Array();
+var abstractRefTotal = 20;
+
 function initializeReference() {
 	divReference = document.getElementById("windowReference");
 	referencePosX = divReference.offsetLeft;
@@ -31,6 +36,7 @@ function initializeReference() {
 	temp.style.height = referenceHeight-topbarHeight+7 +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
+
 }
 
 function mouseDownReference(e){
@@ -68,12 +74,62 @@ function insertReference(i) {
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "Reference" + i + "_image");
 	temp.src = imgExpand.src;
+	temp.setAttribute('onclick', 'showAbsractRef(i)');
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + referenceObject[i].url + "')";
 	temp.textContent = referenceObject[i].title;
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("Reference"+i).appendChild(temp);
+	temp = document.createElement("DIV");
+	temp.setAttribute('id', 'Reference'+i+'_abstract');
+	temp.style.position = 'relative';
+	temp.style.left = 7 + 'px';
+	temp.style.width = referenceWidth - 15 + 'px';
+	temp.innerHTML = referenceObject[i].abstract;
+	temp.style.overflow = 'hidden';
+	abstractRefHeight[i] = temp.client.height;
+	abstractRefState[i] = 0;
+	abstractRefMode[i] = 0;
+	temp.style.height = 0 + 'px';
+	temp.style.display = 'none';
+	document.getElementById("Reference"+i).appendChild(temp);
+}
+
+function showAbstractRef(i) {
+	if (abstractRefMode==0) {
+		document.getElementById("Reference" + i + "_image").src = contractImg.src;
+		document.getElementById("Reference" + i + "_abstract").style.display = block;
+		abstractRefMode[i] = 1;
+		//console.log(a.offsetLeft);
+		//console.log(a.offsetTop);
+		//a.style.height = "20px";
+		//console.log(hei);
+		expandAbstractRef(i);
+	}
+	else {
+		document.getElementById("Reference" + i + "_image").src = expandImg.src;
+		abstractRefMode[i] = 0;
+		contractAbstractRef(i);
+	}
+}
+		
+function expandAbstractRef(i) {
+	abstractRefState[i] += 1;
+	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + "px";
+	if (abstractRefState[i]<abstractRefTotal && abstractRefMode[i]) {
+		setTimeout (expandAbstractRef(i), 10);
+	}
+}
+
+function contractAbstractRef() {
+	abstractRefState[i] -= 1;
+	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + "px";
+	if (abstractRefState[i]>0 && !abstractRefMode[i]) {
+		setTimeout (contractAbstractRef(i), 10);
+	}
+	else if (!mode)
+		document.getElementById("Reference" + i + "_abstract").style.display = "none";
 }
 	
 function changeViewReference() {
