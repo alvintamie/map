@@ -118,7 +118,7 @@ function expandAbstractRef(i) {
 	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + 'px';
 	console.log(document.getElementById("Reference" + i + "_abstract").style.height);
 	if (abstractRefState[i]<abstractRefTotal && abstractRefMode[i]==1) {
-		setTimeout (expandAbstractRef(i), 10);
+		setTimeout (function() {expandAbstractRef(i);}, 10);
 	}
 }
 
@@ -127,7 +127,7 @@ function contractAbstractRef(i) {
 	abstractRefState[i] -= 1;
 	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + 'px';
 	if (abstractRefState[i]>0 && !abstractRefMode[i]) {
-		setTimeout (contractAbstractRef(i), 10);
+		setTimeout (function(){contractAbstractRef(i);}, 10);
 	}
 	else if (!abstractRefMode[i])
 		document.getElementById("Reference" + i + "_abstract").style.display = 'none';
