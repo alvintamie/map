@@ -24,15 +24,7 @@ function initializeMenu(){
 		imgDataMenu[1].data[i+3] = 255;
 	}
 	
-	divReference = document.getElementById("windowReference");
-	referencePosX = divReference.offsetLeft;
-	referencePosY = divReference.offsetTop;
-	referenceWidth = parseInt(divReference.style.width);
-	referenceHeight = parseInt(divReference.style.height);
-	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
-	//console.log ("before");
-	//setTimeout(insertReference, 3000);
-	//console.log("after");
+	initializeReference();
 	
 	divSearch = document.getElementById("windowSearch");
 	searchPosX = divSearch.offsetLeft;
