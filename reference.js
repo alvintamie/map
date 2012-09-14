@@ -11,6 +11,28 @@ var referenceWidth;
 var referenceHeight;
 var overflowX = 1;
 
+function initializeReference() {
+	divReference = document.getElementById("windowReference");
+	referencePosX = divReference.offsetLeft;
+	referencePosY = divReference.offsetTop;
+	referenceWidth = parseInt(divReference.style.width);
+	referenceHeight = parseInt(divReference.style.height);
+	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
+	//console.log ("before");
+	//setTimeout(insertReference, 3000);
+	//console.log("after");
+	var temp = document.createElement('div');
+	divReference.appendChild(temp);
+	temp.setAttribute('id', "contentReference");
+	temp.style.position = 'absolute';
+	temp.style.top = topbarHeight-9 + 'px';
+	temp.style.left = 1 + 'px';
+	temp.style.width = referenceWidth-2 + 'px';
+	temp.style.height = referenceHeight-topbarHeight+7 +'px';
+	temp.style['overflow-x'] = 'hidden';
+	temp.style['overflow-y'] = 'auto';
+}
+
 function mouseDownReference(e){
 	divReference.style['z-index'] = zIndex;
 	zIndex += 1;
@@ -27,33 +49,23 @@ function mouseDownReference(e){
 	}
 }
 
-function insertReference() {
-	var temp = document.createElement('div');
-	divReference.appendChild(temp);
-	temp.setAttribute('id', "contentReference");
-	temp.style.position = 'absolute';
-	temp.style.top = topbarHeight-9 + 'px';
-	temp.style.left = 1 + 'px';
-	temp.style.width = referenceWidth-2 + 'px';
-	temp.style.height = referenceHeight-topbarHeight+7 +'px';
-	temp.style['overflow-x'] = 'hidden';
-	temp.style['overflow-y'] = 'auto';
-	
-	while (readyRef==0) {waiting(500); console.log("wait");}
+function createDivReference () {
 	if (readyRef==1) {
 		for (var i=0; i<numberRef; i++) {
-			temp = document.createElement('div');
+			var temp = document.createElement('div');
 			document.getElementById("contentReference").appendChild(temp);
 			temp.setAttribute('id', "Reference" + i);
 			temp.style.position = 'relative';
 			temp.style.left = 3 + 'px';
-			document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 		}
 	}
 	else if (readyRef==2) {
 		document.getElementById("contentReference").innerHTML = "The paper is not published yet.";
 	}
-	
+}
+
+function insertReference(i) {	
+	document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
 }
 	
 function changeViewReference() {
