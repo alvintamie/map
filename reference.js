@@ -87,8 +87,8 @@ function insertReference(i) {
 	temp.innerHTML = referenceObject[i].Abstract;
 	temp.setAttribute('id', "Reference" + i + "_abstract");
 	temp.style.position = 'relative';
-	temp.style.left = 20 + 'px';
-	temp.style.width = referenceWidth - 40 + 'px';
+	temp.style.left = 18 + 'px';
+	temp.style.width = referenceWidth - 45 + 'px';
 	temp.style.overflow = 'hidden';
 	abstractRefHeight[i] = temp.client.height;
 	abstractRefState[i] = 0;
