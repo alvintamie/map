@@ -70,8 +70,9 @@ function insertReference(i) {
 	temp.src = imgExpand.src;
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement("a");
-	temp.href = referenceObject[i].url;
+	temp.href = "javascript:window.open('" + referenceObject[i].url + "')";
 	temp.textContent = referenceObject[i].title;
+	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("Reference"+i).appendChild(temp);
 }
 	
