@@ -82,7 +82,7 @@ function insertReference(i) {
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement("DIV");
-	temp.setAttribute('id', "Reference"+i+"_abstract");
+	temp.setAttribute('id', "Reference" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 7 + 'px';
 	temp.style.width = referenceWidth - 15 + 'px';
