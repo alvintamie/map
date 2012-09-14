@@ -83,9 +83,9 @@ function insertReference(i) {
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement('div');
-	document.getElementById("Reference"+i).appendChild(temp);
 	temp.innerHTML = referenceObject[i].Abstract;
 	temp.setAttribute('id', "Reference" + i + "_abstract");
+	document.getElementById("Reference"+i).appendChild(temp);
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = referenceWidth - 45 + 'px';
