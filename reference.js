@@ -93,12 +93,12 @@ function insertReference(i) {
 	abstractRefHeight[i] = parseInt(temp.style.height);
 	temp.style.height = 0 + 'px';
 	temp.style.display = 'none';
-	//abstractRefState[i] = 0;
+	/abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
 }
 
 function showAbstractRef(i) {
-	console.log("show");
+	//console.log("show");
 	if (abstractRefMode[i]==0) {
 		document.getElementById("Reference" + i + "_image").src = imgContract.src;
 		document.getElementById("Reference" + i + "_abstract").style.display = 'block';
@@ -113,13 +113,13 @@ function showAbstractRef(i) {
 }
 		
 function expandAbstractRef(i) {
-	console.log("expand");
+	//console.log("expand");
 	abstractRefState[i] += 1;
 	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + 'px';
-	console.log(document.getElementById("Reference" + i + "_abstract").style.height);
+	//console.log(document.getElementById("Reference" + i + "_abstract").style.height);
 	if (abstractRefState[i]<abstractRefTotal && abstractRefMode[i]==1) {
 		setTimeout (function() {expandAbstractRef(i)}, 10);
-		console.log("if");
+		//console.log("if");
 	}
 }
 
