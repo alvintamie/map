@@ -69,7 +69,10 @@ function insertReference(i) {
 	temp.setAttribute('id', "Reference" + i + "_image");
 	temp.src = imgExpand.src;
 	document.getElementById("Reference"+i).appendChild(temp);
-	document.getElementById("Reference"+i).innerHTML += referenceObject[i].title;
+	temp = document.createElement("a");
+	temp.href = referenceObject[i].url;
+	temp.textContent = referenceObject[i].title;
+	document.getElementById("Reference"+i).appendChild(temp);
 }
 	
 function changeViewReference() {
