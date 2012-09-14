@@ -98,8 +98,8 @@ function insertReference(i) {
 
 function showAbstractRef(i) {
 	if (abstractRefMode==0) {
-		document.getElementById("Reference" + i + "_image").src = contractImg.src;
-		document.getElementById("Reference" + i + "_abstract").style.display = block;
+		document.getElementById("Reference" + i + "_image").src = imgContract.src;
+		document.getElementById("Reference" + i + "_abstract").style.display = 'block';
 		abstractRefMode[i] = 1;
 		//console.log(a.offsetLeft);
 		//console.log(a.offsetTop);
@@ -108,7 +108,7 @@ function showAbstractRef(i) {
 		expandAbstractRef(i);
 	}
 	else {
-		document.getElementById("Reference" + i + "_image").src = expandImg.src;
+		document.getElementById("Reference" + i + "_image").src = imgExpand.src;
 		abstractRefMode[i] = 0;
 		contractAbstractRef(i);
 	}
@@ -122,7 +122,7 @@ function expandAbstractRef(i) {
 	}
 }
 
-function contractAbstractRef() {
+function contractAbstractRef(i) {
 	abstractRefState[i] -= 1;
 	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + "px";
 	if (abstractRefState[i]>0 && !abstractRefMode[i]) {
