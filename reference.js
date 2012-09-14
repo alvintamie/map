@@ -83,18 +83,18 @@ function insertReference(i) {
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("Reference"+i).appendChild(temp2);
 	var temp3 = document.createElement('div');
+	document.getElementById("Reference"+i).appendChild(temp3);
+	temp3.innerHTML = referenceObject[i].Abstract;
 	temp3.setAttribute('id', "Reference" + i + "_abstract");
 	temp3.style.position = 'relative';
 	temp3.style.left = 7 + 'px';
 	temp3.style.width = referenceWidth - 15 + 'px';
-	temp3.innerHTML = referenceObject[i].Abstract;
 	temp3.style.overflow = 'hidden';
 	abstractRefHeight[i] = temp3.client.height;
 	abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
 	//temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
-	document.getElementById("Reference"+i).appendChild(temp3);
 }
 
 function showAbstractRef(i) {
