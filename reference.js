@@ -77,24 +77,24 @@ function insertReference(i) {
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	//temp.onclick = function () {showAbstractRef(i);};
 	document.getElementById("Reference"+i).appendChild(temp);
-	temp = document.createElement("a");
-	temp.href = "javascript:window.open('" + referenceObject[i].url + "')";
-	temp.textContent = referenceObject[i].title;
+	var temp2 = document.createElement("a");
+	temp2.href = "javascript:window.open('" + referenceObject[i].url + "')";
+	temp2.textContent = referenceObject[i].title;
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
-	document.getElementById("Reference"+i).appendChild(temp);
-	temp = document.createElement('div');
-	temp.setAttribute('id', "Reference" + i + "_abstract");
-	temp.style.position = 'relative';
-	temp.style.left = 7 + 'px';
-	temp.style.width = referenceWidth - 15 + 'px';
-	temp.innerHTML = referenceObject[i].Abstract;
-	temp.style.overflow = 'hidden';
-	abstractRefHeight[i] = temp.client.height;
+	document.getElementById("Reference"+i).appendChild(temp2);
+	var temp3 = document.createElement('div');
+	temp3.setAttribute('id', "Reference" + i + "_abstract");
+	temp3.style.position = 'relative';
+	temp3.style.left = 7 + 'px';
+	temp3.style.width = referenceWidth - 15 + 'px';
+	temp3.innerHTML = referenceObject[i].Abstract;
+	temp3.style.overflow = 'hidden';
+	abstractRefHeight[i] = temp3.client.height;
 	abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
 	//temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
-	document.getElementById("Reference"+i).appendChild(temp);
+	document.getElementById("Reference"+i).appendChild(temp3);
 }
 
 function showAbstractRef(i) {
