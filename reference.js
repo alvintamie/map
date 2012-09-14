@@ -93,7 +93,7 @@ function insertReference(i) {
 	abstractRefHeight[i] = parseInt(temp.style.height);
 	temp.style.height = 0 + 'px';
 	temp.style.display = 'none';
-	/abstractRefState[i] = 0;
+	abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
 }
 
