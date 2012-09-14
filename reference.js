@@ -64,8 +64,12 @@ function createDivReference () {
 	}
 }
 
-function insertReference(i) {	
-	document.getElementById("Reference"+i).innerHTML = i + ". " + referenceObject[i].title;
+function insertReference(i) {
+	var temp = document.createElement("IMG");
+	temp.setAttribute('id', "Reference" + i + "_image");
+	temp.src = imgExpand.src;
+	document.getElementById("Reference"+i).appendChild(temp);
+	document.getElementById("Reference"+i).innerHTML += referenceObject[i].title;
 }
 	
 function changeViewReference() {
