@@ -97,7 +97,7 @@ function insertReference(i) {
 }
 
 function showAbstractRef(i) {
-	//console.log(i);
+	console.log("show");
 	if (abstractRefMode[i]==0) {
 		document.getElementById("Reference" + i + "_image").src = imgContract.src;
 		document.getElementById("Reference" + i + "_abstract").style.display = 'block';
@@ -116,6 +116,7 @@ function showAbstractRef(i) {
 }
 		
 function expandAbstractRef(i) {
+	console.log("expand");
 	abstractRefState[i] += 1;
 	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + 'px';
 	if (abstractRefState[i]<abstractRefTotal && abstractRefMode[i]) {
@@ -124,6 +125,7 @@ function expandAbstractRef(i) {
 }
 
 function contractAbstractRef(i) {
+	console.log("contract");
 	abstractRefState[i] -= 1;
 	document.getElementById("Reference" + i + "_abstract").style.height = abstractRefState[i]*abstractRefHeight[i]/abstractRefTotal + 'px';
 	if (abstractRefState[i]>0 && !abstractRefMode[i]) {
