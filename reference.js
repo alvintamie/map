@@ -92,8 +92,8 @@ function insertReference(i) {
 	abstractRefHeight[i] = temp.client.height;
 	abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
-	temp.style.height = 0 + 'px';
-	temp.style.display = 'none';
+	//temp.style.height = 0 + 'px';
+	//temp.style.display = 'none';
 	document.getElementById("Reference"+i).appendChild(temp);
 }
 
