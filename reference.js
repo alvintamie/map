@@ -90,7 +90,7 @@ function insertReference(i) {
 	temp.style.left = 18 + 'px';
 	temp.style.width = referenceWidth - 45 + 'px';
 	temp.style.overflow = 'hidden';
-	abstractRefHeight[i] = temp.client.height;
+	abstractRefHeight[i] = parseInt(temp.style.height);
 	temp.style.height = 0 + 'px';
 	temp.style.display = 'none';
 	//abstractRefState[i] = 0;
