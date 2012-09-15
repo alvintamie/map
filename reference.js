@@ -1,8 +1,8 @@
 var isMouseDownReference=0;
 var deltaReferencePositionX;
 var deltaReferencePositionY;
-var referenceStatus=25;
-var referenceTotalSteps=25;
+var referenceStatus=15;
+var referenceTotalSteps=15;
 var referenceIncrement = 1;
 var referenceVisible=1;
 var referencePosX;
@@ -14,7 +14,7 @@ var overflowX = 1;
 var abstractRefHeight = new Array();
 var abstractRefState = new Array();
 var abstractRefMode = new Array();
-var abstractRefTotal = 10;
+var abstractRefTotal = 20;
 
 function initializeReference() {
 	divReference = document.getElementById("windowReference");
