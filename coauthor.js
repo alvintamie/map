@@ -2,7 +2,7 @@ var isMouseDownCoAuthor=0;
 var deltaCoAuthorPositionX;
 var deltaCoAuthorPositionY;
 var coAuthorStatus=0;
-var coAuthorTotalSteps=25;
+var coAuthorTotalSteps=15;
 var coAuthorIncrement = -1;
 var coAuthorVisible=0;
 var coAuthorPosX;
