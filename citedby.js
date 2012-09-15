@@ -20,6 +20,16 @@ function initializeCitedBy() {
 	divCitedBy.style.width = '0px';
 	divCitedBy.style.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+	var temp = document.createElement('div');
+	divCitedBy.appendChild(temp);
+	temp.setAttribute('id', "contentCitedBy");
+	temp.style.position = 'absolute';
+	temp.style.top = topbarHeight-9 + 'px';
+	temp.style.left = 1 + 'px';
+	temp.style.width = citedByWidth-2 + 'px';
+	temp.style.height = citedByHeight-topbarHeight+7 +'px';
+	temp.style['overflow-x'] = 'hidden';
+	temp.style['overflow-y'] = 'auto';
 }
 
 function mouseDownCitedBy(e){
