@@ -39,11 +39,11 @@ function changeViewSearch() {
 	divSearch.style.left = (canvasMenu.offsetLeft+4*frameWidth+7*buttonMenuWidth/2) + searchStatus*(searchPosX+searchWidth/2-canvasMenu.offsetLeft-4*frameWidth-7*buttonMenuWidth/2)/searchTotalSteps - searchStatus*searchWidth/2/searchTotalSteps + "px";
 	divSearch.style.top = (canvasMenu.offsetTop+canvasMenu.height/2) + searchStatus*(searchPosY-canvasMenu.offsetTop-canvasMenu.height/2)/searchTotalSteps + "px";
 	if (searchStatus > 0) {
-		divSearch.style.display = "block";
+		//divSearch.style.display = "block";
 		searchVisible = 1;
 	}
 	else {
-		divSearch.style.display = "none";
+		//divSearch.style.display = "none";
 		searchVisible = 0;
 	}
 	ctxMenu.putImageData(imgDataMenu[searchVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
