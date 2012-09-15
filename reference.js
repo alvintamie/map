@@ -92,7 +92,7 @@ function insertReference(i) {
 	temp.style.overflow = 'hidden';
 	abstractRefHeight[i] = temp.clientHeight;
 	temp.style.height = 0 + 'px';
-	temp.style.display = 'none';
+	//temp.style.display = 'none';
 	abstractRefState[i] = 0;
 	abstractRefMode[i] = 0;
 }
@@ -101,7 +101,7 @@ function showAbstractRef(i) {
 	//console.log("show");
 	if (abstractRefMode[i]==0) {
 		document.getElementById("Reference" + i + "_image").src = imgContract.src;
-		document.getElementById("Reference" + i + "_abstract").style.display = 'block';
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
 		abstractRefMode[i] = 1;
 		expandAbstractRef(i);
 	}
@@ -130,7 +130,7 @@ function contractAbstractRef(i) {
 		setTimeout (function(){contractAbstractRef(i);}, 10);
 	}
 	else if (abstractRefMode[i]==0)
-		document.getElementById("Reference" + i + "_abstract").style.display = 'none';
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
 }
 	
 function changeViewReference() {
@@ -146,11 +146,11 @@ function changeViewReference() {
 	divReference.style.left = (canvasMenu.offsetLeft+frameWidth+buttonMenuWidth/2) + referenceStatus*(referencePosX+referenceWidth/2-canvasMenu.offsetLeft-frameWidth-buttonMenuWidth)/referenceTotalSteps - referenceStatus*referenceWidth/2/referenceTotalSteps + "px";
 	divReference.style.top = (canvasMenu.offsetTop+canvasMenu.height/2) + referenceStatus*(referencePosY-canvasMenu.offsetTop-canvasMenu.height/2)/referenceTotalSteps + "px";
 	if (referenceStatus > 0) {
-		divReference.style.display = "block";
+		//divReference.style.display = "block";
 		referenceVisible = 1;
 	}
 	else {
-		divReference.style.display = "none";
+		//divReference.style.display = "none";
 		referenceVisible = 0;
 	}
 	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
