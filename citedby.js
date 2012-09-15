@@ -73,11 +73,11 @@ function insertCitedBy(i) {
 	temp.style.left = 18 + 'px';
 	temp.style.width = citedByWidth - 45 + 'px';
 	temp.style.overflow = 'hidden';
-	abstractRefHeight[i] = temp.clientHeight;
+	abstractCitedHeight[i] = temp.clientHeight;
 	temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
-	abstractRefState[i] = 0;
-	abstractRefMode[i] = 0;
+	abstractCitedState[i] = 0;
+	abstractCitedMode[i] = 0;
 }
 
 function showAbstractCited(i) {
