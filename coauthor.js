@@ -10,6 +10,18 @@ var coAuthorPosY;
 var coAuthorWidth;
 var coAuthorHeight;
 
+function initializeCoAuthor() {
+	divCoAuthor = document.getElementById("windowCoAuthor");
+	coAuthorPosX = divCoAuthor.offsetLeft;
+	coAuthorPosY = divCoAuthor.offsetTop;
+	coAuthorWidth = parseInt(divCoAuthor.style.width);
+	coAuthorHeight = parseInt(divCoAuthor.style.height);
+	//divCoAuthor.style.display = "none";
+	divCoAuthor.style.width = '0px';
+	divCoAuthor.style.height = '0px';
+	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
+}
+
 function mouseDownCoAuthor(e){
   divCoAuthor.style['z-index'] = zIndex;
 	zIndex += 1;
