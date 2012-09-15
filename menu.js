@@ -26,6 +26,26 @@ function initializeMenu(){
 	
 	initializeReference();
 	
+	divCitedBy = document.getElementById("windowCitedBy");
+	citedByPosX = divCitedBy.offsetLeft;
+	citedByPosY = divCitedBy.offsetTop;
+	citedByWidth = parseInt(divCitedBy.style.width);
+	citedByHeight = parseInt(divCitedBy.style.height);
+	//divCitedBy.style.display = "none";
+	divCitedBy.style.width = '0px';
+	divCitedBy.style.height = '0px';
+	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+	
+	divCoAuthor = document.getElementById("windowCoAuthor");
+	coAuthorPosX = divCoAuthor.offsetLeft;
+	coAuthorPosY = divCoAuthor.offsetTop;
+	coAuthorWidth = parseInt(divCoAuthor.style.width);
+	coAuthorHeight = parseInt(divCoAuthor.style.height);
+	//divCoAuthor.style.display = "none";
+	divCoAuthor.style.width = '0px';
+	divCoAuthor.style.height = '0px';
+	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
+	
 	divSearch = document.getElementById("windowSearch");
 	searchPosX = divSearch.offsetLeft;
 	searchPosY = divSearch.offsetTop;
@@ -52,6 +72,18 @@ function initializeMenu(){
 			divReference.style['z-index'] = zIndex;
 			zIndex += 1;
 			changeViewReference();
+		}
+		else if (e.clientX-canvasMenu.offsetLeft>2*frameWidth+buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<2*frameWidth+2*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
+			divCitedBy.style['z-index'] = zIndex;
+			zIndex += 1;
+			citedByIncrement *= -1;
+			changeViewCitedBy();
+		}
+		else if (e.clientX-canvasMenu.offsetLeft>3*frameWidth+2*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<3*frameWidth+3*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
+			divCoAuthor.style['z-index'] = zIndex;
+			zIndex += 1;
+			coAuthorIncrement *= -1;
+			changeViewCoAuthor();
 		}
 		else if (e.clientX-canvasMenu.offsetLeft>4*frameWidth+3*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<4*frameWidth+4*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
 			divSearch.style['z-index'] = zIndex;
