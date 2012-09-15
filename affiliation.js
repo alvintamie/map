@@ -10,6 +10,18 @@ var affiliationPosY;
 var affiliationWidth;
 var affiliationHeight;
 
+function initializeAffiliation() {
+	divAffiliation = document.getElementById("windowAffiliation");
+	affiliationPosX = divAffiliation.offsetLeft;
+	affiliationPosY = divAffiliation.offsetTop;
+	affiliationWidth = parseInt(divAffiliation.style.width);
+	affiliationHeight = parseInt(divAffiliation.style.height);
+	//divAffiliation.style.display = "none";
+	divAffiliation.style.width = '0px';
+	divAffiliation.style.height = '0px';
+	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
+}
+
 function mouseDownAffiliation(e){
 	divAffiliation.style['z-index'] = zIndex;
 	zIndex += 1;
