@@ -27,27 +27,9 @@ function initializeMenu(){
 	initializeReference();
 	initializeCitedBy();
 	initializeCoAuthor();
+	initializeSearch();
+	initializeAffiliation();
 	
-	divSearch = document.getElementById("windowSearch");
-	searchPosX = divSearch.offsetLeft;
-	searchPosY = divSearch.offsetTop;
-	searchWidth = parseInt(divSearch.style.width);
-	searchHeight = parseInt(divSearch.style.height);
-	//divSearch.style.display = "none";
-	divSearch.style.width = '0px';
-	divSearch.style.height = '0px';
-	ctxMenu.putImageData(imgDataMenu[searchVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
-	
-	divAffiliation = document.getElementById("windowAffiliation");
-	affiliationPosX = divAffiliation.offsetLeft;
-	affiliationPosY = divAffiliation.offsetTop;
-	affiliationWidth = parseInt(divAffiliation.style.width);
-	affiliationHeight = parseInt(divAffiliation.style.height);
-	//divAffiliation.style.display = "none";
-	divAffiliation.style.width = '0px';
-	divAffiliation.style.height = '0px';
-	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
-	//console.log("ts");
 	canvasMenu.onmousedown = function(e) {
 		if (e.clientX-canvasMenu.offsetLeft>frameWidth && e.clientX-canvasMenu.offsetLeft<frameWidth+buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
 			referenceIncrement *= -1;
