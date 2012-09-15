@@ -38,7 +38,7 @@ function updateCitedBy () {
 	temp.style.height = citedByHeight-topbarHeight+7 +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
-	if (citedbyObject.length>0) {
+	if (totalCitation>0) {
 		for (var i=0; i<citedbyObject.length; i++) {
 			var temp = document.createElement('div');
 			document.getElementById("contentCitedBy").appendChild(temp);
