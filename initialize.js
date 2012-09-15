@@ -129,6 +129,8 @@ var obj_dis_x;
 	//var imgSearch = new Image;
 	//imgSearch.src = 'https://raw.github.com/alvi0010/map/master/image/author.jpg';
 	var divReference;
+	var divCitedBy;
+	var divCoAuthor;
 	var divSearch;
 	var divAffiliation;
 	//var imgAffiliation = new Image;
@@ -138,7 +140,7 @@ var obj_dis_x;
 	//var canvasAffiliation;
 	//var ctxAffiliation;
 	var topbarHeight = 55;
-	var zIndex = 7;
+	var zIndex = 9;
 	var mouseInCanvas = 0;
 	var minimizePosWidth = 30;
 	
