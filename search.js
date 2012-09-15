@@ -10,6 +10,18 @@ var searchPosY;
 var searchWidth;
 var searchHeight;
 
+function initializeSearch() {
+	divSearch = document.getElementById("windowSearch");
+	searchPosX = divSearch.offsetLeft;
+	searchPosY = divSearch.offsetTop;
+	searchWidth = parseInt(divSearch.style.width);
+	searchHeight = parseInt(divSearch.style.height);
+	//divSearch.style.display = "none";
+	divSearch.style.width = '0px';
+	divSearch.style.height = '0px';
+	ctxMenu.putImageData(imgDataMenu[searchVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+}
+
 function mouseDownSearch(e){
 	divSearch.style['z-index'] = zIndex;
 	zIndex += 1;
