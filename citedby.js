@@ -10,6 +10,18 @@ var citedByPosY;
 var citedByWidth;
 var citedByHeight;
 
+function initializeCitedBy() {
+	divCitedBy = document.getElementById("windowCitedBy");
+	citedByPosX = divCitedBy.offsetLeft;
+	citedByPosY = divCitedBy.offsetTop;
+	citedByWidth = parseInt(divCitedBy.style.width);
+	citedByHeight = parseInt(divCitedBy.style.height);
+	//divCitedBy.style.display = "none";
+	divCitedBy.style.width = '0px';
+	divCitedBy.style.height = '0px';
+	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+}
+
 function mouseDownCitedBy(e){
   divCitedBy.style['z-index'] = zIndex;
 	zIndex += 1;
