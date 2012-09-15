@@ -2,7 +2,7 @@ var isMouseDownSearch=0;
 var deltaSearchPositionX;
 var deltaSearchPositionY;
 var searchStatus=0;
-var searchTotalSteps=25;
+var searchTotalSteps=15;
 var searchIncrement = -1;
 var searchVisible=0;
 var searchPosX;
