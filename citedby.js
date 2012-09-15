@@ -61,7 +61,7 @@ function insertCitedBy(i) {
 	//temp.onclick = function () {showAbstractCited(i);};
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp = document.createElement("a");
-	temp.href = "javascript:window.open('" + citedByObject[i].url + "')";
+	temp.href = "javascript:window.open('" + citedbyObject[i].url + "')";
 	temp.textContent = citedByObject[i].title;
 	temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("CitedBy"+i).appendChild(temp);
