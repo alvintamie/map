@@ -39,7 +39,7 @@ function updateCitedBy () {
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
 	if (citedbyObject.length>0) {
-		for (var i=0; i<numberCitedBy; i++) {
+		for (var i=0; i<citedbyObject.length; i++) {
 			var temp = document.createElement('div');
 			document.getElementById("contentCitedBy").appendChild(temp);
 			temp.setAttribute('id', "CitedBy" + i);
