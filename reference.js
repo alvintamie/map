@@ -154,7 +154,7 @@ function changeViewReference() {
 		referenceVisible = 0;
 	}
 	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
-	if (referenceStatus > 0 && referenceStatus <referenceTotalSteps) setTimeout (changeViewReference, 10);
+	if (referenceStatus > 0 && referenceStatus <referenceTotalSteps) setTimeout (changeViewReference, 5);
 }
 
 function referenceDisplacement(e){
