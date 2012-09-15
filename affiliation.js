@@ -2,7 +2,7 @@ var isMouseDownAffiliation=0;
 var deltaAffiliationPositionX;
 var deltaAffiliationPositionY;
 var affiliationStatus=0;
-var affiliationTotalSteps=25;
+var affiliationTotalSteps=15;
 var affiliationIncrement = -1;
 var affiliationVisible=0;
 var affiliationPosX;
