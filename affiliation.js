@@ -39,11 +39,11 @@ function changeViewAffiliation() {
 	divAffiliation.style.left = (canvasMenu.offsetLeft+5*frameWidth+9*buttonMenuWidth/2) + affiliationStatus*(affiliationPosX+affiliationWidth/2-canvasMenu.offsetLeft-5*frameWidth-9*buttonMenuWidth/2)/affiliationTotalSteps - affiliationStatus*affiliationWidth/2/affiliationTotalSteps + "px";
 	divAffiliation.style.top = (canvasMenu.offsetTop+canvasMenu.height/2) + affiliationStatus*(affiliationPosY-canvasMenu.offsetTop-canvasMenu.height/2)/affiliationTotalSteps + "px";
 	if (affiliationStatus > 0) {
-		divAffiliation.style.display = "block";
+		//divAffiliation.style.display = "block";
 		affiliationVisible = 1;
 	}
 	else {
-		divAffiliation.style.display = "none";
+		//divAffiliation.style.display = "none";
 		affiliationVisible = 0;
 	}
 	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
