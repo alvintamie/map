@@ -27,7 +27,7 @@ function initializeCitedBy() {
 	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
 }
 
-function createDivCitedBy () {
+function updateCitedBy () {
 	var temp = document.createElement('div');
 	divCitedBy.appendChild(temp);
 	temp.setAttribute('id', "contentCitedBy");
