@@ -63,7 +63,7 @@ function insertCitedBy(i) {
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + citedbyObject[i].url + "')";
 	temp.textContent = citedbyObject[i].title;
-	temp.setAttribute('onclick', 'window.open(temp.href)');
+	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("CitedBy"+i).appendChild(temp);
