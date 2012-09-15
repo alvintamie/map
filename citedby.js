@@ -58,7 +58,7 @@ function insertCitedBy(i) {
 	temp.setAttribute('id', "Reference" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
-	//temp.onclick = function () {showAbstractCited(i);};
+	temp.onclick = function () {showAbstractCited(i);};
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + citedbyObject[i].url + "')";
@@ -80,8 +80,44 @@ function insertCitedBy(i) {
 	abstractRefMode[i] = 0;
 }
 
+function showAbstractCited(i) {
+	//console.log("show");
+	if (abstractCitedMode[i]==0) {
+		document.getElementById("CitedBy" + i + "_image").src = imgContract.src;
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
+		abstractCitedMode[i] = 1;
+		expandAbstractCited(i);
+	}
+	else {
+		document.getElementById("CitedBy" + i + "_image").src = imgExpand.src;
+		abstractCitedMode[i] = 0;
+		contractAbstractCited(i);
+	}
+}
+
+function expandAbstractCited(i) {
+	//console.log(i);
+	abstractCitedState[i] += 1;
+	document.getElementById("CitedBy" + i + "_abstract").style.height = abstractCitedState[i]*abstractCitedHeight[i]/abstractCitedTotal + 'px';
+	console.log(abstractCitedHeight[i]);
+	if (abstractCitedState[i]<abstractCitedTotal && abstractCitedMode[i]==1) {
+		setTimeout (function() {expandAbstractCited(i)}, 10);
+	}
+}
+
+function contractAbstractCited(i) {
+	//console.log(i);
+	abstractCitedState[i] -= 1;
+	document.getElementById("CitedBy" + i + "_abstract").style.height = abstractCitedState[i]*abstractCitedHeight[i]/abstractCitedTotal + 'px';
+	if (abstractCitedState[i]>0 && abstractCitedMode[i]==0) {
+		setTimeout (function(){contractAbstractCited(i);}, 10);
+	}
+	//else if (abstractRefMode[i]==0)
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
+}
+
 function mouseDownCitedBy(e){
-  divCitedBy.style['z-index'] = zIndex;
+  	divCitedBy.style['z-index'] = zIndex;
 	zIndex += 1;
 	if(e.clientY-divCitedBy.offsetTop<topbarHeight) {
 		if (e.clientX-divCitedBy.offsetLeft<=parseInt(divCitedBy.style.width)-minimizePosWidth) {
