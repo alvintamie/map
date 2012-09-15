@@ -99,7 +99,7 @@ function expandAbstractCited(i) {
 	//console.log(i);
 	abstractCitedState[i] += 1;
 	document.getElementById("CitedBy" + i + "_abstract").style.height = abstractCitedState[i]*abstractCitedHeight[i]/abstractCitedTotal + 'px';
-	console.log(abstractCitedHeight[i]);
+	//console.log(abstractCitedHeight[i]);
 	if (abstractCitedState[i]<abstractCitedTotal && abstractCitedMode[i]==1) {
 		setTimeout (function() {expandAbstractCited(i)}, 10);
 	}
