@@ -10,6 +10,11 @@ var citedByPosY;
 var citedByWidth;
 var citedByHeight;
 
+var abstractCitedHeight = new Array();
+var abstractCitedState = new Array();
+var abstractCitedMode = new Array();
+var abstractCitedTotal = 20;
+
 function initializeCitedBy() {
 	divCitedBy = document.getElementById("windowCitedBy");
 	citedByPosX = divCitedBy.offsetLeft;
@@ -20,6 +25,9 @@ function initializeCitedBy() {
 	divCitedBy.style.width = '0px';
 	divCitedBy.style.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+}
+
+function createDivCitedBy () {
 	var temp = document.createElement('div');
 	divCitedBy.appendChild(temp);
 	temp.setAttribute('id', "contentCitedBy");
@@ -30,6 +38,46 @@ function initializeCitedBy() {
 	temp.style.height = citedByHeight-topbarHeight+7 +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
+	if (citedbyObject.length>0) {
+		for (var i=0; i<numberCitedBy; i++) {
+			var temp = document.createElement('div');
+			document.getElementById("contentCitedBy").appendChild(temp);
+			temp.setAttribute('id', "CitedBy" + i);
+			temp.style.position = 'relative';
+			temp.style.left = 3 + 'px';
+			insertCitedBy(i);
+		}
+	}
+	else {
+		document.getElementById("contentCitedBy").innerHTML = "This paper has not been cited yet.";
+	}
+}
+
+function insertCitedBy(i) {
+	var temp = document.createElement("IMG");
+	temp.setAttribute('id', "Reference" + i + "_image");
+	temp.src = imgExpand.src;
+	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
+	//temp.onclick = function () {showAbstractCited(i);};
+	document.getElementById("CitedBy"+i).appendChild(temp);
+	temp = document.createElement("a");
+	temp.href = "javascript:window.open('" + citedByObject[i].url + "')";
+	temp.textContent = citedByObject[i].title;
+	temp.setAttribute('onclick', 'window.open(temp.href)');
+	document.getElementById("CitedBy"+i).appendChild(temp);
+	temp = document.createElement('div');
+	document.getElementById("CitedBy"+i).appendChild(temp);
+	temp.innerHTML = citedbyObject[i].Abstract;
+	temp.setAttribute('id', "CitedBy" + i + "_abstract");
+	temp.style.position = 'relative';
+	temp.style.left = 18 + 'px';
+	temp.style.width = citedByWidth - 45 + 'px';
+	temp.style.overflow = 'hidden';
+	abstractRefHeight[i] = temp.clientHeight;
+	temp.style.height = 0 + 'px';
+	//temp.style.display = 'none';
+	abstractRefState[i] = 0;
+	abstractRefMode[i] = 0;
 }
 
 function mouseDownCitedBy(e){
