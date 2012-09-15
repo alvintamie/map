@@ -25,16 +25,7 @@ function initializeMenu(){
 	}
 	
 	initializeReference();
-	
-	divCitedBy = document.getElementById("windowCitedBy");
-	citedByPosX = divCitedBy.offsetLeft;
-	citedByPosY = divCitedBy.offsetTop;
-	citedByWidth = parseInt(divCitedBy.style.width);
-	citedByHeight = parseInt(divCitedBy.style.height);
-	//divCitedBy.style.display = "none";
-	divCitedBy.style.width = '0px';
-	divCitedBy.style.height = '0px';
-	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+	initializeCitedBy();
 	
 	divCoAuthor = document.getElementById("windowCoAuthor");
 	coAuthorPosX = divCoAuthor.offsetLeft;
