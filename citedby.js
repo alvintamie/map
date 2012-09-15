@@ -2,7 +2,7 @@ var isMouseDownCitedBy=0;
 var deltaCitedByPositionX;
 var deltaCitedByPositionY;
 var citedByStatus=0;
-var citedByTotalSteps=25;
+var citedByTotalSteps=15;
 var citedByIncrement = -1;
 var citedByVisible=0;
 var citedByPosX;
