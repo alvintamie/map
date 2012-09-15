@@ -10,6 +10,8 @@ else if (document.addEventListener)
 
 function getMouseCoordinates(e){
 		referenceDisplacement(e);
+		citedByDisplacement(e);
+		coAuthorDisplacement(e);
 		searchDisplacement(e);
 		affiliationDisplacement(e);
 		resizeCanvas(e);
