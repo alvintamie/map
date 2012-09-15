@@ -28,6 +28,8 @@ function getMouseCoordinates(e){
 function getMouseUp(e) {	
 		isMouseDownAuthor=false;
 		isMouseDownReference=false;
+		isMouseDownCitedBy=false;
+		isMouseDownCoAuthor=false;
 		isMouseDownSearch=false;
 		isMouseDownAffiliation=false;
 		isDown=false;
