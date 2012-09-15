@@ -31,7 +31,7 @@ function initializeMenu(){
 	searchPosY = divSearch.offsetTop;
 	searchWidth = parseInt(divSearch.style.width);
 	searchHeight = parseInt(divSearch.style.height);
-	divSearch.style.display = "none";
+	//divSearch.style.display = "none";
 	ctxMenu.putImageData(imgDataMenu[searchVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
 	
 	divAffiliation = document.getElementById("windowAffiliation");
@@ -39,9 +39,9 @@ function initializeMenu(){
 	affiliationPosY = divAffiliation.offsetTop;
 	affiliationWidth = parseInt(divAffiliation.style.width);
 	affiliationHeight = parseInt(divAffiliation.style.height);
-	divAffiliation.style.display = "none";
+	//divAffiliation.style.display = "none";
 	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
-	console.log("ts");
+	//console.log("ts");
 	canvasMenu.onmousedown = function(e) {
 		if (e.clientX-canvasMenu.offsetLeft>frameWidth && e.clientX-canvasMenu.offsetLeft<frameWidth+buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
 			referenceIncrement *= -1;
