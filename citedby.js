@@ -55,7 +55,7 @@ function updateCitedBy () {
 
 function insertCitedBy(i) {
 	var temp = document.createElement("IMG");
-	temp.setAttribute('id', "Reference" + i + "_image");
+	temp.setAttribute('id', "CitedBy" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractCited(i);};
