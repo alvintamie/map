@@ -14,7 +14,7 @@ var overflowX = 1;
 var abstractRefHeight = new Array();
 var abstractRefState = new Array();
 var abstractRefMode = new Array();
-var abstractRefTotal = 20;
+var abstractRefTotal = 10;
 
 function initializeReference() {
 	divReference = document.getElementById("windowReference");
