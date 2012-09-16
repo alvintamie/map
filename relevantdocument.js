@@ -90,7 +90,7 @@ function insertRelevantDocument(i) {
 	temp.style.overflow = 'hidden';
 	abstractRelevantHeight[i] = temp.clientHeight;
 	console.log(abstractRelevantHeight[i]);
-	temp.style.height = 0 + 'px';
+	//temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
 	abstractRelevantState[i] = 0;
 	abstractRelevantMode[i] = 0;
