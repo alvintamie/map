@@ -74,6 +74,7 @@ function insertCoauthors(i) {
 	temp.setAttribute('id', "CoAuthor" + i + "_image");
 	temp.src = imgExpand.src;
 	temp.onclick = function () {showListCoAuthor(i);};
+	document.getElementById("CoAuthor"+i).appendChild(temp);
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + coauthorsObject[i].url + "')";
 	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
@@ -89,7 +90,7 @@ function insertCoauthors(i) {
 	temp.style.width = citedByWidth - 45 + 'px';
 	temp.style.overflow = 'hidden';
 	listCoAuthorHeight[i] = temp.clientHeight;
-	//temp.style.height = 0 + 'px';
+	temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
 	listCoAuthorState[i] = 0;
 	listCoAuthorMode[i] = 0;
