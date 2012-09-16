@@ -57,7 +57,7 @@ function updateCoauthors () {
 			temp.href="javascript:downCoauthors()";
 			temp.textContent = "Previous";
 		}
-		if (currentLevelCoauthors<totalLevelCitation) {
+		if (currentLevelCoauthors<totalLevelCoauthors) {
 			temp = document.createElement('a');
 			document.getElementById("contentCoAuthor"). appendChild(temp);
 			temp.href = "javascript:upCoauthors()";
@@ -65,7 +65,7 @@ function updateCoauthors () {
 		}
 	}
 	else {
-		document.getElementById("contentCoAuthor").innerHTML = "This paper has not been cited yet.";
+		document.getElementById("contentCoAuthor").innerHTML = "This author has no co-Authors.";
 	}
 }
 
@@ -76,8 +76,8 @@ function insertCoauthors(i) {
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	//temp.onclick = function () {showListhCoAuthor(i);};
 	document.getElementById("CoAuthor"+i).appendChild(temp);
+	document.getElementById("CoAuthor"+i).innerHTML += coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
 	/*
-	document.getElementById("CoAuthor"+i).innerHTML += coauthorsObject[i].;
 	temp = document.createElement('div');
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp.innerHTML = citedbyObject[i].Abstract;
