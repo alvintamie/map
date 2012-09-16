@@ -77,7 +77,7 @@ function insertCoauthors(i) {
 	temp.onclick = function () {showListCoAuthor(i);};
 	document.getElementById("CoAuthor"+i).appendChild(temp);
 	document.getElementById("CoAuthor"+i).innerHTML += (currentLevelCoauthors-1)*200+i+1 + " ";
-	document.getElementById("CoAuthor+i").innerHTML += coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
+	document.getElementById("CoAuthor"+i).innerHTML += coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
 	temp = document.createElement('div');
 	document.getElementById("CoAuthor"+i).appendChild(temp);
 	if (coauthorsObject[i].affiliationName) temp.innerHTML = "Affiliation: " + coauthorsObject[i].affiliationName + "<br>";
@@ -87,7 +87,7 @@ function insertCoauthors(i) {
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = citedByWidth - 45 + 'px';
-	//temp.style.overflow = 'hidden';
+	temp.style.overflow = 'hidden';
 	listCoAuthorHeight[i] = temp.clientHeight;
 	temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
