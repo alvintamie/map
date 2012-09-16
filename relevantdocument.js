@@ -72,7 +72,7 @@ function insertRelevantDocument(i) {
 	temp.setAttribute('id', "RelevantDocument" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
-	//temp.onclick = function () {showAbstractRelevant(i);};
+	temp.onclick = function () {showAbstractRelevant(i);};
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + relevantDocumentObject[i].url + "')";
@@ -93,7 +93,7 @@ function insertRelevantDocument(i) {
 	abstractRelevantState[i] = 0;
 	abstractRelevantMode[i] = 0;
 }
-/*
+
 function showAbstractRelevant(i) {
 	//console.log("show");
 	if (abstractRelevantMode[i]==0) {
@@ -128,7 +128,7 @@ function contractAbstractRelevant(i) {
 	}
 	//else if (abstractRefMode[i]==0)
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
-}*/
+}
 
 function removecontentRelevantDocumentChild() {
 	var el = document.getElementById("contentRelevantDocument");
