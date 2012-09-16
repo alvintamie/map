@@ -10,6 +10,11 @@ var relevantDocumentPosY;
 var relevantDocumentWidth;
 var relevantDocumentHeight;
 
+var abstractRelevantHeight = new Array();
+var abstractRelevantState = new Array();
+var abstractRelevantMode = new Array();
+var abstractRelevantTotal = 20;
+
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
 	relevantDocumentPosX = divRelevantDocument.offsetLeft;
@@ -18,6 +23,121 @@ function initializeRelevantDocument () {
 	relevantDocumentHeight = parseInt(divRelevantDocument.style.height);
 	divRelevantDocument.style.display = "none";
 	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
+	
+	var temp = document.createElement('div');
+	divRelevantDocument.appendChild(temp);
+	temp.setAttribute('id', "contentRelevantDocument");
+	temp.style.position = 'absolute';
+	temp.style.top = topbarHeight-9 + 'px';
+	temp.style.left = 1 + 'px';
+	temp.style.width = citedByWidth-2 + 'px';
+	temp.style.height = citedByHeight-topbarHeight+7 +'px';
+	temp.style['overflow-x'] = 'hidden';
+	temp.style['overflow-y'] = 'auto';
+}
+
+function updateRelevantDocument () {
+	removecontentRelevantDocumentChild();
+	if (relevantbyObject.length>0) {
+		for (var i=0; i<relevantbyObject.length; i++) {
+			var temp = document.createElement('div');
+			document.getElementById("contentRelevantDocument").appendChild(temp);
+			temp.setAttribute('id', "RelevantDocument" + i);
+			temp.style.position = 'relative';
+			temp.style.left = 3 + 'px';
+			insertRelevantDocument(i);
+		}
+		//console.log(currentLevelCitation);
+		//console.log(totalLevelCitation);
+		if (currentLevelRelevantDocument>1) {
+			temp = document.createElement('a');
+			document.getElementById("contentRelevantDocument").appendChild(temp);
+			temp.href="javascript:downRelevantDocument()";
+			temp.textContent = "Previous";
+		}
+		if (currentLevelRelevantDocument<totalLevelRelevantDocument) {
+			temp = document.createElement('a');
+			document.getElementById("contentRelevantDocument"). appendChild(temp);
+			temp.href = "javascript:upRelevantDocument()";
+			temp.textContent = "Next";
+		}	
+	}
+	else {
+		document.getElementById("contentRelevantDocument").innerHTML = "No relevant document has been found.";
+	}
+}
+
+function insertRelevantDocument(i) {
+	var temp = document.createElement("IMG");
+	temp.setAttribute('id', "RelevantDocument" + i + "_image");
+	temp.src = imgExpand.src;
+	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
+	//temp.onclick = function () {showAbstractRelevant(i);};
+	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	temp = document.createElement("a");
+	temp.href = "javascript:window.open('" + relevantDocumentObject[i].url + "')";
+	temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + relevantDocumentObject[i].title;
+	//temp.setAttribute('onclick', 'window.open(temp.href)');
+	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	temp = document.createElement('div');
+	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	temp.innerHTML = relevantbyObject[i].Abstract;
+	temp.setAttribute('id', "RelevantDocument" + i + "_abstract");
+	temp.style.position = 'relative';
+	temp.style.left = 18 + 'px';
+	temp.style.width = relevantDocumentWidth - 45 + 'px';
+	temp.style.overflow = 'hidden';
+	abstractRelevantHeight[i] = temp.clientHeight;
+	temp.style.height = 0 + 'px';
+	//temp.style.display = 'none';
+	abstractRelevantState[i] = 0;
+	abstractRelevantMode[i] = 0;
+}
+/*
+function showAbstractRelevant(i) {
+	//console.log("show");
+	if (abstractRelevantMode[i]==0) {
+		document.getElementById("RelevantDocument" + i + "_image").src = imgContract.src;
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
+		abstractRelevantMode[i] = 1;
+		expandAbstractRelevant(i);
+	}
+	else {
+		document.getElementById("RelevantDocument" + i + "_image").src = imgExpand.src;
+		abstractRelevantMode[i] = 0;
+		contractAbstractRelevant(i);
+	}
+}
+
+function expandAbstractRelevant(i) {
+	//console.log(i);
+	abstractRelevantState[i] += 1;
+	document.getElementById("RelevantDocument" + i + "_abstract").style.height = abstractRelevantState[i]*abstractRelevantHeight[i]/abstractRelevantTotal + 'px';
+	//console.log(abstractRelevantHeight[i]);
+	if (abstractRelevantState[i]<abstractRelevantTotal && abstractRelevantMode[i]==1) {
+		setTimeout (function() {expandAbstractRelevant(i)}, 10);
+	}
+}
+
+function contractAbstractRelevant(i) {
+	//console.log(i);
+	abstractRelevantState[i] -= 1;
+	document.getElementById("RelevantDocument" + i + "_abstract").style.height = abstractRelevantState[i]*abstractRelevantHeight[i]/abstractRelevantTotal + 'px';
+	if (abstractRelevantState[i]>0 && abstractRelevantMode[i]==0) {
+		setTimeout (function(){contractAbstractRelevant(i);}, 10);
+	}
+	//else if (abstractRefMode[i]==0)
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
+}*/
+
+function removecontentRelevantDocumentChild() {
+	var el = document.getElementById("contentRelevantDocument");
+	while (el.firstChild) {
+		//console.log(el.firstChild.id);
+		el.removeChild(el.firstChild);
+	}
+	//console.log(el.lastChild.id);
+
 }
 
 function mouseDownRelevantDocument(e){
