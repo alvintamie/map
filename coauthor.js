@@ -44,7 +44,7 @@ function updateCoAuthor () {
 		for (var i=0; i<coauthorsObject.length; i++) {
 			var temp = document.createElement('div');
 			document.getElementById("contentCoAuthor").appendChild(temp);
-			temp.setAttribute('id', "CoAuthor + i);
+			temp.setAttribute('id', "CoAuthor" + i);
 			temp.style.position = 'relative';
 			temp.style.left = 3 + 'px';
 			insertCitedBy(i);
