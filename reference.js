@@ -66,7 +66,7 @@ function createDivReference () {
 		}
 	}
 	else if (readyRef==2) {
-		document.getElementById("contentReference").innerHTML = "The paper is not published yet.";
+		document.getElementById("contentReference").innerHTML = "No information about the reference is available.";
 	}
 }
 
