@@ -48,7 +48,7 @@ function changeViewSearch() {
 	searchStatus += searchIncrement;
 	divSearch.style.width = searchStatus*searchWidth/searchTotalSteps + "px";
 	divSearch.style.height = searchStatus*searchHeight/searchTotalSteps + "px";
-	divSearch.style.left = (canvasMenu.offsetLeft+4*frameWidth+7*buttonMenuWidth/2) + searchStatus*(searchPosX+searchWidth/2-canvasMenu.offsetLeft-4*frameWidth-7*buttonMenuWidth/2)/searchTotalSteps - searchStatus*searchWidth/2/searchTotalSteps + "px";
+	divSearch.style.left = (canvasMenu.offsetLeft+5*frameWidth+9*buttonMenuWidth/2) + searchStatus*(searchPosX+searchWidth/2-canvasMenu.offsetLeft-5*frameWidth-9*buttonMenuWidth/2)/searchTotalSteps - searchStatus*searchWidth/2/searchTotalSteps + "px";
 	divSearch.style.top = (canvasMenu.offsetTop+canvasMenu.height/2) + searchStatus*(searchPosY-canvasMenu.offsetTop-canvasMenu.height/2)/searchTotalSteps + "px";
 	if (searchStatus > 0) {
 		//divSearch.style.display = "block";
@@ -58,7 +58,7 @@ function changeViewSearch() {
 		//divSearch.style.display = "none";
 		searchVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[searchVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+	ctxMenu.putImageData(imgDataMenu[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
 	if (searchStatus > 0 && searchStatus <searchTotalSteps) setTimeout (changeViewSearch, 10);
 }
 
