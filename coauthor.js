@@ -93,6 +93,7 @@ function insertCoauthors(i) {
 	//temp.style.display = 'none';
 	listCoAuthorState[i] = 0;
 	listCoAuthorMode[i] = 0;
+	console.log(i+1);
 }
 
 function showListCoAuthor(i) {
