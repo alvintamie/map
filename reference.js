@@ -55,7 +55,7 @@ function mouseDownReference(e){
 	}
 }
 
-function createDivReference () {
+function updateReference () {
 	if (readyRef==1) {
 		for (var i=0; i<numberRef; i++) {
 			var temp = document.createElement('div');
