@@ -38,7 +38,7 @@ function initializeCoAuthor() {
 	temp.style['overflow-y'] = 'auto';
 }
 
-function updateCoAuthor () {
+function updateCoauthors () {
 	removecontentCoAuthorChild();
 	if (coauthorsObject.length>0) {
 		for (var i=0; i<coauthorsObject.length; i++) {
@@ -69,7 +69,7 @@ function updateCoAuthor () {
 	}
 }
 
-function insertCitedBy(i) {
+function insertCoauthors(i) {
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "CoAuthor" + i + "_image");
 	temp.src = imgExpand.src;
