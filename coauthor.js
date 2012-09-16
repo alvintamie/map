@@ -169,7 +169,7 @@ function changeViewCoAuthor() {
 	coAuthorStatus += coAuthorIncrement;
 	divCoAuthor.style.width = coAuthorStatus*coAuthorWidth/coAuthorTotalSteps + "px";
 	divCoAuthor.style.height = coAuthorStatus*coAuthorHeight/coAuthorTotalSteps + "px";
-	divCoAuthor.style.left = (canvasMenu.offsetLeft+3*frameWidth+5*buttonMenuWidth/2) + coAuthorStatus*(coAuthorPosX+coAuthorWidth/2-canvasMenu.offsetLeft-3*frameWidth-5*buttonMenuWidth/2)/coAuthorTotalSteps - coAuthorStatus*coAuthorWidth/2/coAuthorTotalSteps + "px";
+	divCoAuthor.style.left = (canvasMenu.offsetLeft+4*frameWidth+7*buttonMenuWidth/2) + coAuthorStatus*(coAuthorPosX+coAuthorWidth/2-canvasMenu.offsetLeft-4*frameWidth-7*buttonMenuWidth/2)/coAuthorTotalSteps - coAuthorStatus*coAuthorWidth/2/coAuthorTotalSteps + "px";
 	divCoAuthor.style.top = (canvasMenu.offsetTop+canvasMenu.height/2) + coAuthorStatus*(coAuthorPosY-canvasMenu.offsetTop-canvasMenu.height/2)/coAuthorTotalSteps + "px";
 	if (coAuthorStatus > 0) {
 		//divCoAuthor.style.display = "block";
@@ -179,7 +179,7 @@ function changeViewCoAuthor() {
 		//divCoAuthor.style.display = "none";
 		coAuthorVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
+	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
 	if (coAuthorStatus > 0 && coAuthorStatus <coAuthorTotalSteps) setTimeout (changeViewCoAuthor, 10);
 }
 
