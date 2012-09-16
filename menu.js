@@ -26,6 +26,7 @@ function initializeMenu(){
 	
 	initializeReference();
 	initializeCitedBy();
+	initializeRelevantDocument();
 	initializeCoAuthor();
 	initializeSearch();
 	initializeAffiliation();
@@ -44,22 +45,29 @@ function initializeMenu(){
 			changeViewCitedBy();
 		}
 		else if (e.clientX-canvasMenu.offsetLeft>3*frameWidth+2*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<3*frameWidth+3*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
+			divRelevantDocument.style['z-index'] = zIndex;
+			zIndex += 1;
+			relevantDocumentIncrement *= -1;
+			changeViewRelevantDocument();
+		}
+		else if (e.clientX-canvasMenu.offsetLeft>4*frameWidth+3*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<4*frameWidth+4*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
 			divCoAuthor.style['z-index'] = zIndex;
 			zIndex += 1;
 			coAuthorIncrement *= -1;
 			changeViewCoAuthor();
 		}
-		else if (e.clientX-canvasMenu.offsetLeft>4*frameWidth+3*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<4*frameWidth+4*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
+		else if (e.clientX-canvasMenu.offsetLeft>5*frameWidth+4*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<5*frameWidth+5*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
 			divSearch.style['z-index'] = zIndex;
 			zIndex += 1;
 			searchIncrement *= -1;
 			changeViewSearch();
 		}
-		else if (e.clientX-canvasMenu.offsetLeft>5*frameWidth+4*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<5*frameWidth+5*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
+		else if (e.clientX-canvasMenu.offsetLeft>6*frameWidth+5*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<6*frameWidth+6*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
 			divAffiliation.style['z-index'] = zIndex;
-		zIndex += 1;
+			zIndex += 1;
 			affiliationIncrement *= -1;
 			changeViewAffiliation();
 		}
 	}
+}	}
 }
