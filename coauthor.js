@@ -89,7 +89,7 @@ function insertCoauthors(i) {
 	temp.style.width = citedByWidth - 45 + 'px';
 	temp.style.overflow = 'hidden';
 	listCoAuthorHeight[i] = temp.clientHeight;
-	temp.style.height = 0 + 'px';
+	//temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
 	listCoAuthorState[i] = 0;
 	listCoAuthorMode[i] = 0;
