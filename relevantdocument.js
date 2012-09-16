@@ -100,7 +100,9 @@ function showAbstractRelevant(i) {
 		document.getElementById("RelevantDocument" + i + "_image").src = imgContract.src;
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
 		abstractRelevantMode[i] = 1;
+		console.log("before");
 		expandAbstractRelevant(i);
+		console.log("after");
 	}
 	else {
 		document.getElementById("RelevantDocument" + i + "_image").src = imgExpand.src;
@@ -110,7 +112,7 @@ function showAbstractRelevant(i) {
 }
 
 function expandAbstractRelevant(i) {
-	//console.log(i);
+	console.log("expand");
 	abstractRelevantState[i] += 1;
 	document.getElementById("RelevantDocument" + i + "_abstract").style.height = abstractRelevantState[i]*abstractRelevantHeight[i]/abstractRelevantTotal + 'px';
 	//console.log(abstractRelevantHeight[i]);
