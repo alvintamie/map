@@ -81,14 +81,14 @@ function insertRelevantDocument(i) {
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
-	if (relevantDocumentObject[i].Abstract) temp.innerHTML = relevantDocumentObject[i].Abstract;
-	else temp.innerHTML = "Abstract not available";
 	temp.setAttribute('id', "RelevantDocument" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = relevantDocumentWidth - 45 + 'px';
-	temp.style.overflow = 'hidden';
+	if (relevantDocumentObject[i].Abstract) temp.innerHTML = relevantDocumentObject[i].Abstract;
+	else temp.innerHTML = "Abstract not available";
 	abstractRelevantHeight[i] = temp.clientHeight;
+	temp.style.overflow = 'hidden';
 	console.log(abstractRelevantHeight[i]);
 	//temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
