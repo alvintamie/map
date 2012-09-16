@@ -47,7 +47,7 @@ function updateCoauthors () {
 			temp.setAttribute('id', "CoAuthor" + i);
 			temp.style.position = 'relative';
 			temp.style.left = 3 + 'px';
-			insertCitedBy(i);
+			insertCoauthors(i);
 		}
 		//console.log(currentLevelCitation);
 		//console.log(totalLevelCitation);
