@@ -2,7 +2,7 @@ var isMouseDownRelevantDocument=0;
 var deltaRelevantDocumentPositionX;
 var deltaRelevantDocumentPositionY;
 var relevantDocumentStatus=0;
-var relevantDocumentTotalSteps=25;
+var relevantDocumentTotalSteps=15;
 var relevantDocumentIncrement = -1;
 var relevantDocumentVisible=0;
 var relevantDocumentPosX;
@@ -17,7 +17,7 @@ function initializeRelevantDocument () {
 	relevantDocumentWidth = parseInt(divRelevantDocument.style.width);
 	relevantDocumentHeight = parseInt(divRelevantDocument.style.height);
 	divRelevantDocument.style.display = "none";
-	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 }
 
 function mouseDownRelevantDocument(e){
@@ -46,7 +46,7 @@ function changeViewRelevantDocument() {
 	relevantDocumentStatus += relevantDocumentIncrement;
 	divRelevantDocument.style.width = relevantDocumentStatus*relevantDocumentWidth/relevantDocumentTotalSteps + "px";
 	divRelevantDocument.style.height = relevantDocumentStatus*relevantDocumentHeight/relevantDocumentTotalSteps + "px";
-	divRelevantDocument.style.left = (canvasMenu.offsetLeft+4*frameWidth+7*buttonMenuWidth/2) + relevantDocumentStatus*(relevantDocumentPosX+relevantDocumentWidth/2-canvasMenu.offsetLeft-4*frameWidth-7*buttonMenuWidth/2)/relevantDocumentTotalSteps - relevantDocumentStatus*relevantDocumentWidth/2/relevantDocumentTotalSteps + "px";
+	divRelevantDocument.style.left = (canvasMenu.offsetLeft+3*frameWidth+5*buttonMenuWidth/2) + relevantDocumentStatus*(relevantDocumentPosX+relevantDocumentWidth/2-canvasMenu.offsetLeft-3*frameWidth-5*buttonMenuWidth/2)/relevantDocumentTotalSteps - relevantDocumentStatus*relevantDocumentWidth/2/relevantDocumentTotalSteps + "px";
 	divRelevantDocument.style.top = (canvasMenu.offsetTop+canvasMenu.height/2) + relevantDocumentStatus*(relevantDocumentPosY-canvasMenu.offsetTop-canvasMenu.height/2)/relevantDocumentTotalSteps + "px";
 	if (relevantDocumentStatus > 0) {
 		divRelevantDocument.style.display = "block";
@@ -56,7 +56,7 @@ function changeViewRelevantDocument() {
 		divRelevantDocument.style.display = "none";
 		relevantDocumentVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 	if (relevantDocumentStatus > 0 && relevantDocumentStatus <relevantDocumentTotalSteps) setTimeout (changeViewRelevantDocument, 10);
 }
 
