@@ -94,11 +94,11 @@ function insertCoauthors(i) {
 	//temp.style.display = 'none';
 	listCoAuthorState[i] = 0;
 	listCoAuthorMode[i] = 0;
-	console.log(i+1);
+	//console.log(i+1);
 }
 
 function showListCoAuthor(i) {
-	console.log("show");
+	//console.log("show");
 	if (listCoAuthorMode[i]==0) {
 		document.getElementById("CoAuthor" + i + "_image").src = imgContract.src;
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
