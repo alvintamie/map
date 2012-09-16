@@ -89,8 +89,8 @@ function insertRelevantDocument(i) {
 	else temp.innerHTML = "Abstract not available";
 	abstractRelevantHeight[i] = temp.clientHeight;
 	temp.style.overflow = 'hidden';
-	console.log(abstractRelevantHeight[i]);
-	//temp.style.height = 0 + 'px';
+	//console.log(abstractRelevantHeight[i]);
+	temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
 	abstractRelevantState[i] = 0;
 	abstractRelevantMode[i] = 0;
