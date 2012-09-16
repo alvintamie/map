@@ -49,6 +49,8 @@ function updateCitedBy () {
 			temp.style.left = 3 + 'px';
 			insertCitedBy(i);
 		}
+		console.log(currentLevelCitation);
+		console.log(TotalLevelCitation);
 		if (curentLevelCitation>1) {
 			temp = document.createElement('a');
 			document.getElementById("contentCitedBy").appendChild(temp);
