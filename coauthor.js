@@ -106,7 +106,7 @@ function showListCoAuthor(i) {
 	else {
 		document.getElementById("CoAuthor" + i + "_image").src = imgExpand.src;
 		listCoAuthorMode[i] = 0;
-		contractAffiliationCoAuthor);
+		contractAffiliationCoAuthor(i);
 	}
 }
 
@@ -130,7 +130,7 @@ function contractAbstractCited(i) {
 	//else if (abstractRefMode[i]==0)
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
 }
-*/
+
 function removecontentCoAuthorChild() {
 	var el = document.getElementById("contentCoAuthor");
 	while (el.firstChild) {
