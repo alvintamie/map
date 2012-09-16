@@ -19,7 +19,7 @@ function initializeSearch() {
 	//divSearch.style.display = "none";
 	divSearch.style.width = '0px';
 	divSearch.style.height = '0px';
-	ctxMenu.putImageData(imgDataMenu[searchVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+	ctxMenu.putImageData(imgDataMenu[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
 }
 
 function mouseDownSearch(e){
