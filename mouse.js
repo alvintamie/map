@@ -11,6 +11,7 @@ else if (document.addEventListener)
 function getMouseCoordinates(e){
 		referenceDisplacement(e);
 		citedByDisplacement(e);
+		relevantDocumentDisplacement(e);
 		coAuthorDisplacement(e);
 		searchDisplacement(e);
 		affiliationDisplacement(e);
@@ -29,6 +30,7 @@ function getMouseUp(e) {
 		isMouseDownAuthor=false;
 		isMouseDownReference=false;
 		isMouseDownCitedBy=false;
+		isMouseDownRelevantDocument=false;
 		isMouseDownCoAuthor=false;
 		isMouseDownSearch=false;
 		isMouseDownAffiliation=false;
