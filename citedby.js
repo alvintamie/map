@@ -50,7 +50,7 @@ function updateCitedBy () {
 			insertCitedBy(i);
 		}
 		console.log(currentLevelCitation);
-		console.log(TotalLevelCitation);
+		console.log(totalLevelCitation);
 		if (curentLevelCitation>1) {
 			temp = document.createElement('a');
 			document.getElementById("contentCitedBy").appendChild(temp);
