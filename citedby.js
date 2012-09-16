@@ -28,6 +28,7 @@ function initializeCitedBy() {
 }
 
 function updateCitedBy () {
+	removecontentCitedByChild();
 	var temp = document.createElement('div');
 	divCitedBy.appendChild(temp);
 	temp.setAttribute('id', "contentCitedBy");
@@ -47,6 +48,18 @@ function updateCitedBy () {
 			temp.style.left = 3 + 'px';
 			insertCitedBy(i);
 		}
+		if (curentLevelCitation>1) {
+			temp = document.createElement('a');
+			document.getElementById("contentCitedBy").appendChild(temp);
+			temp.href="javascript:downCitedby()";
+			temp.textContent = "Previous";
+		}
+		if (currentLevelCitation<TotalLevelCitation) {
+			temp = document.createElement('a');
+			document.getElementById("contentCitedBy"). appendChild(temp);
+			temp.href - "javascript:upCitedby()";
+			temp.textContent = "Next";
+		}	
 	}
 	else {
 		document.getElementById("contentCitedBy").innerHTML = "This paper has not been cited yet.";
@@ -114,6 +127,16 @@ function contractAbstractCited(i) {
 	}
 	//else if (abstractRefMode[i]==0)
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
+}
+
+function removecontentCitedByChild() {
+	var el = document.getElementById("contentCitedBy");
+	while (el.firstChild) {
+		//console.log(el.firstChild.id);
+		el.removeChild(el.firstChild);
+	}
+	//console.log(el.lastChild.id);
+	
 }
 
 function mouseDownCitedBy(e){
