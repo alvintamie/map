@@ -88,6 +88,7 @@ function insertRelevantDocument(i) {
 	temp.style.width = relevantDocumentWidth - 45 + 'px';
 	temp.style.overflow = 'hidden';
 	abstractRelevantHeight[i] = temp.clientHeight;
+	console.log(abstractRelevantHeight[i]);
 	temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
 	abstractRelevantState[i] = 0;
@@ -100,9 +101,9 @@ function showAbstractRelevant(i) {
 		document.getElementById("RelevantDocument" + i + "_image").src = imgContract.src;
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
 		abstractRelevantMode[i] = 1;
-		console.log("before");
+		//console.log("before");
 		expandAbstractRelevant(i);
-		console.log("after");
+		//console.log("after");
 	}
 	else {
 		document.getElementById("RelevantDocument" + i + "_image").src = imgExpand.src;
@@ -112,7 +113,7 @@ function showAbstractRelevant(i) {
 }
 
 function expandAbstractRelevant(i) {
-	console.log("expand");
+	//console.log("expand");
 	abstractRelevantState[i] += 1;
 	document.getElementById("RelevantDocument" + i + "_abstract").style.height = abstractRelevantState[i]*abstractRelevantHeight[i]/abstractRelevantTotal + 'px';
 	//console.log(abstractRelevantHeight[i]);
