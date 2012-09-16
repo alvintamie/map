@@ -38,7 +38,7 @@ function initializeCoAuthor() {
 	temp.style['overflow-y'] = 'auto';
 }
 
-function updateCitedBy () {
+function updateCoAuthor () {
 	removecontentCoAuthorChild();
 	if (coauthorsObject.length>0) {
 		for (var i=0; i<coauthorsObject.length; i++) {
