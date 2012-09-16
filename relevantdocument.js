@@ -81,7 +81,7 @@ function insertRelevantDocument(i) {
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
-	temp.innerHTML = relevantbyObject[i].Abstract;
+	temp.innerHTML = relevantDocumentObject[i].Abstract;
 	temp.setAttribute('id', "RelevantDocument" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
