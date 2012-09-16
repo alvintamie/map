@@ -51,7 +51,7 @@ function updateCitedBy () {
 		}
 		console.log(currentLevelCitation);
 		console.log(totalLevelCitation);
-		if (curentLevelCitation>1) {
+		if (currentLevelCitation>1) {
 			temp = document.createElement('a');
 			document.getElementById("contentCitedBy").appendChild(temp);
 			temp.href="javascript:downCitedby()";
