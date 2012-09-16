@@ -3,7 +3,7 @@ function initializeMenu(){
 
 	canvasMenu = document.getElementById('canvasMenu');
 	ctxMenu=canvasMenu.getContext('2d');
-	canvasMenu.width = 5*buttonMenuWidth + 6*frameWidth;
+	canvasMenu.width = 6*buttonMenuWidth + 7*frameWidth;
 	canvasMenu.height = buttonMenuHeight + 2*frameWidth;
 	//canvasAuthor = document.getElementById('canvasAuthor');
 	//ctxAuthor=canvasAuthor.getContext('2d');
