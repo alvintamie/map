@@ -25,7 +25,6 @@ function initializeCoAuthor() {
 	divCoAuthor.style.width = '0px';
 	divCoAuthor.style.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
-	console.log("coauthor");
 	var temp = document.createElement('div');
 	divCoAuthor.appendChild(temp);
 	temp.setAttribute('id', "contentCoAuthor");
@@ -40,6 +39,7 @@ function initializeCoAuthor() {
 
 function updateCoauthors () {
 	removecontentCoAuthorChild();
+	console.log("update");
 	if (coauthorsObject.length>0) {
 		for (var i=0; i<coauthorsObject.length; i++) {
 			var temp = document.createElement('div');
