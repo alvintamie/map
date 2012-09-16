@@ -81,8 +81,8 @@ function insertCoauthors(i) {
 	temp = document.createElement('div');
 	document.getElementById("CoAuthor"+i).appendChild(temp);
 	if (coauthorsObject[i].affiliationName) temp.innerHTML = "Affiliation: " + coauthorsObject[i].affiliationName + "<br>";
-	if (coauthorsObject[i].city) temp.innerHTML += "City: " += coauthorsObject[i].city + "<br>";
-	if (coauthorsObject[i].country) temp.innerHTML += "Country:" += coauthorsObject[i].country;
+	if (coauthorsObject[i].city) temp.innerHTML += "City: " + coauthorsObject[i].city + "<br>";
+	if (coauthorsObject[i].country) temp.innerHTML += "Country:" + coauthorsObject[i].country;
 	temp.setAttribute('id', "CoAuthor" + i + "_affiliation");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
