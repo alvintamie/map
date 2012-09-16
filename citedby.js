@@ -25,10 +25,7 @@ function initializeCitedBy() {
 	divCitedBy.style.width = '0px';
 	divCitedBy.style.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
-}
-
-function updateCitedBy () {
-	removecontentCitedByChild();
+	
 	var temp = document.createElement('div');
 	divCitedBy.appendChild(temp);
 	temp.setAttribute('id', "contentCitedBy");
@@ -39,6 +36,10 @@ function updateCitedBy () {
 	temp.style.height = citedByHeight-topbarHeight+7 +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
+}
+
+function updateCitedBy () {
+	removecontentCitedByChild();
 	if (citedbyObject.length>0) {
 		for (var i=0; i<citedbyObject.length; i++) {
 			var temp = document.createElement('div');
