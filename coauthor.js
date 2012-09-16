@@ -76,7 +76,7 @@ function insertCoauthors(i) {
 	temp.onclick = function () {showListCoAuthor(i);};
 	temp = document.createElement("a");
 	temp.href = "javascript:window.open('" + coauthorsObject[i].url + "')";
-	temp.textContent = = (currentLevelCoauthors-1)*200+i+1 + " " + coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
+	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
 	document.getElementById("CoAuthor"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("CoAuthor"+i).appendChild(temp);
