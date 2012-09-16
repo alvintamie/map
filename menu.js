@@ -69,5 +69,5 @@ function initializeMenu(){
 			changeViewAffiliation();
 		}
 	}
-}	}
-}
+}	
+
