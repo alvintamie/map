@@ -39,7 +39,7 @@ function initializeCoAuthor() {
 
 function updateCoauthors () {
 	removecontentCoAuthorChild();
-	console.log("update");
+	//console.log("update");
 	if (coauthorsObject.length>0) {
 		for (var i=0; i<coauthorsObject.length; i++) {
 			var temp = document.createElement('div');
@@ -96,7 +96,7 @@ function insertCoauthors(i) {
 }
 
 function showListCoAuthor(i) {
-	//console.log("show");
+	console.log("show");
 	if (listCoAuthorMode[i]==0) {
 		document.getElementById("CoAuthor" + i + "_image").src = imgContract.src;
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
