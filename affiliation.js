@@ -19,7 +19,7 @@ function initializeAffiliation() {
 	//divAffiliation.style.display = "none";
 	divAffiliation.style.width = '0px';
 	divAffiliation.style.height = '0px';
-	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
+	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 6*frameWidth+5*buttonMenuWidth, frameWidth);
 }
 
 function mouseDownAffiliation(e){
@@ -48,7 +48,7 @@ function changeViewAffiliation() {
 	affiliationStatus += affiliationIncrement;
 	divAffiliation.style.width = affiliationStatus*affiliationWidth/affiliationTotalSteps + "px";
 	divAffiliation.style.height = affiliationStatus*affiliationHeight/affiliationTotalSteps + "px";
-	divAffiliation.style.left = (canvasMenu.offsetLeft+5*frameWidth+9*buttonMenuWidth/2) + affiliationStatus*(affiliationPosX+affiliationWidth/2-canvasMenu.offsetLeft-5*frameWidth-9*buttonMenuWidth/2)/affiliationTotalSteps - affiliationStatus*affiliationWidth/2/affiliationTotalSteps + "px";
+	divAffiliation.style.left = (canvasMenu.offsetLeft+6*frameWidth+11*buttonMenuWidth/2) + affiliationStatus*(affiliationPosX+affiliationWidth/2-canvasMenu.offsetLeft-6*frameWidth-11*buttonMenuWidth/2)/affiliationTotalSteps - affiliationStatus*affiliationWidth/2/affiliationTotalSteps + "px";
 	divAffiliation.style.top = (canvasMenu.offsetTop+canvasMenu.height/2) + affiliationStatus*(affiliationPosY-canvasMenu.offsetTop-canvasMenu.height/2)/affiliationTotalSteps + "px";
 	if (affiliationStatus > 0) {
 		//divAffiliation.style.display = "block";
@@ -58,7 +58,7 @@ function changeViewAffiliation() {
 		//divAffiliation.style.display = "none";
 		affiliationVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
+	ctxMenu.putImageData(imgDataMenu[affiliationVisible], 6*frameWidth+5*buttonMenuWidth, frameWidth);
 	if (affiliationStatus > 0 && affiliationStatus <affiliationTotalSteps) setTimeout (changeViewAffiliation, 10);
 }
 
