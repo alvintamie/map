@@ -122,7 +122,7 @@ function expandAffiliationCoAuthor(i) {
 	}
 }
 
-function contractAbstractCited(i) {
+function contractAffiliationCoAuthor(i) {
 	//console.log(i);
 	listCoAuthorState[i] -= 1;
 	document.getElementById("CoAuthor" + i + "_affiliation").style.height = listCoAuthorState[i]*listCoAuthorHeight[i]/listCoAuthorTotal + 'px';
