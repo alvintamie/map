@@ -74,56 +74,58 @@ function insertCoauthors(i) {
 	temp.setAttribute('id', "CoAuthor" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
-	//temp.onclick = function () {showListhCoAuthor(i);};
+	temp.onclick = function () {showListCoAuthor(i);};
 	document.getElementById("CoAuthor"+i).appendChild(temp);
-	document.getElementById("CoAuthor"+i).innerHTML += coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
-	/*
+	document.getElementById("CoAuthor"+i).innerHTML += (currentLevelCoauthors-1)*200+i+1 + " ";
+	document.getElementById("CoAuthor+i").innerHTML += coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
 	temp = document.createElement('div');
-	document.getElementById("CitedBy"+i).appendChild(temp);
-	temp.innerHTML = citedbyObject[i].Abstract;
-	temp.setAttribute('id', "CitedBy" + i + "_abstract");
+	document.getElementById("CoAuthor"+i).appendChild(temp);
+	if (coauthorsObject[i].affiliationName) temp.innerHTML = "Affiliation: " + coauthorsObject[i].affiliationName + "<br>";
+	if (coauthorsObject[i].city) temp.innerHTML += "City: " += coauthorsObject[i].city + "<br>";
+	if (coauthorsObject[i].country) temp.innerHTML += "Country:" += coauthorsObject[i].country;
+	temp.setAttribute('id', "CoAuthor" + i + "_affiliation");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = citedByWidth - 45 + 'px';
-	temp.style.overflow = 'hidden';
-	abstractCitedHeight[i] = temp.clientHeight;
+	//temp.style.overflow = 'hidden';
+	listCoAuthorHeight[i] = temp.clientHeight;
 	temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
-	abstractCitedState[i] = 0;
-	abstractCitedMode[i] = 0;*/
+	listCoAuthorState[i] = 0;
+	listCoAuthorMode[i] = 0;*/
 }
-/*
-function showAbstractCited(i) {
+
+function showListCoAuthor(i) {
 	//console.log("show");
-	if (abstractCitedMode[i]==0) {
-		document.getElementById("CitedBy" + i + "_image").src = imgContract.src;
+	if (listCoAuthorMode[i]==0) {
+		document.getElementById("CoAuthor" + i + "_image").src = imgContract.src;
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
-		abstractCitedMode[i] = 1;
-		expandAbstractCited(i);
+		listCoAuthorMode[i] = 1;
+		expandAffiliationCoAuthor(i);
 	}
 	else {
-		document.getElementById("CitedBy" + i + "_image").src = imgExpand.src;
-		abstractCitedMode[i] = 0;
-		contractAbstractCited(i);
+		document.getElementById("CoAuthor" + i + "_image").src = imgExpand.src;
+		listCoAuthorMode[i] = 0;
+		contractAffiliationCoAuthor);
 	}
 }
 
-function expandAbstractCited(i) {
+function expandAffiliationCoAuthor(i) {
 	//console.log(i);
-	abstractCitedState[i] += 1;
-	document.getElementById("CitedBy" + i + "_abstract").style.height = abstractCitedState[i]*abstractCitedHeight[i]/abstractCitedTotal + 'px';
+	listCoAuthorState[i] += 1;
+	document.getElementById("CoAuthor" + i + "_affiliation").style.height = listCoAuthorState[i]*listCoAuthorHeight[i]/listCoAuthorTotal + 'px';
 	//console.log(abstractCitedHeight[i]);
-	if (abstractCitedState[i]<abstractCitedTotal && abstractCitedMode[i]==1) {
-		setTimeout (function() {expandAbstractCited(i)}, 10);
+	if (listCoAuthorState[i]<listCoAuthorTotal && listCoAuthorMode[i]==1) {
+		setTimeout (function() {expandAffiliationCoAuthor(i);}, 10);
 	}
 }
 
 function contractAbstractCited(i) {
 	//console.log(i);
-	abstractCitedState[i] -= 1;
-	document.getElementById("CitedBy" + i + "_abstract").style.height = abstractCitedState[i]*abstractCitedHeight[i]/abstractCitedTotal + 'px';
-	if (abstractCitedState[i]>0 && abstractCitedMode[i]==0) {
-		setTimeout (function(){contractAbstractCited(i);}, 10);
+	listCoAuthorState[i] -= 1;
+	document.getElementById("CoAuthor" + i + "_affiliation").style.height = listCoAuthorState[i]*listCoAuthorHeight[i]/listCoAuthorTotal + 'px';
+	if (listCoAuthorState[i]>0 && listCoAuthorMode[i]==0) {
+		setTimeout (function(){contractAffiliationCoAuthor(i);}, 10);
 	}
 	//else if (abstractRefMode[i]==0)
 		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
