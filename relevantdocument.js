@@ -38,7 +38,7 @@ function initializeRelevantDocument () {
 
 function updateRelevantDocument () {
 	removecontentRelevantDocumentChild();
-	if (relevantbyObject.length>0) {
+	if (relevantDocumentObject.length>0) {
 		for (var i=0; i<relevantDocumentObject.length; i++) {
 			var temp = document.createElement('div');
 			document.getElementById("contentRelevantDocument").appendChild(temp);
