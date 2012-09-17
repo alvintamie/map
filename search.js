@@ -51,7 +51,7 @@ function updatecontentSearch_query() {
 	contentSearch_query.appendChild(tempForm);
 	
 	tempText = document.createElement('input');
-	tempText.input.type = 'text';
+	tempText.type = 'text';
 	tempText.setAttribute('name', 'search_inputText');
 	tempForm.appendChild(tempText);
 	
