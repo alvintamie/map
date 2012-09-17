@@ -47,16 +47,21 @@ function initializeSearch() {
 function updatecontentSearch_query() {
 	removecontentSearch_queryChild();
 	var contentSearch_query = document.getElementById("contentSearch_query");
-	var tempForm = document.createElement('form');
-	contentSearch_query.appendChild(tempForm);
+	var searchForm = document.createElement('form');
+	contentSearch_query.appendChild(searchForm);
 	
-	tempText = document.createElement('input');
-	tempText.type = 'text';
-	tempText.setAttribute('name', 'search_inputText');
-	tempForm.appendChild(tempText);
+	searchText = document.createElement('input');
+	searchText.type = 'text';
+	searchText.setAttribute('name', 'search_inputText');
+	searchForm.appendChild(searchext);
 	
-	tempSelect = document.createElement('select');
-	
+	searchSelect = document.createElement('select');
+	searchSelect.setAttribute('name', 'search_inputSelect')
+	for (var i=0; i<searchElement.length; i++) {
+		searchSelect.option[i].value = i;
+		searchSelect.option[i].text = searchElement[i];
+	}
+	searchForm.appendChild(searchSelect);
 }
 
 function removecontentSearch_queryChild() {
