@@ -20,6 +20,49 @@ function initializeSearch() {
 	divSearch.style.width = '0px';
 	divSearch.style.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
+	
+	var temp = document.createElement('div');
+	divSearch.appendChild(temp);
+	temp.setAttribute('id', "contentSearch");
+	temp.style.position = 'absolute';
+	temp.style.top = topbarHeight-9 + 'px';
+	temp.style.left = 1 + 'px';
+	temp.style.width = citedByWidth-2 + 'px';
+	temp.style.height = citedByHeight-topbarHeight+7 +'px';
+	temp.style['overflow-x'] = 'hidden';
+	temp.style['overflow-y'] = 'auto';
+	
+	var contentSearch = document.getElementById('contentSearch');
+	temp = document.createElement('div');
+	contentSearch.appendChild(temp);
+	temp.setAttribute('id', 'contentSearch_query');
+	
+	temp = document.createElement('div');
+	contentSearch.appendChild(temp);
+	temp.setAttribute('id', 'contentSearch_result');
+	
+	updatecontentSearch_query();
+}
+
+function updatecontentSearch_query() {
+	removecontentSearch_queryChild();
+	var contentSearch_query = document.getElementById("contentSearch_query");
+	var tempForm = createElement('form');
+	contentSearch_query.appendChild(tempForm);
+	
+	tempText = createElement('input');
+	tempText.input.type = 'text';
+	tempText.setAttribute('name', 'search_inputText');
+	tempForm.appendChild(tempText);
+	
+	tempSelect = createElement('select');
+	
+}
+
+function removecontentSearch_queryChild() {
+	var el = document.getElementById("contentSearch_query");
+	while (el.firstChild)
+		el.removeChild(el.firstChild);
 }
 
 function mouseDownSearch(e){
