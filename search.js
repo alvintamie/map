@@ -53,7 +53,7 @@ function updatecontentSearch_query() {
 	searchText = document.createElement('input');
 	searchText.type = 'text';
 	searchText.setAttribute('name', 'search_inputText');
-	searchForm.appendChild(searchext);
+	searchForm.appendChild(searchText);
 	
 	searchSelect = document.createElement('select');
 	searchSelect.setAttribute('name', 'search_inputSelect')
