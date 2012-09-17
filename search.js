@@ -47,15 +47,15 @@ function initializeSearch() {
 function updatecontentSearch_query() {
 	removecontentSearch_queryChild();
 	var contentSearch_query = document.getElementById("contentSearch_query");
-	var tempForm = createElement('form');
+	var tempForm = document.createElement('form');
 	contentSearch_query.appendChild(tempForm);
 	
-	tempText = createElement('input');
+	tempText = document.createElement('input');
 	tempText.input.type = 'text';
 	tempText.setAttribute('name', 'search_inputText');
 	tempForm.appendChild(tempText);
 	
-	tempSelect = createElement('select');
+	tempSelect = document.createElement('select');
 	
 }
 
