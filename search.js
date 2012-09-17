@@ -50,18 +50,18 @@ function updatecontentSearch_query() {
 	var searchForm = document.createElement('form');
 	contentSearch_query.appendChild(searchForm);
 	
-	searchText = document.createElement('input');
+	var searchText = document.createElement('input');
 	searchText.type = 'text';
 	searchText.setAttribute('name', 'search_inputText');
 	searchForm.appendChild(searchText);
-	
+	/*
 	searchSelect = document.createElement('select');
 	searchSelect.setAttribute('name', 'search_inputSelect')
 	for (var i=0; i<searchElement.length; i++) {
 		searchSelect.option[i].value = i;
 		searchSelect.option[i].text = searchElement[i];
 	}
-	searchForm.appendChild(searchSelect);
+	searchForm.appendChild(searchSelect);*/
 }
 
 function removecontentSearch_queryChild() {
