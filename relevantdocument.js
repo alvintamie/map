@@ -21,7 +21,8 @@ function initializeRelevantDocument () {
 	relevantDocumentPosY = divRelevantDocument.offsetTop;
 	relevantDocumentWidth = parseInt(divRelevantDocument.style.width);
 	relevantDocumentHeight = parseInt(divRelevantDocument.style.height);
-	divRelevantDocument.style.display = "none";
+	//divRelevantDocument.style.display = "none";
+	divRelevantDocument.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 	
 	var temp = document.createElement('div');
