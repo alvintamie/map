@@ -54,14 +54,14 @@ function updatecontentSearch_query() {
 	searchText.type = 'text';
 	searchText.setAttribute('name', 'search_inputText');
 	searchForm.appendChild(searchText);
-	
+	/*
 	var searchSelect = document.createElement('select');
 	searchSelect.setAttribute('name', 'search_inputSelect')
 	for (var i=0; i<searchElement.length; i++) {
 		searchSelect.options[i].value = i;
 		searchSelect.options[i].text = searchElement[i];
 	}
-	searchForm.appendChild(searchSelect);
+	searchForm.appendChild(searchSelect);*/
 }
 
 function removecontentSearch_queryChild() {
