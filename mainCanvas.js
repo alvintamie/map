@@ -4,14 +4,15 @@ function initializeMainCanvas(){
 		ctx = canvas.getContext('2d');
 		ctx.fillStyle = "rgb(120,120,120)";
 		
-		canvas.ondblclick = function(){ goTo(100,100,300,300);}
+		//canvas.ondblclick = function(){ goTo(100,100,300,300);}
 		
 		
 		canvas.onmousedown = function(e) {
-		isDown = true;
-		mouseDownCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
-		startCoords = [(e.clientX-canvasPosX) - last[0],(e.clientY-canvasPosY) - last[1]];
-	};
+			isDown = true;
+			mouseDownCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
+			startCoords = [(e.clientX-canvasPosX) - last[0],(e.clientY-canvasPosY) - last[1]];
+			listenAllClick(mouseDownCoords[0], mouseDownCoords[1], 15);
+		};
 	
 		canvas.onmousemove = function(e) {
 			mouseInCanvas = 1;
