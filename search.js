@@ -108,7 +108,7 @@ function addSearchQuery(searchText, searchSelect) {
 			//searchSelect.value = 0;
 			searchIndexQuery.push(searchSelect.value);
 			searchStringQuery.push(searchText.value);
-			updateContentSearchQuery();
+			updatecontentSearchQuery();
 		}
 	}
 
