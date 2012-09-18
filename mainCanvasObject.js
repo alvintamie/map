@@ -13,13 +13,14 @@ function renderCanvasObject(){
 	for(var i=0;i<canvasObject.length;i++){
 			drawObject(canvasObject[i].img,canvasObject[i].x,canvasObject[i].y);}
 	drawObject(canvasObjectAuthor.img,canvasObjectAuthor.x,canvasObjectAuthor.y);
+	drawText(10,100);
 
 }
 
 function drawObject(im,x,y){
-
+	
 			if(readyScroll<0) { 
-			ctx.drawImage(imgObject[im],nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1])	;		
+			ctx.drawImage(imgObject[im],nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);		
 			if(imageCoords[0]<0)
 			ctx.drawImage(imgObject[im],nready_x_p+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
 			else
@@ -32,6 +33,11 @@ function drawObject(im,x,y){
 			else
 			ctx.drawImage(imgObject[im],ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]); 
 	}
+}
+
+function drawText(x,y){
+	ctx.font = "bold 36px sans-serif";
+	ctx.fillText("HubPages", x, y);
 }
 
 function drawObjectLine(obj1,obj2){
