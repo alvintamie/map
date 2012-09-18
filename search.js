@@ -9,6 +9,9 @@ var searchPosX;
 var searchPosY;
 var searchWidth;
 var searchHeight;
+var modeEdit = 0;
+var searchEIndex = new Array();
+var searchENumber = new Array();
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
@@ -47,20 +50,37 @@ function initializeSearch() {
 function updatecontentSearch_query() {
 	removecontentSearch_queryChild();
 	var contentSearch_query = document.getElementById("contentSearch_query");
-	var searchForm = document.createElement('form');
-	contentSearch_query.appendChild(searchForm);
+	
+	var searchCategory = document.createElement('div');
+	searchCategory.setAttribute('id', "contentSearchQuery_category");
+	contentSearch_query.appendChild(searchCategory);
+	
+	var searchField = document.createElement('div');
+	contentSearch_query.appendChild(searchField);
 	
 	var searchText = document.createElement('input');
 	searchText.type = 'text';
 	searchText.setAttribute('name', 'search_inputText');
-	searchForm.appendChild(searchText);
+	searchField.appendChild(searchText);
 	
 	var searchSelect = document.createElement('select');
 	searchSelect.setAttribute('name', 'search_inputSelect')
 	for (var i=0; i<searchElement.length; i++) {
 		searchSelect.options[i] = new Option (searchElement[i], i);
 	}
-	searchForm.appendChild(searchSelect);
+	searchField.appendChild(searchSelect);
+	
+	var searchAdd = document.createElement('a');
+	searchAdd.textContent = "add";
+	searchField.appendChild(searchAdd);
+	searchAdd.href = "#";
+	searchAdd.onclick = function() {addSearchQuery(searchText, searchSelect);};
+	/*
+	var searchRemove = document.createElement('a');
+	searchRemove.textContent = "remove";
+	searchField.appendChild(searchRemove);
+	searchRemove.href = "#";
+	searchRemove.onclick = function() {updatecontentSearch_query();};*/
 }
 
 function removecontentSearch_queryChild() {
@@ -68,6 +88,17 @@ function removecontentSearch_queryChild() {
 	while (el.firstChild)
 		el.removeChild(el.firstChild);
 }
+
+function addSearchQuery(searchText, searchSelect) {
+		if (!searchText.value) {
+			alert ("The text box is empty.");
+		}
+		else {
+			document.getElementById("contentSearchQuery_category").innerHTML += searchSelect.options[searchSelect.value].text + ": " + searchText.value + "<br>";
+			searchText.value = "";
+			searchSelect.value = 0;
+		}
+	}
 
 function mouseDownSearch(e){
 	divSearch.style['z-index'] = zIndex;
