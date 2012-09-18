@@ -61,7 +61,8 @@ function updatecontentSearchQuery() {
 		var temp = document.createElement('a');
 		temp.textContent = "edit";
 		temp.href = "#";
-		temp.innerHTML += "<br>";
+		searchCategory.appendChild(temp);
+		searchCategory.innerHTML += "<br>";
 	}
 	
 	var searchField = document.createElement('div');
