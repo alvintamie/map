@@ -1,4 +1,3 @@
-
 function initializeMainCanvas(){
 	
 		canvas = document.getElementById('canvas');
@@ -84,6 +83,7 @@ function renderScroll(){
 		ctx.drawImage(img[zoom],nready_x_n+1,imageTempCoords[1],tempWidthImage,img[zoom].height*multiplier); 
 		}
 		moveCursor();
+		refreshShow();
 	}
 		
 function moveImage(){			
