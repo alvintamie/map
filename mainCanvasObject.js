@@ -13,8 +13,7 @@ function renderCanvasObject(){
 	for(var i=0;i<canvasObject.length;i++){
 			drawObject(canvasObject[i].img,canvasObject[i].x,canvasObject[i].y);}
 	drawObject(canvasObjectAuthor.img,canvasObjectAuthor.x,canvasObjectAuthor.y);
-	drawText(10,100);
-
+	drawText("hello",canvasObjectAuthor.x,canvasObjectAuthor.y);
 }
 
 function drawObject(im,x,y){
@@ -35,9 +34,22 @@ function drawObject(im,x,y){
 	}
 }
 
-function drawText(x,y){
-	ctx.font = "bold 36px sans-serif";
-	ctx.fillText("HubPages", x, y);
+function drawText(text,x,y){
+	ctx.font = "bold 12px sans-serif";
+	if(readyScroll<0) { 
+		ctx.fillText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);		
+		if(imageCoords[0]<0)
+		ctx.fillText(text,nready_x_p+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
+		else
+		ctx.fillText(text,nready_x_n+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
+	}
+	if(readyScroll>0) {
+		ctx.fillText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+		if(imageCoords[0]<0)
+		ctx.fillText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]); 
+		else
+		ctx.fillText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]); 
+	}
 }
 
 function drawObjectLine(obj1,obj2){
