@@ -9,9 +9,9 @@ var searchPosX;
 var searchPosY;
 var searchWidth;
 var searchHeight;
-var modeEdit = 0;
-var searchEIndex = new Array();
-var searchENumber = new Array();
+var modeEdit = -1;
+var searchIndexQuery = new Array();
+var searchStringQuery = new Array();
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
@@ -44,16 +44,24 @@ function initializeSearch() {
 	contentSearch.appendChild(temp);
 	temp.setAttribute('id', 'contentSearch_result');
 	
-	updatecontentSearch_query();
+	updatecontentSearchQuery();
 }
 
-function updatecontentSearch_query() {
-	removecontentSearch_queryChild();
+function updatecontentSearchQuery() {
+	removecontentSearchQueryChild();
 	var contentSearch_query = document.getElementById("contentSearch_query");
 	
 	var searchCategory = document.createElement('div');
 	searchCategory.setAttribute('id', "contentSearchQuery_category");
 	contentSearch_query.appendChild(searchCategory);
+	
+	for (var i=0; i<searchIndex.length; i++) {
+		searchCategory.innerHTML += searchElement[searchIndexQuery[i]] + " : " + searchStringQuery[i];
+		var temp = document.createElement('a');
+		temp.textContent = "edit";
+		temp.href = "#";
+		temp.innerHTML += "<br>";
+	}
 	
 	var searchField = document.createElement('div');
 	contentSearch_query.appendChild(searchField);
@@ -83,7 +91,7 @@ function updatecontentSearch_query() {
 	searchRemove.onclick = function() {updatecontentSearch_query();};*/
 }
 
-function removecontentSearch_queryChild() {
+function removecontentSearchQueryChild() {
 	var el = document.getElementById("contentSearch_query");
 	while (el.firstChild)
 		el.removeChild(el.firstChild);
@@ -94,9 +102,12 @@ function addSearchQuery(searchText, searchSelect) {
 			alert ("The text box is empty.");
 		}
 		else {
-			document.getElementById("contentSearchQuery_category").innerHTML += searchSelect.options[searchSelect.value].text + ": " + searchText.value + "<br>";
-			searchText.value = "";
-			searchSelect.value = 0;
+			//document.getElementById("contentSearchQuery_category").innerHTML += searchSelect.options[searchSelect.value].text + ": " + searchText.value + "<br>";
+			//searchText.value = "";
+			//searchSelect.value = 0;
+			searchIndexQuery.push(searchSelect.value);
+			searchStringQuery.push(searchText.value);
+			updateContentSearchQuery();
 		}
 	}
 
