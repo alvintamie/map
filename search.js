@@ -55,6 +55,7 @@ function updatecontentSearchQuery() {
 	searchCategory.setAttribute('id', "contentSearchQuery_category");
 	contentSearch_query.appendChild(searchCategory);
 	
+	console.log(searchIndexQuery.length);
 	for (var i=0; i<searchIndexQuery.length; i++) {
 		searchCategory.innerHTML += searchElement[searchIndexQuery[i]] + " : " + searchStringQuery[i];
 		var temp = document.createElement('a');
