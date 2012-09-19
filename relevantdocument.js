@@ -54,7 +54,7 @@ function initializeRelevantDocument () {
 			showRelevantDocumentHref.textContent = "Show documents in map";
 		}
 	}
-	showRelevantDocumentHref.textContent = "Show documents in map";
+	showRelevantDocumentHref.textContent = "Hide documents in map";
 }
 
 function updateRelevantDocument (rdObject, rdMode) {
