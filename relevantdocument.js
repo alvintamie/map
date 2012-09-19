@@ -63,7 +63,6 @@ function updateRelevantDocument (rdObject, rdMode) {
 		contentRelevantDocument.appendChild(showRelevantDocumentHref);
 		contentRelevantDocument.appendChild(document.createElement('br'));
 		if (rdMode==1) {
-			console.log("haha");
 			var temp = document.createElement('a');
 			temp.href = "#";
 			temp.onclick = function () {updateRelevantDocument(relevantDocumentObject, 0);};
@@ -73,9 +72,9 @@ function updateRelevantDocument (rdObject, rdMode) {
 		}
 		
 		for (var i=0; i<rdObject.length; i++) {
-			if (rdMode==1 && i==0) {
-				contentRelevantDocument.appendChild(rdObject[i].country);
-			}
+			//if (rdMode==1 && i==0) {
+			//	contentRelevantDocument.appendChild(rdObject[i].country);
+			//}
 			var temp = document.createElement('div');
 			document.getElementById("contentRelevantDocument").appendChild(temp);
 			temp.setAttribute('id', "RelevantDocument" + i);
