@@ -8,7 +8,7 @@ function renderCanvasObject(){
 			obj_dis_y=multiplier*multiplierObjectY[zoom];
 			obj_m_x=multiplier*multiplierObjectX[zoom];
 			obj_m_y=multiplier*multiplierObjectY[zoom];
-	if(canvasObjectAuthor)
+	if(canvasObjectAuthor.status==-1)
 	for(var i=0;i<canvasObject.length;i++){
 			drawObjectLine(canvasObjectAuthor,canvasObject[i])};
 	for(var i=0;i<canvasObject.length;i++){
