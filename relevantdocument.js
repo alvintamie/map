@@ -14,6 +14,9 @@ var abstractRelevantHeight = new Array();
 var abstractRelevantState = new Array();
 var abstractRelevantMode = new Array();
 var abstractRelevantTotal = 20;
+var contentRelevantDocument;
+var showRelevantDocumentinMap = 1;
+var showRelevantDocumentHref;
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
@@ -26,50 +29,80 @@ function initializeRelevantDocument () {
 	divRelevantDocument.style.width = '0px';
 	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 	
-	var temp = document.createElement('div');
-	divRelevantDocument.appendChild(temp);
-	temp.setAttribute('id', "contentRelevantDocument");
-	temp.style.position = 'absolute';
-	temp.style.top = topbarHeight-9 + 'px';
-	temp.style.left = 1 + 'px';
-	temp.style.width = citedByWidth-2 + 'px';
-	temp.style.height = citedByHeight-topbarHeight+7 +'px';
-	temp.style['overflow-x'] = 'hidden';
-	temp.style['overflow-y'] = 'auto';
+	contentRelevantDocument = document.createElement('div');
+	divRelevantDocument.appendChild(contentRelevantDocument);
+	contentRelevantDocument.setAttribute('id', "contentRelevantDocument");
+	contentRelevantDocument.style.position = 'absolute';
+	contentRelevantDocument.style.top = topbarHeight-9 + 'px';
+	contentRelevantDocument.style.left = 1 + 'px';
+	contentRelevantDocument.style.width = citedByWidth-2 + 'px';
+	contentRelevantDocument.style.height = citedByHeight-topbarHeight+7 +'px';
+	contentRelevantDocument.style['overflow-x'] = 'hidden';
+	contentRelevantDocument.style['overflow-y'] = 'auto';
+	
+	showRelevantDocumentHref= document.createElement('a');
+	showRelevantDocumentHref.href = "#";
+	showRelevantDocumentHref.onclick = function () {
+		if  (showRelevantDocumentinMap==0) {
+			showRelevantDocumentinMap = 1;
+			showResult(0, relevantDocumentObject);
+			showRelevantDocumentHref.textContent = "Hide documents in map";
+		}
+		else {
+			showRelevantDocumentinMap = 0;
+			clearCanvasObject();
+			showRelevantDocumentHref.textContent = "Show documents in map";
+		}
+	}
+	showRelevantDocumentHref.textContent = "Show documents in map";
 }
 
-function updateRelevantDocument () {
+function updateRelevantDocument (rdObject, rdMode) {
 	removecontentRelevantDocumentChild();
-	if (relevantDocumentObject.length>0) {
-		for (var i=0; i<relevantDocumentObject.length; i++) {
+	if (rdObject.length>0) {
+		contentRelevantDocument.appendChild(showRelevantDocumentHref);
+		contentRelevantDocument.appendChild(document.createElement('br'));
+		if (rdMode==1) {
+			var temp = document.createElement('a');
+			temp.href = "#";
+			temp.onclick = function () {updateRelevantDocument(relevantDocumentObject, 0);};
+			temp.textContent = "Show all result";
+			contentRelevantDocument.appendChild(temp);
+			contentRelevantDocument.appendChild(document.createElement('br'));
+		}
+		
+		for (var i=0; i<rdObject.length; i++) {
 			var temp = document.createElement('div');
 			document.getElementById("contentRelevantDocument").appendChild(temp);
 			temp.setAttribute('id', "RelevantDocument" + i);
 			temp.style.position = 'relative';
 			temp.style.left = 3 + 'px';
-			insertRelevantDocument(i);
+			insertRelevantDocument(rdObject, i);
 		}
 		//console.log(currentLevelCitation);
 		//console.log(totalLevelCitation);
-		if (currentLevelRelevantDocument>1) {
-			temp = document.createElement('a');
-			document.getElementById("contentRelevantDocument").appendChild(temp);
-			temp.href="javascript:downRelevantDocument()";
-			temp.textContent = "Previous";
+		if (rdMode==0) {
+			if (currentLevelRelevantDocument>1) {
+				temp = document.createElement('a');
+				document.getElementById("contentRelevantDocument").appendChild(temp);
+				temp.href="javascript:downRelevantDocument()";
+				temp.textContent = "Previous";
+				contentRelevantDocument.appendChild(document.createTextNode(" "));
+			}
+			if (currentLevelRelevantDocument<totalLevelRelevantDocument) {
+				temp = document.createElement('a');
+				document.getElementById("contentRelevantDocument"). appendChild(temp);
+				temp.href = "javascript:upRelevantDocument()";
+				temp.textContent = "Next";
+			}
 		}
-		if (currentLevelRelevantDocument<totalLevelRelevantDocument) {
-			temp = document.createElement('a');
-			document.getElementById("contentRelevantDocument"). appendChild(temp);
-			temp.href = "javascript:upRelevantDocument()";
-			temp.textContent = "Next";
-		}	
 	}
 	else {
-		document.getElementById("contentRelevantDocument").innerHTML = "No relevant document has been found.";
+		document.getElementById("contentRelevantDocument").innerHTML = "No relevant document is found.";
 	}
 }
 
-function insertRelevantDocument(i) {
+function insertRelevantDocument(rdObject, i) {
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "RelevantDocument" + i + "_image");
 	temp.src = imgExpand.src;
