@@ -10,10 +10,13 @@ var searchPosY;
 var searchWidth;
 var searchHeight;
 var modeEdit = -1;
+var searchBoolString = ("AND", "OR");
 var searchIndexQuery = new Array();
 var searchStringQuery = new Array();
+var searchBoolQuery = new Array();
 var searchText;
 var searchSelect;
+var searchBoolSelect;
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
@@ -58,6 +61,12 @@ function initializeSearch() {
 	}
 	
 	updatecontentSearchQuery();
+	
+	searchBoolSelect = document.createElement('select');
+	searchSelect.setAttribute('name', 'search_inputBoolSelect');
+	for (var i=0; i<searchBoolString.length; i++) {
+		searchBoolSelect.options[i] = new Option (searchBoolString[i], i);
+	}
 }
 
 function updatecontentSearchQuery() {
@@ -70,6 +79,10 @@ function updatecontentSearchQuery() {
 	
 	for (var i=0; i<searchIndexQuery.length; i++) {
 		if (modeEdit==i) {
+			if (i>0) {
+				searchBoolSelect.value = searchBoolQuery[modeEdit];
+				searchCategory.appendChild(searchBoolSelect);
+			}
 			searchText.value = searchStringQuery[modeEdit];
 			searchCategory.appendChild(searchText);
 			searchSelect.value = searchIndexQuery[modeEdit];
@@ -89,6 +102,9 @@ function updatecontentSearchQuery() {
 			searchCancel.onclick = function() {cancelQueryChange();};
 		}
 		else {
+			if (i>0) {
+				searchCategory.appendChild(document.createTextNode(searchBoolString[i]+" "));
+			}
 			searchCategory.appendChild(document.createTextNode(searchElement[searchIndexQuery[i]] + " : " + searchStringQuery[i] + " "));
 			if (modeEdit==-1) {
 				var searchEdit = document.createElement('a');
@@ -109,6 +125,11 @@ function updatecontentSearchQuery() {
 	if (modeEdit==-1) {
 		var searchField = document.createElement('div');
 		contentSearch_query.appendChild(searchField);
+		
+		if (searchIndexQuery.length>0) {
+			searchBoolSelect.value = 0;
+			searchField.appendChild(searchBoolSelect);
+		}
 		
 		searchText.value = "";
 		searchField.appendChild(searchText);
@@ -147,6 +168,7 @@ function addSearchQuery() {
 		alert ("Please specify a value to the text box.");
 	}
 	else {
+		searchBoolQuery.push(searchBoolSelect.value);
 		searchIndexQuery.push(searchSelect.value);
 		searchStringQuery.push(searchText.value);
 		updatecontentSearchQuery();
@@ -155,6 +177,7 @@ function addSearchQuery() {
 }
 
 function resetSearchQuery() {
+	searchBoolQuery = [];
 	searchIndexQuery = [];
 	searchStringQuery = [];
 	updatecontentSearchQuery();
@@ -179,6 +202,7 @@ function editSearchQuery(editNumber) {
 }
 
 function removeSearchQuery(removeNumber) {
+	searchBoolQuery.splice(removeNumber, 1);
 	searchIndexQuery.splice(removeNumber, 1);
 	searchStringQuery.splice(removeNumber, 1);
 	modeEdit = -1;
@@ -190,6 +214,7 @@ function acceptQueryChange() {
 		alert("Please specify a value to the text box.");
 	}	
 	else {
+		searchBoolQuery[modeEdit] = searchBoolSelect.value;
 		searchIndexQuery[modeEdit] = searchSelect.value;
 		searchStringQuery[modeEdit] = searchText.value;
 		modeEdit = -1;
