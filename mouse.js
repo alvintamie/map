@@ -42,7 +42,7 @@ function getMouseUp(e) {
 	}
 
 function scroll(e){
-		if(readyScroll==1 && mouseInCanvas){
+		if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
 			//console.log(mouseInCanvas);
 			multiplier=1;
 			timeBefore = 0;
