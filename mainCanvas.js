@@ -12,7 +12,7 @@ function initializeMainCanvas(){
 			mouseDownCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
 			startCoords = [(e.clientX-canvasPosX) - last[0],(e.clientY-canvasPosY) - last[1]];
 			var clickMapCoords = [(mouseDownCoords[0]-canvas.offsetLeft)%img[zoom].width, (mouseDownCoords[1]-canvas.offsetTop)%img[zoom].height];
-			if (clickMapCoords[0] < 0) clickMapCoords += img[zoom].width;
+			if (clickMapCoords[0] < 0) clickMapCoords[0] += img[zoom].width;
 			console.log(clickMapCoords[0]);
 		//	if (clickMapCoords[1] < 0) clickMapCoords += img[zoom].height;
 			listenAllClick(clickMapCoords[0],clickMapCoords[1], 0);
