@@ -103,7 +103,7 @@ function updatecontentSearchQuery() {
 		}
 		else {
 			if (i>0) {
-				searchCategory.appendChild(document.createTextNode(searchBoolString[i]+" "));
+				searchCategory.appendChild(document.createTextNode(searchBoolString[searchBoolQuery[i]]+" "));
 			}
 			searchCategory.appendChild(document.createTextNode(searchElement[searchIndexQuery[i]] + " : " + searchStringQuery[i] + " "));
 			if (modeEdit==-1) {
