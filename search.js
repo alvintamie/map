@@ -24,6 +24,7 @@ function initializeSearch() {
 	//divSearch.style.display = "none";
 	divSearch.style.width = '0px';
 	divSearch.style.height = '0px';
+	divSearch.style.overflow = 'hidden';
 	ctxMenu.putImageData(imgDataMenu[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
 	
 	var temp = document.createElement('div');
