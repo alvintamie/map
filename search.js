@@ -159,10 +159,17 @@ function resetSearchQuery() {
 	updatecontentSearchQuery();
 }
 function submitSearchQuery() {
-	for (var i=0; i<searchIndexQuery.length; i++) {
-	
+	if (searchIndexQuery.length==0) {
+		alert("Please insert a query.");
 	}
-	updatecontentSearchQuery();
+	else {
+		resetQuery();
+		for (var i=0; i<searchIndexQuery.length; i++) {
+			addQuery(searchStringQuery[i], searchIndexQuery[i]);
+		}
+		submitQuery(0);
+		updatecontentSearchQuery();
+	}
 }
 
 function editSearchQuery(editNumber) {
