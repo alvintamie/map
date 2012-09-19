@@ -11,7 +11,7 @@ function initializeMainCanvas(){
 			isDown = true;
 			mouseDownCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
 			startCoords = [(e.clientX-canvasPosX) - last[0],(e.clientY-canvasPosY) - last[1]];
-			listenAllClick(mouseDownCoords[0], mouseDownCoords[1], 0);
+			listenAllClick(mouseDownCoords[0]-canvasPosX, mouseDownCoords[1]-canvasPosY, 0);
 		};
 	
 		canvas.onmousemove = function(e) {
