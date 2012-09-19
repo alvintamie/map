@@ -73,7 +73,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 		
 		for (var i=0; i<rdObject.length; i++) {
 			if (rdMode==1 && (i==0 || rdObject[i].country!=rdObject[i-1].country)) {
-				contentRelevantDocument.appendChild(rdObject[i].country);
+				contentRelevantDocument.appendChild(document.createTextNode(rdObject[i].country));
 			}
 			var temp = document.createElement('div');
 			document.getElementById("contentRelevantDocument").appendChild(temp);
