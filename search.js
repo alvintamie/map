@@ -176,7 +176,7 @@ function updatecontentSearchQuery() {
 		searchField.appendChild(document.createTextNode("Published year"));
 		searchField.appendChild(document.createElement('br'));
 		searchField.appendChild(document.createTextNode("from year : "));
-		searchField.appendChild(searchYearFromSelect);
+		//searchField.appendChild(searchYearFromSelect);
 		searchField.appendChild(document.createElement('br'));
 		searchField.appendChild(document.createTextNode("to year : "));
 		searchField.appendChild(searchYearToSelect);
