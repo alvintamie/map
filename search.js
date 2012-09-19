@@ -70,8 +70,6 @@ function initializeSearch() {
 		searchSelect.options[i] = new Option (searchElement[i], i);
 	}
 	
-	updatecontentSearchQuery();
-	
 	searchBoolSelect = document.createElement('select');
 	searchSelect.setAttribute('name', 'search_inputBoolSelect');
 	for (var i=0; i<searchBoolString.length; i++) {
@@ -84,13 +82,14 @@ function initializeSearch() {
 		searchYearFromSelect.options[i] = new Option (searchYearFromString[i], i);
 	}
 	searchYearFromSelect.value = searchYearFromString.length-1;
-	console.log(searchYearFromSelect.value);
 	
 	searchYearToSelect = document.createElement('select');
 	searchYearToSelect.setAttribute('name', 'search_inputYearToSelect');
 	for (var i=0; i<searchYearToString.length; i++) {
 		searchYearToSelect.options[i] = new Option (searchYearToString[i], i);
 	}
+	
+	updatecontentSearchQuery();
 }
 
 function updatecontentSearchQuery() {
@@ -176,11 +175,11 @@ function updatecontentSearchQuery() {
 		
 		searchField.appendChild(document.createTextNode("Published year"));
 		searchField.appendChild(document.createElement('br'));
-		searchField.appendChild(document.createTextNode("from year : "));
-		//searchField.appendChild(searchYearFromSelect);
+		searchField.appendChild(document.createTextNode("from : "));
+		searchField.appendChild(searchYearFromSelect);
 		searchField.appendChild(document.createElement('br'));
-		searchField.appendChild(document.createTextNode("to year : "));
-		//searchField.appendChild(searchYearToSelect);
+		searchField.appendChild(document.createTextNode("to : "));
+		searchField.appendChild(searchYearToSelect);
 		searchField.appendChild(document.createElement('br'));
 		
 		var searchSubmitButton = document.createElement('button');
@@ -218,6 +217,9 @@ function resetSearchQuery() {
 function submitSearchQuery() {
 	if (searchIndexQuery.length==0) {
 		alert("Please insert a query.");
+	}
+	else if (searchYearFromSelect.value<searchYearToSelect.value-1) {
+		alert("The year cannot be from higher value to lower value.")
 	}
 	else {
 		resetQuery();
