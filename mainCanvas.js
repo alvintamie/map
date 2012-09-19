@@ -11,7 +11,7 @@ function initializeMainCanvas(){
 			isDown = true;
 			mouseDownCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
 			startCoords = [(e.clientX-canvasPosX) - last[0],(e.clientY-canvasPosY) - last[1]];
-			listenAllClick(mouseDownCoords[0], mouseDownCoords[1], 15);
+			listenAllClick(mouseDownCoords[0], mouseDownCoords[1], 0);
 		};
 	
 		canvas.onmousemove = function(e) {
@@ -56,6 +56,7 @@ function renderScroll(){
 						imageCoords[1] *=- 1;
 						mouseDownCoords = [mouseX - imageCoords[0], mouseY - imageCoords[1]];	
 						zoom++;
+						refreshShow();
 					}
 					else {
 						imageCoords[0] = (deltaMouseX-imageCoords[0])*img[zoom-1].width/img[zoom].width-deltaMouseX;
@@ -63,7 +64,9 @@ function renderScroll(){
 						imageCoords[0]*=-1;
 						imageCoords[1]*=-1;
 						mouseDownCoords = [mouseX - imageCoords[0], mouseY - imageCoords[1]];
-						zoom--;}
+						zoom--;
+						refreshShow();
+					}
 					readyScroll=1;
 					multiplier=0;
 					
@@ -84,7 +87,6 @@ function renderScroll(){
 		ctx.drawImage(img[zoom],nready_x_n+1,imageTempCoords[1],tempWidthImage,img[zoom].height*multiplier); 
 		}
 		moveCursor();
-		refreshShow();
 	}
 		
 function moveImage(){			
