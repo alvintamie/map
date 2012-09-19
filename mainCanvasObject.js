@@ -106,6 +106,7 @@ function addCanvasObjectAuthor(x,y,imgNumber){
 	}
 
 function clearCanvasObject(){
+	canvasObjectAuthor = new Object();
 	canvasObject=[];
 	}
 
