@@ -221,8 +221,9 @@ function submitSearchQuery() {
 	}
 	else {
 		resetQuery();
+		searchBoolQuery[0] = 0;
 		for (var i=0; i<searchIndexQuery.length; i++) {
-			addQuery(searchStringQuery[i], searchIndexQuery[i]);
+			addQuery(searchStringQuery[i], searchIndexQuery[i], !searchBoolQuery[i]);
 		}
 		submitQuery(0);
 		searchYearFromSelect.value = searchYearFromString.length-1;
