@@ -63,6 +63,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 		contentRelevantDocument.appendChild(showRelevantDocumentHref);
 		contentRelevantDocument.appendChild(document.createElement('br'));
 		if (rdMode==1) {
+			console.log("haha");
 			var temp = document.createElement('a');
 			temp.href = "#";
 			temp.onclick = function () {updateRelevantDocument(relevantDocumentObject, 0);};
