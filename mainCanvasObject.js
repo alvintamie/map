@@ -110,8 +110,8 @@ function addCanvasObjectAuthor(x,y,imgNumber){
 
 function clearCanvasObject(){
 	console.log("test clear canvas");
-	canvasObjectAuthor.status=-1;
 	canvasObjectAuthor= new Object();
+	canvasObjectAuthor.status=-1;
 	canvasObject=[];
 	}
 
