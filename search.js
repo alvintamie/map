@@ -84,6 +84,7 @@ function initializeSearch() {
 		searchYearFromSelect.options[i] = new Option (searchYearFromString[i], i);
 	}
 	searchYearFromSelect.value = searchYearFromString.length-1;
+	console.log(searchYearFromString[4]);
 	
 	searchYearToSelect = document.createElement('select');
 	searchYearToSelect.setAttribute('name', 'search_inputYearToSelect');
