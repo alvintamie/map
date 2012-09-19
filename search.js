@@ -225,7 +225,7 @@ function submitSearchQuery() {
 		resetQuery();
 		searchBoolQuery[0] = 0;
 		for (var i=0; i<searchIndexQuery.length; i++) {
-			addQuery(searchStringQuery[i], searchIndexQuery[i], !searchBoolQuery[i]);
+			addQuery(searchStringQuery[i], searchIndexQuery[i], 1-searchBoolQuery[i]);
 			console.log(!searchBoolQuery[i]);
 		}
 		submitQuery(0);
