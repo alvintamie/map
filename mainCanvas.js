@@ -1,5 +1,6 @@
+var _scrollReady=0;
 function initializeMainCanvas(){
-	
+		_scrollReady=1;
 		canvas = document.getElementById('canvas');
 		ctx = canvas.getContext('2d');
 		ctx.fillStyle = "rgb(120,120,120)";
