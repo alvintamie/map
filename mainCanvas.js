@@ -1,4 +1,4 @@
-var _scrollReady=0;
+var _readyScroll=0;
 function initializeMainCanvas(){
 		_scrollReady=1;
 		canvas = document.getElementById('canvas');
