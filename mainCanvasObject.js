@@ -11,7 +11,6 @@ function renderCanvasObject(){
 			obj_m_y=multiplier*multiplierObjectY[zoom];
 	console.log(" render canvas object console "+canvasObjectAuthor.status);
 	if(canvasObjectAuthor.status!=-1){
-		console.log(" render canvas object console1 "+canvasObjectAuthor.status);
 	for(var i=0;i<canvasObject.length;i++){
 			drawObjectLine(canvasObjectAuthor,canvasObject[i])};}
 	for(var i=0;i<canvasObject.length;i++){
@@ -110,6 +109,7 @@ function addCanvasObjectAuthor(x,y,imgNumber){
 	}
 
 function clearCanvasObject(){
+	console.log("test clear canvas");
 	canvasObjectAuthor.status=-1;
 	canvasObjectAuthor= new Object();
 	canvasObject=[];
