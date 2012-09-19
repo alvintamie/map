@@ -179,7 +179,7 @@ function updatecontentSearchQuery() {
 		//searchField.appendChild(searchYearFromSelect);
 		searchField.appendChild(document.createElement('br'));
 		searchField.appendChild(document.createTextNode("to year : "));
-		searchField.appendChild(searchYearToSelect);
+		//searchField.appendChild(searchYearToSelect);
 		searchField.appendChild(document.createElement('br'));
 		
 		var searchSubmitButton = document.createElement('button');
