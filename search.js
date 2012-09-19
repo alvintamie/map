@@ -88,6 +88,7 @@ function initializeSearch() {
 	for (var i=0; i<searchYearToString.length; i++) {
 		searchYearToSelect.options[i] = new Option (searchYearToString[i], i);
 	}
+	searchYearFromSelect.style.width = searchYearToSelect.clientWidth + 'px';
 	
 	updatecontentSearchQuery();
 }
