@@ -39,7 +39,7 @@ function renderCanvas(){
 			else{
 			ready_x_n=ready_x-img[zoom].width;
 			ctx.drawImage(img[zoom],ready_x_n,imageCoords[1]); }
-			displayCountry();
+			//displayCountry();
 	}
 }
 function renderScroll(){
