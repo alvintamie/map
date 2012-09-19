@@ -11,12 +11,22 @@ var searchWidth;
 var searchHeight;
 var modeEdit = -1;
 var searchBoolString = new Array("AND", "OR");
+var searchYearFromString  = new Array(2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999,
+				1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
+				1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 1971,
+				1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961, 1960, "All year");
+var searchYearToString = new Array("Present", 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000,
+				1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986,
+				1985, 1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 
+				1971, 1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961, 1960, "Before 1960");
 var searchIndexQuery = new Array();
 var searchStringQuery = new Array();
 var searchBoolQuery = new Array();
 var searchText;
 var searchSelect;
 var searchBoolSelect;
+var searchYearFromSelect;
+var searchYearToSelect;
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
@@ -66,6 +76,19 @@ function initializeSearch() {
 	searchSelect.setAttribute('name', 'search_inputBoolSelect');
 	for (var i=0; i<searchBoolString.length; i++) {
 		searchBoolSelect.options[i] = new Option (searchBoolString[i], i);
+	}
+	
+	searchYearFromSelect = document.createElement('select');
+	searchYearFromSelect.setAttribute('name', 'search_inputYearFromSelect');
+	for (var i=0; i<searchYearFromString.length; i++) {
+		searchYearFromSelect.options[i] = new Option (searchYearFromString[i], i);
+	}
+	searchYearFromSelect.value = searchYearFromString.length-1;
+	
+	searchYearToSelect = document.createElement('select');
+	searchYearToSelect.setAttribute('name', 'search_inputYearToSelect');
+	for (var i=0; i<searchYearToString.length; i++) {
+		searchYearToSelect.options[i] = new Option (searchYearToString[i], i);
 	}
 }
 
@@ -150,6 +173,15 @@ function updatecontentSearchQuery() {
 		searchReset.onclick = function() {resetSearchQuery();};
 		searchField.appendChild(document.createElement('br'));
 		
+		searchField.appendChild(document.createTextNode("Published year"));
+		searchField.appendChild(document.createElement('br'));
+		searchField.appendChild(document.createTextNode("from year : "));
+		searchField.appendChild(searchYearFromSelect);
+		searchField.appendChild(document.createElement('br'));
+		searchField.appendChild(document.createTextNode("to year : "));
+		searchField.appendChild(searchYearToSelect);
+		searchField.appendChild(document.createElement('br'));
+		
 		var searchSubmitButton = document.createElement('button');
 		searchSubmitButton.textContent = "Search";
 		searchField.appendChild(searchSubmitButton);
@@ -192,6 +224,8 @@ function submitSearchQuery() {
 			addQuery(searchStringQuery[i], searchIndexQuery[i]);
 		}
 		submitQuery(0);
+		searchYearFromSelect.value = searchYearFromString.length-1;
+		searchYearToSelect.value = 0;
 		updatecontentSearchQuery();
 	}
 }
