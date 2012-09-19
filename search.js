@@ -10,7 +10,7 @@ var searchPosY;
 var searchWidth;
 var searchHeight;
 var modeEdit = -1;
-var searchBoolString = ("AND", "OR");
+var searchBoolString = new Array("AND", "OR");
 var searchIndexQuery = new Array();
 var searchStringQuery = new Array();
 var searchBoolQuery = new Array();
