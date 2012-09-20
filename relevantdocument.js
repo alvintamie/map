@@ -84,14 +84,14 @@ function updateRelevantDocument (rdObject, rdMode) {
 			contentRelevantDocument.appendChild(document.createElement('br'));
 		}
 		else {
-			var temp = document.createElement('a');
-			temp.textContent = "View country distribution";
-			temp.href = "#";
-			temp.onclick = function () {
+			var hrefCDRD = document.createElement('a');
+			hrefCDRD.textContent = "View country distribution";
+			hrefCDRD.href = "#";
+			hrefCDRD.onclick = function () {
 				showRelevantDocumentCountryDistribution();
-				//if (modeCountryDistributionRelevantDocument==0)
-				//	temp.textContent = "View country distribution";
-				//else temp.textContent = "Hide country distribution";
+				if (modeCountryDistributionRelevantDocument==0)
+					hrefCDRD.textContent = "View country distribution";
+				else hrefCDRD.textContent = "Hide country distribution";
 			};
 			contentRelevantDocument.appendChild (temp);
 		}
