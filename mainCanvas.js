@@ -33,6 +33,7 @@ function renderCanvas(){
 			renderScroll();}
 	if(readyScroll>0) {
 			ready_x=Math.round(imageCoords[0])%img[zoom].width;
+			console.log("ready_x :"+ready_x);
 			ctx.drawImage(img[zoom],ready_x,imageCoords[1]); 
 			if(imageCoords[0]<0){
 			ready_x_p=ready_x+img[zoom].width;
