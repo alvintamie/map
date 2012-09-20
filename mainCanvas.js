@@ -45,8 +45,7 @@ function renderCanvas(){
 	}
 }
 function renderScroll(){
-		console.log("renderScroll");
-		console.log(img[2]);
+		try{
 		if(_readyScroll==0) return;
 		if(readyScroll==-1){
 			multiplier += 0.05;			
@@ -95,6 +94,8 @@ function renderScroll(){
 		}
 		moveCursor();
 	}
+	catch(e){ console.log("Image is not ready");};
+}
 		
 function moveImage(){			
 	
