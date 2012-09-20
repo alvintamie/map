@@ -65,7 +65,8 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument.style.height = '300px';
 	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 'px';
 	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 'px';
-	divCountryDistributionRelevantDocument.style['z-index'] = 10;
+	divCountryDistributionRelevantDocument.style['z-index'] = 0;
+	divCountryDistributionRelevantDocument.style.display = 'none';
 	document.body.appendChild(divCountryDistributionRelevantDocument);
 }
 
@@ -77,7 +78,12 @@ function updateRelevantDocument (rdObject, rdMode) {
 		if (rdMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
-			temp.onclick = function () {updateRelevantDocument(relevantDocumentObject, 0);};
+			temp.onclick = function () {
+				updateRelevantDocument(relevantDocumentObject, 0);
+				if (modeCountryDistributionRelevantDocument==0)
+					temp.textContent = "Show country distribution";
+				else temp.textContent = "Hide country distribution";
+			};
 			temp.textContent = "Show all result";
 			contentRelevantDocument.appendChild(temp);
 			contentRelevantDocument.appendChild(document.createElement('br'));
@@ -86,7 +92,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 			var temp = document.createElement('a');
 			temp.textContent = "View country distribution";
 			temp.href = "#";
-			//temp.onclick = function () {showRelevantDocumentCountryDistribution();};
+			temp.onclick = function () {showRelevantDocumentCountryDistribution();};
 			contentRelevantDocument.appendChild (temp);
 		}
 		
@@ -163,7 +169,14 @@ function insertRelevantDocument(rdObject, i) {
 }
 
 function showRelevantDocumentCountryDistribution() {
-	
+	if (modeCountryDistributionRelevantDocument==0) {
+		modeCountryDistributionRelevantDocument = 1;
+		divCountryDistributionRelevantDocument.display = 'block';
+	}
+	else {
+		modeCountryDistributionRelevantDocument = 1;
+		divCountryDistributionRelevantDocument.display = 'none';
+	}
 }
 
 
@@ -217,6 +230,7 @@ function removecontentRelevantDocumentChild() {
 
 function mouseDownRelevantDocument(e){
 	divRelevantDocument.style['z-index'] = zIndex;
+	divCountryDistributionRelevantDocument.style['z-index'] = zIndex;
 	zIndex += 1;
 	if(e.clientY-divRelevantDocument.offsetTop<topbarHeight) {
 		if (e.clientX-divRelevantDocument.offsetLeft<=parseInt(divRelevantDocument.style.width)-minimizePosWidth) {
@@ -274,6 +288,8 @@ function relevantDocumentDisplacement(e){
 		lastMouseY = e.clientY;
 		divRelevantDocument.style.left = relevantDocumentPosX + "px";
 		divRelevantDocument.style.top  = relevantDocumentPosY + "px";
+		divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + "px";
+		divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 'px';
 		if(divRelevantDocument.offsetTop<0) {
 			divRelevantDocument.style.top="0px";
 			relevantDocumentPosY = 0;
