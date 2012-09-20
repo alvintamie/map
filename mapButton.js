@@ -10,7 +10,7 @@ function mapButton(){
 	
 	
 		canvasButtonScroll.onmousedown = function(e) {
-		if (e.clientX>canvasPosX+20 && e.clientX<40+canvasPosX && e.clientY>150+canvasPosY && e.clientY<180+canvasPosY) {	
+		if (e.clientX>canvas.offsetLet+20 && e.clientX<40+canvas.offsetLet && e.clientY>150+canvas.offsetTop && e.clientY<180+canvas.offsetTop) {	
 			if (readyScroll==1) {
 				multiplier = 1;
 				timeBefore = 0;
@@ -18,14 +18,14 @@ function mapButton(){
 					readyScroll = -1;
 					triangleSize = 60;
 				}
-				mouseX=canvasPosX+canvas.width/2;
-				mouseY=canvasPosY+canvas.height/2;
+				mouseX=canvas.offsetLet+canvas.width/2;
+				mouseY=canvas.offsetTop+canvas.height/2;
 				deltaMouseX = canvas.width/2;
 				deltaMouseY = canvas.height/2;
 			}
 		}
 		
-		if(e.clientX>canvasPosX+20 && e.clientX<40+canvasPosX && e.clientY>320+canvasPosY && e.clientY<350+canvasPosY){	
+		if(e.clientX>canvas.offsetLet+20 && e.clientX<40+canvas.offsetLet && e.clientY>320+canvas.offsetTop && e.clientY<350+canvas.offsetTop){	
 			if (readyScroll==1) {
 				multiplier = 1;
 				timeBefore = 0;
@@ -33,8 +33,8 @@ function mapButton(){
 					readyScroll = -2;
 					triangleSize = 120;
 				}
-				mouseX = canvasPosX+canvas.width/2;
-				mouseY = canvasPosY+canvas.height/2;
+				mouseX = canvas.offsetLet+canvas.width/2;
+				mouseY = canvas.offsetTop+canvas.height/2;
 				deltaMouseX = canvas.width/2;
 				deltaMouseY = canvas.height/2;
 			}
@@ -43,19 +43,19 @@ function mapButton(){
 	canvasButton.onmousedown = function(e){
 	console.log(e.clientX);
 	console.log(canvasButton.clientLeft);
-		if (e.clientX<canvasButton.width/3+canvasPosX && e.clientY>canvasButton.height/3+canvasPosY && e.clientY<2*canvasButton.height/3+canvasPosY) {	
+		if (e.clientX<canvasButton.width/3+canvas.offsetLet && e.clientY>canvasButton.height/3+canvas.offsetTop && e.clientY<2*canvasButton.height/3+canvas.offsetTop) {	
 			imageCoords[0]+=10;
 		}
 	
-		if (e.clientX>canvasPosX+2*canvasButton.width/3 && e.clientY>canvasButton.height/3+canvasPosY && e.clientY<2*canvasButton.height/3+canvasPosY) {	
+		if (e.clientX>canvas.offsetLet+2*canvasButton.width/3 && e.clientY>canvasButton.height/3+canvas.offsetTop && e.clientY<2*canvasButton.height/3+canvas.offsetTop) {	
 			imageCoords[0]-=10;
 		}
 		
-		if (e.clientX>canvasPosX+canvasButton.width/3 && e.clientX<2*canvasButton.width/3+canvasPosX && e.clientY<canvasButton.height/3+canvasPosY) {	
+		if (e.clientX>canvas.offsetLet+canvasButton.width/3 && e.clientX<2*canvasButton.width/3+canvas.offsetLet && e.clientY<canvasButton.height/3+canvas.offsetTop) {	
 			imageCoords[1]+=10;
 		}
 		
-		if (e.clientX>canvasPosX+canvasButton.width/3 && e.clientX<2*canvasButton.width/3+canvasPosX && e.clientY>2*canvasButton.height/3+canvasPosY) {	
+		if (e.clientX>canvas.offsetLet+canvasButton.width/3 && e.clientX<2*canvasButton.width/3+canvas.offsetLet && e.clientY>2*canvasButton.height/3+canvas.offsetTop) {	
 			imageCoords[1]-=10;
 		}
 	}
