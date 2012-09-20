@@ -5,7 +5,7 @@ function initializeMainCanvas(){
 		ctx = canvas.getContext('2d');
 		ctx.fillStyle = "rgb(120,120,120)";
 		
-		//canvas.ondblclick = function(){ goTo(100,100,300,300);}
+		canvas.ondblclick = function(){ highlight(getObject("Beijing", "China"));}
 		
 		
 		canvas.onmousedown = function(e) {
