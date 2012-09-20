@@ -88,7 +88,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 			temp.textContent = "View country distribution";
 			temp.href = "#";
 			temp.onclick = function () {
-				showRelevantDocumentCountryDistribution();};
+				showRelevantDocumentCountryDistribution();
 				if (modeCountryDistributionRelevantDocument==0)
 					temp.textContent = "View country distribution";
 				else temp.textContent = "Hide country distribution";
