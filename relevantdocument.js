@@ -78,12 +78,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 		if (rdMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
-			temp.onclick = function () {
-				updateRelevantDocument(relevantDocumentObject, 0);
-				if (modeCountryDistributionRelevantDocument==0)
-					temp.textContent = "Show country distribution";
-				else temp.textContent = "Hide country distribution";
-			};
+			temp.onclick = function () {updateRelevantDocument(relevantDocumentObject, 0);};
 			temp.textContent = "Show all result";
 			contentRelevantDocument.appendChild(temp);
 			contentRelevantDocument.appendChild(document.createElement('br'));
@@ -92,7 +87,12 @@ function updateRelevantDocument (rdObject, rdMode) {
 			var temp = document.createElement('a');
 			temp.textContent = "View country distribution";
 			temp.href = "#";
-			temp.onclick = function () {showRelevantDocumentCountryDistribution();};
+			temp.onclick = function () {
+				showRelevantDocumentCountryDistribution();};
+				if (modeCountryDistributionRelevantDocument==0) {
+					temp.textContent = "View country distribution";
+				else temp.textContent = "Hide country distribution";
+			};
 			contentRelevantDocument.appendChild (temp);
 		}
 		
@@ -174,7 +174,7 @@ function showRelevantDocumentCountryDistribution() {
 		divCountryDistributionRelevantDocument.display = 'block';
 	}
 	else {
-		modeCountryDistributionRelevantDocument = 1;
+		modeCountryDistributionRelevantDocument = 0;
 		divCountryDistributionRelevantDocument.display = 'none';
 	}
 }
