@@ -68,6 +68,7 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 'px';
 	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 'px';
 	divCountryDistributionRelevantDocument.style['z-index'] = 0;
+	divCountryDistributionRelevantDocument.style.overflow = 'auto';
 	divCountryDistributionRelevantDocument.style.display = 'none';
 	document.body.appendChild(divCountryDistributionRelevantDocument);
 	
