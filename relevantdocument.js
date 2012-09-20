@@ -139,7 +139,7 @@ function insertRelevantDocument(rdObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (relevantDocumentObject[i].Abstract)
-		temp.appendChild(document.createTextNode(Object[i].Abstract);
+		temp.appendChild(document.createTextNode(Object[i].Abstract));
 	else temp.appendChild(document.createTextNode("Abstract not available"));
 	abstractRelevantHeight[i] = temp.clientHeight;
 	temp.style.overflow = 'hidden';
