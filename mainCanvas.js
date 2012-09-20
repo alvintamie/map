@@ -28,7 +28,7 @@ function initializeMainCanvas(){
 
 
 function renderCanvas(){
-	console.log(img[2]);
+	console.log(img[2].width);
 	if(readyScroll<0) { 
 			renderScroll();}
 	if(readyScroll>0) {
