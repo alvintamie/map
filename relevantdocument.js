@@ -135,7 +135,7 @@ function insertRelevantDocument(rdObject, i) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rdObject[i].url + "')";
-		temp.appendChild(temp);
+		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
 	if (rdObject[i].Abstract)
