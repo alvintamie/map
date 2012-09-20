@@ -92,7 +92,8 @@ function updateRelevantDocument (rdObject, rdMode) {
 				hrefCDRD.textContent = "View country distribution";
 			else hrefCDRD.textContent = "Hide country distribution";
 		};
-		contentRelevantDocument.appendChild (hrefCDRD);
+		contentRelevantDocument.appendChild(hrefCDRD);
+		contentRelevantDocument.appendChild(document.createElement('br'));
 		
 		for (var i=0; i<rdObject.length; i++) {
 			if (rdMode==1 && (i==0 || rdObject[i].country!=rdObject[i-1].country)) {
