@@ -84,6 +84,7 @@ function initializeRelevantDocument () {
 			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 		}
 		showOverallCountryRelevantDocument(countryRelevantDocument);
+		console.log ("bbbbbb");
 	}
 	showOverallCountryRelevantDocument(countryRelevantDocument);
 }
@@ -186,7 +187,6 @@ function insertRelevantDocument(rdObject, i) {
 }
 
 function showRelevantDocumentCountryDistribution() {
-	console.log("ccccc");
 	if (modeCountryDistributionRelevantDocument==0) {
 		modeCountryDistributionRelevantDocument = 1;
 		divCountryDistributionRelevantDocument.style.display = 'block';
