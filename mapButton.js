@@ -10,6 +10,7 @@ function mapButton(){
 	
 	
 		canvasButtonScroll.onmousedown = function(e) {
+		console.log("button scrolll on onmousedown");
 		if (e.clientX>canvas.offsetLet+20 && e.clientX<40+canvas.offsetLet && e.clientY>150+canvas.offsetTop && e.clientY<180+canvas.offsetTop) {	
 			if (readyScroll==1) {
 				multiplier = 1;
@@ -41,6 +42,7 @@ function mapButton(){
 		}
 	}
 	canvasButton.onmousedown = function(e){
+			console.log("button scrolll on onmousedown");
 	console.log(e.clientX);
 	console.log(canvasButton.clientLeft);
 		if (e.clientX<canvasButton.width/3+canvas.offsetLet && e.clientY>canvasButton.height/3+canvas.offsetTop && e.clientY<2*canvasButton.height/3+canvas.offsetTop) {	
