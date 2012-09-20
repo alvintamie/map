@@ -71,7 +71,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 			contentRelevantDocument.appendChild(document.createElement('br'));
 		}
 		else {
-			var temp = document.createElent('a');
+			var temp = document.createElement('a');
 			temp.textContent = "View country distribution";
 			temp.href = "$";
 			temp.onclick = function () {showRelevantDocumentCountryDistribution();};
