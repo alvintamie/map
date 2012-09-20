@@ -54,7 +54,7 @@ function renderScroll(){
 			multiplier -= 0.025;
 		}
 			if(timeBefore>21) { 
-				
+					console.log("ini dia"+deltaMouseX+" "+img[zoom+1].width+" "+deltaMouseX);
 					if(readyScroll==-1) {
 						imageCoords[0] = (deltaMouseX-imageCoords[0])*img[zoom+1].width/img[zoom].width-deltaMouseX;
 						imageCoords[1] = (deltaMouseY-imageCoords[1])*img[zoom+1].height/img[zoom].height-deltaMouseY;
