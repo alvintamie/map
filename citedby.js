@@ -44,7 +44,7 @@ function initializeCitedBy() {
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
 	
-	showCitedByHref= document.createElement('a');
+	showCitedByHref = document.createElement('a');
 	showCitedByHref.href = "#";
 	showCitedByHref.onclick = function () {
 		if  (showCitedByinMap==0) {
@@ -71,7 +71,7 @@ function initializeCitedBy() {
 	divCountryDistributionCitedBy.style.display = 'none';
 	document.body.appendChild(divCountryDistributionCitedBy);
 	
-	hrefCountryTypeRCitedBy = document.createElement('a');
+	hrefCountryTypeCitedBy = document.createElement('a');
 	hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
 	hrefCountryTypeCitedBy.href = "#";
 	hrefCountryTypeCitedBy.onclick - function () {
