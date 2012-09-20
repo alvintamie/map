@@ -45,7 +45,7 @@ function renderCanvas(){
 	}
 }
 function renderScroll(){
-		try{
+		
 		if(_readyScroll==0) return;
 		if(readyScroll==-1){
 			multiplier += 0.05;			
@@ -93,8 +93,8 @@ function renderScroll(){
 		ctx.drawImage(img[zoom],nready_x_n+1,imageTempCoords[1],tempWidthImage,img[zoom].height*multiplier); 
 		}
 		moveCursor();
-	}
-	catch(e){ console.log("Image is not ready");};
+	
+
 }
 		
 function moveImage(){			
