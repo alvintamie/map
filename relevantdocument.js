@@ -89,7 +89,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 			temp.href = "#";
 			temp.onclick = function () {
 				showRelevantDocumentCountryDistribution();};
-				if (modeCountryDistributionRelevantDocument==0) {
+				if (modeCountryDistributionRelevantDocument==0)
 					temp.textContent = "View country distribution";
 				else temp.textContent = "Hide country distribution";
 			};
