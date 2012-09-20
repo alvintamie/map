@@ -19,8 +19,8 @@ function getMouseCoordinates(e){
 		if (readyScroll==1) {
 			mouseX=e.clientX;
 			mouseY=e.clientY;
-			deltaMouseX = mouseX-canvasPosX;
-			deltaMouseY = mouseY-canvasPosY;
+			deltaMouseX = mouseX-canvas.offsetLeft;
+			deltaMouseY = mouseY-canvas.offsetTop;
 		}
 		if(!isDown) return;
 		calculateDelta();
@@ -56,7 +56,7 @@ function scroll(e){
 			}
 			mouseX=e.clientX;
 			mouseY=e.clientY;
-			deltaMouseX = mouseX - canvasPosX;
-			deltaMouseY = mouseY - canvasPosY;
+			deltaMouseX = mouseX - canvas.offsetLeft;
+			deltaMouseY = mouseY - canvas.offsetTop;
 			}
 	}
