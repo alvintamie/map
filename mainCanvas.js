@@ -41,6 +41,7 @@ function renderCanvas(){
 			ready_x_n=ready_x-img[zoom].width;
 			ctx.drawImage(img[zoom],ready_x_n,imageCoords[1]); }
 			//displayCountry();
+			if (highlightObj.status == 1) renderHighlight();
 	}
 }
 function renderScroll(){
