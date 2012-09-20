@@ -2,6 +2,7 @@ var authorMarginX=5;
 var authorMarginY=10;
 var canvasObjectText = new Array();
 var canvasObjectAuthorText;
+var canvasObjectHighlight= new Array();
 function renderCanvasObject(){	
 			authorMarginX=imgObject[0].width/2/multiplierObjectX[zoom];
 			authorMarginY=imgObject[0].height/2/multiplierObjectY[zoom];
@@ -19,6 +20,10 @@ function renderCanvasObject(){
 	}
 	drawObject(canvasObjectAuthor.img,canvasObjectAuthor.x,canvasObjectAuthor.y);
 	drawText(canvasObjectAuthorText,canvasObjectAuthor.x,canvasObjectAuthor.y);
+	for(var i=0;i<canvasObjectHighlight;i++){
+			drawObject(canvasObjectHighlight[i].img,canvasObjectHighlight[i].x,canvasObjectHighlight[i].y);
+	}
+	
 }
 
 function drawObject(im,x,y){
@@ -99,7 +104,16 @@ function addCanvasObject(x,y,imgNumber){
 	obj.img=imgNumber;
 	canvasObject.push(obj);
 	}
+
+function addHighlightObject(x,y,imgNumber){
 	
+		var obj = new Object;
+	obj.x=x;
+	obj.y=y;
+	obj.img=imgNumber;
+	canvasObjectHighlight.push(obj);
+}
+
 function addCanvasObjectAuthor(x,y,imgNumber){
 
 	canvasObjectAuthor.x=x;
@@ -108,9 +122,15 @@ function addCanvasObjectAuthor(x,y,imgNumber){
 	canvasObjectAuthor.status=1;
 	}
 
+function clearCanvasObjectHighlight(){
+	canvasObjectHighlight=[];
+}
+
+
 function clearCanvasObject(){
 	console.log("test clear canvas");
 	canvasObjectAuthor= new Object();
+	canvasObjectHighlight=[];
 	canvasObjectAuthor.status=-1;
 	canvasObject=[];
 	}
