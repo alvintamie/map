@@ -65,7 +65,7 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument.style.height = '300px';
 	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 'px';
 	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-divCountryDistributionRelevantDocument.clientWidth + 'px';
-	
+	divCountryDistributionRelevantDocument.style['z-index'] = 10;
 }
 
 function updateRelevantDocument (rdObject, rdMode) {
