@@ -63,8 +63,8 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument.style.position = 'absolute';
 	divCountryDistributionRelevantDocument.style.width = '200px';
 	divCountryDistributionRelevantDocument.style.height = '300px;
-	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY;
-	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-divCountryDistributionRelevantDocument.clientWidth;
+	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 'px';
+	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-divCountryDistributionRelevantDocument.clientWidth + 'px';
 	
 }
 
