@@ -131,15 +131,15 @@ function insertRelevantDocument(rdObject, i) {
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = relevantDocumentWidth - 45 + 'px';
-	if (relevantDocumentObject[i].url) {
+	if (rdObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
-		temp2.href = "javascript:window.open('" + relevantDocumentObject[i].url + "')";
+		temp2.href = "javascript:window.open('" + rdObject[i].url + "')";
 		temp.appendChild(temp);
 		temp.appendChild(document.createElement('br'));
 	}
-	if (relevantDocumentObject[i].Abstract)
-		temp.appendChild(document.createTextNode(Object[i].Abstract));
+	if (rdObject[i].Abstract)
+		temp.appendChild(document.createTextNode(rdObject[i].Abstract));
 	else temp.appendChild(document.createTextNode("Abstract not available"));
 	abstractRelevantHeight[i] = temp.clientHeight;
 	temp.style.overflow = 'hidden';
