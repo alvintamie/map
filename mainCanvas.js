@@ -11,7 +11,7 @@ function initializeMainCanvas(){
 		canvas.onmousedown = function(e) {
 			isDown = true;
 			mouseDownCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
-			startCoords = [(e.clientX-canvasPosX) - last[0],(e.clientY-canvasPosY) - last[1]];
+			startCoords = [(e.clientX-canvas.offsetLeft) - last[0],(e.clientY-canvas.offsetTop) - last[1]];
 			var clickMapCoords = [(mouseDownCoords[0]-canvas.offsetLeft)%img[zoom].width, (mouseDownCoords[1]-canvas.offsetTop)%img[zoom].height];
 			if (clickMapCoords[0] < 0) clickMapCoords[0] += img[zoom].width;
 			listenAllClick(clickMapCoords[0],clickMapCoords[1], 0);
