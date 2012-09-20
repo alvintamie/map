@@ -1,5 +1,5 @@
 function initializeMenu(){
-	document.onselectstart = function(){ return false; }
+	//document.onselectstart = function(){ return false; }
 
 	canvasMenu = document.getElementById('canvasMenu');
 	ctxMenu=canvasMenu.getContext('2d');
