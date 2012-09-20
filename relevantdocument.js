@@ -75,6 +75,7 @@ function initializeRelevantDocument () {
 	hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 	hrefCountryTypeRelevantDocument.href = "#";
 	hrefCountryTypeRelevantDocument.onclick - function () {
+		console.log("bbbbb");
 		if (modeCountryTypeRelevantDocument==0) {
 			modeCountryTypeRelevantDocument = 1;
 			hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
@@ -84,7 +85,6 @@ function initializeRelevantDocument () {
 			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 		}
 		showOverallCountryRelevantDocument(countryRelevantDocument);
-		console.log ("bbbbbb");
 	}
 	showOverallCountryRelevantDocument(countryRelevantDocument);
 }
