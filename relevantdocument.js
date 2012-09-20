@@ -19,6 +19,8 @@ var showRelevantDocumentinMap = 1;
 var showRelevantDocumentHref;
 var divCountryDistributionRelevantDocument;
 var modeCountryDistributionRelevantDocument = 0;
+var modeCountryTypeRelevantDocument = 0;
+var hrefCountryTypeRelevantDocument;
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
@@ -68,6 +70,21 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument.style['z-index'] = 0;
 	divCountryDistributionRelevantDocument.style.display = 'none';
 	document.body.appendChild(divCountryDistributionRelevantDocument);
+	
+	hrefCountryTypeRelevantDocument = document.createElement('a');
+	hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
+	hrefCountryTypeRelevantDocument.href = "#";
+	hrefCountryTypeRelevantDocument.onclick - function () {
+		if (modeCountryTypeRelevantDocument==0) {
+			modeCountryTypeRelevantDocument = 1;
+			hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
+		}
+		else {
+			modeCountryTypeRelevantDocument = 0;
+			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
+		}
+		showOverallCountryRelevantDocument(countryRelevantDocument);
+	}
 }
 
 function updateRelevantDocument (rdObject, rdMode) {
@@ -176,6 +193,18 @@ function showRelevantDocumentCountryDistribution() {
 	else {
 		modeCountryDistributionRelevantDocument = 0;
 		divCountryDistributionRelevantDocument.style.display = 'none';
+	}
+}
+
+function showOverallCountryRelevantDocument(crdObject) {
+	while (divCountryDistributionRelevantDocument.firstChild) {
+		divCountryDistributionRelevantDocument.removeChild(divCountryDistributionRelevantDocument.firstChild);
+	}
+	divCountryDistributionRelevantDocument.appendChild(hrefCountryTypeRelevantDocument);
+	divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
+	for (var i=0; i<crdObject.length; i++) {
+		divCountryDistributionRelevantDocument.appendChild(document.createTextNode(crdObject[i].name + " : " + crdObject[i].hitCount));
+		divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	}
 }
 
