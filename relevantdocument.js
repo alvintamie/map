@@ -64,7 +64,7 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument.style.width = '200px';
 	divCountryDistributionRelevantDocument.style.height = '300px';
 	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 'px';
-	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-divCountryDistributionRelevantDocument.clientWidth + 'px';
+	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.Width) + 'px';
 	divCountryDistributionRelevantDocument.style['z-index'] = 10;
 	document.body.appendChild(divCountryDistributionRelevantDocument);
 }
