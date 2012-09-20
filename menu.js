@@ -1,6 +1,6 @@
 function initializeMenu(){
 	//document.onselectstart = function(){ return false; }
-
+	document.body.style.overflow = 'hidden';
 	canvasMenu = document.getElementById('canvasMenu');
 	ctxMenu=canvasMenu.getContext('2d');
 	canvasMenu.width = 6*buttonMenuWidth + 7*frameWidth;
