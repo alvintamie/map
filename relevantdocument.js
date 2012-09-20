@@ -17,6 +17,8 @@ var abstractRelevantTotal = 20;
 var contentRelevantDocument;
 var showRelevantDocumentinMap = 1;
 var showRelevantDocumentHref;
+var divCountryDistributionRelevantDocument;
+var modeCountryDistributionRelevantDocument = 0;
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
@@ -55,6 +57,15 @@ function initializeRelevantDocument () {
 		}
 	}
 	showRelevantDocumentHref.textContent = "Hide documents in map";
+	
+	divCountryDistributionRelevantDocument = document.createElement('div');
+	divCountryDistributionRelevantDocument.style.background = 'yellow';
+	divCountryDistributionRelevantDocument.style.position = 'absolute';
+	divCountryDistributionRelevantDocument.style.width = '200px';
+	divCountryDistributionRelevantDocument.style.height = '300px;
+	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY;
+	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-divCountryDistributionRelevantDocument.clientWidth;
+	
 }
 
 function updateRelevantDocument (rdObject, rdMode) {
