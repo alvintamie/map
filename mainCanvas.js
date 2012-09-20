@@ -45,6 +45,7 @@ function renderCanvas(){
 	}
 }
 function renderScroll(){
+		console.log("renderScroll");
 		console.log(img[2]);
 		if(_readyScroll==0) return;
 		if(readyScroll==-1){
