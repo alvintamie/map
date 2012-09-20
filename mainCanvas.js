@@ -45,6 +45,7 @@ function renderCanvas(){
 	}
 }
 function renderScroll(){
+		if(_readyScroll==0) return;
 		if(readyScroll==-1){
 			multiplier += 0.05;			
 		}
