@@ -70,6 +70,13 @@ function updateRelevantDocument (rdObject, rdMode) {
 			contentRelevantDocument.appendChild(temp);
 			contentRelevantDocument.appendChild(document.createElement('br'));
 		}
+		else {
+			var temp = document.createElent('a');
+			temp.textContent = "View country distribution";
+			temp.href = "$";
+			temp.onclick = function () {showRelevantDocumentCountryDistribution();};
+			contentRelevantDocument.appendChild (temp);
+		}
 		
 		for (var i=0; i<rdObject.length; i++) {
 			if (rdMode==1 && (i==0 || rdObject[i].country!=rdObject[i-1].country)) {
@@ -133,6 +140,11 @@ function insertRelevantDocument(rdObject, i) {
 	abstractRelevantState[i] = 0;
 	abstractRelevantMode[i] = 0;
 }
+
+function showRelevantDocumentCountryDistribution() {
+	
+}
+
 
 function showAbstractRelevant(i) {
 	//console.log("show");
