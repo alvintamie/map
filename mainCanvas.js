@@ -28,7 +28,7 @@ function initializeMainCanvas(){
 
 
 function renderCanvas(){
-
+	console.log(img[2]);
 	if(readyScroll<0) { 
 			renderScroll();}
 	if(readyScroll>0) {
@@ -45,7 +45,7 @@ function renderCanvas(){
 	}
 }
 function renderScroll(){
-		
+	
 		if(_readyScroll==0) return;
 		if(readyScroll==-1){
 			multiplier += 0.05;			
