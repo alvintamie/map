@@ -66,7 +66,7 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 'px';
 	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-divCountryDistributionRelevantDocument.clientWidth + 'px';
 	divCountryDistributionRelevantDocument.style['z-index'] = 10;
-	document.appendChild(divCountryDistributionRelevantDocument);
+	//document.appendChild(divCountryDistributionRelevantDocument);
 }
 
 function updateRelevantDocument (rdObject, rdMode) {
