@@ -14,6 +14,13 @@ var abstractCitedHeight = new Array();
 var abstractCitedState = new Array();
 var abstractCitedMode = new Array();
 var abstractCitedTotal = 20;
+var contentCitedBy;
+var showCitedByinMap = 1;
+var showCitedByHref;
+var divCountryDistributionCitedBy;
+var modeCountryDistributionCitedBy = 0;
+var modeCountryTypeCitedBy = 0;
+var hrefCountryTypeCitedBy;
 
 function initializeCitedBy() {
 	divCitedBy = document.getElementById("windowCitedBy");
@@ -36,6 +43,48 @@ function initializeCitedBy() {
 	temp.style.height = citedByHeight-topbarHeight+7 +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
+	
+	showCitedByHref= document.createElement('a');
+	showCitedByHref.href = "#";
+	showCitedByHref.onclick = function () {
+		if  (showCitedByinMap==0) {
+			showCitedByinMap = 1;
+			showResult(0, citedbyObject);
+			showRelevantDocumentHref.textContent = "Hide documents in map";
+		}
+		else {
+			showCitedByinMap = 0;
+			clearCanvasObject();
+			showCitedBy.textContent = "Show documents in map";
+		}
+	}
+	showCitedByHref.textContent = "Hide documents in map";
+	
+	divCountryDistributionCitedBy = document.createElement('div');
+	divCountryDistributionCitedBy.style.background = 'yellow';
+	divCountryDistributionCitedBy.style.position = 'absolute';
+	divCountryDistributionCitedBy.style.width = '200px';
+	divCountryDistributionCitedBy.style.height = '300px';
+	divCountryDistributionCitedBy.style.top = citedByPosY + 'px';
+	divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 'px';
+	divCountryDistributionCitedBy.style['z-index'] = 0;
+	divCountryDistributionCitedBy.style.display = 'none';
+	document.body.appendChild(divCountryDistributionCitedBy);
+	
+	hrefCountryTypeRCitedBy = document.createElement('a');
+	hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
+	hrefCountryTypeCitedBy.href = "#";
+	hrefCountryTypeCitedBy.onclick - function () {
+		if (modeCountryTypeCitedBy==0) {
+			modeCountryTypeCitedBy = 1;
+			hrefCountryTypeCitedBy.textContent = "View overall result distribution";
+		}
+		else {
+			modeCountryTypeCitedBy = 0;
+			hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
+		}
+		//showOverallCountryCitedBy(countryCitedby);
+	}
 }
 
 function updateCitedBy () {
