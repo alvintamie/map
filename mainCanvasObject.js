@@ -20,7 +20,7 @@ function renderCanvasObject(){
 	}
 	drawObject(canvasObjectAuthor.img,canvasObjectAuthor.x,canvasObjectAuthor.y);
 	drawText(canvasObjectAuthorText,canvasObjectAuthor.x,canvasObjectAuthor.y);
-	for(var i=0;i<canvasObjectHighlight;i++){
+	for(var i=0;i<canvasObjectHighlight.length;i++){
 			drawObject(canvasObjectHighlight[i].img,canvasObjectHighlight[i].x,canvasObjectHighlight[i].y);
 	}
 	
