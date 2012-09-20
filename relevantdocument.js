@@ -119,8 +119,9 @@ function insertRelevantDocument(rdObject, i) {
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractRelevant(i);};
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
-	temp = document.createElement("a");
-	temp.href = "javascript:window.open('" + relevantDocumentObject[i].url + "')";
+	temp = document.createElement("#");
+	temp.onclick = function () {if (abstractRelevantMode[i]==0) showAbstractRelevant(i);};
+	temp.href = "#";
 	temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + relevantDocumentObject[i].title;
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
@@ -130,8 +131,16 @@ function insertRelevantDocument(rdObject, i) {
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = relevantDocumentWidth - 45 + 'px';
-	if (relevantDocumentObject[i].Abstract) temp.innerHTML = relevantDocumentObject[i].Abstract;
-	else temp.innerHTML = "Abstract not available";
+	if (relevantDocumentObject[i].url) {
+		var temp2 = document.createElement('a');
+		temp2.textContent = "Show in Scopus";
+		temp2.href = "javascript:window.open('" + relevantDocumentObject[i].url + "')";
+		temp.appendChild(temp);
+		temp.appendChild(document.createElement('br'));
+	}
+	if (relevantDocumentObject[i].Abstract)
+		temp.appendChild(document.createTextNode(Object[i].Abstract);
+	else temp.appendChild(document.createTextNode("Abstract not available"));
 	abstractRelevantHeight[i] = temp.clientHeight;
 	temp.style.overflow = 'hidden';
 	//console.log(abstractRelevantHeight[i]);
