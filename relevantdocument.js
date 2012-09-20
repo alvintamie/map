@@ -157,7 +157,12 @@ function insertRelevantDocument(rdObject, i) {
 	temp.onclick = function () {showAbstractRelevant(i);};
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	temp = document.createElement("a");
-	temp.onclick = function () {if (abstractRelevantMode[i]==0) showAbstractRelevant(i);};
+	temp.onclick = function () {
+		if (abstractRelevantMode[i]==0) {
+			showAbstractRelevant(i);
+			highlight(rdObject[i]);
+		}
+	};
 	temp.href = "#";
 	temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
