@@ -172,11 +172,11 @@ function showRelevantDocumentCountryDistribution() {
 	console.log("ccccc");
 	if (modeCountryDistributionRelevantDocument==0) {
 		modeCountryDistributionRelevantDocument = 1;
-		divCountryDistributionRelevantDocument.display = 'block';
+		divCountryDistributionRelevantDocument.style.display = 'block';
 	}
 	else {
 		modeCountryDistributionRelevantDocument = 0;
-		divCountryDistributionRelevantDocument.display = 'none';
+		divCountryDistributionRelevantDocument.style.display = 'none';
 	}
 }
 
@@ -247,6 +247,8 @@ function mouseDownRelevantDocument(e){
 }
 	
 function changeViewRelevantDocument() {
+	modeCountryDistributionRelevantDocument = 0;
+	divCountryDistributionRelevantDocument.style.display = 'none';
 	if (relevantDocumentStatus <= 0 && relevantDocumentIncrement==-1) {
 		relevantDocumentStatus = 1;
 	}
