@@ -105,7 +105,7 @@ function addCanvasObject(x,y,imgNumber){
 	canvasObject.push(obj);
 	}
 
-function addHighlightObject(x,y,imgNumber){
+function addCanvasHighlightObject(x,y,imgNumber){
 	
 		var obj = new Object;
 	obj.x=x;
