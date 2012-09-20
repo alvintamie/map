@@ -74,7 +74,7 @@ function initializeRelevantDocument () {
 	hrefCountryTypeRelevantDocument = document.createElement('a');
 	hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 	hrefCountryTypeRelevantDocument.href = "#";
-	hrefCountryTypeRelevantDocument.onclick - function () {
+	hrefCountryTypeRelevantDocument.onclick = function () {
 		console.log("bbbbb");
 		if (modeCountryTypeRelevantDocument==0) {
 			modeCountryTypeRelevantDocument = 1;
