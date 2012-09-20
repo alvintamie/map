@@ -85,6 +85,7 @@ function initializeRelevantDocument () {
 		}
 		showOverallCountryRelevantDocument(countryRelevantDocument);
 	}
+	showOverallCountryRelevantDocument(countryRelevantDocument);
 }
 
 function updateRelevantDocument (rdObject, rdMode) {
