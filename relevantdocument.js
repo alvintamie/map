@@ -169,6 +169,7 @@ function insertRelevantDocument(rdObject, i) {
 }
 
 function showRelevantDocumentCountryDistribution() {
+	console.log("ccccc");
 	if (modeCountryDistributionRelevantDocument==0) {
 		modeCountryDistributionRelevantDocument = 1;
 		divCountryDistributionRelevantDocument.display = 'block';
