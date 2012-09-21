@@ -514,7 +514,7 @@ function mouseDownSearch(e){
 function changeViewSearch() {
 	modeCountryDistributionSearch = 0;
 	divCountryDistributionSearch.style.display = 'none';
-	showSearchHref.textContent = "Show documents in map";
+	hrefCDS.textContent = "Show documents in map";
 	if (searchStatus <= 0 && searchIncrement==-1) {
 		searchStatus = 1;
 	}
