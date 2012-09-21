@@ -21,6 +21,7 @@ var divCountryDistributionRelevantDocument;
 var modeCountryDistributionRelevantDocument = 0;
 var modeCountryTypeRelevantDocument = 0;
 var hrefCountryTypeRelevantDocument;
+var hrefCDRD;
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
@@ -103,7 +104,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 			contentRelevantDocument.appendChild(temp);
 			contentRelevantDocument.appendChild(document.createElement('br'));
 		}
-		var hrefCDRD = document.createElement('a');
+		hrefCDRD = document.createElement('a');
 		hrefCDRD.textContent = "View country distribution";
 		hrefCDRD.href = "#";
 		hrefCDRD.onclick = function () {
