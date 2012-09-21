@@ -266,7 +266,7 @@ function cancelQueryChange() {
 	updatecontentSearchQuery();
 }
 
-function updateSearch(sObject, 0) {
+function updateSearch(sObject, sMode) {
 	console.log("search haha");
 }
 
