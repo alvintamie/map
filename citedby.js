@@ -85,6 +85,7 @@ function initializeCitedBy() {
 		}
 		showOverallCountryCitedBy(countryCitedby);
 	}
+	showOverallCountryRelevantDocument(countryCitedby);
 }
 
 function updateCitedBy (cbObject, cbMode) {
