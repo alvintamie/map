@@ -68,6 +68,7 @@ function initializeCitedBy() {
 	divCountryDistributionCitedBy.style.top = citedByPosY + 'px';
 	divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 'px';
 	divCountryDistributionCitedBy.style['z-index'] = 0;
+	divCountryDistributionCitedBy.style.overflow = 'hidden';
 	divCountryDistributionCitedBy.style.display = 'none';
 	document.body.appendChild(divCountryDistributionCitedBy);
 	
