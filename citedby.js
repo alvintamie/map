@@ -167,7 +167,12 @@ function insertCitedBy(cbObject, i) {
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
-	temp.href = "javascript:window.open('" + citedbyObject[i].url + "')";
+	temp.onclick = function () {
+		if (abstractCitedMode[i]==0) {
+			showAbstractCited(i);
+			highlight(cbObject[i]);
+		}
+	};
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("CitedBy"+i).appendChild(temp);
