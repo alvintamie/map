@@ -131,7 +131,7 @@ function initializeSearch() {
 	divCountryDistributionSearch.style.top = searchPosY + 'px';
 	divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
 	divCountryDistributionSearch.style['z-index'] = 0;
-	divCountryDistributionSearch.style.overflow = 'hidden';
+	divCountryDistributionSearch.style.overflow = 'auto';
 	divCountryDistributionSearch.style.display = 'none';
 	document.body.appendChild(divCountryDistributionSearch);
 
@@ -514,6 +514,7 @@ function mouseDownSearch(e){
 function changeViewSearch() {
 	modeCountryDistributionSearch = 0;
 	divCountryDistributionSearch.style.display = 'none';
+	showSearchHref.textContent = "Show documents in map";
 	if (searchStatus <= 0 && searchIncrement==-1) {
 		searchStatus = 1;
 	}
