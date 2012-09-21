@@ -89,6 +89,16 @@ function initializeRelevantDocument () {
 		showOverallCountryRelevantDocument(countryRelevantDocument);
 	}
 	showOverallCountryRelevantDocument(countryRelevantDocument);
+	
+	hrefCDRD = document.createElement('a');
+	hrefCDRD.textContent = "View country distribution";
+	hrefCDRD.href = "#";
+	hrefCDRD.onclick = function () {
+		showRelevantDocumentCountryDistribution();
+		if (modeCountryDistributionRelevantDocument==0)
+			hrefCDRD.textContent = "View country distribution";
+		else hrefCDRD.textContent = "Hide country distribution";
+	};
 }
 
 function updateRelevantDocument (rdObject, rdMode) {
@@ -104,15 +114,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 			contentRelevantDocument.appendChild(temp);
 			contentRelevantDocument.appendChild(document.createElement('br'));
 		}
-		hrefCDRD = document.createElement('a');
-		hrefCDRD.textContent = "View country distribution";
-		hrefCDRD.href = "#";
-		hrefCDRD.onclick = function () {
-			showRelevantDocumentCountryDistribution();
-			if (modeCountryDistributionRelevantDocument==0)
-				hrefCDRD.textContent = "View country distribution";
-			else hrefCDRD.textContent = "Hide country distribution";
-		};
+		
 		contentRelevantDocument.appendChild(hrefCDRD);
 		contentRelevantDocument.appendChild(document.createElement('br'));
 		
