@@ -112,7 +112,7 @@ function initializeSearch() {
 	showSearchHref.onclick = function () {
 		if  (showSearchinMap==0) {
 			showSearchinMap = 1;
-			showResult(0, searchbyObject);
+			showResult(0, queryResults);
 			showSearchHref.textContent = "Hide documents in map";
 		}
 		else {
