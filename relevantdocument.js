@@ -284,6 +284,7 @@ function mouseDownRelevantDocument(e){
 function changeViewRelevantDocument() {
 	modeCountryDistributionRelevantDocument = 0;
 	divCountryDistributionRelevantDocument.style.display = 'none';
+	hrefCDRD.textContent = "Show documents in map";
 	if (relevantDocumentStatus <= 0 && relevantDocumentIncrement==-1) {
 		relevantDocumentStatus = 1;
 	}
