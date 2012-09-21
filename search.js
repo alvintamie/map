@@ -267,11 +267,11 @@ function cancelQueryChange() {
 }
 
 function updateSearch(sObject, 0) {
-	
+	console.log("search haha");
 }
 
 function showOverallCountrySearch(csObject) {
-	
+	console.log ("search country");
 }
 
 function mouseDownSearch(e){
