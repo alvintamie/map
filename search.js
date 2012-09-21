@@ -14,7 +14,7 @@ var searchBoolString = new Array("AND", "OR");
 var searchYearFromString  = new Array(2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999,
 				1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985,
 				1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 1971,
-				1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961, 1960, "All year");
+				1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961, 1960, "All years");
 var searchYearToString = new Array("Present", 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000,
 				1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986,
 				1985, 1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 
@@ -225,7 +225,7 @@ function submitSearchQuery() {
 		resetQuery();
 		searchBoolQuery[0] = 0;
 		for (var i=0; i<searchIndexQuery.length; i++) {
-			addQuery(searchStringQuery[i], searchIndexQuery[i], 1-searchBoolQuery[i]);
+			addQuery(searchStringQuery[i], searchIndexQuery[i], 1-searchBoolQuery[i], searchYearFromString[searchYearFromSelect.value], searchYearToString[searchYearToSelect.value]);
 			//console.log(!searchBoolQuery[i]);
 		}
 		submitQuery(0);
@@ -264,6 +264,14 @@ function acceptQueryChange() {
 function cancelQueryChange() {
 	modeEdit = -1;
 	updatecontentSearchQuery();
+}
+
+function updateSearch(sObject, 0) {
+	
+}
+
+function showOverallCountrySearch(csObject) {
+	
 }
 
 function mouseDownSearch(e){
