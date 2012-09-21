@@ -300,9 +300,6 @@ function submitSearchQuery() {
 			//console.log(!searchBoolQuery[i]);
 		}
 		submitQuery(0);
-		searchYearFromSelect.value = searchYearFromString.length-1;
-		searchYearToSelect.value = 0;
-		updatecontentSearchQuery();
 	}
 }
 
@@ -339,6 +336,9 @@ function cancelQueryChange() {
 
 function updateSearch(sObject, sMode) {
 	console.log("search haha");
+	searchYearFromSelect.value = searchYearFromString.length-1;
+	searchYearToSelect.value = 0;
+	updatecontentSearchQuery();
 	removecontentSearchResultChild();
 	console.log(sObject);
 	if (sObject.length>0) {
