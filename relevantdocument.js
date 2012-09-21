@@ -326,12 +326,13 @@ function relevantDocumentDisplacement(e){
 		lastMouseY = e.clientY;
 		divRelevantDocument.style.left = relevantDocumentPosX + "px";
 		divRelevantDocument.style.top  = relevantDocumentPosY + "px";
-		divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + "px";
-		divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 'px';
 		if(divRelevantDocument.offsetTop<0) {
 			divRelevantDocument.style.top="0px";
 			relevantDocumentPosY = 0;
 		}
+		divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + "px";
+		divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 'px';
+		
 		/*
 		if(divRelevantDocument.offsetLeft<0){
 			divRelevantDocument.style.left="0px";
