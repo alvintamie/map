@@ -323,8 +323,8 @@ function citedByDisplacement(e){
 			divCitedBy.style.top="0px";
 			citedByPosY = 0;
 		}
-		divCountryDistributionCitedBy.style.top = relevantDocumentPosY + "px";
-		divCountryDistributionCitedBy.style.left = relevantDocumentPosX-parseInt(divCountryDistributionCitedBy.style.width) + 'px';
+		divCountryDistributionCitedBy.style.top = citedByPosY + "px";
+		divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 'px';
 		/*
 		if(divCitedBy.offsetLeft<0){
 			divCitedBy.style.left="0px";
