@@ -33,16 +33,16 @@ function initializeCitedBy() {
 	divCitedBy.style.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
 	
-	var temp = document.createElement('div');
-	divCitedBy.appendChild(temp);
-	temp.setAttribute('id', "contentCitedBy");
-	temp.style.position = 'absolute';
-	temp.style.top = topbarHeight-9 + 'px';
-	temp.style.left = 1 + 'px';
-	temp.style.width = citedByWidth-2 + 'px';
-	temp.style.height = citedByHeight-topbarHeight+7 +'px';
-	temp.style['overflow-x'] = 'hidden';
-	temp.style['overflow-y'] = 'auto';
+	contentCitedBy = document.createElement('div');
+	divCitedBy.appendChild(contentCitedBy);
+	contentCitedBy.setAttribute('id', "contentCitedBy");
+	contentCitedBy.style.position = 'absolute';
+	contentCitedBy.style.top = topbarHeight-9 + 'px';
+	contentCitedBy.style.left = 1 + 'px';
+	contentCitedBy.style.width = citedByWidth-2 + 'px';
+	contentCitedBy.style.height = citedByHeight-topbarHeight+7 +'px';
+	contentCitedBy.style['overflow-x'] = 'hidden';
+	contentCitedBy.style['overflow-y'] = 'auto';
 	
 	showCitedByHref = document.createElement('a');
 	showCitedByHref.href = "#";
