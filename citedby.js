@@ -50,12 +50,12 @@ function initializeCitedBy() {
 		if  (showCitedByinMap==0) {
 			showCitedByinMap = 1;
 			showResult(0, citedbyObject);
-			showRelevantDocumentHref.textContent = "Hide documents in map";
+			showCitedByHref.textContent = "Hide documents in map";
 		}
 		else {
 			showCitedByinMap = 0;
 			clearCanvasObject();
-			showCitedBy.textContent = "Show documents in map";
+			showCitedByHref.textContent = "Show documents in map";
 		}
 	}
 	showCitedByHref.textContent = "Hide documents in map";
