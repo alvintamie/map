@@ -401,8 +401,7 @@ function insertSearch(sObject, i) {
 		}
 	};
 	temp.href = "#";
-	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + sObject[i].title;
-	temp.href = "javascript:window.open('" + queryResults[i].url + "')";
+	temp.textContent = (currentLevelSearchEngine-1)*100+i+1 + " " + sObject[i].title;
 	document.getElementById("Search"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("Search"+i).appendChild(temp);
@@ -517,7 +516,7 @@ function mouseDownSearch(e){
 function changeViewSearch() {
 	modeCountryDistributionSearch = 0;
 	divCountryDistributionSearch.style.display = 'none';
-	hrefCDS.textContent = "Show documents in map";
+	hrefCDS.textContent = "View country distribution";
 	if (searchStatus <= 0 && searchIncrement==-1) {
 		searchStatus = 1;
 	}
