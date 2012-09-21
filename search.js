@@ -354,7 +354,7 @@ function updateSearch(sObject, sMode) {
 
 		for (var i=0; i<sObject.length; i++) {
 			var temp = document.createElement('div');
-			document.getElementById("contentSearchResult").appendChild(temp);
+			contentSearchResult.appendChild(temp);
 			temp.setAttribute('id', "Search" + i);
 			temp.style.position = 'relative';
 			temp.style.left = 3 + 'px';
@@ -363,7 +363,7 @@ function updateSearch(sObject, sMode) {
 		if (sMode==0) {
 			if (currentLevelSearchEngine>1) {
 				temp = document.createElement('a');
-				document.getElementById("contentSearchResult").appendChild(temp);
+				contentSearchResult.appendChild(temp);
 				temp.href="javascript:downSearch()";
 				temp.textContent = "Previous";
 				contentSearchResult.appendChild(document.createTextNode(" "));
@@ -371,14 +371,14 @@ function updateSearch(sObject, sMode) {
 
 			if (currentLevelSearchEngine<totalLevelSearchEngine) {
 				temp = document.createElement('a');
-				document.getElementById("contentSearchResult"). appendChild(temp);
+				contentSearchResult. appendChild(temp);
 				temp.href = "javascript:upSearch()";
 				temp.textContent = "Next";
 			}
 		}
 	}
 	else {
-		document.getElementById("contentSearchResult").innerHTML = "There is no result for the query.";
+		contentSearchResult.innerHTML = "There is no result for the query.";
 	}
 }
 
