@@ -484,7 +484,7 @@ function contractAbstractSearch(i) {
 }
 
 function removecontentSearchResultChild() {
-	var el = document.getElementById("contentSearchResult");
+	var el = document.getElementById("contentSearch_result");
 	while (el.firstChild) {
 		//console.log(el.firstChild.id);
 		el.removeChild(el.firstChild);
