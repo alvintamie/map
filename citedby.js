@@ -203,7 +203,7 @@ function showOverallCountryCitedBy(ccbObject) {
 	}
 	divCountryDistributionCitedBy.appendChild(hrefCountryTypeCitedBy);
 	divCountryDistributionCitedBy.appendChild(document.createElement('br'));
-	for (var i=0; i<crdObject.length; i++) {
+	for (var i=0; i<ccbObject.length; i++) {
 		divCountryDistributionCitedBy.appendChild(document.createTextNode(ccbObject[i].name + " : " + ccbObject[i].hitCount));
 		divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	}
