@@ -74,7 +74,7 @@ function initializeCitedBy() {
 	hrefCountryTypeCitedBy = document.createElement('a');
 	hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
 	hrefCountryTypeCitedBy.href = "#";
-	hrefCountryTypeCitedBy.onclick - function () {
+	hrefCountryTypeCitedBy.onclick = function () {
 		if (modeCountryTypeCitedBy==0) {
 			modeCountryTypeCitedBy = 1;
 			hrefCountryTypeCitedBy.textContent = "View overall result distribution";
@@ -131,7 +131,7 @@ function updateCitedBy (cbObject, cbMode) {
 				document.getElementById("contentCitedBy").appendChild(temp);
 				temp.href="javascript:downCitedby()";
 				temp.textContent = "Previous";
-				contentRelevantDocument.appendChild(document.createTextNode(" "));
+				contentCitedBy.appendChild(document.createTextNode(" "));
 			}
 			
 			if (currentLevelCitation<totalLevelCitation) {
