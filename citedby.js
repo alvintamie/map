@@ -83,7 +83,7 @@ function initializeCitedBy() {
 			modeCountryTypeCitedBy = 0;
 			hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
 		}
-		//showOverallCountryCitedBy(countryCitedby);
+		showOverallCountryCitedBy(countryCitedby);
 	}
 }
 
