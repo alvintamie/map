@@ -65,8 +65,8 @@ function initializeReference() {
 	divCountryDistributionReference.style.position = 'absolute';
 	divCountryDistributionReference.style.width = '200px';
 	divCountryDistributionReference.style.height = '300px';
-	divCountryDistributionReference.style.top = citedByPosY + 'px';
-	divCountryDistributionReference.style.left = citedByPosX-parseInt(divCountryDistributionReference.style.width) + 'px';
+	divCountryDistributionReference.style.top = referencePosY + 'px';
+	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 'px';
 	divCountryDistributionReference.style['z-index'] = 0;
 	divCountryDistributionReference.style.overflow = 'hidden';
 	divCountryDistributionReference.style.display = 'none';
