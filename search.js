@@ -131,6 +131,7 @@ function initializeSearch() {
 	divCountryDistributionSearch.style.top = searchPosY + 'px';
 	divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
 	divCountryDistributionSearch.style['z-index'] = 0;
+	divCountryDistributionSearch.style.overflow = 'hidden';
 	divCountryDistributionSearch.style.display = 'none';
 	document.body.appendChild(divCountryDistributionSearch);
 
