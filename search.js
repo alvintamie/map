@@ -151,6 +151,16 @@ function initializeSearch() {
 		showOverallCountrySearch(queryCtry);
 	}
 	showOverallCountrySearch(queryCtry);
+	
+	hrefCDS = document.createElement('a');
+	hrefCDS.textContent = "View country distribution";
+	hrefCDS.href = "#";
+	hrefCDS.onclick = function () {
+		showSearchCountryDistribution();
+		if (modeCountryDistributionSearch==0)
+			hrefCDS.textContent = "View country distribution";
+		else hrefCDS.textContent = "Hide country distribution";
+	};
 }
 
 function updatecontentSearchQuery() {
@@ -342,15 +352,7 @@ function updateSearch(sObject, sMode) {
 			contentSearchResult.appendChild(temp);
 			contentSearchResult.appendChild(document.createElement('br'));
 		}
-		hrefCDS = document.createElement('a');
-		hrefCDS.textContent = "View country distribution";
-		hrefCDS.href = "#";
-		hrefCDS.onclick = function () {
-			showSearchCountryDistribution();
-			if (modeCountryDistributionSearch==0)
-				hrefCDS.textContent = "View country distribution";
-			else hrefCDS.textContent = "Hide country distribution";
-		};
+		
 		contentSearchResult.appendChild(hrefCDS);
 		contentSearchResult.appendChild(document.createElement('br'));
 
