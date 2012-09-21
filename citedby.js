@@ -87,38 +87,64 @@ function initializeCitedBy() {
 	}
 }
 
-function updateCitedBy () {
+function updateCitedBy (cbObject, cbMode) {
 	removecontentCitedByChild();
-	if (citedbyObject.length>0) {
-		for (var i=0; i<citedbyObject.length; i++) {
+	if (cbObject.length>0) {
+		contentCitedBy.appendChild(showCitedByHref);
+		contentCitedBy.appendChild(document.createElement('br'));
+		if (cbMode==1) {
+			var temp = document.createElement('a');
+			temp.href = "#";
+			temp.onclick = function () {updateCitedBy(citedbyObject, 0);};
+			temp.textContent = "Show all result";
+			contentCitedBy.appendChild(temp);
+			contentCitedBy.appendChild(document.createElement('br'));
+		}
+		var hrefCDCB = document.createElement('a');
+		hrefCDCB.textContent = "View country distribution";
+		hrefCDCB.href = "#";
+		hrefCDCB.onclick = function () {
+			showCitedByCountryDistribution();
+			if (modeCountryDistributionCitedBy==0)
+				hrefCDCB.textContent = "View country distribution";
+			else hrefCDCB.textContent = "Hide country distribution";
+		};
+		contentCitedBy.appendChild(hrefCDCB);
+		contentCitedBy.appendChild(document.createElement('br'));
+		//console.log(currentLevelCitation);
+		//console.log(totalLevelCitation);
+		
+		for (var i=0; i<cbObject.length; i++) {
 			var temp = document.createElement('div');
 			document.getElementById("contentCitedBy").appendChild(temp);
 			temp.setAttribute('id', "CitedBy" + i);
 			temp.style.position = 'relative';
 			temp.style.left = 3 + 'px';
-			insertCitedBy(i);
+			insertCitedBy(cbObject, i);
 		}
-		//console.log(currentLevelCitation);
-		//console.log(totalLevelCitation);
-		if (currentLevelCitation>1) {
-			temp = document.createElement('a');
-			document.getElementById("contentCitedBy").appendChild(temp);
-			temp.href="javascript:downCitedby()";
-			temp.textContent = "Previous";
+		if (cbMode==0) {
+			if (currentLevelCitation>1) {
+				temp = document.createElement('a');
+				document.getElementById("contentCitedBy").appendChild(temp);
+				temp.href="javascript:downCitedby()";
+				temp.textContent = "Previous";
+				contentRelevantDocument.appendChild(document.createTextNode(" "));
+			}
+			
+			if (currentLevelCitation<totalLevelCitation) {
+				temp = document.createElement('a');
+				document.getElementById("contentCitedBy"). appendChild(temp);
+				temp.href = "javascript:upCitedby()";
+				temp.textContent = "Next";
+			}
 		}
-		if (currentLevelCitation<totalLevelCitation) {
-			temp = document.createElement('a');
-			document.getElementById("contentCitedBy"). appendChild(temp);
-			temp.href = "javascript:upCitedby()";
-			temp.textContent = "Next";
-		}	
 	}
 	else {
 		document.getElementById("contentCitedBy").innerHTML = "This paper has not been cited yet.";
 	}
 }
 
-function insertCitedBy(i) {
+function insertCitedBy(cbObject, i) {
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "CitedBy" + i + "_image");
 	temp.src = imgExpand.src;
@@ -126,23 +152,61 @@ function insertCitedBy(i) {
 	temp.onclick = function () {showAbstractCited(i);};
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp = document.createElement("a");
+	temp.onclick = function () {
+		if (abstractCitedMode[i]==0) {
+			showAbstractCited(i);
+			highlight(cbObject[i]);
+		}
+	};
+	temp.href = "#";
+	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
 	temp.href = "javascript:window.open('" + citedbyObject[i].url + "')";
-	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + citedbyObject[i].title;
-	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("CitedBy"+i).appendChild(temp);
-	temp.innerHTML = citedbyObject[i].Abstract;
 	temp.setAttribute('id', "CitedBy" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = citedByWidth - 45 + 'px';
+	if (cbObject[i].url) {
+		var temp2 = document.createElement('a');
+		temp2.textContent = "Show in Scopus";
+		temp2.href = "javascript:window.open('" + cbObject[i].url + "')";
+		temp.appendChild(temp2);
+		temp.appendChild(document.createElement('br'));
+	}
+	if (cbObject[i].Abstract)
+		temp.appendChild(document.createTextNode(cbObject[i].Abstract));
+	else temp.appendChild(document.createTextNode("Abstract not available"));
 	temp.style.overflow = 'hidden';
 	abstractCitedHeight[i] = temp.clientHeight;
 	temp.style.height = 0 + 'px';
 	//temp.style.display = 'none';
 	abstractCitedState[i] = 0;
 	abstractCitedMode[i] = 0;
+}
+
+function showCitedByCountryDistribution() {
+	if (modeCountryDistributionCitedBy==0) {
+		modeCountryDistributionCitedBy = 1;
+		divCountryDistributionCitedBy.style.display = 'block';
+	}
+	else {
+		modeCountryDistributionCitedBy = 0;
+		divCountryDistributionCitedBy.style.display = 'none';
+	}
+}
+
+function showOverallCountryCitedBy(ccbObject) {
+	while (divCountryDistributionCitedBy.firstChild) {
+		divCountryDistributionCitedBy.removeChild(divCountryDistributionCitedBy.firstChild);
+	}
+	divCountryDistributionCitedBy.appendChild(hrefCountryTypeCitedBy);
+	divCountryDistributionCitedBy.appendChild(document.createElement('br'));
+	for (var i=0; i<crdObject.length; i++) {
+		divCountryDistributionCitedBy.appendChild(document.createTextNode(ccbObject[i].name + " : " + ccbObject[i].hitCount));
+		divCountryDistributionCitedBy.appendChild(document.createElement('br'));
+	}
 }
 
 function showAbstractCited(i) {
