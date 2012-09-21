@@ -364,7 +364,7 @@ function updateSearch(sObject, sMode) {
 			if (currentLevelSearchEngine>1) {
 				temp = document.createElement('a');
 				contentSearchResult.appendChild(temp);
-				temp.href="javascript:downSearch()";
+				temp.href="javascript:downSearchEngine()";
 				temp.textContent = "Previous";
 				contentSearchResult.appendChild(document.createTextNode(" "));
 			}
@@ -372,7 +372,7 @@ function updateSearch(sObject, sMode) {
 			if (currentLevelSearchEngine<totalLevelSearchEngine) {
 				temp = document.createElement('a');
 				contentSearchResult. appendChild(temp);
-				temp.href = "javascript:upSearch()";
+				temp.href = "javascript:upSearchEngine()";
 				temp.textContent = "Next";
 			}
 		}
@@ -559,8 +559,8 @@ function searchDisplacement(e){
 			divSearch.style.top="0px";
 			searchPosY = 0;
 		}
-		divCountryDistributionSearch.style.top = citedByPosY + "px";
-		divCountryDistributionSearch.style.left = citedByPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
+		divCountryDistributionSearch.style.top = searchPosY + "px";
+		divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
 		/*
 		if(divSearch.offsetLeft<0){
 			divSearch.style.left="0px";
