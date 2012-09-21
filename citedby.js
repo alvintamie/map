@@ -259,6 +259,7 @@ function removecontentCitedByChild() {
 
 function mouseDownCitedBy(e){
   	divCitedBy.style['z-index'] = zIndex;
+  	divCountryDistributionCitedBy.style['z-index'] = zIndex;
 	zIndex += 1;
 	if(e.clientY-divCitedBy.offsetTop<topbarHeight) {
 		if (e.clientX-divCitedBy.offsetLeft<=parseInt(divCitedBy.style.width)-minimizePosWidth) {
@@ -274,6 +275,8 @@ function mouseDownCitedBy(e){
 }
 	
 function changeViewCitedBy() {
+	modeCountryDistributionCitedBy = 0;
+	divCountryDistributionCitedBy.style.display = 'none';
 	if (citedByStatus <= 0 && citedByIncrement==-1) {
 		citedByStatus = 1;
 	}
@@ -320,6 +323,8 @@ function citedByDisplacement(e){
 			divCitedBy.style.top="0px";
 			citedByPosY = 0;
 		}
+		divCountryDistributionCitedBy.style.top = relevantDocumentPosY + "px";
+		divCountryDistributionCitedBy.style.left = relevantDocumentPosX-parseInt(divCountryDistributionCitedBy.style.width) + 'px';
 		/*
 		if(divCitedBy.offsetLeft<0){
 			divCitedBy.style.left="0px";
