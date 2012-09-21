@@ -39,6 +39,7 @@ var divCountryDistributionSearch;
 var modeCountryDistributionSearch = 0;
 var modeCountryTypeSearch = 0;
 var hrefCountryTypeSearch;
+var hrefCDS;
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
@@ -341,7 +342,7 @@ function updateSearch(sObject, sMode) {
 			contentSearchResult.appendChild(temp);
 			contentSearchResult.appendChild(document.createElement('br'));
 		}
-		var hrefCDS = document.createElement('a');
+		hrefCDS = document.createElement('a');
 		hrefCDS.textContent = "View country distribution";
 		hrefCDS.href = "#";
 		hrefCDS.onclick = function () {
