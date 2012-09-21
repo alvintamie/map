@@ -100,7 +100,7 @@ function initializeSearch() {
 	updatecontentSearchQuery();
 	
 	contentSearchResult = document.createElement('div');
-	contentSearch.appendChild(contentResult);
+	contentSearch.appendChild(contentSearchResult);
 	contentSearchResult.setAttribute('id', 'contentSearch_result');
 	contentSearchResult.style.position = 'absolute';
 	contentSearchResult.style.left = 1 + 'px';
