@@ -34,7 +34,7 @@ function initializeReference() {
 	//setTimeout(insertReference, 3000);
 	//console.log("after");
 	contentReference = document.createElement('div');
-	divReference.appendChild(temp);
+	divReference.appendChild(contentReference);
 	contentReference.setAttribute('id', "contentReference");
 	contentReference.style.position = 'absolute';
 	contentReference.style.top = topbarHeight-9 + 'px';
