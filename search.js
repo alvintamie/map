@@ -28,6 +28,18 @@ var searchBoolSelect;
 var searchYearFromSelect;
 var searchYearToSelect;
 
+var abstractSearchHeight = new Array();
+var abstractSearchState = new Array();
+var abstractSearchMode = new Array();
+var abstractSearchTotal = 20;
+var contentSearchResult;
+var showSearchinMap = 1;
+var showSearchHref;
+var divCountryDistributionSearch;
+var modeCountryDistributionSearch = 0;
+var modeCountryTypeSearch = 0;
+var hrefCountryTypeSearch;
+
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
 	searchPosX = divSearch.offsetLeft;
@@ -55,10 +67,6 @@ function initializeSearch() {
 	temp = document.createElement('div');
 	contentSearch.appendChild(temp);
 	temp.setAttribute('id', 'contentSearch_query');
-	
-	temp = document.createElement('div');
-	contentSearch.appendChild(temp);
-	temp.setAttribute('id', 'contentSearch_result');
 	
 	searchText = document.createElement('input');
 	searchText.type = 'text';
@@ -90,6 +98,57 @@ function initializeSearch() {
 	}
 	
 	updatecontentSearchQuery();
+	
+	contentSearchResult = document.createElement('div');
+	contentSearch.appendChild(contentResult);
+	contentSearchResult.setAttribute('id', 'contentSearch_result');
+	contentSearchResult.style.position = 'absolute';
+	contentSearchResult.style.left = 1 + 'px';
+	contentSearchResult.style.width = searchWidth-2 + 'px';
+	contentSearchResult.style.overflow = 'hidden';
+
+	showSearchHref = document.createElement('a');
+	showSearchHref.href = "#";
+	showSearchHref.onclick = function () {
+		if  (showSearchinMap==0) {
+			showSearchinMap = 1;
+			showResult(0, searchbyObject);
+			showSearchHref.textContent = "Hide documents in map";
+		}
+		else {
+			showSearchinMap = 0;
+			clearCanvasObject();
+			showSearchHref.textContent = "Show documents in map";
+		}
+	}
+	showSearchHref.textContent = "Hide documents in map";
+
+	divCountryDistributionSearch = document.createElement('div');
+	divCountryDistributionSearch.style.background = 'yellow';
+	divCountryDistributionSearch.style.position = 'absolute';
+	divCountryDistributionSearch.style.width = '200px';
+	divCountryDistributionSearch.style.height = '300px';
+	divCountryDistributionSearch.style.top = searchPosY + 'px';
+	divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
+	divCountryDistributionSearch.style['z-index'] = 0;
+	divCountryDistributionSearch.style.display = 'none';
+	document.body.appendChild(divCountryDistributionSearch);
+
+	hrefCountryTypeSearch = document.createElement('a');
+	hrefCountryTypeSearch.textContent = "View 25 result distribution";
+	hrefCountryTypeSearch.href = "#";
+	hrefCountryTypeSearch.onclick = function () {
+		if (modeCountryTypeSearch==0) {
+			modeCountryTypeSearch = 1;
+			hrefCountryTypeSearch.textContent = "View overall result distribution";
+		}
+		else {
+			modeCountryTypeSearch = 0;
+			hrefCountryTypeSearch.textContent = "View 25 result distribution";
+		}
+		showOverallCountrySearch(queryCtry);
+	}
+	showOverallCountrySearch(queryCtry);
 }
 
 function updatecontentSearchQuery() {
@@ -268,10 +327,170 @@ function cancelQueryChange() {
 
 function updateSearch(sObject, sMode) {
 	console.log("search haha");
+	removecontentSearchResultChild();
+	console.log(sObject);
+	if (sObject.length>0) {
+		contentSearchResult.appendChild(showSearchHref);
+		contentSearchResult.appendChild(document.createElement('br'));
+		if (sMode==1) {
+			var temp = document.createElement('a');
+			temp.href = "#";
+			temp.onclick = function () {updateSearch(queryResults, 0);};
+			temp.textContent = "Show all result";
+			contentSearchResult.appendChild(temp);
+			contentSearchResult.appendChild(document.createElement('br'));
+		}
+		var hrefCDS = document.createElement('a');
+		hrefCDS.textContent = "View country distribution";
+		hrefCDS.href = "#";
+		hrefCDS.onclick = function () {
+			showSearchCountryDistribution();
+			if (modeCountryDistributionSearch==0)
+				hrefCDS.textContent = "View country distribution";
+			else hrefCDS.textContent = "Hide country distribution";
+		};
+		contentSearchResult.appendChild(hrefCDS);
+		contentSearchResult.appendChild(document.createElement('br'));
+
+		for (var i=0; i<sObject.length; i++) {
+			var temp = document.createElement('div');
+			document.getElementById("contentSearchResult").appendChild(temp);
+			temp.setAttribute('id', "Search" + i);
+			temp.style.position = 'relative';
+			temp.style.left = 3 + 'px';
+			insertSearch(sObject, i);
+		}
+		if (sMode==0) {
+			if (currentLevelSearchEngine>1) {
+				temp = document.createElement('a');
+				document.getElementById("contentSearchResult").appendChild(temp);
+				temp.href="javascript:downSearch()";
+				temp.textContent = "Previous";
+				contentSearchResult.appendChild(document.createTextNode(" "));
+			}
+
+			if (currentLevelSearchEngine<totalLevelSearchEngine) {
+				temp = document.createElement('a');
+				document.getElementById("contentSearchResult"). appendChild(temp);
+				temp.href = "javascript:upSearch()";
+				temp.textContent = "Next";
+			}
+		}
+	}
+	else {
+		document.getElementById("contentSearchResult").innerHTML = "There is no result for the query.";
+	}
+}
+
+function insertSearch(sObject, i) {
+	var temp = document.createElement("IMG");
+	temp.setAttribute('id', "Search" + i + "_image");
+	temp.src = imgExpand.src;
+	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
+	temp.onclick = function () {showAbstractSearch(i);};
+	document.getElementById("Search"+i).appendChild(temp);
+	temp = document.createElement("a");
+	temp.onclick = function () {
+		if (abstractSearchMode[i]==0) {
+			showAbstractSearch(i);
+			highlight(sObject[i]);
+		}
+	};
+	temp.href = "#";
+	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + sObject[i].title;
+	temp.href = "javascript:window.open('" + queryResults[i].url + "')";
+	document.getElementById("Search"+i).appendChild(temp);
+	temp = document.createElement('div');
+	document.getElementById("Search"+i).appendChild(temp);
+	temp.setAttribute('id', "Search" + i + "_abstract");
+	temp.style.position = 'relative';
+	temp.style.left = 18 + 'px';
+	temp.style.width = searchWidth - 45 + 'px';
+	if (sObject[i].url) {
+		var temp2 = document.createElement('a');
+		temp2.textContent = "Show in Scopus";
+		temp2.href = "javascript:window.open('" + sObject[i].url + "')";
+		temp.appendChild(temp2);
+		temp.appendChild(document.createElement('br'));
+	}
+	if (sObject[i].Abstract)
+		temp.appendChild(document.createTextNode(sObject[i].Abstract));
+	else temp.appendChild(document.createTextNode("Abstract not available"));
+	temp.style.overflow = 'hidden';
+	abstractSearchHeight[i] = temp.clientHeight;
+	temp.style.height = 0 + 'px';
+	//temp.style.display = 'none';
+	abstractSearchState[i] = 0;
+	abstractSearchMode[i] = 0;
+}
+
+function showSearchCountryDistribution() {
+	if (modeCountryDistributionSearch==0) {
+		modeCountryDistributionSearch = 1;
+		divCountryDistributionSearch.style.display = 'block';
+	}
+	else {
+		modeCountryDistributionSearch = 0;
+		divCountryDistributionSearch.style.display = 'none';
+	}
 }
 
 function showOverallCountrySearch(csObject) {
-	console.log ("search country");
+	while (divCountryDistributionSearch.firstChild) {
+		divCountryDistributionSearch.removeChild(divCountryDistributionSearch.firstChild);
+	}
+	divCountryDistributionSearch.appendChild(hrefCountryTypeSearch);
+	divCountryDistributionSearch.appendChild(document.createElement('br'));
+	for (var i=0; i<csObject.length; i++) {
+		divCountryDistributionSearch.appendChild(document.createTextNode(csObject[i].name + " : " + csObject[i].hitCount));
+		divCountryDistributionSearch.appendChild(document.createElement('br'));
+	}
+}
+
+function showAbstractSearch(i) {
+	//console.log("show");
+	if (abstractSearchMode[i]==0) {
+		document.getElementById("Search" + i + "_image").src = imgContract.src;
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'block';
+		abstractSearchMode[i] = 1;
+		expandAbstractSearch(i);
+	}
+	else {
+		document.getElementById("Search" + i + "_image").src = imgExpand.src;
+		abstractSearchMode[i] = 0;
+		contractAbstractSearch(i);
+	}
+}
+
+function expandAbstractSearch(i) {
+	//console.log(i);
+	abstractSearchState[i] += 1;
+	document.getElementById("Search" + i + "_abstract").style.height = abstractSearchState[i]*abstractSearchHeight[i]/abstractSearchTotal + 'px';
+	//console.log(abstractSearchHeight[i]);
+	if (abstractSearchState[i]<abstractSearchTotal && abstractSearchMode[i]==1) {
+		setTimeout (function() {expandAbstractSearch(i)}, 10);
+	}
+}
+
+function contractAbstractSearch(i) {
+	//console.log(i);
+	abstractSearchState[i] -= 1;
+	document.getElementById("Search" + i + "_abstract").style.height = abstractSearchState[i]*abstractSearchHeight[i]/abstractSearchTotal + 'px';
+	if (abstractSearchState[i]>0 && abstractSearchMode[i]==0) {
+		setTimeout (function(){contractAbstractSearch(i);}, 10);
+	}
+	//else if (abstractRefMode[i]==0)
+		//document.getElementById("Reference" + i + "_abstract").style.display = 'none';
+}
+
+function removecontentSearchResultChild() {
+	var el = document.getElementById("contentSearchResult");
+	while (el.firstChild) {
+		//console.log(el.firstChild.id);
+		el.removeChild(el.firstChild);
+	}
+	//console.log(el.lastChild.id);
+
 }
 
 function mouseDownSearch(e){
