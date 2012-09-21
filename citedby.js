@@ -21,6 +21,7 @@ var divCountryDistributionCitedBy;
 var modeCountryDistributionCitedBy = 0;
 var modeCountryTypeCitedBy = 0;
 var hrefCountryTypeCitedBy;
+var hrefCDCB;
 
 function initializeCitedBy() {
 	divCitedBy = document.getElementById("windowCitedBy");
@@ -87,6 +88,16 @@ function initializeCitedBy() {
 		showOverallCountryCitedBy(countryCitedby);
 	}
 	showOverallCountryCitedBy(countryCitedby);
+	
+	hrefCDCB = document.createElement('a');
+	hrefCDCB.textContent = "View country distribution";
+	hrefCDCB.href = "#";
+	hrefCDCB.onclick = function () {
+		showCitedByCountryDistribution();
+		if (modeCountryDistributionCitedBy==0)
+			hrefCDCB.textContent = "View country distribution";
+		else hrefCDCB.textContent = "Hide country distribution";
+	};
 }
 
 function updateCitedBy (cbObject, cbMode) {
@@ -104,15 +115,7 @@ function updateCitedBy (cbObject, cbMode) {
 			contentCitedBy.appendChild(temp);
 			contentCitedBy.appendChild(document.createElement('br'));
 		}
-		var hrefCDCB = document.createElement('a');
-		hrefCDCB.textContent = "View country distribution";
-		hrefCDCB.href = "#";
-		hrefCDCB.onclick = function () {
-			showCitedByCountryDistribution();
-			if (modeCountryDistributionCitedBy==0)
-				hrefCDCB.textContent = "View country distribution";
-			else hrefCDCB.textContent = "Hide country distribution";
-		};
+		
 		contentCitedBy.appendChild(hrefCDCB);
 		contentCitedBy.appendChild(document.createElement('br'));
 		//console.log(currentLevelCitation);
@@ -279,6 +282,7 @@ function mouseDownCitedBy(e){
 function changeViewCitedBy() {
 	modeCountryDistributionCitedBy = 0;
 	divCountryDistributionCitedBy.style.display = 'none';
+	hrefCDCB.textContent = "View country distribution";
 	if (citedByStatus <= 0 && citedByIncrement==-1) {
 		citedByStatus = 1;
 	}
