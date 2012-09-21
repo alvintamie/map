@@ -495,6 +495,7 @@ function removecontentSearchResultChild() {
 
 function mouseDownSearch(e){
 	divSearch.style['z-index'] = zIndex;
+	divCountryDistributionSearch.style['z-index'] = zIndex;
 	zIndex += 1;
 	if(e.clientY-divSearch.offsetTop<topbarHeight) {
 		if (e.clientX-divSearch.offsetLeft<=parseInt(divSearch.style.width)-minimizePosWidth) {
@@ -510,6 +511,8 @@ function mouseDownSearch(e){
 }
 	
 function changeViewSearch() {
+	modeCountryDistributionSearch = 0;
+	divCountryDistributionSearch.style.display = 'none';
 	if (searchStatus <= 0 && searchIncrement==-1) {
 		searchStatus = 1;
 	}
@@ -556,6 +559,8 @@ function searchDisplacement(e){
 			divSearch.style.top="0px";
 			searchPosY = 0;
 		}
+		divCountryDistributionSearch.style.top = citedByPosY + "px";
+		divCountryDistributionSearch.style.left = citedByPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
 		/*
 		if(divSearch.offsetLeft<0){
 			divSearch.style.left="0px";
