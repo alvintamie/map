@@ -14,7 +14,7 @@ function initializeMainCanvas(){
 		showInfoObj.style["border-radius"] = "10px";
 		showInfoObj.style["-moz-border-radius"] = "10px";
 		showInfoObj.style["-webkit-border-radius"] = "10px";
-		showInfoObj.style.margin = "5 auto";
+		showInfoObj.style.["padding-left"] = "3px";
 		
 		
 		canvas = document.getElementById('canvas');
