@@ -111,7 +111,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 			var temp = document.createElement('a');
 			temp.href = "#";
 			temp.onclick = function () {
-				if (defaultCountryRelevantDocument==1) {
+				if (defaultChangedRelevantDocument==1) {
 					resetQueryRelevantDocument();
 					defaultChangedRelevantDocument = 0;
 				}
@@ -228,7 +228,7 @@ function showOverallCountryRelevantDocument(crdObject) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:findCountryDocumentRelevantDcoument(new Array('"+crdObject[i].name+"'))";
 		temp.textContent = "focus to this country";
-		divCountryDistributionReference.appendChild(temp);
+		divCountryDistributionRelevantDocumentappendChild(temp);
 		divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	}
 }
