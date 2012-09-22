@@ -24,6 +24,7 @@ function initializeMainCanvas(){
 	
 		canvas.onmousemove = function(e) {
 			mouseInCanvas = 1;
+			listenAllMouseOver()
 		}
 		canvas.onmouseout = function(e){
 			mouseInCanvas = 0;
