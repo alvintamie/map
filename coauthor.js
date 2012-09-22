@@ -206,7 +206,7 @@ function showCoAuthorCountryDistribution() {
 	}
 }
 
-function showOverallCountryCoAuthor(caObject) {
+function showOverallCountryCoAuthor(ccaObject) {
 	//console.log("counrycoauthor");
 	//console.log(caObject);
 	while (divCountryDistributionCoAuthor.firstChild) {
@@ -214,11 +214,11 @@ function showOverallCountryCoAuthor(caObject) {
 	}
 	//divCountryDistributionCoAuthor.appendChild(hrefCountryTypeCoAuthor);
 	//divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
-	for (var i=0; i<caObject.length; i++) {
-		divCountryDistributionCoAuthor.appendChild(document.createTextNode(caObject[i].name + " : " + caObject[i].hitCount));
+	for (var i=0; i<ccaObject.length; i++) {
+		divCountryDistributionCoAuthor.appendChild(document.createTextNode(ccaObject[i].name + " : " + ccaObject[i].hitCount));
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		temp.href = "javascript:getCoauthorsFilter(new Array('"+caObject[i].name+"'))";
+		temp.href = "javascript:getCoauthorsFilter(new Array('"+ccaObject[i].name+"'))";
 		temp.textContent = "focus to this country";
 		divCountryDistributionCoAuthor.appendChild(temp);
 		divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
