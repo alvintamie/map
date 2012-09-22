@@ -107,13 +107,13 @@ function updateRelevantDocument (rdObject, rdMode) {
 	if (rdObject.length>0) {
 		contentRelevantDocument.appendChild(showRelevantDocumentHref);
 		contentRelevantDocument.appendChild(document.createElement('br'));
-		if (rdMode==1 || defaultCountryRelevantDocument==1) {
+		if (rdMode==1 || defaultChangedRelevantDocument==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
 			temp.onclick = function () {
 				if (defaultCountryRelevantDocument==1) {
 					resetQueryRelevantDocument();
-					defaultCountryRelevantDocument = 0;
+					defaultChangedRelevantDocument = 0;
 				}
 				else {
 					updateRelevantDocument(relevantDocumentObject, 0);
@@ -234,7 +234,7 @@ function showOverallCountryRelevantDocument(crdObject) {
 }
 
 function findCountryDocumentRelevantDocument(crdString) {
-	defaultCountryRelevantDocument = 1;
+	defaultChangedRelevantDocument = 1;
 	if (modeCountryDistributionRelevantDocument==0) {
 		getRelevantDocumentFilter1(crdString);
 	}
