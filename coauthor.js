@@ -44,6 +44,22 @@ function initializeCoAuthor() {
 	contentCoAuthor.style['overflow-x'] = 'hidden';
 	contentCoAuthor.style['overflow-y'] = 'auto';
 	
+	showCoAuthorHref = document.createElement('a');
+	showCoAuthorHref.href = "#";
+	showCoAuthorHref.onclick = function () {
+		if  (showCoAuthorinMap==0) {
+			showCoAuthorinMap = 1;
+			showResult(0, coauthorsObject);
+			showCoAuthorHref.textContent = "Hide documents in map";
+		}
+		else {
+			showCoAuthorinMap = 0;
+			clearCanvasObject();
+			showCoAuthorHref.textContent = "Show documents in map";
+		}
+	}
+	showCoAuthorHref.textContent = "Hide documents in map";
+	
 	divCountryDistributionCoAuthor = document.createElement('div');
 	divCountryDistributionCoAuthor.style.background = 'yellow';
 	divCountryDistributionCoAuthor.style.position = 'absolute';
