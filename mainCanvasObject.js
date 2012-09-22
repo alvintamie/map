@@ -25,7 +25,7 @@ function renderCanvasObject(){
 			drawObject(canvasObjectHighlight[i].img,canvasObjectHighlight[i].x,canvasObjectHighlight[i].y);
 	}
 	if(canvasObjectChange.status!=-1)
-	drawObject(canvasObjectChange[i].img,canvasObjectChange[i].x,canvasObjectChange[i].y);	
+	drawObject(canvasObjectChange.img,canvasObjectChange.x,canvasObjectChange.y);	
 }
 
 function drawObject(im,x,y){
