@@ -122,19 +122,13 @@ function insertReference(rObject, i) {
 	temp.onclick = function () {showAbstractRef(i);};
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement("a");
-	temp.onclick = function () {
-		if (abstractRefMode[i]==0) {
-			showAbstractRef(i);
-		}
-		highlight(rObject[i]);
-	};
 	temp.href = "#";
 	temp.textContent = i + " " + rObject[i].title;
 	temp.onclick = function () {
 		if (abstractRefMode[i]==0) {
 			showAbstractRef(i);
-			highlight(rObject[i]);
 		}
+		highlight(rObject[i]);
 	};
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement('div');
