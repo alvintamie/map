@@ -24,6 +24,23 @@ function initializeMainCanvas(){
 			mouseInCanvas = 0;
 			//console.log("yo");
 		}
+		canvas.addEventListener('dblclick', function(){ 
+
+  // Some dazzling stuff happens be here
+  	if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
+			multiplier=1;
+			timeBefore = 0;
+			if(zoom<2){
+				readyScroll=-1;
+				triangleSize=60;
+			}
+			mouseX=canvas.offsetLeft+canvas.width/2;
+			mouseY=canvas.offsetTop+canvas.height/2;
+			deltaMouseX = mouseX - canvas.offsetLeft;
+			deltaMouseY = mouseY - canvas.offsetTop;
+			}
+
+});
 }
 
 
