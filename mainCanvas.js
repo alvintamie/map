@@ -32,7 +32,7 @@ function initializeMainCanvas(){
 		canvas.addEventListener('dblclick', function(){ 
 
   // Some dazzling stuff happens be here
-  	if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
+  			if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
 			multiplier=1;
 			timeBefore = 0;
 			if(zoom<2){
@@ -43,9 +43,11 @@ function initializeMainCanvas(){
 			mouseY=yForDoubleClick;
 			deltaMouseX = mouseX - canvas.offsetLeft;
 			deltaMouseY = mouseY - canvas.offsetTop;
-			}
-
-});
+			
+  			}
+  			return false;
+  			
+		});
 }
 
 
