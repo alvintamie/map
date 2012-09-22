@@ -218,7 +218,7 @@ function showOverallCountryCoAuthor(caObject) {
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
 		//temp.href = "#";
-		temp.href = "javascript:getCoauthorsFilter('"+caObject[i].name+"');";
+		temp.href = "javascript:getCoauthorsFilter(new Array('"+caObject[i].name+")');";
 		temp.onclick = function () {getCoauthorsFilter(tempString)};
 		temp.textContent = "focus to this country";
 		divCountryDistributionCoAuthor.appendChild(temp);
