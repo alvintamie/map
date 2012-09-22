@@ -150,7 +150,7 @@ function insertCoauthors(caObject, i) {
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
 	temp.style.width = citedByWidth - 45 + 'px';
-	if (rObject[i].url) {
+	if (caObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + caObject[i].url + "')";
