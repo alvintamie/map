@@ -6,7 +6,7 @@ function initializeMainCanvas(){
 		showInfoObj = document.createElement("div");
 		document.body.appendChild(showInfoObj);
 		showInfoObj.style.width = "200px";
-		showInfoObj.style.background = "white";
+		showInfoObj.style.background = "bread";
 		showInfoObj.style.display = "none";
 		showInfoObj.style.position = "absolute";
 		showInfoObj.style.cursor = "pointer";
