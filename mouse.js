@@ -43,6 +43,25 @@ function getMouseUp(e) {
 
 function scroll(e){
 		if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
+			//console.log(mouseInCanvas);
+			multiplier=1;
+			timeBefore = 0;
+			if( (e.detail<0 || e.wheelDelta>0) && zoom<2){
+				readyScroll=-1;
+				triangleSize=60;
+			}
+			if((e.detail>0 || e.wheelDelta<0) && zoom>0){
+				readyScroll=-2;
+				triangleSize=120;
+			}
+			mouseX=e.clientX;
+			mouseY=e.clientY;
+			deltaMouseX = mouseX - canvas.offsetLeft;
+			deltaMouseY = mouseY - canvas.offsetTop;
+			}
+	}
+canvas.addEventListener('dblclick', function(){ 
+		if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
 			multiplier=1;
 			timeBefore = 0;
 			if(zoom<2){
