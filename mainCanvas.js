@@ -9,6 +9,7 @@ function initializeMainCanvas(){
 		showInfoObj.style.background = "white";
 		showInfoObj.style.display = "none";
 		showInfoObj.style.position = "absolute";
+		showInfoObj.style.cursor = "pointer";
 		showInfoObj.style["z-index"] = 2;
 		
 		
