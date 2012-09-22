@@ -205,6 +205,8 @@ function showCoAuthorCountryDistribution() {
 }
 
 function showOverallCountryCoAuthor(caObject) {
+	console.log("counrycoauthor");
+	console.log(caObject);
 	while (divCountryDistributionCoAuthor.firstChild) {
 		divCountryDistributionCoAuthor.removeChild(divCountryDistributionCoAuthor.firstChild);
 	}
