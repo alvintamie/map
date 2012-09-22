@@ -161,6 +161,12 @@ function insertReference(rObject, i) {
 	abstractRefMode[i] = 0;
 }
 
+function removeContentReferenceChild {
+	while (contentReference.firstChild) {
+		contentReference.removeChild(contentReference.firstChild);
+	}
+}
+
 function showReferenceCountryDistribution() {
 	if (modeCountryDistributionReference==0) {
 		modeCountryDistributionReference = 1;
