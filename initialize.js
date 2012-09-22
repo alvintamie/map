@@ -31,7 +31,7 @@ var obj_dis_x;
 	img[1] = new Image();
 	img[2] = new Image();
 	imgObject[0]= new Image();
-	imgObject[0]= new Image();
+	imgObject[1]= new Image();
 	img[0].src = 'https://raw.github.com/alvi0010/map/master/image/map1.png';
 	img[1].src = 'https://raw.github.com/alvi0010/map/master/image/map2.png';
 	img[2].src = 'https://raw.github.com/alvi0010/map/master/image/map3.png';
