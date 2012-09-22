@@ -217,9 +217,8 @@ function showOverallCountryCoAuthor(caObject) {
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode(caObject[i].name + " : " + caObject[i].hitCount));
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		var tempString = caObject[i].name;
-		temp.href = "#";
-		//temp.href = "javascript:getCoauthorsFilter("+caObject[i].name+")";
+		//temp.href = "#";
+		temp.href = "javascript:getCoauthorsFilter("+caObject[i].name+");";
 		temp.onclick = function () {getCoauthorsFilter(tempString)};
 		temp.textContent = "focus to this country";
 		divCountryDistributionCoAuthor.appendChild(temp);
