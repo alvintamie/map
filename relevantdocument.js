@@ -116,7 +116,8 @@ function updateRelevantDocument (rdObject, rdMode) {
 					defaultCountryRelevantDocument = 0;
 				}
 				else {
-					updateRelevantDocument(relevantDocumentObject, 0);};
+					updateRelevantDocument(relevantDocumentObject, 0);
+					
 				}
 			}
 			temp.textContent = "Show all result";
