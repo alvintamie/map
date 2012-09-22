@@ -11,7 +11,9 @@ function initializeMainCanvas(){
 		showInfoObj.style.position = "absolute";
 		showInfoObj.style.cursor = "pointer";
 		showInfoObj.style["z-index"] = 2;
-		showInfoObj.class = "roundedBox"
+		showInfoObj.style["border-radius"] = "10px";
+		showInfoObj.style["-moz-border-radius"] = "10px";
+		showInfoObj.style["-webkit-border-radius"] = "10px";
 		
 		
 		canvas = document.getElementById('canvas');
