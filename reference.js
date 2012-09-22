@@ -161,7 +161,7 @@ function insertReference(rObject, i) {
 	abstractRefMode[i] = 0;
 }
 
-function removeContentReferenceChild {
+function removeContentReferenceChild () {
 	while (contentReference.firstChild) {
 		contentReference.removeChild(contentReference.firstChild);
 	}
