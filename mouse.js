@@ -43,19 +43,14 @@ function getMouseUp(e) {
 
 function scroll(e){
 		if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
-			//console.log(mouseInCanvas);
 			multiplier=1;
 			timeBefore = 0;
-			if( (e.detail<0 || e.wheelDelta>0) && zoom<2){
+			if(zoom<2){
 				readyScroll=-1;
 				triangleSize=60;
 			}
-			if((e.detail>0 || e.wheelDelta<0) && zoom>0){
-				readyScroll=-2;
-				triangleSize=120;
-			}
-			mouseX=e.clientX;
-			mouseY=e.clientY;
+			mouseX=canvas.offsetLeft+canvas.width/2;
+			mouseY=canvas.offsetTop+canvas.height/2;
 			deltaMouseX = mouseX - canvas.offsetLeft;
 			deltaMouseY = mouseY - canvas.offsetTop;
 			}
