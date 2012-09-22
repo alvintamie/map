@@ -226,7 +226,7 @@ function showOverallCountryRelevantDocument(crdObject) {
 		divCountryDistributionRelevantDocument.appendChild(document.createTextNode(crdObject[i].name + " : " + crdObject[i].hitCount));
 		divCountryDistributionRelevantDocument.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		temp.href = "javascript:findCountryDocumentRelevantDcoument(new Array('"+crdObject[i].name+"'))";
+		temp.href = "javascript:findCountryDocumentRelevantDocument(new Array('"+crdObject[i].name+"'))";
 		temp.textContent = "focus to this country";
 		divCountryDistributionRelevantDocument.appendChild(temp);
 		divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
