@@ -35,7 +35,7 @@ var obj_dis_x;
 	img[1].src = 'https://raw.github.com/alvi0010/map/master/image/map2.png';
 	img[2].src = 'https://raw.github.com/alvi0010/map/master/image/map3.png';
 	imgObject[0].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
-	
+	imgObject[1].src = 'https://raw.github.com/alvi0010/map/master/image/person1.png';
 	
 	imgSizeX[0]=img[0].width;
 	imgSizeX[1]=img[1].width;
