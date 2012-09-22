@@ -20,6 +20,7 @@ var showRelevantDocumentHref;
 var divCountryDistributionRelevantDocument;
 var modeCountryDistributionRelevantDocument = 0;
 var modeCountryTypeRelevantDocument = 0;
+var defaultChangedRelevantDocument = 0;
 var hrefCountryTypeRelevantDocument;
 var hrefCDRD;
 
@@ -106,10 +107,18 @@ function updateRelevantDocument (rdObject, rdMode) {
 	if (rdObject.length>0) {
 		contentRelevantDocument.appendChild(showRelevantDocumentHref);
 		contentRelevantDocument.appendChild(document.createElement('br'));
-		if (rdMode==1) {
+		if (rdMode==1 || defaultCountryRelevantDocument==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
-			temp.onclick = function () {updateRelevantDocument(relevantDocumentObject, 0);};
+			temp.onclick = function () {
+				if (defaultCountryRelevantDocument==1) {
+					resetQueryRelevantDocument();
+					defaultCountryRelevantDocument = 0;
+				}
+				else {
+					updateRelevantDocument(relevantDocumentObject, 0);};
+				}
+			}
 			temp.textContent = "Show all result";
 			contentRelevantDocument.appendChild(temp);
 			contentRelevantDocument.appendChild(document.createElement('br'));
@@ -214,8 +223,24 @@ function showOverallCountryRelevantDocument(crdObject) {
 	divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	for (var i=0; i<crdObject.length; i++) {
 		divCountryDistributionRelevantDocument.appendChild(document.createTextNode(crdObject[i].name + " : " + crdObject[i].hitCount));
+		divCountryDistributionRelevantDocument.appendChild(document.createTextNode("	"));
+		var temp = document.createElement('a');
+		temp.href = "javascript:findCountryDocumentRelevantDcoument(new Array('"+crdObject[i].name+"'))";
+		temp.textContent = "focus to this country";
+		divCountryDistributionReference.appendChild(temp);
 		divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	}
+}
+
+function findCountryDocumentRelevantDocument(crdString) {
+	defaultCountryRelevantDocument = 1;
+	if (modeCountryDistributionRelevantDocument==0) {
+		getRelevantDocumentFilter1(crdString);
+	}
+	else {
+		getRelevantDocumentFilter2(crdString);
+	}
+	highlight(getObject(crdString));
 }
 
 
