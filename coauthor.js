@@ -88,9 +88,6 @@ function updateCoauthors (caObject, caMode) {
 	removecontentCoAuthorChild();
 	//console.log("update");
 	if (caObject.length>0) {
-		contentCoAuthor.appendChild(showCoAuthorHref);
-		contentCoAuthor.appendChild(document.createElement('br'));
-		console.log("coauthors number = " + caObject.length);
 		if (caMode=1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
@@ -99,6 +96,9 @@ function updateCoauthors (caObject, caMode) {
 			contentCoAuthor.appendChild(temp);
 			contentCoAuthor.appendChild(document.createElement('br'));
 		}
+		contentCoAuthor.appendChild(showCoAuthorHref);
+		contentCoAuthor.appendChild(document.createElement('br'));
+		//console.log("coauthors number = " + caObject.length);
 		
 		contentCoAuthor.appendChild(hrefCDCA);
 		contentCoAuthor.appendChild(document.createElement('br'));
