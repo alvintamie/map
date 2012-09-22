@@ -23,8 +23,10 @@ function initializeMainCanvas(){
 		};
 	
 		canvas.onmousemove = function(e) {
+			mouseCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
+			var mouseMapCoords = [(mouseDownCoords[0]-canvas.offsetLeft)%img[zoom].width, (mouseDownCoords[1]-canvas.offsetTop)%img[zoom].height];
 			mouseInCanvas = 1;
-			listenAllMouseOver()
+			listenAllMouseOver(mouseMapCoords[0], mouseMapCoords[1], 0);
 		}
 		canvas.onmouseout = function(e){
 			mouseInCanvas = 0;
