@@ -3,8 +3,8 @@ var authorMarginY=10;
 var canvasObjectText = new Array();
 var canvasObjectAuthorText;
 var canvasObjectHighlight= new Array();
-var canvasObjectChange;
-var canvasObjectChange.status=0;
+var canvasObjectChange = new Object();
+canvasObjectChange.status=0;
 function renderCanvasObject(){	
 			authorMarginX=imgObject[0].width/2/multiplierObjectX[zoom];
 			authorMarginY=imgObject[0].height/2/multiplierObjectY[zoom];
