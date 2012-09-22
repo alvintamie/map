@@ -96,8 +96,8 @@ function updateCoauthors (caObject, caMode) {
 			temp.href = "#";
 			temp.onclick = function () {updateCoauthors (caObject, 0);};
 			temp.textContent = "Show all result";
-			contentReference.appendChild(temp);
-			contentReference.appendChild(document.createElement('br'));
+			contentCoAuthor.appendChild(temp);
+			contentCoAuthor.appendChild(document.createElement('br'));
 		}
 		
 		contentCoAuthor.appendChild(hrefCDCA);
