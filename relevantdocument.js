@@ -228,7 +228,7 @@ function showOverallCountryRelevantDocument(crdObject) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:findCountryDocumentRelevantDcoument(new Array('"+crdObject[i].name+"'))";
 		temp.textContent = "focus to this country";
-		divCountryDistributionRelevantDocumentappendChild(temp);
+		divCountryDistributionRelevantDocument.appendChild(temp);
 		divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	}
 }
