@@ -86,8 +86,6 @@ function initializeReference() {
 function updateReference (rObject, rMode) {
 	removecontentReferenceChild();
 	if (rObject.length>0) {
-		contentReference.appendChild(showReferenceHref);
-		contentReference.appendChild(document.createElement('br'));
 		if (rMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
@@ -97,6 +95,10 @@ function updateReference (rObject, rMode) {
 			contentReference.appendChild(document.createElement('br'));
 		}
 
+		
+		contentReference.appendChild(showReferenceHref);
+		contentReference.appendChild(document.createElement('br'));
+		
 		contentReference.appendChild(hrefCDR);
 		contentReference.appendChild(document.createElement('br'));
 
