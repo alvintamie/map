@@ -19,8 +19,8 @@ var showReferenceinMap = 1;
 var showReferenceHref;
 var divCountryDistributionReference;
 var modeCountryDistributionReference = 0;
-var modeCountryTypeReference = 0;
-var hrefCountryTypeReference;
+//var modeCountryTypeReference = 0;
+//var hrefCountryTypeReference;
 var hrefCDR;
 
 function initializeReference() {
@@ -182,8 +182,8 @@ function showOverallCountryReference(crObject) {
 	while (divCountryDistributionReference.firstChild) {
 		divCountryDistributionReference.removeChild(divCountryDistributionReference.firstChild);
 	}
-	divCountryDistributionReference.appendChild(hrefCountryTypeReference);
-	divCountryDistributionReference.appendChild(document.createElement('br'));
+	//divCountryDistributionReference.appendChild(hrefCountryTypeReference);
+	//divCountryDistributionReference.appendChild(document.createElement('br'));
 	for (var i=0; i<crObject.length; i++) {
 		divCountryDistributionReference.appendChild(document.createTextNode(crObject[i].name + " : " + crObject[i].hitCount));
 		divCountryDistributionReference.appendChild(document.createElement('br'));
