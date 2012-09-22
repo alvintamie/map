@@ -73,4 +73,4 @@ canvas.addEventListener('dblclick', function(){
 			deltaMouseX = mouseX - canvas.offsetLeft;
 			deltaMouseY = mouseY - canvas.offsetTop;
 			}
-	}
+	});
