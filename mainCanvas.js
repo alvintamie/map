@@ -1,4 +1,6 @@
 var _readyScroll=0;
+var xForDoubleClick=0;
+var yForDoubleClick=0;
 function initializeMainCanvas(){
 		
 		canvas = document.getElementById('canvas');
@@ -10,6 +12,8 @@ function initializeMainCanvas(){
 		
 		canvas.onmousedown = function(e) {
 			isDown = true;
+			xForDoubleClick=e.clientX;
+			yForDoubleClick=e.clientY;
 			mouseDownCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
 			startCoords = [(e.clientX-canvas.offsetLeft) - last[0],(e.clientY-canvas.offsetTop) - last[1]];
 			var clickMapCoords = [(mouseDownCoords[0]-canvas.offsetLeft)%img[zoom].width, (mouseDownCoords[1]-canvas.offsetTop)%img[zoom].height];
@@ -34,8 +38,8 @@ function initializeMainCanvas(){
 				readyScroll=-1;
 				triangleSize=60;
 			}
-			mouseX=canvas.offsetLeft+canvas.width/2;
-			mouseY=canvas.offsetTop+canvas.height/2;
+			mouseX=xForDoubleClick;
+			mouseY=yForDoubleClick;
 			deltaMouseX = mouseX - canvas.offsetLeft;
 			deltaMouseY = mouseY - canvas.offsetTop;
 			}
