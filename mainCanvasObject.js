@@ -128,7 +128,7 @@ function clearCanvasObjectHighlight(){
 
 
 function clearCanvasObject(){
-	console.log("test clear canvas");
+//	console.log("test clear canvas");
 	canvasObjectAuthor= new Object();
 	canvasObjectHighlight=[];
 	canvasObjectAuthor.status=-1;
