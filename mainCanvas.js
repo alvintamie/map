@@ -4,12 +4,13 @@ var yForDoubleClick=0;
 function initializeMainCanvas(){
 		
 		showInfoObj = document.createElement("div");
+		document.body.appendChild(showInfoObj);
 		showInfoObj.style.width = "200px";
 		showInfoObj.style.background = "white";
 		showInfoObj.style.display = "none";
 		showInfoObj.style.position = "absolute";
 		showInfoObj.style["z-index"] = 2;
-		document.body.appendChild(showInfoObj);
+		
 		
 		canvas = document.getElementById('canvas');
 		ctx = canvas.getContext('2d');
