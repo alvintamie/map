@@ -34,6 +34,7 @@ function initializeMainCanvas(){
 		canvas.onmousemove = function(e) {
 			var mouseMapCoords = [e.clientX - imageCoords[0], e.clientY - imageCoords[1]];
 			var mouseMoveMapCoords = [(mouseMapCoords[0]-canvas.offsetLeft)%img[zoom].width, (mouseMapCoords[1]-canvas.offsetTop)%img[zoom].height];
+			if (mouseMoveMapCoords[0] < 0) mouseMoveMapCoords[0] += img[zoom].width;
 			mouseInCanvas = 1;
 			listenAllMouseOver(mouseMoveMapCoords[0], mouseMoveMapCoords[1], 0);
 		}
