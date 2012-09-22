@@ -99,7 +99,7 @@ function updateCoauthors (caObject, caMode) {
 			contentReference.appendChild(document.createElement('br'));
 		}
 		
-		contentCoAuthor.appendChild(hrefCDR);
+		contentCoAuthor.appendChild(hrefCDCA);
 		contentCoAuthor.appendChild(document.createElement('br'));
 		for (var i=0; i<caObject.length; i++) {
 			var temp = document.createElement('div');
