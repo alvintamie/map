@@ -53,6 +53,7 @@ function initializeMainCanvas(){
 		canvas.addEventListener('dblclick', function(){ 
 
   // Some dazzling stuff happens be here
+  			showResult(0,countryDocumentObject);
   			if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
 			multiplier=1;
 			timeBefore = 0;
