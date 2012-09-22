@@ -3,6 +3,8 @@ var xForDoubleClick=0;
 var yForDoubleClick=0;
 function initializeMainCanvas(){
 		
+		showInfoObj = document.createElement("div");
+		
 		canvas = document.getElementById('canvas');
 		ctx = canvas.getContext('2d');
 		ctx.fillStyle = "rgb(120,120,120)";
