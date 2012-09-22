@@ -180,6 +180,10 @@ function showOverallCountryReference(crObject) {
 	//divCountryDistributionReference.appendChild(document.createElement('br'));
 	for (var i=0; i<crObject.length; i++) {
 		divCountryDistributionReference.appendChild(document.createTextNode(crObject[i].name + " : " + crObject[i].hitCount));
+		divCountryDistributionReference.appendChild(document.createTextNode("	"));
+		var temp = document.createElement('a');
+		temp.href = "javascript:getReferenceFilter(new Array('"+crObject[i].name+"'))";
+		temp.textContent = "focus to this country";
 		divCountryDistributionReference.appendChild(document.createElement('br'));
 	}
 }
