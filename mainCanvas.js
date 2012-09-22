@@ -29,6 +29,9 @@ function initializeMainCanvas(){
 			mouseInCanvas = 0;
 			//console.log("yo");
 		}
+		canvas.onselectstart= function(){
+			return false;
+		}
 		canvas.addEventListener('dblclick', function(){ 
 
   // Some dazzling stuff happens be here
