@@ -184,6 +184,7 @@ function showOverallCountryReference(crObject) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:getReferenceFilter(new Array('"+crObject[i].name+"'))";
 		temp.textContent = "focus to this country";
+		divCountryDistributionReference.appendChild(temp);
 		divCountryDistributionReference.appendChild(document.createElement('br'));
 	}
 }
