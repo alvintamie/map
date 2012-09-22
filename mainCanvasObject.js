@@ -3,6 +3,7 @@ var authorMarginY=10;
 var canvasObjectText = new Array();
 var canvasObjectAuthorText;
 var canvasObjectHighlight= new Array();
+var canvasObjectChange;
 function renderCanvasObject(){	
 			authorMarginX=imgObject[0].width/2/multiplierObjectX[zoom];
 			authorMarginY=imgObject[0].height/2/multiplierObjectY[zoom];
@@ -23,7 +24,8 @@ function renderCanvasObject(){
 	for(var i=0;i<canvasObjectHighlight.length;i++){
 			drawObject(canvasObjectHighlight[i].img,canvasObjectHighlight[i].x,canvasObjectHighlight[i].y);
 	}
-	
+	if(canvasObjectChange.status!=-1)
+	drawObject(canvasObjectChange[i].img,canvasObjectChange[i].x,canvasObjectChange[i].y);	
 }
 
 function drawObject(im,x,y){
