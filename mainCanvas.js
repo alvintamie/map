@@ -7,6 +7,7 @@ function initializeMainCanvas(){
 		showInfoObj.style.width = "200px";
 		showInfoObj.style.background = "white";
 		showInfoObj.style.display = "none";
+		showInfoObj.style.position = "absolute";
 		document.body.appendChild(showInfoObj);
 		
 		canvas = document.getElementById('canvas');
