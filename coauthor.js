@@ -20,7 +20,7 @@ var showCoAuthorHref;
 var divCountryDistributionCoAuthor;
 var modeCountryDistributionCoAuthor = 0;
 var modeCountryTypeCoAuthor = 0;
-var hrefCountryTypeCoAuthor;
+//var hrefCountryTypeCoAuthor;
 var hrefCDCA;
 
 function initializeCoAuthor() {
@@ -210,8 +210,8 @@ function showOverallCountryCoAuthor(caObject) {
 	while (divCountryDistributionCoAuthor.firstChild) {
 		divCountryDistributionCoAuthor.removeChild(divCountryDistributionCoAuthor.firstChild);
 	}
-	divCountryDistributionCoAuthor.appendChild(hrefCountryTypeCoAuthor);
-	divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
+	//divCountryDistributionCoAuthor.appendChild(hrefCountryTypeCoAuthor);
+	//divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
 	for (var i=0; i<caObject.length; i++) {
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode(caObject[i].name + " : " + caObject[i].hitCount));
 		divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
