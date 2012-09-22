@@ -60,8 +60,11 @@ function scroll(e){
 			deltaMouseY = mouseY - canvas.offsetTop;
 			}
 	}
-canvas.ondblclick(e){
-		if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
+
+canvas.addEventListener('dblclick', function(){ 
+
+  // Some dazzling stuff happens be here
+  	if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
 			multiplier=1;
 			timeBefore = 0;
 			if(zoom<2){
@@ -73,4 +76,5 @@ canvas.ondblclick(e){
 			deltaMouseX = mouseX - canvas.offsetLeft;
 			deltaMouseY = mouseY - canvas.offsetTop;
 			}
-	}
+
+});
