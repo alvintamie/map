@@ -87,7 +87,7 @@ function initializeCoAuthor() {
 function updateCoauthors (caObject, caMode) {
 	removecontentCoAuthorChild();
 	//console.log("update");
-	console.log(caObject);
+	//console.log(caObject);
 	if (caObject.length>0) {
 		if (caMode=1) {
 			var temp = document.createElement('a');
@@ -144,7 +144,7 @@ function insertCoauthors(caObject, i) {
 		}
 	};
 	temp.href = "#";
-	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + coauthorsObject[i].name['given-name'] + ", " + coauthorsObject[i].name.surname;
+	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + caObject[i].name['given-name'] + ", " + caObject[i].name.surname;
 	document.getElementById("CoAuthor"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("CoAuthor"+i).appendChild(temp);
@@ -159,16 +159,16 @@ function insertCoauthors(caObject, i) {
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
-	if (coauthorsObject[i].affiliationName) {
-		temp.appendChild(document.createTextNode("Affiliation: " + coauthorsObject[i].affiliationName));;
+	if (caObject[i].affiliationName) {
+		temp.appendChild(document.createTextNode("Affiliation: " + caObject[i].affiliationName));;
 		temp.appendChild(document.createElement('br'));
 	}
-	if (coauthorsObject[i].city) {
-		temp.appendChild(document.createTextNode("City: " + coauthorsObject[i].city));
+	if (caObject[i].city) {
+		temp.appendChild(document.createTextNode("City: " + caObject[i].city));
 		temp.appendChild(document.createElement('br'));
 	}
-	if (coauthorsObject[i].country) {
-		temp.appendChild(document.createTextNode("Country:" + coauthorsObject[i].country));
+	if (caObject[i].country) {
+		temp.appendChild(document.createTextNode("Country:" + caObject[i].country));
 		temp.appendChild(document.createElement('br'));
 	}
 	temp.style.overflow = 'hidden';
