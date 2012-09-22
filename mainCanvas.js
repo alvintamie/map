@@ -8,6 +8,7 @@ function initializeMainCanvas(){
 		showInfoObj.style.background = "white";
 		showInfoObj.style.display = "none";
 		showInfoObj.style.position = "absolute";
+		showInfoObj.style["z-index"] = 2;
 		document.body.appendChild(showInfoObj);
 		
 		canvas = document.getElementById('canvas');
