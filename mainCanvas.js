@@ -7,7 +7,8 @@ function initializeMainCanvas(){
 		ctx = canvas.getContext('2d');
 		ctx.fillStyle = "rgb(120,120,120)";
 		
-		canvas.ondblclick = function(){ /*highlight(getObject("China"));*/}
+		canvas.oncontextmenu= function(){ doubleClickRight(); return false;}
+		canvas.ondblclick = function(){ highlight(getObject("China"));}
 		
 		
 		canvas.onmousedown = function(e) {
