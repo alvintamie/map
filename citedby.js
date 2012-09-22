@@ -102,8 +102,8 @@ function initializeCitedBy() {
 
 function updateCitedBy (cbObject, cbMode) {
 	removecontentCitedByChild();
-	console.log("wewe");
-	console.log(cbObject);
+	//console.log("wewe");
+	//console.log(cbObject);
 	if (cbObject.length>0) {
 		contentCitedBy.appendChild(showCitedByHref);
 		contentCitedBy.appendChild(document.createElement('br'));
