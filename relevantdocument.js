@@ -119,6 +119,9 @@ function updateRelevantDocument (rdObject, rdMode) {
 					updateRelevantDocument(relevantDocumentObject, 0);
 					
 				}
+				modeCountryTypeRelevantDocument = 1;
+				hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
+				showOverallCountryRelevantDocument(countryRelevantDocument);
 			}
 			temp.textContent = "Show all result";
 			contentRelevantDocument.appendChild(temp);
