@@ -61,3 +61,20 @@ function scroll(e){
 			}
 	}
 
+function doubleClickRight(){
+	
+		if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
+			//console.log(mouseInCanvas);
+			multiplier=1;
+			timeBefore = 0;
+		
+			if(zoom>0){
+				readyScroll=-2;
+				triangleSize=120;
+			}
+			mouseX=xForDoubleClick;
+			mouseY=yForDoubleClick;
+			deltaMouseX = mouseX - canvas.offsetLeft;
+			deltaMouseY = mouseY - canvas.offsetTop;
+			}
+}
