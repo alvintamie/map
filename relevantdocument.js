@@ -239,7 +239,9 @@ function showOverallCountryRelevantDocument(crdObject) {
 function findCountryDocumentRelevantDocument(crdString) {
 	defaultChangedRelevantDocument = 1;
 	if (modeCountryTypeRelevantDocument==0) {
-		getRelevantDocumentFilter1(new Array(crdString));
+		var temp=new Object;
+		temp.country=crdString;
+		getRelevantDocumentFilter1(new Array(temp));
 	}
 	else {
 		getRelevantDocumentFilter2(crdString);
