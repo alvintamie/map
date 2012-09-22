@@ -33,16 +33,16 @@ function initializeCoAuthor() {
 	divCoAuthor.style.width = '0px';
 	divCoAuthor.style.height = '0px';
 	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
-	var temp = document.createElement('div');
-	divCoAuthor.appendChild(temp);
-	temp.setAttribute('id', "contentCoAuthor");
-	temp.style.position = 'absolute';
-	temp.style.top = topbarHeight-9 + 'px';
-	temp.style.left = 1 + 'px';
-	temp.style.width = coAuthorWidth-2 + 'px';
-	temp.style.height = coAuthorHeight-topbarHeight+7 +'px';
-	temp.style['overflow-x'] = 'hidden';
-	temp.style['overflow-y'] = 'auto';
+	contentCoAuthor = document.createElement('div');
+	divCoAuthor.appendChild(contentCoAuthor);
+	contentCoAuthor.setAttribute('id', "contentCoAuthor");
+	contentCoAuthor.style.position = 'absolute';
+	contentCoAuthor.style.top = topbarHeight-9 + 'px';
+	contentCoAuthor.style.left = 1 + 'px';
+	contentCoAuthor.style.width = coAuthorWidth-2 + 'px';
+	contentCoAuthor.style.height = coAuthorHeight-topbarHeight+7 +'px';
+	contentCoAuthor.style['overflow-x'] = 'hidden';
+	contentCoAuthor.style['overflow-y'] = 'auto';
 	
 	divCountryDistributionCoAuthor = document.createElement('div');
 	divCountryDistributionCoAuthor.style.background = 'yellow';
