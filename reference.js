@@ -125,8 +125,8 @@ function insertReference(rObject, i) {
 	temp.onclick = function () {
 		if (abstractRefMode[i]==0) {
 			showAbstractRef(i);
-			highlight(rObject[i]);
 		}
+		highlight(rObject[i]);
 	};
 	temp.href = "#";
 	temp.textContent = i + " " + rObject[i].title;
