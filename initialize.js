@@ -173,7 +173,7 @@ var obj_dis_x;
 	var topbarHeight = 30;
 	var zIndex = 10;
 	var mouseInCanvas = 0;
-	var minimizePosWidth = 30;
+	var minimizePosWidth = 18;
 	
 	//for buttonscroll
 	var imgIn = new Image;
