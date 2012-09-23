@@ -116,7 +116,7 @@ function updateReference (rObject, rMode) {
 
 function insertReference(rObject, i) {
 	var tempTable = document.createElement('table');
-	tempTable.align = 'justify';
+	//tempTable.align = 'justify';
 	document.getElementById("Reference"+i).appendChild(tempTable);
 	
 	var temp = document.createElement("IMG");
@@ -146,8 +146,8 @@ function insertReference(rObject, i) {
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp.setAttribute('id', "Reference" + i + "_abstract");
 	temp.style.position = 'relative';
-	temp.style.left = 18 + 'px';
-	temp.style.width = referenceWidth - 45 + 'px';
+	temp.style.left = 15 + 'px';
+	temp.style.width = referenceWidth - 43 + 'px';
 	if (rObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
