@@ -33,6 +33,7 @@ function initializeReference() {
 	referencePosY = 50;
 	referenceWidth = parseInt(divReference.style.width);
 	referenceHeight = parseInt(divReference.style.height);
+	divReference.style.overflow = 'hidden';
 	ctxMenu.drawImage(imgReference[referenceVisible], 0, 0);
 	//console.log ("before");
 	//setTimeout(insertReference, 3000);
