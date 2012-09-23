@@ -50,12 +50,12 @@ function initializeCoAuthor() {
 	showCoAuthorHref.textContent = "Show documents in map";
 
 	divCountryDistributionCoAuthor = document.createElement('div');
-	divCountryDistributionCoAuthor.style.background = 'yellow';
+	divCountryDistributionCoAuthor.style.background = '#F2F1EF';
 	divCountryDistributionCoAuthor.style.position = 'absolute';
 	divCountryDistributionCoAuthor.style.width = '200px';
 	divCountryDistributionCoAuthor.style.height = '300px';
-	divCountryDistributionCoAuthor.style.top = coAuthorPosY + 'px';
-	divCountryDistributionCoAuthor.style.left = coAuthorPosX-parseInt(divCountryDistributionCoAuthor.style.width) + 'px';
+	divCountryDistributionCoAuthor.style.top = coAuthorPosY + 27 + 'px';
+	divCountryDistributionCoAuthor.style.left = coAuthorPosX-parseInt(divCountryDistributionCoAuthor.style.width) + 8 + 'px';
 	divCountryDistributionCoAuthor.style['z-index'] = 0;
 	divCountryDistributionCoAuthor.style.overflow = 'hidden';
 	divCountryDistributionCoAuthor.style.display = 'none';
@@ -333,8 +333,8 @@ function coAuthorDisplacement(e){
 			divCoAuthor.style.top="0px";
 			coAuthorPosY = 0;
 		}
-		divCountryDistributionCoAuthor.style.top = coAuthorPosY + "px";
-		divCountryDistributionCoAuthor.style.left = coAuthorPosX-parseInt(divCountryDistributionCoAuthor.style.width) + 'px';
+		divCountryDistributionCoAuthor.style.top = coAuthorPosY + 27 + "px";
+		divCountryDistributionCoAuthor.style.left = coAuthorPosX-parseInt(divCountryDistributionCoAuthor.style.width) + 8 + 'px';
 
 		/*
 		if(divCoAuthor.offsetLeft<0){
