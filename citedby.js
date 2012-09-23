@@ -219,7 +219,7 @@ function showOverallCountryCitedBy(ccbObject) {
 		divCountryDistributionCitedBy.appendChild(document.createTextNode(ccbObject[i].name + " : " + ccbObject[i].hitCount));
 		divCountryDistributionCitedBy.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		temp.href = "javascript:findCountryCitedByDocument(new Array('"+ccbObject[i].name+"'))";
+		temp.href = "javascript:findCountryDocumentCitedBy(new Array('"+ccbObject[i].name+"'))";
 		temp.textContent = "focus to this country";
 		divCountryDistributionCitedBy.appendChild(temp);
 		divCountryDistributionCitedBy.appendChild(document.createElement('br'));
