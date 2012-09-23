@@ -51,7 +51,7 @@ function initializeCitedBy() {
 	showCitedByHref.textContent = "Show in map";
 	
 	divCountryDistributionCitedBy = document.createElement('div');
-	divCountryDistributionCitedBy.style.background = '#D8D8D8';
+	divCountryDistributionCitedBy.style.background = '#F2F1EF';
 	divCountryDistributionCitedBy.style.position = 'absolute';
 	divCountryDistributionCitedBy.style.width = '200px';
 	divCountryDistributionCitedBy.style.height = '300px';
