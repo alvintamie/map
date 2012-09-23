@@ -5,8 +5,7 @@ var canvasObjectAuthorText;
 var canvasObjectHighlight= new Array();
 var canvasObjectChange = new Object();
 canvasObjectChange.status=0;
-//TEMPORARY: 
-var time = 0;
+
 
 function renderCanvasObject(){	
 			authorMarginX=imgObject[0].width/2/multiplierObjectX[zoom];
@@ -41,8 +40,7 @@ function drawObject(im,x,y){
 			else
 			ctx.drawImage(imgObject[im],nready_x_n+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
 			}
-	if(readyScroll>0) {
-			if (time++ < 100)console.log(ready_x + " " + x + " " + multiplierObjectX[zoom]);
+	if(readyScroll>0 &!(x===undefined)) {
 			ctx.drawImage(imgObject[im],ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			if(imageCoords[0]<0)
 			ctx.drawImage(imgObject[im],ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]); 
