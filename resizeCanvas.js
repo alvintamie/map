@@ -72,8 +72,8 @@ statRenderResize=true;
 function renderResize(){
 	if(statRenderResize){
 		canvasResizeRight.style.left= canvas.offsetLeft+canvas.width+"px";
-		canvasResizeRight.style.top= canvas.offsetTop+"px";
-		canvasResizeBottom.style.left= canvas.offsetLeft+"px";
+		canvasResizeRight.style.top= canvas.offsetTop-10+"px";
+		canvasResizeBottom.style.left= canvas.offsetLeft-10+"px";
 		canvasResizeBottom.style.top= canvas.offsetTop+canvas.height+"px";
 		canvasResizeBoth.style.left= canvas.offsetLeft+canvas.width+"px";
 		canvasResizeBoth.style.top= canvas.offsetTop+canvas.height+"px";
@@ -81,16 +81,16 @@ function renderResize(){
 	}
 	canvasResizeRight.onmousedown = function(e){
 	isResizeWidth=true;
-	deltaResize=e.clientX-canvas.width-10+canvas.offsetLeft;}
+	deltaResize=e.clientX-canvas.width+canvas.offsetLeft;}
 	
 	canvasResizeBottom.onmousedown = function(e){
 	isResizeHeight=true;
-	deltaResize=e.clientY-canvas.height-10+canvas.offsetTop;}
+	deltaResize=e.clientY-canvas.height+canvas.offsetTop;}
 	
 	canvasResizeBoth.onmousedown = function(e){
 	isResizeBoth=true;
-	deltaResize=e.clientX-canvas.width-10+canvas.offsetLeft;
-	deltaResize1=e.clientY-canvas.height-10+canvas.offsetTop;}
+	deltaResize=e.clientX-canvas.width+canvas.offsetLeft;
+	deltaResize1=e.clientY-canvas.height+canvas.offsetTop;}
 	
 	if(isResizeWidth){
 	if(canvas.width>canvasMaxSizeX){
