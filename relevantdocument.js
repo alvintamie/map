@@ -15,6 +15,7 @@ var abstractRelevantState = new Array();
 var abstractRelevantMode = new Array();
 var abstractRelevantTotal = 20;
 var contentRelevantDocument;
+var headerRelevantDocument;
 //var showRelevantDocumentinMap = 1;
 var showRelevantDocumentHref;
 var divCountryDistributionRelevantDocument;
@@ -30,6 +31,7 @@ imgRelevantDocument[1] = imgObject[11];
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
+	divRelevantdocument.style.overflow = 'hidden';
 	relevantDocumentPosX = 740;
 	relevantDocumentPosY = 90;
 	relevantDocumentWidth = parseInt(divRelevantDocument.style.width);
@@ -39,14 +41,26 @@ function initializeRelevantDocument () {
 	divRelevantDocument.style.width = '0px';
 	ctxMenu.drawImage(imgRelevantDocument[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 	
+	headerRelevantDocument = document.createElement('div');
+	headerRelevantDocument.style.position = 'relative';
+	headerRelevantDocument.style.top = '0px';
+	headerRelevantDocument.style.left ='0px';
+	headerRelevantDocument.style.height = '23px';
+	headerRelevantDocument.style.width = relevantDocumentWidth + 'px';
+	headerRelevantDocument.style.paddingLeft = '5px';
+	headerRelevantDocument.style.color = 'white';
+	headerRelevantDocument.appendChild(document.createTextNode("Relevant Document"));
+	divRelevantDocument.appendChild(headerRelevantDocument);
+	headerRelevantDocument.onselectstart = function() {return false};
+	
 	contentRelevantDocument = document.createElement('div');
 	divRelevantDocument.appendChild(contentRelevantDocument);
 	contentRelevantDocument.setAttribute('id', "contentRelevantDocument");
-	contentRelevantDocument.style.position = 'absolute';
+	contentRelevantDocument.style.position = 'relative';
 	contentRelevantDocument.style.top = topbarHeight-9 + 'px';
 	contentRelevantDocument.style.left = 1 + 'px';
 	contentRelevantDocument.style.width = citedByWidth-2 + 'px';
-	contentRelevantDocument.style.height = citedByHeight-topbarHeight+7 +'px';
+	contentRelevantDocument.style.height = citedByHeight-parseInt(headerRelevantDocument.style.height) +'px';
 	contentRelevantDocument.style['overflow-x'] = 'hidden';
 	contentRelevantDocument.style['overflow-y'] = 'auto';
 	
