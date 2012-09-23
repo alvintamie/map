@@ -16,6 +16,12 @@ function initializeMainCanvas(){
 		showInfoObj.style["-webkit-border-radius"] = "10px";
 		showInfoObj.style.paddingLeft = "5px";
 		
+		var showMainArticle = document.createElement("div");
+		showMainArticle.style.position = "absolute";
+		showMainArticle.style.paddingLeft = "5px";
+		showMainArticle.innerHTML = "test";
+		document.body.appendChild(showMainArticle);
+		
 		
 		canvas = document.getElementById('canvas');
 		ctx = canvas.getContext('2d');
