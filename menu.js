@@ -75,12 +75,14 @@ function initializeMenu(){
 //SHOWING MAIN ARTICLE:
 function setDivPosition(_divObj, _posX, _posY)
 {
+	console.log("positionObject: "+ _posX + " " + posY);
 	_divObj.style.top = _posX + "px";
 	_divObj.style.left = _posY + "px";	
 }
 
 function setDivInnerHTML (_divObj, _sourceObj)
 {
+	console.log("authorObject:")
 	console.log(_sourceObj);
 	if (_sourceObj != null)
 	{
