@@ -51,7 +51,7 @@ function initializeReference() {
 	divCountryDistributionReference = document.createElement('div');
 	divCountryDistributionReference.style.background = 'yellow';
 	divCountryDistributionReference.style.position = 'absolute';
-	divCountryDistributionReference.style.width = '200px';
+	divCountryDistributionReference.style.width = '130px';
 	divCountryDistributionReference.style.height = '300px';
 	divCountryDistributionReference.style.top = referencePosY + 'px';
 	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 'px';
