@@ -1,6 +1,12 @@
 function initializeMenu(){
 	//document.onselectstart = function(){ return false; }
 
+	//New Adjustment For ButtonMenuWidth:
+	buttonMenuWidth = imgObject[4].width;
+	buttonMenuHeight = imgObject[4].height;
+	frameWidth = 0;
+
+
 	canvasMenu = document.getElementById('canvasMenu');
 	ctxMenu=canvasMenu.getContext('2d');
 	canvasMenu.width = 5*buttonMenuWidth + 6*frameWidth;
@@ -28,10 +34,7 @@ function initializeMenu(){
 	}
 	*/
 	
-	//New Adjustment For ButtonMenuWidth:
-	buttonMenuWidth = imgObject[4].width;
-	buttonMenuHeight = imgObject[4].height;
-	frameWidth = 0;
+	
 	
 	initializeReference();
 	initializeCitedBy();
