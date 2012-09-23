@@ -39,6 +39,7 @@ function drawObject(im,x,y){
 			ctx.drawImage(imgObject[im],nready_x_n+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
 			}
 	if(readyScroll>0) {
+			console.log(ready_x + " " + x + " " + multiplierObjectX[zoom]);
 			ctx.drawImage(imgObject[im],ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			if(imageCoords[0]<0)
 			ctx.drawImage(imgObject[im],ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]); 
