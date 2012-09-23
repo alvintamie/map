@@ -51,12 +51,12 @@ function initializeCitedBy() {
 	showCitedByHref.textContent = "Show in map";
 	
 	divCountryDistributionCitedBy = document.createElement('div');
-	divCountryDistributionCitedBy.style.background = 'yellow';
+	divCountryDistributionCitedBy.style.background = '#D8D8D8';
 	divCountryDistributionCitedBy.style.position = 'absolute';
 	divCountryDistributionCitedBy.style.width = '200px';
 	divCountryDistributionCitedBy.style.height = '300px';
-	divCountryDistributionCitedBy.style.top = citedByPosY + 'px';
-	divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 'px';
+	divCountryDistributionCitedBy.style.top = citedByPosY + 27 + 'px';
+	divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 8 + 'px';
 	divCountryDistributionCitedBy.style['z-index'] = 0;
 	divCountryDistributionCitedBy.style.overflow = 'hidden';
 	divCountryDistributionCitedBy.style.display = 'none';
@@ -355,8 +355,8 @@ function citedByDisplacement(e){
 			divCitedBy.style.top="0px";
 			citedByPosY = 0;
 		}
-		divCountryDistributionCitedBy.style.top = citedByPosY + "px";
-		divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 'px';
+		divCountryDistributionCitedBy.style.top = citedByPosY + 27 + "px";
+		divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 8 + 'px';
 		/*
 		if(divCitedBy.offsetLeft<0){
 			divCitedBy.style.left="0px";
