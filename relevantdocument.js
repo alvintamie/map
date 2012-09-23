@@ -263,8 +263,8 @@ function focusToCountryRelevantDocument(crdObjectName) {
 	if (modeCountryTypeRelevantDocument==0) {
 		defaultChangedRelevantDocument = 1;
 		var temp=new Object;
-		temp.country=new Array(crdObjectName);
-		getRelevantDocumentFilter1(temp);
+		temp.country=crdObjectName;
+		getRelevantDocumentFilter1(new Array(temp));
 	}
 	else {
 		getRelevantDocumentFilter2(new Array(crdObjectName));
