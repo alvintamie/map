@@ -137,7 +137,7 @@ function initializeSearch() {
 	divCountryDistributionSearch = document.createElement('div');
 	divCountryDistributionSearch.style.background = '#F2F1EF';
 	divCountryDistributionSearch.style.position = 'absolute';
-	divCountryDistributionSearch.style.width = '200px';
+	divCountryDistributionSearch.style.width = '130px';
 	divCountryDistributionSearch.style.height = '300px';
 	divCountryDistributionSearch.style.top = searchPosY + 27 + 'px';
 	divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 8 + 'px';
@@ -461,9 +461,18 @@ function showOverallCountrySearch(csObject) {
 	divCountryDistributionSearch.appendChild(hrefCountryTypeSearch);
 	divCountryDistributionSearch.appendChild(document.createElement('br'));
 	for (var i=0; i<csObject.length; i++) {
-		divCountryDistributionSearch.appendChild(document.createTextNode(csObject[i].name + " : " + csObject[i].hitCount));
+		var temp = document.createElement('a');
+		temp.href = "javascript:focusToCountrySearch('"+csObject[i].name+"');";
+		temp.textContent = caObject[i].name;
+		temp.style.textDecoration = 'none';
+		divCountryDistributionSearch.appendChild(temp);
+		divCountryDistributionSearch.appendChild(document.createTextNode(" ("+csObject[i].hitCount+")"));
 		divCountryDistributionSearch.appendChild(document.createElement('br'));
 	}
+}
+
+function focusToCountryReference(csObjectName) {
+	
 }
 
 function showAbstractSearch(i) {
