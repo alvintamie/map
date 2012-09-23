@@ -93,7 +93,7 @@ function renderResize(){
 	deltaResize1=e.clientY-canvas.height+canvas.offsetTop;}
 	
 	if(isResizeWidth){
-	if(canvas.offsetLeft+canvas.width>canvasMaxSizeX){
+	if(canvas.width>canvasMaxSizeX){
 	canvasResizeRight.style.left=canvasMaxSizeX+"px";
 	canvasResizeBoth.style.left=canvasMaxSizeX+"px";
 	canvasResizeBottom.width=canvasMaxSizeX;}
@@ -116,7 +116,7 @@ function renderResize(){
 	 
 	 	if(isResizeBoth){
 	 		
-	 		if(canvas.offsetLeft+canvas.width>canvasMaxSizeX){
+	 		if(canvas.width>canvasMaxSizeX){
 	canvasResizeRight.style.left=canvasMaxSizeX+"px";
 	canvasResizeBoth.style.left=canvasMaxSizeX+"px";
 	canvasResizeBottom.width=canvasMaxSizeX;}
@@ -125,7 +125,7 @@ function renderResize(){
 	 canvasResizeBoth.style.left=canvas.offsetLeft+canvas.width+"px";
 	 canvasResizeBottom.width=canvas.width;}
 	 
-	if(canvas.offsetTop+canvas.height>canvasMaxSizeY){
+	if(canvas.height>canvasMaxSizeY){
 	canvasResizeBottom.style.top=canvasMaxSizeY+"px";
 	canvasResizeBoth.style.top=canvasMaxSizeY+"px";
 	canvasResizeRight.height=canvasMaxSizeY;	
