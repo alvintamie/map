@@ -192,6 +192,7 @@ function showOverallCountryReference(crObject) {
 }
 
 function focusToCountryReference (crObjecti) {
+	console.log("focus country");
 	viewAllModeActive = 0;
 	modeInMap = referenceMode;
 	getReferenceFilter(new Array(crObjecti.name));
