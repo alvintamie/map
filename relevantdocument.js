@@ -19,7 +19,7 @@ var contentRelevantDocument;
 var showRelevantDocumentHref;
 var divCountryDistributionRelevantDocument;
 var modeCountryDistributionRelevantDocument = 0;
-var modeCountryTypeRelevantDocument = 0;
+var modeCountryTypeRelevantDocument = 1;
 var defaultChangedRelevantDocument = 0;
 var hrefCountryTypeRelevantDocument;
 var hrefCDRD;
@@ -68,7 +68,7 @@ function initializeRelevantDocument () {
 	document.body.appendChild(divCountryDistributionRelevantDocument);
 	
 	hrefCountryTypeRelevantDocument = document.createElement('a');
-	hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
+	hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
 	hrefCountryTypeRelevantDocument.href = "#";
 	hrefCountryTypeRelevantDocument.onclick = function () {
 		//console.log("bbbbb");
@@ -108,12 +108,16 @@ function updateRelevantDocument (rdObject, rdMode) {
 			temp.href = "#";
 			temp.onclick = function () {
 				if (defaultChangedRelevantDocument==1) {
-					resetQueryRelevantDocument();
+					modeInMap = relevantDocumentMode;
+					viewAllModeActive = 0;
 					defaultChangedRelevantDocument = 0;
+					resetQueryRelevantDocument();
 				}
 				else {
+					viewAllModeActive = 0;
+					modeInMap = relevantDocumentMode;
+					showResult(relevantDocumentMode, relevantDocumentObject);
 					updateRelevantDocument(relevantDocumentObject, 0);
-					showResult(0, rdObject);
 					
 				}
 				modeCountryTypeRelevantDocument = 1;
