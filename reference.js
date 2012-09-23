@@ -54,7 +54,7 @@ function initializeReference() {
 	divCountryDistributionReference.style.width = '130px';
 	divCountryDistributionReference.style.height = '300px';
 	divCountryDistributionReference.style.top = referencePosY - 30 + 'px';
-	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width)+ 11 + 'px';
+	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width)+ 8 + 'px';
 	divCountryDistributionReference.style['z-index'] = 0;
 	divCountryDistributionReference.style.overflow = 'hidden';
 	divCountryDistributionReference.style.display = 'block';
