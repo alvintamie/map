@@ -75,14 +75,16 @@ function initializeRelevantDocument () {
 		if (modeCountryTypeRelevantDocument==0) {
 			modeCountryTypeRelevantDocument = 1;
 			hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
+			changeModeRelevantDocument();
 		}
 		else {
 			modeCountryTypeRelevantDocument = 0;
 			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
+			changeModeRelevantDocument();
 		}
-		showOverallCountryRelevantDocument(countryRelevantDocument);
+		//showOverallCountryRelevantDocument(countryRelevantDocument);
 	}
-	showOverallCountryRelevantDocument(countryRelevantDocument);
+	//showOverallCountryRelevantDocument(countryRelevantDocument);
 	
 	hrefCDRD = document.createElement('a');
 	hrefCDRD.textContent = "View country distribution";
