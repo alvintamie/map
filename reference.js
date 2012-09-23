@@ -144,7 +144,10 @@ function insertReference(rObject, i) {
 	temp.style['font-weight'] = 'bold';
 	temp.style.textDecoration = 'none';
 	temp.href = "#";
-	temp.textContent = i + " " + rObject[i].title;
+	//CHANGED:
+	if ( typeof(rObject[i].title) != 'undefined')temp.textContent = i + " " + rObject[i].title;
+	else temp.textContent = i + " " + rObject[i].sourcetitle;
+	///////////////////////////
 	temp.onclick = function () {
 		if (abstractRefMode[i]==0) {
 			showAbstractRef(i);
