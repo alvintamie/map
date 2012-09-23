@@ -249,7 +249,7 @@ function findCountryDocumentRelevantDocument(crdString) {
 	}
 	console.log("ini string");
 	console.log(crdString);
-	highlight(getObject(crdString));
+	highlight(getObject(crdString[0]));
 }
 
 
