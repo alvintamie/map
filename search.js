@@ -420,13 +420,21 @@ function updateSearch(sObject, sMode) {
 }
 
 function insertSearch(sObject, i) {
+	var tempTable = document.createElement('table');
+	//tempTable.align = 'justify';
+	document.getElementById("Search"+i).appendChild(tempTable);
+	
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "Search" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractSearch(i);};
-	document.getElementById("Search"+i).appendChild(temp);
+	var row = tempTable.insertRow(0);
+	row.insertCell(0).appendChild(temp);
+	
 	temp = document.createElement("a");
+	temp.style['font-weight'] = 'bold';
+	temp.style.textDecoration = 'none';
 	temp.onclick = function () {
 		if (abstractSearchMode[i]==0) {
 			showAbstractSearch(i);
@@ -435,20 +443,34 @@ function insertSearch(sObject, i) {
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelSearchEngine-1)*100+i+1 + " " + sObject[i].title;
-	document.getElementById("Search"+i).appendChild(temp);
+	row.insertCell(1).appendChild(temp);
+	
 	temp = document.createElement('div');
+	temp.align = 'justify';
 	document.getElementById("Search"+i).appendChild(temp);
 	temp.setAttribute('id', "Search" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
-	temp.style.width = searchWidth - 45 + 'px';
+	temp.style.width = searchWidth - 43 + 'px';
 	if (sObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + sObject[i].url + "')";
+		temp2.style.textDecoration = 'none';
 		temp.appendChild(temp2);
-		temp.appendChild(document.createElement('br'));
+		//temp.appendChild(document.createElement('br'));
 	}
+	if (sObject[i].authorId && sObject[i].scopusId) {
+		var temp2 = document.createElement('a');
+		temp2.textContent = "Set as main article";
+		temp2.href = "#";
+		temp2.style.textDecoration = 'none';
+		temp2.style.cssFloat = 'right';
+		temp2.onclick = function() {newMainArticle(sObject[i]);};
+		temp.appendChild(temp2);
+		//temp.appendChild(document.createElement('br'));
+	}
+	temp.appendChild(document.createElement('br'));
 	if (sObject[i].Abstract)
 		temp.appendChild(document.createTextNode(sObject[i].Abstract));
 	else temp.appendChild(document.createTextNode("Abstract not available"));
