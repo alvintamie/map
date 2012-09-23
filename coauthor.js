@@ -238,6 +238,7 @@ function showOverallCountryCoAuthor(ccaObject) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryCoAuthor('"+ccaObject[i].name+"')";
 		temp.textContent = ccaObject[i].name;
+		divCountryDistributionCoAtuhor.appendChild(temp);
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode(" ("+ccaObject[i].hitCount+")"));
 		divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
 	}
