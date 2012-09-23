@@ -104,7 +104,7 @@ function renderCanvas(){
 			ctx.drawImage(img[zoom],ready_x_n,imageCoords[1]); }
 			//displayCountry();
 			if (highlightObj.status == 1) renderHighlight();
-			setDivPosition(mainArticleDiv, canvas.offsetLeft + canvas.width + 20, canvas.offsetTop + 20);
+		//	setDivPosition(mainArticleDiv, canvas.offsetLeft + canvas.width + 20, canvas.offsetTop + 20);
 	}
 }
 function renderScroll(){
