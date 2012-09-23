@@ -56,7 +56,7 @@ function initializeRelevantDocument () {
 	}*/
 	
 	divCountryDistributionRelevantDocument = document.createElement('div');
-	divCountryDistributionRelevantDocument.style.background = '#D8D8D8';
+	divCountryDistributionRelevantDocument.style.background = '#F2F1EF';
 	divCountryDistributionRelevantDocument.style.position = 'absolute';
 	divCountryDistributionRelevantDocument.style.width = '200px';
 	divCountryDistributionRelevantDocument.style.height = '300px';
