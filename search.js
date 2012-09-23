@@ -37,6 +37,7 @@ var abstractSearchState = new Array();
 var abstractSearchMode = new Array();
 var abstractSearchTotal = 20;
 var contentSearchResult;
+var headerSearch;
 var showSearchinMap = 1;
 var showSearchHref;
 var divCountryDistributionSearch;
@@ -50,6 +51,7 @@ imgSearch[1] = imgObject[13];
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
+	divSearch.style.overflow = 'hidden';
 	searchPosX = 780;
 	searchPosY = 130;
 	searchWidth = parseInt(divSearch.style.width);
@@ -60,14 +62,26 @@ function initializeSearch() {
 	divSearch.style.overflow = 'hidden';
 	ctxMenu.drawImage(imgSearch[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
 	
+	headerSearch = document.createElement('div');
+	headerSearch.style.position = 'relative';
+	headerSearch.style.top = '0px';
+	headerSearch.style.left ='0px';
+	headerSearch.style.height = '23px';
+	headerSearch.style.width = searchWidth + 'px';
+	headerSearch.style.paddingLeft = '5px';
+	headerSearch.style.color = 'white';
+	headerSearch.appendChild(document.createTextNode("Reference"));
+	divSearch.appendChild(headerSearch);
+	headerSearch.onselectstart = function() {return false};
+	
 	var temp = document.createElement('div');
 	divSearch.appendChild(temp);
 	temp.setAttribute('id', "contentSearch");
-	temp.style.position = 'absolute';
+	temp.style.position = 'relative';
 	temp.style.top = topbarHeight-9 + 'px';
 	temp.style.left = 1 + 'px';
 	temp.style.width = citedByWidth-2 + 'px';
-	temp.style.height = citedByHeight-topbarHeight+7 +'px';
+	temp.style.height = citedByHeight--parseInt(headerSearch.style.height) +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
 	
