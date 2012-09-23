@@ -40,7 +40,7 @@ function initializeReference() {
 	//console.log("after");
 	
 	headerReference = document.createElement('div');
-	headerReference.style.position = 'absolute';
+	headerReference.style.position = 'relative';
 	headerReference.style.top = '0px';
 	headerReference.style.left ='0px';
 	headerReference.style.height = '30px';
