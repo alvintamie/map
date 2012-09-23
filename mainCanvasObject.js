@@ -53,36 +53,39 @@ function drawText(text,x,y){
 	ctx.font = "13px Verdana";
 	ctx.strokeWidth = "0px";
 	//ctx.lineWidth = 1;
-	ctx.fillStyle = "white";
-	ctx.strokeStyle = "#000000";
+	ctx.fillStyle = "#000000";
+	ctx.strokeStyle = "white";
 	if(readyScroll<0) { 
+	//	ctx.fillText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);	
+		ctx.strokeText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
 		ctx.fillText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);	
-		ctx.strokeText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);	
 		if(imageCoords[0]<0)
 		{
-			ctx.fillText(text,nready_x_p+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
+	//		ctx.fillText(text,nready_x_p+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
 			ctx.strokeText(text,nready_x_p+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
+			ctx.fillText(text,nready_x_p+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]); 
 		}
 		else
 		{
-			ctx.fillText(text,nready_x_n+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
+	//		ctx.fillText(text,nready_x_n+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
 			ctx.strokeText(text,nready_x_n+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
+			ctx.fillText(text,nready_x_n+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
 		}
 	}
 	if(readyScroll>0) {
-		ctx.fillText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+	//	ctx.fillText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 		ctx.strokeText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 		ctx.fillText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 		if(imageCoords[0]<0)
 		{
-			ctx.fillText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+	//		ctx.fillText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			ctx.strokeText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			ctx.fillText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 		
 		}
 		else
 		{
-			ctx.fillText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+	//		ctx.fillText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			ctx.strokeText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			ctx.fillText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 		
