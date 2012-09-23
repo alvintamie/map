@@ -78,7 +78,7 @@ function initializeSearch() {
 	divSearch.appendChild(temp);
 	temp.setAttribute('id', "contentSearch");
 	temp.style.position = 'relative';
-	temp.style.top = topbarHeight-9 + 'px';
+	//temp.style.top = topbarHeight-9 + 'px';
 	temp.style.left = 1 + 'px';
 	temp.style.width = citedByWidth-2 + 'px';
 	temp.style.height = citedByHeight-parseInt(headerSearch.style.height) +'px';
