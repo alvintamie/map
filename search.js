@@ -264,7 +264,7 @@ function updatecontentSearchQuery() {
 		searchField.appendChild(document.createElement('br'));
 		
 		searchField.appendChild(document.createTextNode("Sort the document by "));
-		searchField.appendChild(SearchSortBySelect);
+		searchField.appendChild(searchSortBySelect);
 		searchField.appendChild(document.createElement('br'));
 		
 		var searchSubmitButton = document.createElement('button');
