@@ -184,19 +184,19 @@ function showOverallCountryReference(crObject) {
 		divCountryDistributionReference.appendChild(document.createTextNode(crObject[i].name + " : " + crObject[i].hitCount));
 		divCountryDistributionReference.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		temp.href = "javascript:focusToCountryReference("+crObject[i]+");";
+		temp.href = "javascript:focusToCountryReference('"+crObject[i].name+"');";
 		temp.textContent = "focus to this country";
 		divCountryDistributionReference.appendChild(temp);
 		divCountryDistributionReference.appendChild(document.createElement('br'));
 	}
 }
 
-function focusToCountryReference (crObjecti) {
+function focusToCountryReference (crObjectName) {
 	console.log("focus country");
 	viewAllModeActive = 0;
 	modeInMap = referenceMode;
-	getReferenceFilter(new Array(crObjecti.name));
-	highlight(getObject(crObjecti.name));
+	getReferenceFilter(new Array(crObjectName));
+	highlight(getObject(crObjectName));
 }
 
 function showAbstractRef(i) {
