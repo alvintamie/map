@@ -150,6 +150,7 @@ function renderResize(){
 	ctxResizeBottom.fillStyle = "rgb(220,220,220)";
 	ctxResizeRight.fillStyle = "rgb(220,220,220)";
 	ctxResizeBoth.fillStyle = "rgb(220,220,220)";
+	console.log("hai");
 	ctxResizeRight.fillRect(0,0,canvasResizeRight.width,canvasResizeRight.height);
 	ctxResizeBottom.fillRect(0,0,canvasResizeBottom.width,canvasResizeBottom.height);
 	ctxResizeBoth.fillRect(0,0,canvasResizeBoth.width,canvasResizeBoth.height);
