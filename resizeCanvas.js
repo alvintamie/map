@@ -71,15 +71,13 @@ function resizeCanvas(e){
 statRenderResize=true;
 function renderResize(){
 	if(statRenderResize){
-		canvasResizeRight.style.left= canvas.offsetLeft+canvas.width+10+30+"px";
+		canvasResizeRight.style.left= canvas.offsetLeft+canvas.width+10+"px";
 		canvasResizeRight.style.top= canvas.offsetTop-10+"px";
 		canvasResizeBottom.style.left= canvas.offsetLeft-10+"px";
 		canvasResizeBottom.style.top= canvas.offsetTop+canvas.height+10+"px";
 		canvasResizeBoth.style.left= canvas.offsetLeft+canvas.width+"px";
 		canvasResizeBoth.style.top= canvas.offsetTop+canvas.height+"px";
 		statRenderResize=false;
-		console.log("resize");
-		console.log(canvasResizeRight.offsetLeft+" "+canvasResizeRight.offsetTop);
 	}
 	canvasResizeRight.onmousedown = function(e){
 	isResizeWidth=true;
