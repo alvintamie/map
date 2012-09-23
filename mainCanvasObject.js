@@ -53,8 +53,8 @@ function drawText(text,x,y){
 	ctx.font = "13px Verdana";
 	ctx.strokeWidth = "0px";
 	//ctx.lineWidth = 1;
-	ctx.fillStyle = "#870F25";
-	ctx.strokeStyle = "#000000";
+	ctx.fillStyle = "#FF3030";
+	ctx.strokeStyle = "#350505";
 	if(readyScroll<0) { 
 	//	ctx.fillText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);	
 		ctx.strokeText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
