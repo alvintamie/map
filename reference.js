@@ -48,9 +48,10 @@ function initializeReference() {
 	showReferenceHref.href = "#";
 	showReferenceHref.textContent = "Show documents in map";
 	showReferenceHref.onclick = function () {
-		showResult(0, citedbyObject);
+		modeInMap = referenceMode;
+		viewAllModeActive = 0;
+		showResult(0, referenceObject);
 	}
-	showReferenceHref.textContent = "Hide documents in map";
 	
 	divCountryDistributionReference = document.createElement('div');
 	divCountryDistributionReference.style.background = 'yellow';
@@ -81,7 +82,11 @@ function updateReference (rObject, rMode) {
 		if (rMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
-			temp.onclick = function () {updateReference(referenceObject, 0);};
+			temp.onclick = function () {
+				modeInMap = referenceMode;
+				viewAllModeActive = 0;
+				showResult(0, referenceObject);
+				updateReference(referenceObject, 0);};
 			temp.textContent = "Show all result";
 			contentReference.appendChild(temp);
 			contentReference.appendChild(document.createElement('br'));
@@ -122,6 +127,8 @@ function insertReference(rObject, i) {
 		if (abstractRefMode[i]==0) {
 			showAbstractRef(i);
 		}
+		viewAllModeActive = 0;
+		modeInMap = referenceMode;
 		showResult(0, rObject);
 		highlight(rObject[i]);
 	};
@@ -177,11 +184,18 @@ function showOverallCountryReference(crObject) {
 		divCountryDistributionReference.appendChild(document.createTextNode(crObject[i].name + " : " + crObject[i].hitCount));
 		divCountryDistributionReference.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		temp.href = "javascript:getReferenceFilter(new Array('"+crObject[i].name+"'))";
+		temp.href = "javascript:focusToCountryReference("+crObject[i]+");";
 		temp.textContent = "focus to this country";
 		divCountryDistributionReference.appendChild(temp);
 		divCountryDistributionReference.appendChild(document.createElement('br'));
 	}
+}
+
+function focusToCountryReference (crObjecti) {
+	viewAllModeActive = 0;
+	modeInMap = referenceMode;
+	getReferenceFilter(new Array(crObjecti.name));
+	highlight(getObject(crObjecti.name));
 }
 
 function showAbstractRef(i) {
