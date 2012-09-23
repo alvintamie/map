@@ -22,6 +22,9 @@ var modeCountryDistributionReference = 0;
 //var modeCountryTypeReference = 0;
 //var hrefCountryTypeReference;
 var hrefCDR;
+var imgReference = new Array();
+imgReference[0] = imgObject[4];
+imgReference[1] = imgObject[9];
 
 function initializeReference() {
 	divReference = document.getElementById("windowReference");
@@ -297,7 +300,7 @@ function changeViewReference() {
 		//divReference.style.display = "none";
 		referenceVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
+	ctxMenu.drawImageData(imgReference[referenceVisible], 0, 0);
 	if (referenceStatus > 0 && referenceStatus <referenceTotalSteps) setTimeout (changeViewReference, 10);
 }
 
