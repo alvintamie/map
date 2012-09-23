@@ -104,8 +104,8 @@ function initializeSearch() {
 	
 	searchSortBySelect = document.createElement('select');
 	searchSortBySelect.setAttribute('name', 'search_inputSortBySelect');
-	for (var i=0; i<searchSortBySelect; i++) {
-		searchSortBySelect.options[i] = new Option (searchSortBySelect[i], i);
+	for (var i=0; i<searchSortByString.length; i++) {
+		searchSortBySelect.options[i] = new Option (searchSortByString[i], i);
 	}
 	
 	updatecontentSearchQuery();
