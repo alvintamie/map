@@ -71,8 +71,8 @@ function resizeCanvas(e){
 statRenderResize=true;
 function renderResize(){
 	if(statRenderResize){
-		canvasResizeRight.style.top= canvas.offsetLeft+canvas.width+10+"px";
-		canvasResizeRight.style.left= canvas.offsetTop+"px";
+		canvasResizeRight.style.left= canvas.offsetLeft+canvas.width+10+"px";
+		canvasResizeRight.style.top= canvas.offsetTop+"px";
 		statRenderResize=false;
 	}
 	canvasResizeRight.onmousedown = function(e){
