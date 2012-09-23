@@ -23,6 +23,9 @@ var modeCountryTypeCoAuthor = 0;
 
 //var hrefCountryTypeCoAuthor;
 var hrefCDCA;
+var imgCoAuthor = new Array();
+imgCoAuthor[0] = imgObject[7];
+imgCoAuthor[1] = imgObject[12];
 
 function initializeCoAuthor() {
 	divCoAuthor = document.getElementById("windowCoAuthor");
@@ -33,7 +36,7 @@ function initializeCoAuthor() {
 	//divCoAuthor.style.display = "none";
 	divCoAuthor.style.width = '0px';
 	divCoAuthor.style.height = '0px';
-	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgCoAuthor[coAuthorVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
 	contentCoAuthor = document.createElement('div');
 	divCoAuthor.appendChild(contentCoAuthor);
 	contentCoAuthor.setAttribute('id', "contentCoAuthor");
@@ -304,7 +307,7 @@ function changeViewCoAuthor() {
 		//divCoAuthor.style.display = "none";
 		coAuthorVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[coAuthorVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgCoAuthor[coAuthorVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
 	if (coAuthorStatus > 0 && coAuthorStatus <coAuthorTotalSteps) setTimeout (changeViewCoAuthor, 10);
 }
 
