@@ -44,6 +44,9 @@ var modeCountryDistributionSearch = 0;
 var modeCountryTypeSearch = 0;
 var hrefCountryTypeSearch;
 var hrefCDS;
+var imgSearch = new Array();
+imgSearch[0] = imgObject[8];
+imgSearch[1] = imgObject[13];
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
@@ -55,7 +58,7 @@ function initializeSearch() {
 	divSearch.style.width = '0px';
 	divSearch.style.height = '0px';
 	divSearch.style.overflow = 'hidden';
-	ctxMenu.putImageData(imgDataMenu[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgSearch[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
 	
 	var temp = document.createElement('div');
 	divSearch.appendChild(temp);
@@ -561,7 +564,7 @@ function changeViewSearch() {
 		//divSearch.style.display = "none";
 		searchVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgSearch[searchVisible], 5*frameWidth+4*buttonMenuWidth, frameWidth);
 	if (searchStatus > 0 && searchStatus <searchTotalSteps) setTimeout (changeViewSearch, 10);
 }
 
