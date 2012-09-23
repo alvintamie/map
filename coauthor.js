@@ -47,7 +47,7 @@ function initializeCoAuthor() {
 	headerCoAuthor.style.height = '23px';
 	headerCoAuthor.style.width = referenceWidth + 'px';
 	headerCoAuthor.style.paddingLeft = '5px';
-	headerCoAuthor.style.color = '#08088A';
+	headerCoAuthor.style.color = 'white';
 	headerCoAuthor.appendChild(document.createTextNode("Co-Authors"));
 	divCoAuthor.appendChild(headerCoAuthor);
 	headerCoAuthor.onselectstart = function() {return false};
@@ -59,7 +59,7 @@ function initializeCoAuthor() {
 	//contentCoAuthor.style.top = topbarHeight-9 + 'px';
 	contentCoAuthor.style.left = 1 + 'px';
 	contentCoAuthor.style.width = coAuthorWidth-2 + 'px';
-	contentCoAuthor.style.height = coAuthorHeight-parseInt(headerCoAuthor.style.height)+7 +'px';
+	contentCoAuthor.style.height = coAuthorHeight-parseInt(headerCoAuthor.style.height) +'px';
 	contentCoAuthor.style['overflow-x'] = 'hidden';
 	contentCoAuthor.style['overflow-y'] = 'auto';
 	
