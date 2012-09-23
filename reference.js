@@ -53,7 +53,7 @@ function initializeReference() {
 	divCountryDistributionReference.style.position = 'absolute';
 	divCountryDistributionReference.style.width = '130px';
 	divCountryDistributionReference.style.height = '300px';
-	divCountryDistributionReference.style.top = referencePosY + 23 + 'px';
+	divCountryDistributionReference.style.top = referencePosY + 27 + 'px';
 	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width)+ 8 + 'px';
 	divCountryDistributionReference.style['z-index'] = 0;
 	divCountryDistributionReference.style.overflow = 'hidden';
@@ -321,8 +321,8 @@ function referenceDisplacement(e){
 			divReference.style.top="0px";
 			referencePosY = 0;
 		}
-		divCountryDistributionReference.style.top = referencePosY + "px";
-		divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 'px';
+		divCountryDistributionReference.style.top = referencePosY + 27 + "px";
+		divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 8 + 'px';
 		
 		/*
 		if(divReference.offsetLeft<0){
