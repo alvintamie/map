@@ -25,8 +25,8 @@ var hrefCDR;
 
 function initializeReference() {
 	divReference = document.getElementById("windowReference");
-	referencePosX = divReference.offsetLeft;
-	referencePosY = divReference.offsetTop;
+	referencePosX = 500;
+	referencePosY = 50;
 	referenceWidth = parseInt(divReference.style.width);
 	referenceHeight = parseInt(divReference.style.height);
 	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
