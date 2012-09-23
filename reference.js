@@ -73,6 +73,8 @@ function initializeReference() {
 
 function updateReference (rObject, rMode) {
 	removecontentReferenceChild();
+	console.log("updatereference");
+	console.log (rObject);
 	if (rObject.length>0) {
 		if (rMode==1) {
 			var temp = document.createElement('a');
