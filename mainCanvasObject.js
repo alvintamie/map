@@ -50,7 +50,7 @@ function drawObject(im,x,y){
 }
 
 function drawText(text,x,y){
-	ctx.font = "14px Verdana";
+	ctx.font = "13px Verdana";
 	ctx.fillStyle = "#0A0264";
 	ctx.strokeStyle = "#000000";
 	if(readyScroll<0) { 
