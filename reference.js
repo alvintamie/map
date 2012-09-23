@@ -123,7 +123,8 @@ function insertReference(rObject, i) {
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractRef(i);};
-	tempTable.appendChild(document.createElement('tr').appendChild(temp));
+	var row = tempTable.insertRow(0);
+	row.insertCell(0).appendChild(temp);
 	temp = document.createElement("a");
 	temp.style['font-weight'] = 'bold';
 	temp.style['padding=left'] = '10px';
@@ -138,7 +139,7 @@ function insertReference(rObject, i) {
 		showResult(referenceMode, rObject);
 		highlight(rObject[i]);
 	};
-	tempTable.appendChild(document.createElement('tr').appendChild(temp));
+	row.insertCell(1).appendChild(temp);
 	temp = document.createElement('div');
 	temp.align = 'justify';
 	document.getElementById("Reference"+i).appendChild(temp);
