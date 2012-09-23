@@ -23,7 +23,7 @@ function initializeMainCanvas(){
 		mainArticleDiv.style.position = "absolute";
 		mainArticleDiv.style.paddingLeft = "5px";
 		mainArticleDiv.style.width = "500px";
-		mainArticleDiv.innerHTML = "test";
+	//	mainArticleDiv.innerHTML = "test";
 	//	setDivInnerHTML(mainArticleDiv, authorObject);
 		document.body.appendChild(mainArticleDiv);
 		
