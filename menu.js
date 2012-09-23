@@ -75,7 +75,7 @@ function initializeMenu(){
 //SHOWING MAIN ARTICLE:
 function setDivPosition(_divObj, _posX, _posY)
 {
-	console.log("positionObject: "+ _posX + " " + _posY);
+	//console.log("positionObject: "+ _posX + " " + _posY);
 	_divObj.style.top = _posX + "px";
 	_divObj.style.left = _posY + "px";	
 }
