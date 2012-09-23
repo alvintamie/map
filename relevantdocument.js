@@ -31,7 +31,7 @@ imgRelevantDocument[1] = imgObject[11];
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
-	divRelevantdocument.style.overflow = 'hidden';
+	divRelevantDocument.style.overflow = 'hidden';
 	relevantDocumentPosX = 740;
 	relevantDocumentPosY = 90;
 	relevantDocumentWidth = parseInt(divRelevantDocument.style.width);
