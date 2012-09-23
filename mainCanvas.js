@@ -33,7 +33,7 @@ function initializeMainCanvas(){
 			startCoords = [(e.clientX-canvas.offsetLeft) - last[0],(e.clientY-canvas.offsetTop) - last[1]];
 			var clickMapCoords = [(mouseDownCoords[0]-canvas.offsetLeft)%img[zoom].width, (mouseDownCoords[1]-canvas.offsetTop)%img[zoom].height];
 			if (clickMapCoords[0] < 0) clickMapCoords[0] += img[zoom].width;
-			listenAllClick(clickMapCoords[0],clickMapCoords[1]);
+			listenAllClick(clickMapCoords[0],clickMapCoords[1],0);
 		};
 	
 		canvas.onmousemove = function(e) {
