@@ -81,6 +81,7 @@ function setDivPosition(_divObj, _posX, _posY)
 
 function setDivInnerHTML (_divObj, _sourceObj)
 {
+	console.log(_sourceObj);
 	if (_sourceObj != null)
 	{
 		if (!(_sourceObj.title === undefined))_divObj.innerHTML = _sourceObj.title + "<br>";
