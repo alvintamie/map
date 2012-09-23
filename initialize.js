@@ -83,7 +83,7 @@ var obj_dis_x;
 	
 // for resize canvas
 	var canvasMaxSizeX=1025;
-	var canvasMaxSizeY=752;
+	var canvasMaxSizeY=552;
 	var resizeBuffer1=1000;
 	var resizeBuffer2=600;
 	var resizeBufferRight=1000;
