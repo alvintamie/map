@@ -194,13 +194,20 @@ function updateRelevantDocument (rdObject, rdMode) {
 }
 
 function insertRelevantDocument(rdObject, i) {
+	var tempTable = document.createElement('table');
+	//tempTable.align = 'justify';
+	document.getElementById("RelevantDocument"+i).appendChild(tempTable);
+	
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "RelevantDocument" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractRelevant(i);};
-	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	var row = tempTable.insertRow(0);
+	row.insertCell(0).appendChild(temp);
 	temp = document.createElement("a");
+	temp.style['font-weight'] = 'bold';
+	temp.style.textDecoration = 'none';
 	temp.onclick = function () {
 		if (abstractRelevantMode[i]==0) {
 			showAbstractRelevant(i);
@@ -212,29 +219,34 @@ function insertRelevantDocument(rdObject, i) {
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
+	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
-	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	temp.align = 'justify';
 	temp.setAttribute('id', "RelevantDocument" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
-	temp.style.width = relevantDocumentWidth - 45 + 'px';
+	temp.style.width = relevantDocumentWidth - 43 + 'px';
 	if (rdObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rdObject[i].url + "')";
+		temp2.style.textDecoration = 'none';
 		temp.appendChild(temp2);
-		temp.appendChild(document.createElement('br'));
+		//temp.appendChild(document.createElement('br'));
 	}
 	if (rdObject[i].authorId && rdObject[i].scopusId) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Set as main article";
 		temp2.href = "#";
 		temp2.onclick = function() {newMainArticle(rdObject[i]);};
+		temp2.style.textDecoration = 'none';
 		temp.appendChild(temp2);
-		temp.appendChild(document.createElement('br'));
+		//temp.appendChild(document.createElement('br'));
 	}
+	temp.appendChild(document.createElement('br'));
 	if (rdObject[i].Abstract)
 		temp.appendChild(document.createTextNode(rdObject[i].Abstract));
 	else temp.appendChild(document.createTextNode("Abstract not available"));
