@@ -72,7 +72,10 @@ function initializeReference() {
 	divCountryDistributionReference.style.top = referencePosY + 27 + 'px';
 	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width)+ 8 + 'px';
 	divCountryDistributionReference.style['z-index'] = 0;
-	divCountryDistributionReference.style.overflow = 'hidden';
+	divCountryDistributionReference.style.overflow = 'auto';
+	divCountryDistributionReference.style['border-radius'] = '4px';
+	divCountryDistributionReference.style['-moz-border-radius'] = '4px';
+	divCountryDistributionReference.style['-webkit-border-radius'] = '4px';
 	divCountryDistributionReference.style.display = 'block';
 	document.body.appendChild(divCountryDistributionReference);
 	
