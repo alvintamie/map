@@ -15,6 +15,7 @@ var abstractCitedState = new Array();
 var abstractCitedMode = new Array();
 var abstractCitedTotal = 20;
 var contentCitedBy;
+var headerCitedBy;
 var showCitedByinMap = 1;
 var showCitedByHref;
 var divCountryDistributionCitedBy;
@@ -29,6 +30,7 @@ imgCitedBy[1] = imgObject[10];
 
 function initializeCitedBy() {
 	divCitedBy = document.getElementById("windowCitedBy");
+	divCitedBy.style.overflow = 'hidden';
 	citedByPosX = 720;
 	citedByPosY = 70;
 	citedByWidth = parseInt(divCitedBy.style.width);
@@ -38,14 +40,26 @@ function initializeCitedBy() {
 	divCitedBy.style.height = '0px';
 	ctxMenu.drawImage(imgCitedBy[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
 	
+	headerCitedBy = document.createElement('div');
+	headerCitedBy.style.position = 'relative';
+	headerCitedBy.style.top = '0px';
+	headerCitedBy.style.left ='0px';
+	headerCitedBy.style.height = '23px';
+	headerCitedBy.style.width = citedByWidth + 'px';
+	headerCitedBy.style.paddingLeft = '5px';
+	headerCitedBy.style.color = 'white';
+	headerCitedBy.appendChild(document.createTextNode("Cited By"));
+	divCitedBy.appendChild(headerCitedBy);
+	headerCitedBy.onselectstart = function() {return false};
+	
 	contentCitedBy = document.createElement('div');
 	divCitedBy.appendChild(contentCitedBy);
 	contentCitedBy.setAttribute('id', "contentCitedBy");
-	contentCitedBy.style.position = 'absolute';
-	contentCitedBy.style.top = topbarHeight-9 + 'px';
+	contentCitedBy.style.position = 'relative';
+	//contentCitedBy.style.top = topbarHeight-9 + 'px';
 	contentCitedBy.style.left = 1 + 'px';
 	contentCitedBy.style.width = citedByWidth-2 + 'px';
-	contentCitedBy.style.height = citedByHeight-topbarHeight+7 +'px';
+	contentCitedBy.style.height = citedByHeight-parseInt(headerCitedBy.style.height) +'px';
 	contentCitedBy.style['overflow-x'] = 'hidden';
 	contentCitedBy.style['overflow-y'] = 'auto';
 	
