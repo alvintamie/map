@@ -80,6 +80,13 @@ function initializeMainCanvas(){
 		});
 }
 
+function renderLoading(){
+	if(loadingStatus){
+	document.getElementById("loading").className = "loading-visible";	
+	}
+	else
+	document.getElementById("loading").className = "loading-invisible";
+}
 
 function renderCanvas(){
 
