@@ -94,6 +94,8 @@ function setDivInnerHTML (_divObj, _sourceObj)
 	console.log("authorObject:")
 	console.log(_sourceObj.title === undefined);
 	console.log(_sourceObj.title);
+	console.log(_sourceObj);
+	console.log("/////////////////")
 
 }
 
