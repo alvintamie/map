@@ -44,7 +44,7 @@ function initializeReference() {
 	headerReference.style.left ='0px';
 	headerReference.style.height = '30px';
 	headerReference.style.width = referenceWidth + 'px';
-	header.appendChild(document.createTextNode("Reference"));
+	headerReference.appendChild(document.createTextNode("Reference"));
 	divReference.appendChild(headerReference);
 	headerReference.onselectstart = function() {return false};
 	
