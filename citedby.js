@@ -26,8 +26,8 @@ var hrefCDCB;
 
 function initializeCitedBy() {
 	divCitedBy = document.getElementById("windowCitedBy");
-	citedByPosX = divCitedBy.offsetLeft;
-	citedByPosY = divCitedBy.offsetTop;
+	citedByPosX = 720;
+	citedByPosY = 70;
 	citedByWidth = parseInt(divCitedBy.style.width);
 	citedByHeight = parseInt(divCitedBy.style.height);
 	//divCitedBy.style.display = "none";
