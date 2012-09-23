@@ -29,7 +29,7 @@ function initializeMenu(){
 	initializeRelevantDocument();
 	initializeCoAuthor();
 	initializeSearch();
-	initializeAffiliation();
+	//initializeAffiliation();
 	
 	canvasMenu.onmousedown = function(e) {
 		if (e.clientX-canvasMenu.offsetLeft>frameWidth && e.clientX-canvasMenu.offsetLeft<frameWidth+buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
@@ -62,12 +62,12 @@ function initializeMenu(){
 			searchIncrement *= -1;
 			changeViewSearch();
 		}
-		else if (e.clientX-canvasMenu.offsetLeft>6*frameWidth+5*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<6*frameWidth+6*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
+		/*else if (e.clientX-canvasMenu.offsetLeft>6*frameWidth+5*buttonMenuWidth && e.clientX-canvasMenu.offsetLeft<6*frameWidth+6*buttonMenuWidth && e.clientY-canvasMenu.offsetTop>frameWidth && e.clientY-canvasMenu.offsetTop<frameWidth+buttonMenuHeight) {
 			divAffiliation.style['z-index'] = zIndex;
 			zIndex += 1;
 			affiliationIncrement *= -1;
 			changeViewAffiliation();
-		}
+		}*/
 	}
 }	
 
