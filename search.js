@@ -314,7 +314,7 @@ function submitSearchQuery() {
 			//console.log(!searchBoolQuery[i]);
 		}
 		changeDate(searchYearFromString[searchYearFromSelect.value], searchYearToString[searchYearToSelect.value])
-		changeSort(searchSortBySelect.index)
+		changeSort(searchSortBySelect.value)
 		submitQuery(0);
 	}
 }
