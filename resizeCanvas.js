@@ -96,22 +96,22 @@ function renderResize(){
 	if(canvas.width>canvasMaxSizeX){
 	canvasResizeRight.style.left=canvasMaxSizeX+"px";
 	canvasResizeBoth.style.left=canvasMaxSizeX+"px";
-	canvasResizeBottom.width=canvasMaxSizeX;}
+	canvasResizeBottom.width=canvasMaxSizeX+10;}
 	else{
 	 canvasResizeRight.style.left=canvas.offsetLeft+canvas.width+"px";
 	 canvasResizeBoth.style.left=canvas.offsetLeft+canvas.width+"px";
-	 canvasResizeBottom.width=canvas.width;}
+	 canvasResizeBottom.width=canvas.width+10;}
 	 }
 	 
 	 if(isResizeHeight){
 	if(canvas.offsetTop+canvas.height>canvasMaxSizeY){
 	canvasResizeBottom.style.top=canvasMaxSizeY+"px";
 	canvasResizeBoth.style.top=canvasMaxSizeY+"px";
-	canvasResizeRight.height=canvasMaxSizeY;}
+	canvasResizeRight.height=canvasMaxSizeY+10;}
 	else{
 	 canvasResizeBottom.style.top=canvas.offsetTop+canvas.height+"px";
 	 canvasResizeBoth.style.top=canvas.offsetTop+canvas.height+"px";
-	 canvasResizeRight.height=canvas.height;}
+	 canvasResizeRight.height=canvas.height+10;}
 	 }
 	 
 	 	if(isResizeBoth){
@@ -119,20 +119,20 @@ function renderResize(){
 	 		if(canvas.width>canvasMaxSizeX){
 	canvasResizeRight.style.left=canvasMaxSizeX+"px";
 	canvasResizeBoth.style.left=canvasMaxSizeX+"px";
-	canvasResizeBottom.width=canvasMaxSizeX;}
+	canvasResizeBottom.width=canvasMaxSizeX+10;}
 	else{
 	 canvasResizeRight.style.left=canvas.offsetLeft+canvas.width+"px";
 	 canvasResizeBoth.style.left=canvas.offsetLeft+canvas.width+"px";
-	 canvasResizeBottom.width=canvas.width;}
+	 canvasResizeBottom.width=canvas.width+10;}
 	 
 			if(canvas.offsetTop+canvas.height>canvasMaxSizeY){
 	canvasResizeBottom.style.top=canvasMaxSizeY+"px";
 	canvasResizeBoth.style.top=canvasMaxSizeY+"px";
-	canvasResizeRight.height=canvasMaxSizeY;}
+	canvasResizeRight.height=canvasMaxSizeY+10;}
 	else{
 	 canvasResizeBottom.style.top=canvas.offsetTop+canvas.height+"px";
 	 canvasResizeBoth.style.top=canvas.offsetTop+canvas.height+"px";
-	 canvasResizeRight.height=canvas.height;}
+	 canvasResizeRight.height=canvas.height+10;}
 	 }
 	ctxResizeBottom.fillStyle = "rgb(220,220,220)";
 	ctxResizeRight.fillStyle = "rgb(220,220,220)";
