@@ -47,20 +47,8 @@ function initializeCoAuthor() {
 	
 	showCoAuthorHref = document.createElement('a');
 	showCoAuthorHref.href = "#";
-	showCoAuthorHref.onclick = function () {
-		if  (showCoAuthorinMap==0) {
-			showCoAuthorinMap = 1;
-			showResult(0, coauthorsObject);
-			showCoAuthorHref.textContent = "Hide documents in map";
-		}
-		else {
-			showCoAuthorinMap = 0;
-			clearCanvasObject();
-			showCoAuthorHref.textContent = "Show documents in map";
-		}
-	}
-	showCoAuthorHref.textContent = "Hide documents in map";
-	
+	showCoAuthorHref.textContent = "Show documents in map";
+
 	divCountryDistributionCoAuthor = document.createElement('div');
 	divCountryDistributionCoAuthor.style.background = 'yellow';
 	divCountryDistributionCoAuthor.style.position = 'absolute';
@@ -92,10 +80,21 @@ function updateCoauthors (caObject, caMode) {
 		if (caMode=1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
-			temp.onclick = function () {updateCoauthors (caObject, 0);};
+			temp.onclick = function () {
+				modeInMap = coAuthorsMode;
+				viewAllModeACtive = 0;
+				showResult(coAuthorsMode, coauthorsObject);
+				updateCoauthors (caObject, 0);	
+			}
 			temp.textContent = "Show all result";
 			contentCoAuthor.appendChild(temp);
 			contentCoAuthor.appendChild(document.createElement('br'));
+		}
+		
+		showCoAuthorHref.onclick = function () {
+			modeInMap = coAuthorsMode;
+			viewAllModeActive = 0;
+			showResult(coAuthorsMode, caObject);
 		}
 		contentCoAuthor.appendChild(showCoAuthorHref);
 		contentCoAuthor.appendChild(document.createElement('br'));
@@ -140,8 +139,11 @@ function insertCoauthors(caObject, i) {
 	temp.onclick = function () {
 		if (listCoAuthorMode[i]==0) {
 			showListCoAuthor(i);
-			highlight(caObject[i]);
 		}
+		viewAllModeActive = 0;
+		modeInMap = coAuthorsMode;
+		showResult(coAuthorsMode, caObject);
+		highlight(caObject[i]);
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + caObject[i].name['given-name'] + ", " + caObject[i].name.surname;
@@ -218,11 +220,19 @@ function showOverallCountryCoAuthor(ccaObject) {
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode(ccaObject[i].name + " : " + ccaObject[i].hitCount));
 		divCountryDistributionCoAuthor.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		temp.href = "javascript:getCoauthorsFilter(new Array('"+ccaObject[i].name+"'))";
+		temp.href = "javascript:focusToCountryCoAuthor('"+ccaObject[i].name+"')";
 		temp.textContent = "focus to this country";
 		divCountryDistributionCoAuthor.appendChild(temp);
 		divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
 	}
+}
+
+function focusToCountryCoAuthor(ccaObjectName) {
+	//console.log("focus country");
+	viewAllModeActive = 0;
+	modeInMap = coAuthorsMode;
+	getCoauthorsFilter(new Array(ccaObjectName));
+	highlight(getObject(ccaObjectName));
 }
 
 function expandAffiliationCoAuthor(i) {
