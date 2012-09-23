@@ -52,7 +52,7 @@ function initializeCoAuthor() {
 	divCountryDistributionCoAuthor = document.createElement('div');
 	divCountryDistributionCoAuthor.style.background = '#F2F1EF';
 	divCountryDistributionCoAuthor.style.position = 'absolute';
-	divCountryDistributionCoAuthor.style.width = '200px';
+	divCountryDistributionCoAuthor.style.width = '130px';
 	divCountryDistributionCoAuthor.style.height = '300px';
 	divCountryDistributionCoAuthor.style.top = coAuthorPosY + 27 + 'px';
 	divCountryDistributionCoAuthor.style.left = coAuthorPosX-parseInt(divCountryDistributionCoAuthor.style.width) + 8 + 'px';
@@ -217,12 +217,10 @@ function showOverallCountryCoAuthor(ccaObject) {
 	//divCountryDistributionCoAuthor.appendChild(hrefCountryTypeCoAuthor);
 	//divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
 	for (var i=0; i<ccaObject.length; i++) {
-		divCountryDistributionCoAuthor.appendChild(document.createTextNode(ccaObject[i].name + " : " + ccaObject[i].hitCount));
-		divCountryDistributionCoAuthor.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryCoAuthor('"+ccaObject[i].name+"')";
-		temp.textContent = "focus to this country";
-		divCountryDistributionCoAuthor.appendChild(temp);
+		temp.textContent = ccaObject[i].name;
+		divCountryDistributionCoAuthor.appendChild(document.createTextNode(" ("+ccaObject[i].hitCount+")"));
 		divCountryDistributionCoAuthor.appendChild(document.createElement('br'));
 	}
 }
