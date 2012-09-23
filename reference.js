@@ -49,7 +49,7 @@ function initializeReference() {
 	showReferenceHref.textContent = "Show documents in map";
 	
 	divCountryDistributionReference = document.createElement('div');
-	divCountryDistributionReference.style.background = '#D8D8D8';
+	divCountryDistributionReference.style.background = '#F2F1EF';
 	divCountryDistributionReference.style.position = 'absolute';
 	divCountryDistributionReference.style.width = '130px';
 	divCountryDistributionReference.style.height = '300px';
