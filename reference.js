@@ -300,7 +300,7 @@ function changeViewReference() {
 		//divReference.style.display = "none";
 		referenceVisible = 0;
 	}
-	ctxMenu.drawImageData(imgReference[referenceVisible], 0, 0);
+	ctxMenu.drawImage(imgReference[referenceVisible], 0, 0);
 	if (referenceStatus > 0 && referenceStatus <referenceTotalSteps) setTimeout (changeViewReference, 10);
 }
 
