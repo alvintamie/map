@@ -53,7 +53,7 @@ function initializeMainCanvas(){
 		canvas.addEventListener('dblclick', function(){ 
 
   // Some dazzling stuff happens be here
-  	//		showResult(0,countryRelevantDocument);
+  			showResult(0,countryRelevantDocument);
   	//		console.log("db click");
   	//		console.log(countryRelevantDocument);
   			if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
