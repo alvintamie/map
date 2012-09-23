@@ -120,9 +120,9 @@ function insertReference(rObject, i) {
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractRef(i);};
-	temp.class = "bold";
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement("a");
+	temp.class = 'bold';
 	temp.href = "#";
 	temp.textContent = i + " " + rObject[i].title;
 	temp.onclick = function () {
