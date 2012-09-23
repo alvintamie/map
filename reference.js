@@ -57,7 +57,7 @@ function initializeReference() {
 	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 'px';
 	divCountryDistributionReference.style['z-index'] = 0;
 	divCountryDistributionReference.style.overflow = 'hidden';
-	//divCountryDistributionReference.style.display = 'none';
+	divCountryDistributionReference.style.display = 'block';
 	document.body.appendChild(divCountryDistributionReference);
 	
 	hrefCDR = document.createElement('a');
