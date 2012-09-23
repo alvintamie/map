@@ -25,7 +25,7 @@ var hrefCDR;
 
 function initializeReference() {
 	divReference = document.getElementById("windowReference");
-	referencePosX = 500;
+	referencePosX = 800;
 	referencePosY = 50;
 	referenceWidth = parseInt(divReference.style.width);
 	referenceHeight = parseInt(divReference.style.height);
