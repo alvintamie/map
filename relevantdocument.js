@@ -269,8 +269,6 @@ function focusToCountryRelevantDocument(crdObjectName) {
 	else {
 		getRelevantDocumentFilter2(newArray(crdObjectName));
 	}
-	console.log("ini string");
-	console.log(crdString);
 	highlight(getObject(crdObjectName));
 }
 
