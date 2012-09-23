@@ -145,7 +145,7 @@ function insertReference(rObject, i) {
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
-	if (rObject[i].authorId) {
+	if (rObject[i].authorId && rObject[i].scopusId) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Set as main article";
 		temp2.href = "#";
