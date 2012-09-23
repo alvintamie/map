@@ -26,8 +26,8 @@ var hrefCDCA;
 
 function initializeCoAuthor() {
 	divCoAuthor = document.getElementById("windowCoAuthor");
-	coAuthorPosX = divCoAuthor.offsetLeft;
-	coAuthorPosY = divCoAuthor.offsetTop;
+	coAuthorPosX = 760;
+	coAuthorPosY = 110;
 	coAuthorWidth = parseInt(divCoAuthor.style.width);
 	coAuthorHeight = parseInt(divCoAuthor.style.height);
 	//divCoAuthor.style.display = "none";
