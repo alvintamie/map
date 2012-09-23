@@ -104,9 +104,6 @@ function initializeRelevantDocument () {
 function updateRelevantDocument (rdObject, rdMode) {
 	removecontentRelevantDocumentChild();
 	if (rdObject.length>0) {
-		showRelevantDocumentHref.onclick = function () {showResult(0, rdObject)};
-		contentRelevantDocument.appendChild(showRelevantDocumentHref);
-		contentRelevantDocument.appendChild(document.createElement('br'));
 		if (rdMode==1 || defaultChangedRelevantDocument==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
@@ -133,7 +130,13 @@ function updateRelevantDocument (rdObject, rdMode) {
 			contentRelevantDocument.appendChild(document.createElement('br'));
 		}
 		
-		
+		showRelevantDocumentHref.onclick = function () {
+			modeInMap = relevantDocumentMode;
+			viewAllModeActive = 0;
+			showResult(relevantDocumentMode, rdObject);
+		};
+		contentRelevantDocument.appendChild(showRelevantDocumentHref);
+		contentRelevantDocument.appendChild(document.createElement('br'));
 		
 		contentRelevantDocument.appendChild(hrefCDRD);
 		contentRelevantDocument.appendChild(document.createElement('br'));
