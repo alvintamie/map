@@ -50,7 +50,7 @@ function initializeReference() {
 	showReferenceHref.onclick = function () {
 		modeInMap = referenceMode;
 		viewAllModeActive = 0;
-		showResult(0, referenceObject);
+		showResult(referenceMode, referenceObject);
 	}
 	
 	divCountryDistributionReference = document.createElement('div');
@@ -85,7 +85,7 @@ function updateReference (rObject, rMode) {
 			temp.onclick = function () {
 				modeInMap = referenceMode;
 				viewAllModeActive = 0;
-				showResult(0, referenceObject);
+				showResult(referenceMode, referenceObject);
 				updateReference(referenceObject, 0);};
 			temp.textContent = "Show all result";
 			contentReference.appendChild(temp);
@@ -129,7 +129,7 @@ function insertReference(rObject, i) {
 		}
 		viewAllModeActive = 0;
 		modeInMap = referenceMode;
-		showResult(0, rObject);
+		showResult(referenceMode, rObject);
 		highlight(rObject[i]);
 	};
 	document.getElementById("Reference"+i).appendChild(temp);
