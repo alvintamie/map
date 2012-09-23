@@ -3,24 +3,24 @@ var xForDoubleClick=0;
 var yForDoubleClick=0;
 function initializeMainCanvas(){
 		
-		showInfoObj = document.createElement("div");
-		document.body.appendChild(showInfoObj);
-		showInfoObj.style.width = "200px";
-		showInfoObj.style.background = "#FFD39B";
-		showInfoObj.style.display = "none";
-		showInfoObj.style.position = "absolute";
-		showInfoObj.style.cursor = "pointer";
-		showInfoObj.style["z-index"] = 2;
-		showInfoObj.style["border-radius"] = "10px";
-		showInfoObj.style["-moz-border-radius"] = "10px";
-		showInfoObj.style["-webkit-border-radius"] = "10px";
-		showInfoObj.style.paddingLeft = "5px";
+		showInfoDiv = document.createElement("div");
+		document.body.appendChild(showInfoDiv);
+		showInfoDiv.style.width = "200px";
+		showInfoDiv.style.background = "#FFD39B";
+		showInfoDiv.style.display = "none";
+		showInfoDiv.style.position = "absolute";
+		showInfoDiv.style.cursor = "pointer";
+		showInfoDiv.style["z-index"] = 2;
+		showInfoDiv.style["border-radius"] = "10px";
+		showInfoDiv.style["-moz-border-radius"] = "10px";
+		showInfoDiv.style["-webkit-border-radius"] = "10px";
+		showInfoDiv.style.paddingLeft = "5px";
 		
-		var showMainArticle = document.createElement("div");
-		showMainArticle.style.position = "absolute";
-		showMainArticle.style.paddingLeft = "5px";
-		showMainArticle.innerHTML = "test";
-		document.body.appendChild(showMainArticle);
+		var mainArticleDiv = document.createElement("div");
+		mainArticleDiv.style.position = "absolute";
+		mainArticleDiv.style.paddingLeft = "5px";
+		mainArticleDiv.innerHTML = "test";
+		document.body.appendChild(mainArticleDiv);
 		
 		
 		canvas = document.getElementById('canvas');
