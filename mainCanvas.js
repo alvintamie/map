@@ -1,6 +1,9 @@
 var _readyScroll=0;
 var xForDoubleClick=0;
 var yForDoubleClick=0;
+
+var mainArticleDiv;
+
 function initializeMainCanvas(){
 		
 		showInfoDiv = document.createElement("div");
@@ -16,7 +19,7 @@ function initializeMainCanvas(){
 		showInfoDiv.style["-webkit-border-radius"] = "10px";
 		showInfoDiv.style.paddingLeft = "5px";
 		
-		var mainArticleDiv = document.createElement("div");
+		mainArticleDiv = document.createElement("div");
 		mainArticleDiv.style.position = "absolute";
 		mainArticleDiv.style.paddingLeft = "5px";
 		mainArticleDiv.style.width = "500px";
