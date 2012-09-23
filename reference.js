@@ -14,7 +14,7 @@ var abstractRefHeight = new Array();
 var abstractRefState = new Array();
 var abstractRefMode = new Array();
 var abstractRefTotal = 20;
-var headerReference
+var headerReference;
 var contentReference;
 //var showReferenceinMap = 1;
 var showReferenceHref;
