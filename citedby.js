@@ -36,7 +36,7 @@ function initializeCitedBy() {
 	//divCitedBy.style.display = "none";
 	divCitedBy.style.width = '0px';
 	divCitedBy.style.height = '0px';
-	ctxMenu.drawImage(imgObject[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgCitedBy[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
 	
 	contentCitedBy = document.createElement('div');
 	divCitedBy.appendChild(contentCitedBy);
@@ -329,7 +329,7 @@ function changeViewCitedBy() {
 		//divCitedBy.style.display = "none";
 		citedByVisible = 0;
 	}
-	ctxMenu.drawImage(imgObject[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgCitedBy[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
 	if (citedByStatus > 0 && citedByStatus <citedByTotalSteps) setTimeout (changeViewCitedBy, 10);
 }
 
