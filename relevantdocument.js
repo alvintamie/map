@@ -254,6 +254,11 @@ function showOverallCountryRelevantDocument(crdObject) {
 	divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	for (var i=0; i<crdObject.length; i++) {
 		var temp = document.createElement('a');
+		//CHANGED
+		console.log("seeObjectCrd:")
+		console.log(crdObject[i]);
+		console.log("///////////////")
+		/////////////////////
 		temp.href = "javascript:focusToCountryRelevantDocument('"+crdObject[i].name+"')";
 		temp.textContent = crdObject[i].name;
 		temp.style.textDecoration = 'none';
