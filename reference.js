@@ -145,7 +145,7 @@ function insertReference(rObject, i) {
 	temp.style.textDecoration = 'none';
 	temp.href = "#";
 	//CHANGED:
-	//var toStartOne = i+1;
+	var toStartOne = i+1;
 	if ( typeof(rObject[i].title) != 'undefined')temp.textContent = toStartOne + " " + rObject[i].title;
 	else temp.textContent = toStartOne + " " + rObject[i].sourcetitle;
 	///////////////////////////
