@@ -14,7 +14,7 @@ function getMouseCoordinates(e){
 		relevantDocumentDisplacement(e);
 		coAuthorDisplacement(e);
 		searchDisplacement(e);
-		affiliationDisplacement(e);
+		//affiliationDisplacement(e);
 		resizeCanvas(e);
 		if (readyScroll==1) {
 			mouseX=e.clientX;
@@ -33,7 +33,7 @@ function getMouseUp(e) {
 		isMouseDownRelevantDocument=false;
 		isMouseDownCoAuthor=false;
 		isMouseDownSearch=false;
-		isMouseDownAffiliation=false;
+		//isMouseDownAffiliation=false;
 		isDown=false;
 		isResizeWidth=false;
 		isResizeHeight=false;
