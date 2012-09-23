@@ -66,6 +66,7 @@ function drawText(text,x,y){
 		else
 		ctx.fillText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]); 
 	}
+	ctx.fillStyle = "rgb(120,120,120)";
 }
 
 function drawObjectLine(obj1,obj2){
