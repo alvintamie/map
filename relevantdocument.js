@@ -74,11 +74,15 @@ function initializeRelevantDocument () {
 		//console.log("bbbbb");
 		if (modeCountryTypeRelevantDocument==0) {
 			modeCountryTypeRelevantDocument = 1;
+			viewAllModeActive = 0;
+			modeInMap = relevantDocumentMode;
 			hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
 			changeModeRelevantDocument();
 		}
 		else {
 			modeCountryTypeRelevantDocument = 0;
+			viewAllModeActive = 1;
+			modeInMap = relevantDocumentMode;
 			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 			showOverallCountryRelevantDocument(countryRelevantDocument);
 		}
@@ -179,9 +183,11 @@ function insertRelevantDocument(rdObject, i) {
 	temp.onclick = function () {
 		if (abstractRelevantMode[i]==0) {
 			showAbstractRelevant(i);
-			highlight(rdObject[i]);
-			showResult(0, rdObject);
 		}
+		viewAllModeActive = 0;
+		modeInMap = relevantDocumentMode;
+		showResult(relevantDocumentMode, rdObject);
+		highlight(rdObject[i]);
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
@@ -197,6 +203,14 @@ function insertRelevantDocument(rdObject, i) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rdObject[i].url + "')";
+		temp.appendChild(temp2);
+		temp.appendChild(document.createElement('br'));
+	}
+	if (rdObject[i].authorId && rdObject[i].scopusId) {
+		var temp2 = document.createElement('a');
+		temp2.textContent = "Set as main article";
+		temp2.href = "#";
+		temp2.onclick = function() {newMainArticle(rdObject[i]);};
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
@@ -233,27 +247,28 @@ function showOverallCountryRelevantDocument(crdObject) {
 		divCountryDistributionRelevantDocument.appendChild(document.createTextNode(crdObject[i].name + " : " + crdObject[i].hitCount));
 		divCountryDistributionRelevantDocument.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
-		temp.href = "javascript:findCountryDocumentRelevantDocument(new Array('"+crdObject[i].name+"'))";
+		temp.href = "javascript:focusToCountryRelevantDocument('"+crdObject[i].name+"')";
 		temp.textContent = "focus to this country";
 		divCountryDistributionRelevantDocument.appendChild(temp);
 		divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	}
 }
 
-function findCountryDocumentRelevantDocument(crdString) {
-	defaultChangedRelevantDocument = 1;
-	
+function focusToCountryRelevantDocument(crdObjectName) {
+	viewAllModeActive = 0;
+	modeInMap = relevantDocumentMode;
 	if (modeCountryTypeRelevantDocument==0) {
+		defaultChangedRelevantDocument = 1;
 		var temp=new Object;
-		temp.country=crdString;
-		getRelevantDocumentFilter1(new Array(temp));
+		temp.country=new Array(crdObjectName);
+		getRelevantDocumentFilter1(temp);
 	}
 	else {
-		getRelevantDocumentFilter2(crdString);
+		getRelevantDocumentFilter2(newArray(crdObjectName));
 	}
 	console.log("ini string");
 	console.log(crdString);
-	highlight(getObject(crdString[0]));
+	highlight(getObject(crdObjectName));
 }
 
 
