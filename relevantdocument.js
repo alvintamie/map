@@ -23,6 +23,10 @@ var modeCountryTypeRelevantDocument = 1;
 var defaultChangedRelevantDocument = 0;
 var hrefCountryTypeRelevantDocument;
 var hrefCDRD;
+var imgRelevantDocument = new Array();
+imgRelevantDocument[0] = imgObject[6];
+imgRelevantDocument[1] = imgObject[11];
+
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
@@ -33,7 +37,7 @@ function initializeRelevantDocument () {
 	//divRelevantDocument.style.display = "none";
 	divRelevantDocument.style.height = '0px';
 	divRelevantDocument.style.width = '0px';
-	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgRelevantDocument[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 	
 	contentRelevantDocument = document.createElement('div');
 	divRelevantDocument.appendChild(contentRelevantDocument);
@@ -363,7 +367,7 @@ function changeViewRelevantDocument() {
 		divRelevantDocument.style.display = "none";
 		relevantDocumentVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
+	ctxMenu.drawImange(imgRelevantDocument[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 	if (relevantDocumentStatus > 0 && relevantDocumentStatus <relevantDocumentTotalSteps) setTimeout (changeViewRelevantDocument, 10);
 }
 
