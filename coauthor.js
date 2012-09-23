@@ -59,7 +59,7 @@ function initializeCoAuthor() {
 	//contentCoAuthor.style.top = topbarHeight-9 + 'px';
 	contentCoAuthor.style.left = 1 + 'px';
 	contentCoAuthor.style.width = coAuthorWidth-2 + 'px';
-	contentCoAuthor.style.height = coAuthorHeight--parseInt(headerCoAuthor.style.height)+7 +'px';
+	contentCoAuthor.style.height = coAuthorHeight-parseInt(headerCoAuthor.style.height)+7 +'px';
 	contentCoAuthor.style['overflow-x'] = 'hidden';
 	contentCoAuthor.style['overflow-y'] = 'auto';
 	
