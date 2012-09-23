@@ -20,6 +20,7 @@ var showCitedByHref;
 var divCountryDistributionCitedBy;
 var modeCountryDistributionCitedBy = 0;
 var modeCountryTypeCitedBy = 0;
+var defaultChangedCitedBy = 0;
 var hrefCountryTypeCitedBy;
 var hrefCDCB;
 
@@ -47,19 +48,7 @@ function initializeCitedBy() {
 	
 	showCitedByHref = document.createElement('a');
 	showCitedByHref.href = "#";
-	showCitedByHref.onclick = function () {
-		if  (showCitedByinMap==0) {
-			showCitedByinMap = 1;
-			showResult(0, citedbyObject);
-			showCitedByHref.textContent = "Hide documents in map";
-		}
-		else {
-			showCitedByinMap = 0;
-			clearCanvasObject();
-			showCitedByHref.textContent = "Show documents in map";
-		}
-	}
-	showCitedByHref.textContent = "Hide documents in map";
+	showCitedByHref.textContent = "Show in map";
 	
 	divCountryDistributionCitedBy = document.createElement('div');
 	divCountryDistributionCitedBy.style.background = 'yellow';
@@ -80,14 +69,16 @@ function initializeCitedBy() {
 		if (modeCountryTypeCitedBy==0) {
 			modeCountryTypeCitedBy = 1;
 			hrefCountryTypeCitedBy.textContent = "View overall result distribution";
+			changeModeCitedby();
 		}
 		else {
 			modeCountryTypeCitedBy = 0;
 			hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
+			showOverallCountryCitedBy(countryCitedby);
 		}
-		showOverallCountryCitedBy(countryCitedby);
+		//showOverallCountryCitedBy(countryCitedby);
 	}
-	showOverallCountryCitedBy(countryCitedby);
+	//showOverallCountryCitedBy(countryCitedby);
 	
 	hrefCDCB = document.createElement('a');
 	hrefCDCB.textContent = "View country distribution";
@@ -105,12 +96,26 @@ function updateCitedBy (cbObject, cbMode) {
 	//console.log("wewe");
 	//console.log(cbObject);
 	if (cbObject.length>0) {
+		showCitedByHref.onclick = function () {showResult(0, cbObject)};
 		contentCitedBy.appendChild(showCitedByHref);
 		contentCitedBy.appendChild(document.createElement('br'));
-		if (cbMode==1) {
+		if (cbMode==1 || defaultChangedCitedBy==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
-			temp.onclick = function () {updateCitedBy(citedbyObject, 0);};
+			temp.onclick = function () {
+				if (defaultChangedCitedBy==1) {
+					resetQueryCitedby();
+					defaultChangedCitedBy = 0;
+				}
+				else {
+					updateCitedBy(citedbyObject, 0);
+					showResult(0, cbObject);
+
+				}
+				modeCountryTypeCitedBy = 1;
+				hrefCountryTypeCitedBy.textContent = "View overall result distribution";
+				showOverallCountryCitedBy(countryCitedby);
+			}
 			temp.textContent = "Show all result";
 			contentCitedBy.appendChild(temp);
 			contentCitedBy.appendChild(document.createElement('br'));
@@ -163,16 +168,11 @@ function insertCitedBy(cbObject, i) {
 		if (abstractCitedMode[i]==0) {
 			showAbstractCited(i);
 			highlight(cbObject[i]);
+			showResult (0, cbObject);
 		}
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
-	temp.onclick = function () {
-		if (abstractCitedMode[i]==0) {
-			showAbstractCited(i);
-			highlight(cbObject[i]);
-		}
-	};
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp = document.createElement('div');
 	document.getElementById("CitedBy"+i).appendChild(temp);
@@ -217,8 +217,29 @@ function showOverallCountryCitedBy(ccbObject) {
 	divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	for (var i=0; i<ccbObject.length; i++) {
 		divCountryDistributionCitedBy.appendChild(document.createTextNode(ccbObject[i].name + " : " + ccbObject[i].hitCount));
+		divCountryDistributionCitedBy.appendChild(document.createTextNode("	"));
+		var temp = document.createElement('a');
+		temp.href = "javascript:findCountryCitedByDocument(new Array('"+ccbObject[i].name+"'))";
+		temp.textContent = "focus to this country";
+		divCountryDistributionCitedBy.appendChild(temp);
 		divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	}
+}
+
+function findCountryDocumentCitedBy(crdString) {
+	defaultChangedCitedBy = 1;
+
+	if (modeCountryTypeCitedBy==0) {
+		var temp=new Object;
+		temp.country=ccbString;
+		getCitedbyFilter1(new Array(temp));
+	}
+	else {
+		getCitedbyFilter2(ccbString);
+	}
+	//console.log("ini string");
+	//console.log(ccbString);
+	highlight(getObject(ccbString[0]));
 }
 
 function showAbstractCited(i) {
