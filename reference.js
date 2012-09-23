@@ -146,24 +146,27 @@ function insertReference(rObject, i) {
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp.setAttribute('id', "Reference" + i + "_abstract");
 	temp.style.position = 'relative';
-	temp.style.left = 15 + 'px';
+	temp.style.left = 18 + 'px';
 	temp.style.width = referenceWidth - 43 + 'px';
 	if (rObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rObject[i].url + "')";
 		temp2.style.textDecoration = 'none';
+		temp2.style.CSSfloat = 'left';
 		temp.appendChild(temp2);
-		temp.appendChild(document.createElement('br'));
+		//temp.appendChild(document.createElement('br'));
 	}
+	temp.appendChild(document.createElement('br'));
 	if (rObject[i].authorId && rObject[i].scopusId) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Set as main article";
 		temp2.href = "#";
 		temp2.style.textDecoration = 'none';
+		temp2.style.CSSfloat = 'right';
 		temp2.onclick = function() {newMainArticle(rObject[i]);};
 		temp.appendChild(temp2);
-		temp.appendChild(document.createElement('br'));
+		//temp.appendChild(document.createElement('br'));
 	}
 	if (rObject[i].Abstract)
 		temp.appendChild(document.createTextNode(rObject[i].Abstract));
