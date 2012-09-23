@@ -148,12 +148,20 @@ function updateCoauthors (caObject, caMode) {
 }
 
 function insertCoauthors(caObject, i) {
+	var tempTable = document.createElement('table');
+	//tempTable.align = 'justify';
+	document.getElementById("CoAuthor"+i).appendChild(tempTable);
+	
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "CoAuthor" + i + "_image");
 	temp.src = imgExpand.src;
 	temp.onclick = function () {showListCoAuthor(i);};
-	document.getElementById("CoAuthor"+i).appendChild(temp);
+	var row = tempTable.insertRow(0);
+	row.insertCell(0).appendChild(temp);
+	
 	temp = document.createElement("a");
+	temp.style['font-weight'] = 'bold';
+	temp.style.textDecoration = 'none';
 	temp.onclick = function () {
 		if (listCoAuthorMode[i]==0) {
 			showListCoAuthor(i);
@@ -165,17 +173,21 @@ function insertCoauthors(caObject, i) {
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + caObject[i].name['given-name'] + ", " + caObject[i].name.surname;
-	document.getElementById("CoAuthor"+i).appendChild(temp);
+	row.insertCell(1).appendChild(temp);
+	
 	temp = document.createElement('div');
+	temp.align = 'justify';
 	document.getElementById("CoAuthor"+i).appendChild(temp);
 	temp.setAttribute('id', "CoAuthor" + i + "_affiliation");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
-	temp.style.width = citedByWidth - 45 + 'px';
+	temp.style.width = citedByWidth - 43 + 'px';
 	if (caObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + caObject[i].url + "')";
+		temp2.style.textDecoration = 'none';
+		temp2.style.cssFloat = 'right';
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
