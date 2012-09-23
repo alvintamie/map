@@ -37,8 +37,8 @@ var obj_dis_x;
 
 	imgObject[0].src = 'https://raw.github.com/alvi0010/map/master/image/person3.png';
 	imgObject[1].src = 'https://raw.github.com/alvi0010/map/master/image/touchedPerson.png';
-	imgObject[2].src = 'https://raw.github.com/alvi0010/map/master/image/Arrow2.png;
-	imgObject[3].src = 'https://raw.github.com/alvi0010/map/master/image/person.png;
+	imgObject[2].src = 'https://raw.github.com/alvi0010/map/master/image/Arrow2.png';
+	imgObject[3].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
 	
 	imgSizeX[0]=img[0].width;
 	imgSizeX[1]=img[1].width;
