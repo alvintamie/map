@@ -53,7 +53,7 @@ function initializeCitedBy() {
 	divCountryDistributionCitedBy = document.createElement('div');
 	divCountryDistributionCitedBy.style.background = '#F2F1EF';
 	divCountryDistributionCitedBy.style.position = 'absolute';
-	divCountryDistributionCitedBy.style.width = '200px';
+	divCountryDistributionCitedBy.style.width = '130px';
 	divCountryDistributionCitedBy.style.height = '300px';
 	divCountryDistributionCitedBy.style.top = citedByPosY + 27 + 'px';
 	divCountryDistributionCitedBy.style.left = citedByPosX-parseInt(divCountryDistributionCitedBy.style.width) + 8 + 'px';
@@ -216,12 +216,10 @@ function showOverallCountryCitedBy(ccbObject) {
 	divCountryDistributionCitedBy.appendChild(hrefCountryTypeCitedBy);
 	divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	for (var i=0; i<ccbObject.length; i++) {
-		divCountryDistributionCitedBy.appendChild(document.createTextNode(ccbObject[i].name + " : " + ccbObject[i].hitCount));
-		divCountryDistributionCitedBy.appendChild(document.createTextNode("	"));
 		var temp = document.createElement('a');
 		temp.href = "javascript:findCountryDocumentCitedBy(new Array('"+ccbObject[i].name+"'))";
-		temp.textContent = "focus to this country";
-		divCountryDistributionCitedBy.appendChild(temp);
+		temp.textContent = ccbObject[i].name;
+		divCountryDistributionCitedBy.appendChild(document.createTextNode(" ("+ccbObject[i].hitCount+")"));
 		divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	}
 }
