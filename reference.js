@@ -14,6 +14,7 @@ var abstractRefHeight = new Array();
 var abstractRefState = new Array();
 var abstractRefMode = new Array();
 var abstractRefTotal = 20;
+var headerReference
 var contentReference;
 //var showReferenceinMap = 1;
 var showReferenceHref;
@@ -32,15 +33,25 @@ function initializeReference() {
 	referencePosY = 50;
 	referenceWidth = parseInt(divReference.style.width);
 	referenceHeight = parseInt(divReference.style.height);
-	ctxMenu.putImageData(imgDataMenu[referenceVisible], frameWidth, frameWidth);
+	ctxMenu.drawImageData(imgReference[referenceVisible], 0, 0);
 	//console.log ("before");
 	//setTimeout(insertReference, 3000);
 	//console.log("after");
+	
+	headerReference = document.createElement('div');
+	headerReference.style.position = 'absolute';
+	headerReference.style.top = '0px';
+	headerReference.style.left ='0px';
+	headerReference.style.height = '30px';
+	headerReference.style.width = referenceWidth + 'px';
+	divReference.appendChild(headerReference);
+	headerReference.onselectmenu = function() {return false};
+	
 	contentReference = document.createElement('div');
 	divReference.appendChild(contentReference);
 	contentReference.setAttribute('id', "contentReference");
 	contentReference.style.position = 'absolute';
-	contentReference.style.top = topbarHeight-9 + 'px';
+	//contentReference.style.top = topbarHeight-9 + 'px';
 	contentReference.style.left = 1 + 'px';
 	contentReference.style.width = referenceWidth-2 + 'px';
 	contentReference.style.height = referenceHeight-topbarHeight+7 +'px';
@@ -300,7 +311,7 @@ function changeViewReference() {
 		//divReference.style.display = "none";
 		referenceVisible = 0;
 	}
-	ctxMenu.drawImage(imgReference[referenceVisible], 0, 0);
+	ctxMenu.drawImageData(imgReference[referenceVisible], 0, 0);
 	if (referenceStatus > 0 && referenceStatus <referenceTotalSteps) setTimeout (changeViewReference, 10);
 }
 
