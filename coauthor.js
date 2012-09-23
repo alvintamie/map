@@ -95,7 +95,7 @@ function updateCoauthors (caObject, caMode) {
 	//console.log("update");
 	//console.log(caObject);
 	if (caObject.length>0) {
-		if (caMode=1) {
+		if (caMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
 			temp.onclick = function () {
