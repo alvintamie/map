@@ -47,8 +47,8 @@ var hrefCDS;
 
 function initializeSearch() {
 	divSearch = document.getElementById("windowSearch");
-	searchPosX = divSearch.offsetLeft;
-	searchPosY = divSearch.offsetTop;
+	searchPosX = 130;
+	searchPosY = 780;
 	searchWidth = parseInt(divSearch.style.width);
 	searchHeight = parseInt(divSearch.style.height);
 	//divSearch.style.display = "none";
