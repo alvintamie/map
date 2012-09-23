@@ -203,6 +203,7 @@ function showOverallCountryReference(crObject) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryReference('"+crObject[i].name+"');";
 		temp.textContent = crObject[i].name;
+		temp.style.textDecoration = 'none';
 		divCountryDistributionReference.appendChild(temp);
 		divCountryDistributionReference.appendChild(document.createTextNode(" ("+crObject[i].hitCount+")"));
 		divCountryDistributionReference.appendChild(document.createElement('br'));
