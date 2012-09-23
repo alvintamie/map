@@ -17,6 +17,8 @@ function initializeResize(){
 		ctxResizeRight.fillStyle = "rgb(220,220,220)";
 		ctxResizeBoth.fillStyle = "rgb(220,220,220)";
 		
+		ctxResizeRight.style.top= canvas.offsetLeft+canvas.width+"px";
+		ctxResizeRight.style.left= canvas.offsetTop+"px";
 		}
 var deltaResize;
 var deltaResize1;
