@@ -115,12 +115,15 @@ function updateReference (rObject, rMode) {
 }
 
 function insertReference(rObject, i) {
+	var tempTable = document.createElement('table');
+	document.getElementById("Reference"+i).appendChild(tempTable);
+	
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "Reference" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractRef(i);};
-	document.getElementById("Reference"+i).appendChild(temp);
+	tempTable.appendChild(temp);
 	temp = document.createElement("a");
 	temp.style['font-weight'] = 'bold';
 	temp.style['padding=left'] = '10px';
@@ -135,7 +138,7 @@ function insertReference(rObject, i) {
 		showResult(referenceMode, rObject);
 		highlight(rObject[i]);
 	};
-	document.getElementById("Reference"+i).appendChild(temp);
+	tempTable.appendChild(temp);
 	temp = document.createElement('div');
 	temp.align = 'justify';
 	document.getElementById("Reference"+i).appendChild(temp);
