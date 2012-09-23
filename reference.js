@@ -116,6 +116,7 @@ function updateReference (rObject, rMode) {
 
 function insertReference(rObject, i) {
 	var tempTable = document.createElement('table');
+	tempTable.align = 'justify';
 	document.getElementById("Reference"+i).appendChild(tempTable);
 	
 	var temp = document.createElement("IMG");
