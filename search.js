@@ -502,7 +502,7 @@ function showOverallCountrySearch(csObject) {
 	for (var i=0; i<csObject.length; i++) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountrySearch('"+csObject[i].name+"');";
-		temp.textContent = caObject[i].name;
+		temp.textContent = csObject[i].name;
 		temp.style.textDecoration = 'none';
 		divCountryDistributionSearch.appendChild(temp);
 		divCountryDistributionSearch.appendChild(document.createTextNode(" ("+csObject[i].hitCount+")"));
