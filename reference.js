@@ -47,11 +47,6 @@ function initializeReference() {
 	showReferenceHref = document.createElement('a');
 	showReferenceHref.href = "#";
 	showReferenceHref.textContent = "Show documents in map";
-	showReferenceHref.onclick = function () {
-		modeInMap = referenceMode;
-		viewAllModeActive = 0;
-		showResult(referenceMode, referenceObject);
-	}
 	
 	divCountryDistributionReference = document.createElement('div');
 	divCountryDistributionReference.style.background = 'yellow';
@@ -92,7 +87,11 @@ function updateReference (rObject, rMode) {
 			contentReference.appendChild(document.createElement('br'));
 		}
 
-		
+		showReferenceHref.onclick = function () {
+			modeInMap = referenceMode;
+			viewAllModeActive = 0;
+			showResult(referenceMode, rObject);
+		}
 		contentReference.appendChild(showReferenceHref);
 		contentReference.appendChild(document.createElement('br'));
 		
