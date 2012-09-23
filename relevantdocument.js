@@ -267,7 +267,7 @@ function focusToCountryRelevantDocument(crdObjectName) {
 		getRelevantDocumentFilter1(temp);
 	}
 	else {
-		getRelevantDocumentFilter2(newArray(crdObjectName));
+		getRelevantDocumentFilter2(new Array(crdObjectName));
 	}
 	highlight(getObject(crdObjectName));
 }
