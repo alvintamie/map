@@ -249,7 +249,6 @@ function showOverallCountryRelevantDocument(crdObject) {
 	divCountryDistributionRelevantDocument.appendChild(hrefCountryTypeRelevantDocument);
 	divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	for (var i=0; i<crdObject.length; i++) {
-		 crdObject[i].hitCount));
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryRelevantDocument('"+crdObject[i].name+"')";
 		temp.textContent = crdObject[i].name;
