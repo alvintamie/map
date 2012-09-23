@@ -126,19 +126,8 @@ function renderResize(){
 	 canvasResizeRight.style.left=canvas.offsetLeft+10+canvas.width+"px";
 	 canvasResizeBoth.style.left=canvas.offsetLeft+10+canvas.width+"px";
 	 canvasResizeBottom.width=canvas.width+10;}
-	 }
-		if(canvas.width>canvasMaxSizeX){
-	canvasResizeRight.style.left=canvasMaxSizeX+10+"px";
-	canvasResizeBoth.style.left=canvasMaxSizeX+10+"px";
-	canvasResizeBottom.width=canvasMaxSizeX+10;}
-	else{
-	 canvasResizeRight.style.left=canvas.offsetLeft+10+canvas.width+"px";
-	 canvasResizeBoth.style.left=canvas.offsetLeft+10+canvas.width+"px";
-	 canvasResizeBottom.width=canvas.width+10;}
-	 }
 	 
-	 if(isResizeHeight){
-	if(canvas.offsetTop+canvas.height>canvasMaxSizeY){
+			if(canvas.offsetTop+canvas.height>canvasMaxSizeY){
 	canvasResizeBottom.style.top=canvasMaxSizeY+10+"px";
 	canvasResizeBoth.style.top=canvasMaxSizeY+10+"px";
 	canvasResizeRight.height=canvasMaxSizeY+10;}
@@ -146,7 +135,7 @@ function renderResize(){
 	 canvasResizeBottom.style.top=canvas.offsetTop+canvas.height+10+"px";
 	 canvasResizeBoth.style.top=canvas.offsetTop+canvas.height+10+"px";
 	 canvasResizeRight.height=canvas.height+10;}
-	
+	 }
 	ctxResizeBottom.fillStyle = "rgb(220,220,220)";
 	ctxResizeRight.fillStyle = "rgb(220,220,220)";
 	ctxResizeBoth.fillStyle = "rgb(220,220,220)";
