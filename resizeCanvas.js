@@ -17,8 +17,7 @@ function initializeResize(){
 		ctxResizeRight.fillStyle = "rgb(220,220,220)";
 		ctxResizeBoth.fillStyle = "rgb(220,220,220)";
 		
-		canvasResizeRight.style.top= canvas.offsetLeft+canvas.width+"px";
-		canvasResizeRight.style.left= canvas.offsetTop+"px";
+	
 		}
 var deltaResize;
 var deltaResize1;
@@ -69,9 +68,13 @@ function resizeCanvas(e){
 		resizeBuffer2=e.clientY-deltaResize1;
 		}
 }
-
+statRenderResize=true;
 function renderResize(){
-	
+	if(statRenderResize){
+		canvasResizeRight.style.top= canvas.offsetLeft+canvas.width+"px";
+		canvasResizeRight.style.left= canvas.offsetTop+"px";
+		statRenderResize=false;
+	}
 	canvasResizeRight.onmousedown = function(e){
 	isResizeWidth=true;
 	deltaResize=e.clientX-canvas.width+canvas.offsetLeft;}
