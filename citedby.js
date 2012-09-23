@@ -228,7 +228,7 @@ function showOverallCountryCitedBy(ccbObject) {
 
 function findCountryDocumentCitedBy(ccbString) {
 	defaultChangedCitedBy = 1;
-
+console.log("111111111111111");
 	if (modeCountryTypeCitedBy==0) {
 		var temp=new Object;
 		temp.country=ccbString;
@@ -237,8 +237,8 @@ function findCountryDocumentCitedBy(ccbString) {
 	else {
 		getCitedbyFilter2(ccbString);
 	}
-	//console.log("ini string");
-	//console.log(ccbString);
+	console.log("ini string");
+	console.log(ccbString);
 	highlight(getObject(ccbString[0]));
 }
 
