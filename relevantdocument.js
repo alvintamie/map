@@ -119,11 +119,11 @@ function updateRelevantDocument (rdObject, rdMode) {
 					modeInMap = relevantDocumentMode;
 					showResult(relevantDocumentMode, relevantDocumentObject);
 					updateRelevantDocument(relevantDocumentObject, 0);
+					showOverallCountryRelevantDocument(countryRelevantDocument);
 					
 				}
 				modeCountryTypeRelevantDocument = 1;
 				hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
-				showOverallCountryRelevantDocument(countryRelevantDocument);
 			}
 			temp.textContent = "Show all result";
 			contentRelevantDocument.appendChild(temp);
