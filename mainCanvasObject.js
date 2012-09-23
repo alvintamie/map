@@ -72,15 +72,20 @@ function drawText(text,x,y){
 	if(readyScroll>0) {
 		ctx.fillText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 		ctx.strokeText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+		ctx.fillText(text,ready_x+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 		if(imageCoords[0]<0)
 		{
 			ctx.fillText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			ctx.strokeText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+			ctx.fillText(text,ready_x_p+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+		
 		}
 		else
 		{
 			ctx.fillText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
 			ctx.strokeText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+			ctx.fillText(text,ready_x_n+x*multiplierObjectX[zoom],imageCoords[1]+y*multiplierObjectY[zoom]);
+		
 		}
 	}
 	ctx.fillStyle = "rgb(120,120,120)";
