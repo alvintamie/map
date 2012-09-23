@@ -51,7 +51,7 @@ function drawObject(im,x,y){
 
 function drawText(text,x,y){
 	ctx.font = "13px Verdana";
-	ctx.strokeWidth = "1px";
+	ctx.strokeWidth = "0px";
 	//ctx.lineWidth = 1;
 	ctx.fillStyle = "white";
 	ctx.strokeStyle = "#000000";
