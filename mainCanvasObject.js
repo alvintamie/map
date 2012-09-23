@@ -51,7 +51,8 @@ function drawObject(im,x,y){
 
 function drawText(text,x,y){
 	ctx.font = "13px Verdana";
-	ctx.fillStyle = "#0A0264";
+	ctx.setStrokeWidth(1);
+	ctx.fillStyle = "white";
 	ctx.strokeStyle = "#000000";
 	if(readyScroll<0) { 
 		ctx.fillText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);	
