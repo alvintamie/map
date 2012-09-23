@@ -148,7 +148,7 @@ function insertReference(rObject, i) {
 	if (rObject[i].scopusId) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Set as main article";
-		temp.href = "#";
+		temp2.href = "#";
 		temp2.onclick = function() {newMainArticle(rObject[i]);};
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
