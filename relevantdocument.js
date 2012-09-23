@@ -238,6 +238,7 @@ function showOverallCountryRelevantDocument(crdObject) {
 
 function findCountryDocumentRelevantDocument(crdString) {
 	defaultChangedRelevantDocument = 1;
+	
 	if (modeCountryTypeRelevantDocument==0) {
 		var temp=new Object;
 		temp.country=crdString;
@@ -246,6 +247,8 @@ function findCountryDocumentRelevantDocument(crdString) {
 	else {
 		getRelevantDocumentFilter2(crdString);
 	}
+	console.log("ini string");
+	console.log(crdString);
 	highlight(getObject(crdString));
 }
 
