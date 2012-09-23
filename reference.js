@@ -49,12 +49,12 @@ function initializeReference() {
 	showReferenceHref.textContent = "Show documents in map";
 	
 	divCountryDistributionReference = document.createElement('div');
-	divCountryDistributionReference.style.background = 'yellow';
+	divCountryDistributionReference.style.background = '#D8D8D8';
 	divCountryDistributionReference.style.position = 'absolute';
 	divCountryDistributionReference.style.width = '130px';
 	divCountryDistributionReference.style.height = '300px';
-	divCountryDistributionReference.style.top = referencePosY + 'px';
-	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 'px';
+	divCountryDistributionReference.style.top = referencePosY - 7 + 'px';
+	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width)+7 + 'px';
 	divCountryDistributionReference.style['z-index'] = 0;
 	divCountryDistributionReference.style.overflow = 'hidden';
 	divCountryDistributionReference.style.display = 'block';
