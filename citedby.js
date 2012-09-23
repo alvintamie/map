@@ -174,13 +174,21 @@ function updateCitedBy (cbObject, cbMode) {
 }
 
 function insertCitedBy(cbObject, i) {
+	var tempTable = document.createElement('table');
+	//tempTable.align = 'justify';
+	document.getElementById("CitedBy"+i).appendChild(tempTable);
+	
 	var temp = document.createElement("IMG");
 	temp.setAttribute('id', "CitedBy" + i + "_image");
 	temp.src = imgExpand.src;
 	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
 	temp.onclick = function () {showAbstractCited(i);};
-	document.getElementById("CitedBy"+i).appendChild(temp);
+	var row = tempTable.insertRow(0);
+	row.insertCell(0).appendChild(temp);
+	
 	temp = document.createElement("a");
+	temp.style['font-weight'] = 'bold';
+	temp.style.textDecoration = 'none';
 	temp.onclick = function () {
 		if (abstractCitedMode[i]==0) {
 			showAbstractCited(i);
@@ -190,20 +198,34 @@ function insertCitedBy(cbObject, i) {
 	};
 	temp.href = "#";
 	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
-	document.getElementById("CitedBy"+i).appendChild(temp);
+	row.insertCell(1).appendChild(temp);
+	
 	temp = document.createElement('div');
+	temp.align = 'justify';
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp.setAttribute('id', "CitedBy" + i + "_abstract");
 	temp.style.position = 'relative';
 	temp.style.left = 18 + 'px';
-	temp.style.width = citedByWidth - 45 + 'px';
+	temp.style.width = citedByWidth - 43 + 'px';
 	if (cbObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + cbObject[i].url + "')";
+		temp2.style.textDecoration = 'none';
 		temp.appendChild(temp2);
-		temp.appendChild(document.createElement('br'));
+		//temp.appendChild(document.createElement('br'));
 	}
+	if (cbObject[i].authorId && cbObject[i].scopusId) {
+		var temp2 = document.createElement('a');
+		temp2.textContent = "Set as main article";
+		temp2.href = "#";
+		temp2.style.textDecoration = 'none';
+		temp2.style.cssFloat = 'right';
+		temp2.onclick = function() {newMainArticle(cbObject[i]);};
+		temp.appendChild(temp2);
+		//temp.appendChild(document.createElement('br'));
+	}
+	temp.appendChild(document.createElement('br'));
 	if (cbObject[i].Abstract)
 		temp.appendChild(document.createTextNode(cbObject[i].Abstract));
 	else temp.appendChild(document.createTextNode("Abstract not available"));
