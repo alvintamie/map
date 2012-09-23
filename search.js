@@ -135,12 +135,12 @@ function initializeSearch() {
 	showSearchHref.textContent = "Hide documents in map";
 
 	divCountryDistributionSearch = document.createElement('div');
-	divCountryDistributionSearch.style.background = 'yellow';
+	divCountryDistributionSearch.style.background = '#F2F1EF';
 	divCountryDistributionSearch.style.position = 'absolute';
 	divCountryDistributionSearch.style.width = '200px';
 	divCountryDistributionSearch.style.height = '300px';
-	divCountryDistributionSearch.style.top = searchPosY + 'px';
-	divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
+	divCountryDistributionSearch.style.top = searchPosY + 27 + 'px';
+	divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 8 + 'px';
 	divCountryDistributionSearch.style['z-index'] = 0;
 	divCountryDistributionSearch.style.overflow = 'auto';
 	divCountryDistributionSearch.style.display = 'none';
@@ -579,8 +579,8 @@ function searchDisplacement(e){
 			divSearch.style.top="0px";
 			searchPosY = 0;
 		}
-		divCountryDistributionSearch.style.top = searchPosY + "px";
-		divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 'px';
+		divCountryDistributionSearch.style.top = searchPosY + 27 + "px";
+		divCountryDistributionSearch.style.left = searchPosX-parseInt(divCountryDistributionSearch.style.width) + 8 + 'px';
 		/*
 		if(divSearch.offsetLeft<0){
 			divSearch.style.left="0px";
