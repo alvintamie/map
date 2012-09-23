@@ -70,7 +70,7 @@ function initializeSearch() {
 	headerSearch.style.width = searchWidth + 'px';
 	headerSearch.style.paddingLeft = '5px';
 	headerSearch.style.color = 'white';
-	headerSearch.appendChild(document.createTextNode("Reference"));
+	headerSearch.appendChild(document.createTextNode("Search"));
 	divSearch.appendChild(headerSearch);
 	headerSearch.onselectstart = function() {return false};
 	
