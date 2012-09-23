@@ -23,6 +23,9 @@ var modeCountryTypeCitedBy = 0;
 var defaultChangedCitedBy = 0;
 var hrefCountryTypeCitedBy;
 var hrefCDCB;
+var imgCitedBy = new Array();
+imgCitedBy[0] = imgObject[5];
+imgCitedBy[1] = imgObject[10];
 
 function initializeCitedBy() {
 	divCitedBy = document.getElementById("windowCitedBy");
@@ -33,7 +36,7 @@ function initializeCitedBy() {
 	//divCitedBy.style.display = "none";
 	divCitedBy.style.width = '0px';
 	divCitedBy.style.height = '0px';
-	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgObject[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
 	
 	contentCitedBy = document.createElement('div');
 	divCitedBy.appendChild(contentCitedBy);
@@ -326,7 +329,7 @@ function changeViewCitedBy() {
 		//divCitedBy.style.display = "none";
 		citedByVisible = 0;
 	}
-	ctxMenu.putImageData(imgDataMenu[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgObject[citedByVisible], 2*frameWidth+buttonMenuWidth, frameWidth);
 	if (citedByStatus > 0 && citedByStatus <citedByTotalSteps) setTimeout (changeViewCitedBy, 10);
 }
 
