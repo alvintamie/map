@@ -11,6 +11,9 @@ function initializeMenu(){
 	//canvasAffiliation = document.getElementById('canvasAffiliation');
 	//ctxAffiliation=canvasAffiliation.getContext('2d');
 	//ctxAffiliation.fillStyle = "rgb(220,220,220)";
+	
+	//CHANGED:
+	/*
 	ctxMenu.fillStyle = "rgb(220,220,220)";
 	ctxMenu.fillRect(0 , 0, canvasMenu.width, canvasMenu.height);
 	imgDataMenu[0] = ctxMenu.createImageData(buttonMenuWidth, buttonMenuHeight);
@@ -23,6 +26,12 @@ function initializeMenu(){
 		imgDataMenu[1].data[i] = 220;
 		imgDataMenu[1].data[i+3] = 255;
 	}
+	*/
+	
+	//New Adjustment For ButtonMenuWidth:
+	buttonMenuWidth = imgObject[4].width;
+	buttonMenuHeight = imgObject[4].height;
+	frameWidth = 0;
 	
 	initializeReference();
 	initializeCitedBy();
