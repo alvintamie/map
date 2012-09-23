@@ -132,7 +132,7 @@ var obj_dis_x;
 	var divRelevantDocument;
 	var divCoAuthor;
 	var divSearch;
-	var divAffiliation;
+	//var divAffiliation;
 	//var imgAffiliation = new Image;
 	//imgAffiliation.src = 'https://raw.github.com/alvi0010/map/master/image/author.jpg';
 	//var canvasSearch;
