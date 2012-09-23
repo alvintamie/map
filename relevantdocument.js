@@ -367,7 +367,7 @@ function changeViewRelevantDocument() {
 		divRelevantDocument.style.display = "none";
 		relevantDocumentVisible = 0;
 	}
-	ctxMenu.drawImange(imgRelevantDocument[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
+	ctxMenu.drawImage(imgRelevantDocument[relevantDocumentVisible], 3*frameWidth+2*buttonMenuWidth, frameWidth);
 	if (relevantDocumentStatus > 0 && relevantDocumentStatus <relevantDocumentTotalSteps) setTimeout (changeViewRelevantDocument, 10);
 }
 
