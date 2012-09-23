@@ -15,6 +15,7 @@ var listCoAuthorState = new Array();
 var listCoAuthorMode = new Array();
 var listCoAuthorTotal = 20;
 var contentCoAuthor;
+var headerCoAuthor;
 var showCoAuthorinMap = 1;
 var showCoAuthorHref;
 var divCountryDistributionCoAuthor;
@@ -36,15 +37,29 @@ function initializeCoAuthor() {
 	//divCoAuthor.style.display = "none";
 	divCoAuthor.style.width = '0px';
 	divCoAuthor.style.height = '0px';
+	divCoAuthor.style.overflow = 'hidden';
 	ctxMenu.drawImage(imgCoAuthor[coAuthorVisible], 4*frameWidth+3*buttonMenuWidth, frameWidth);
+	
+	headerCoAuthor = document.createElement('div');
+	headerCoAuthor.style.position = 'relative';
+	headerCoAuthor.style.top = '0px';
+	headerCoAuthor.style.left ='0px';
+	headerCoAuthor.style.height = '23px';
+	headerCoAuthor.style.width = referenceWidth + 'px';
+	headerCoAuthor.style.paddingLeft = '5px';
+	headerCoAuthor.style.color = '#08088A';
+	headerCoAuthor.appendChild(document.createTextNode("Co-Authors"));
+	divCoAuthor.appendChild(headerCoAuthor);
+	headerCoAuthor.onselectstart = function() {return false};
+	
 	contentCoAuthor = document.createElement('div');
 	divCoAuthor.appendChild(contentCoAuthor);
 	contentCoAuthor.setAttribute('id', "contentCoAuthor");
-	contentCoAuthor.style.position = 'absolute';
-	contentCoAuthor.style.top = topbarHeight-9 + 'px';
+	contentCoAuthor.style.position = 'relative';
+	//contentCoAuthor.style.top = topbarHeight-9 + 'px';
 	contentCoAuthor.style.left = 1 + 'px';
 	contentCoAuthor.style.width = coAuthorWidth-2 + 'px';
-	contentCoAuthor.style.height = coAuthorHeight-topbarHeight+7 +'px';
+	contentCoAuthor.style.height = coAuthorHeight--parseInt(headerCoAuthor.style.height)+7 +'px';
 	contentCoAuthor.style['overflow-x'] = 'hidden';
 	contentCoAuthor.style['overflow-y'] = 'auto';
 	
