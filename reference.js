@@ -145,6 +145,13 @@ function insertReference(rObject, i) {
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
+	if (rObject[i].scopusId) {
+		var temp2 = document.createElement('a');
+		temp2.textContent = "Set as main article";
+		temp2.onclick = function() {newMainArticle(rObject[i]);};
+		temp.appendChild(temp2);
+		temp.appendChild(document.createElement('br'));
+	}
 	if (rObject[i].Abstract)
 		temp.appendChild(document.createTextNode(rObject[i].Abstract));
 	else temp.appendChild(document.createTextNode("Abstract not available"));
