@@ -105,7 +105,7 @@ function updateReference (rObject, rMode) {
 			document.getElementById("contentReference").appendChild(temp);
 			temp.setAttribute('id', "Reference" + i);
 			temp.style.position = 'relative';
-			temp.style.left = 3 + 'px';
+			//temp.style.left = 1 + 'px';
 			insertReference(rObject, i);
 		}
 	}
