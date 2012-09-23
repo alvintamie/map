@@ -89,8 +89,8 @@ function renderResize(){
 	
 	canvasResizeBoth.onmousedown = function(e){
 	isResizeBoth=true;
-	deltaResize=e.clientX-canvas.width+canvas.offsetLeft;
-	deltaResize1=e.clientY-canvas.height+canvas.offsetTop;}
+	deltaResize=e.clientX-canvas.width-20+canvas.offsetLeft;
+	deltaResize1=e.clientY-canvas.height-20+canvas.offsetTop;}
 	
 	if(isResizeWidth){
 	if(canvas.width>canvasMaxSizeX){
