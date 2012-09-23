@@ -226,7 +226,7 @@ function showOverallCountryCitedBy(ccbObject) {
 	}
 }
 
-function findCountryDocumentCitedBy(crdString) {
+function findCountryDocumentCitedBy(ccbString) {
 	defaultChangedCitedBy = 1;
 
 	if (modeCountryTypeCitedBy==0) {
