@@ -19,7 +19,9 @@ var searchYearToString = new Array("Present", 2012, 2011, 2010, 2009, 2008, 2007
 				1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986,
 				1985, 1984, 1983, 1982, 1981, 1980, 1979, 1978, 1977, 1976, 1975, 1974, 1973, 1972, 
 				1971, 1970, 1969, 1968, 1967, 1966, 1965, 1964, 1963, 1962, 1961, 1960, "Before 1960");
-var searchSearchByString = new Array("");
+var searchSortByString = new Array("Date (Newest)", "Date (Oldest)", "Cited by", "Relevance", "Author cite",
+				"First Author (A-Z)", "First Author (Z-A)", "Publication Name (A-Z)", "Title (A-Z)",
+				"Title (A-Z)", "Title (Z-A)", "Relevance");
 var searchIndexQuery = new Array();
 var searchStringQuery = new Array();
 var searchBoolQuery = new Array();
@@ -28,6 +30,7 @@ var searchSelect;
 var searchBoolSelect;
 var searchYearFromSelect;
 var searchYearToSelect;
+var searchSortBySelect;
 
 var abstractSearchHeight = new Array();
 var abstractSearchState = new Array();
@@ -97,6 +100,12 @@ function initializeSearch() {
 	searchYearToSelect.setAttribute('name', 'search_inputYearToSelect');
 	for (var i=0; i<searchYearToString.length; i++) {
 		searchYearToSelect.options[i] = new Option (searchYearToString[i], i);
+	}
+	
+	searchSortBySelect = document.createElement('select');
+	searchSortBySelect.setAttribute('name', 'search_inputSortBySelect');
+	for (var i=0; i<searchSortBySelect; i++) {
+		searchSortBySelect.options[i] = new Option (searchSortBySelect[i], i);
 	}
 	
 	updatecontentSearchQuery();
@@ -254,6 +263,10 @@ function updatecontentSearchQuery() {
 		searchField.appendChild(searchYearToSelect);
 		searchField.appendChild(document.createElement('br'));
 		
+		searchField.appendChild(document.createTextNode("Sort the document by "));
+		searchField.appendChild(searchSortBy);
+		searchField.appendChild(document.createElement('br'));
+		
 		var searchSubmitButton = document.createElement('button');
 		searchSubmitButton.textContent = "Search";
 		searchField.appendChild(searchSubmitButton);
@@ -297,9 +310,11 @@ function submitSearchQuery() {
 		resetQuery();
 		searchBoolQuery[0] = 0;
 		for (var i=0; i<searchIndexQuery.length; i++) {
-			addQuery(searchStringQuery[i], searchIndexQuery[i], 1-searchBoolQuery[i], searchYearFromString[searchYearFromSelect.value], searchYearToString[searchYearToSelect.value]);
+			addQuery(searchStringQuery[i], searchIndexQuery[i], 1-searchBoolQuery[i]);
 			//console.log(!searchBoolQuery[i]);
 		}
+		changeDate(searchYearFromString[searchYearFromSelect.value], searchYearToString[searchYearToSelect.value])
+		changeSort(searchSortBySelect.index)
 		submitQuery(0);
 	}
 }
