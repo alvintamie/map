@@ -26,8 +26,8 @@ var hrefCDRD;
 
 function initializeRelevantDocument () {
 	divRelevantDocument = document.getElementById("windowRelevantDocument");
-	relevantDocumentPosX = divRelevantDocument.offsetLeft;
-	relevantDocumentPosY = divRelevantDocument.offsetTop;
+	relevantDocumentPosX = 740;
+	relevantDocumentPosY = 90;
 	relevantDocumentWidth = parseInt(divRelevantDocument.style.width);
 	relevantDocumentHeight = parseInt(divRelevantDocument.style.height);
 	//divRelevantDocument.style.display = "none";
