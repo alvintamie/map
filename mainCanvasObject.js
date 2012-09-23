@@ -18,11 +18,12 @@ function renderCanvasObject(){
 	if(canvasObjectAuthor.status!=-1){
 	for(var i=0;i<canvasObject.length;i++){
 			drawObjectLine(canvasObjectAuthor,canvasObject[i])};}
-	for(var i=0;i<canvasObject.length;i++){
-			drawObject(canvasObject[i].img,canvasObject[i].x,canvasObject[i].y);
-			  drawText(canvasObjectText[i],canvasObject[i].x,canvasObject[i].y);
-	}
+	for(var i=0;i<canvasObject.length;i++)
+	{	drawObject(canvasObject[i].img,canvasObject[i].x,canvasObject[i].y);	}
+			  
 	drawObject(canvasObjectAuthor.img,canvasObjectAuthor.x,canvasObjectAuthor.y);
+	for(var i=0;i<canvasObject.length;i++)
+	{	drawText(canvasObjectText[i],canvasObject[i].x,canvasObject[i].y);	}
 	drawText(canvasObjectAuthorText,canvasObjectAuthor.x,canvasObjectAuthor.y);
 	for(var i=0;i<canvasObjectHighlight.length;i++){
 			drawObject(canvasObjectHighlight[i].img,canvasObjectHighlight[i].x,canvasObjectHighlight[i].y);
