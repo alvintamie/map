@@ -153,7 +153,6 @@ function insertReference(rObject, i) {
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rObject[i].url + "')";
 		temp2.style.textDecoration = 'none';
-		temp2.style.CSSfloat = 'left';
 		temp.appendChild(temp2);
 		//temp.appendChild(document.createElement('br'));
 	}
@@ -163,11 +162,12 @@ function insertReference(rObject, i) {
 		temp2.textContent = "Set as main article";
 		temp2.href = "#";
 		temp2.style.textDecoration = 'none';
-		temp2.style.CSSfloat = 'right';
+		temp2.style.cssFloat = 'right';
 		temp2.onclick = function() {newMainArticle(rObject[i]);};
 		temp.appendChild(temp2);
 		//temp.appendChild(document.createElement('br'));
 	}
+	temp.appendChild(document.createElement('br'));
 	if (rObject[i].Abstract)
 		temp.appendChild(document.createTextNode(rObject[i].Abstract));
 	else temp.appendChild(document.createTextNode("Abstract not available"));
