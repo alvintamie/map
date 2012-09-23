@@ -19,6 +19,7 @@ function initializeMainCanvas(){
 		var mainArticleDiv = document.createElement("div");
 		mainArticleDiv.style.position = "absolute";
 		mainArticleDiv.style.paddingLeft = "5px";
+		mainArticleDiv.style.width = "500px";
 		mainArticleDiv.innerHTML = "test";
 		setDivInnerHTML(mainArticleDiv, authorObject);
 		document.body.appendChild(mainArticleDiv);
@@ -104,7 +105,8 @@ function renderCanvas(){
 			ctx.drawImage(img[zoom],ready_x_n,imageCoords[1]); }
 			//displayCountry();
 			if (highlightObjStatus == 1) renderHighlight();
-		//	setDivPosition(mainArticleDiv, canvas.offsetLeft + canvas.width + 20, canvas.offsetTop + 20);
+
+			setDivPosition(mainArticleDiv, canvas.offsetLeft + canvas.width + 20, canvas.offsetTop + 20);
 	}
 }
 function renderScroll(){
