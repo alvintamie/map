@@ -137,6 +137,7 @@ function insertReference(rObject, i) {
 	};
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp = document.createElement('div');
+	temp.align = 'justify';
 	document.getElementById("Reference"+i).appendChild(temp);
 	temp.setAttribute('id', "Reference" + i + "_abstract");
 	temp.style.position = 'relative';
