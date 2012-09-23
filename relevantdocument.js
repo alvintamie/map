@@ -241,6 +241,8 @@ function showRelevantDocumentCountryDistribution() {
 }
 
 function showOverallCountryRelevantDocument(crdObject) {
+	console.log("show all");
+	console.log (crdObject);
 	while (divCountryDistributionRelevantDocument.firstChild) {
 		divCountryDistributionRelevantDocument.removeChild(divCountryDistributionRelevantDocument.firstChild);
 	}
