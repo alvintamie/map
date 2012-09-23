@@ -78,6 +78,8 @@ function renderResize(){
 		canvasResizeBoth.style.left= canvas.offsetLeft+canvas.width+"px";
 		canvasResizeBoth.style.top= canvas.offsetTop+canvas.height+"px";
 		statRenderResize=false;
+		console.log("resize");
+		console.log(canvasResizeRight.offsetLeft+" "+canvasResizeRight.offsetTop);
 	}
 	canvasResizeRight.onmousedown = function(e){
 	isResizeWidth=true;
