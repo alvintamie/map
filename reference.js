@@ -58,7 +58,7 @@ function initializeReference() {
 	//contentReference.style.top = topbarHeight-9 + 'px';
 	contentReference.style.left = 1 + 'px';
 	contentReference.style.width = referenceWidth-2 + 'px';
-	contentReference.style.height = referenceHeight-parseInt(headerReference.style.height)+7 +'px';
+	contentReference.style.height = referenceHeight-parseInt(headerReference.style.height) +'px';
 	contentReference.style['overflow-x'] = 'hidden';
 	contentReference.style['overflow-y'] = 'auto';
 	
