@@ -81,7 +81,7 @@ function initializeSearch() {
 	temp.style.top = topbarHeight-9 + 'px';
 	temp.style.left = 1 + 'px';
 	temp.style.width = citedByWidth-2 + 'px';
-	temp.style.height = citedByHeight--parseInt(headerSearch.style.height) +'px';
+	temp.style.height = citedByHeight-parseInt(headerSearch.style.height) +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
 	
