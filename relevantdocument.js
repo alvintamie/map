@@ -98,7 +98,7 @@ function initializeRelevantDocument () {
 function updateRelevantDocument (rdObject, rdMode) {
 	removecontentRelevantDocumentChild();
 	if (rdObject.length>0) {
-		showRelevantDocumentHref.onclick() = function () {showResult(0, rdObject)};
+		showRelevantDocumentHref.onclick = function () {showResult(0, rdObject)};
 		contentRelevantDocument.appendChild(showRelevantDocumentHref);
 		contentRelevantDocument.appendChild(document.createElement('br'));
 		if (rdMode==1 || defaultChangedRelevantDocument==1) {
