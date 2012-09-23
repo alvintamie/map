@@ -53,16 +53,16 @@ var obj_dis_x;
 	imgObject[2].src = 'https://raw.github.com/alvi0010/map/master/image/Arrow2.png';
 	imgObject[3].src = 'https://raw.github.com/alvi0010/map/master/image/person.png';
 	//For Tab Menu
-	imgObject[4].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_reference1.png';
-	imgObject[5].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_citedBy1.png';
-	imgObject[6].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_relevantDocument1.png';
-	imgObject[7].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_coAuthor1.png';
-	imgObject[8].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_search1.png';
-	imgObject[9].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_reference2.png';
-	imgObject[10].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_citedBy2.png';
-	imgObject[11].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_relevantDocument2.png';
-	imgObject[12].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_coAuthor2.png';
-	imgObject[13].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_search2.png';
+	imgObject[4].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_reference1.jpg';
+	imgObject[5].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_citedBy1.jpg';
+	imgObject[6].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_relevantDocument1.jpg';
+	imgObject[7].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_coAuthor1.jpg';
+	imgObject[8].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_search1.jpg';
+	imgObject[9].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_reference2.jpg';
+	imgObject[10].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_citedBy2.jpg';
+	imgObject[11].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_relevantDocument2.jpg';
+	imgObject[12].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_coAuthor2.jpg';
+	imgObject[13].src = 'https://raw.github.com/alvi0010/map/master/image/tabButton_search2.jpg';
 	//FOR LOGO:
 	imgObject[14].src = 'https://raw.github.com/alvi0010/map/master/image/mj_logo.png';
 
