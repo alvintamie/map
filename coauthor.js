@@ -187,7 +187,6 @@ function insertCoauthors(caObject, i) {
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + caObject[i].url + "')";
 		temp2.style.textDecoration = 'none';
-		temp2.style.cssFloat = 'right';
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
