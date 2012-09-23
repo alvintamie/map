@@ -46,6 +46,7 @@ function initializeReference() {
 	headerReference.style.height = '23px';
 	headerReference.style.width = referenceWidth + 'px';
 	headerReference.style.paddingLeft = '5px';
+	headerReference.style.color = '#08088A';
 	headerReference.appendChild(document.createTextNode("Reference"));
 	divReference.appendChild(headerReference);
 	headerReference.onselectstart = function() {return false};
