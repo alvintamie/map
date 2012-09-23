@@ -139,7 +139,7 @@ var obj_dis_x;
 	//var ctxSearch;
 	//var canvasAffiliation;
 	//var ctxAffiliation;
-	var topbarHeight = 55;
+	var topbarHeight = 25;
 	var zIndex = 10;
 	var mouseInCanvas = 0;
 	var minimizePosWidth = 30;
