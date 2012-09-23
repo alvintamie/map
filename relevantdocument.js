@@ -80,7 +80,7 @@ function initializeRelevantDocument () {
 		else {
 			modeCountryTypeRelevantDocument = 0;
 			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
-			changeModeRelevantDocument1();
+			showOverallCountryRelevantDocument(countryRelevantDocument);
 		}
 		//showOverallCountryRelevantDocument(countryRelevantDocument);
 	}
