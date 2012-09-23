@@ -243,6 +243,7 @@ function insertRelevantDocument(rdObject, i) {
 		temp2.href = "#";
 		temp2.onclick = function() {newMainArticle(rdObject[i]);};
 		temp2.style.textDecoration = 'none';
+		temp2.style.cssFloat = 'right';
 		temp.appendChild(temp2);
 		//temp.appendChild(document.createElement('br'));
 	}
