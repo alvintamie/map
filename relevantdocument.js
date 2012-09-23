@@ -15,7 +15,7 @@ var abstractRelevantState = new Array();
 var abstractRelevantMode = new Array();
 var abstractRelevantTotal = 20;
 var contentRelevantDocument;
-var showRelevantDocumentinMap = 1;
+//var showRelevantDocumentinMap = 1;
 var showRelevantDocumentHref;
 var divCountryDistributionRelevantDocument;
 var modeCountryDistributionRelevantDocument = 0;
@@ -48,19 +48,12 @@ function initializeRelevantDocument () {
 	
 	showRelevantDocumentHref= document.createElement('a');
 	showRelevantDocumentHref.href = "#";
+	showRelevantDocumentHref.textContent = "Show in map";
+	/*
 	showRelevantDocumentHref.onclick = function () {
-		if  (showRelevantDocumentinMap==0) {
-			showRelevantDocumentinMap = 1;
-			showResult(0, relevantDocumentObject);
-			showRelevantDocumentHref.textContent = "Hide documents in map";
-		}
-		else {
-			showRelevantDocumentinMap = 0;
-			clearCanvasObject();
-			showRelevantDocumentHref.textContent = "Show documents in map";
-		}
-	}
-	showRelevantDocumentHref.textContent = "Hide documents in map";
+		if (defaultChangedRelevantDocument==0) showResult(0, relevantDocumentObject);
+		else resetQueryRelevantDocument;
+	}*/
 	
 	divCountryDistributionRelevantDocument = document.createElement('div');
 	divCountryDistributionRelevantDocument.style.background = 'yellow';
@@ -105,6 +98,7 @@ function initializeRelevantDocument () {
 function updateRelevantDocument (rdObject, rdMode) {
 	removecontentRelevantDocumentChild();
 	if (rdObject.length>0) {
+		showRelevantDocumentHref.onclick() = function () {showResult(0, rdObject)};
 		contentRelevantDocument.appendChild(showRelevantDocumentHref);
 		contentRelevantDocument.appendChild(document.createElement('br'));
 		if (rdMode==1 || defaultChangedRelevantDocument==1) {
@@ -117,6 +111,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 				}
 				else {
 					updateRelevantDocument(relevantDocumentObject, 0);
+					showResult(0, rdObject);
 					
 				}
 				modeCountryTypeRelevantDocument = 1;
@@ -127,6 +122,8 @@ function updateRelevantDocument (rdObject, rdMode) {
 			contentRelevantDocument.appendChild(temp);
 			contentRelevantDocument.appendChild(document.createElement('br'));
 		}
+		
+		
 		
 		contentRelevantDocument.appendChild(hrefCDRD);
 		contentRelevantDocument.appendChild(document.createElement('br'));
@@ -177,6 +174,7 @@ function insertRelevantDocument(rdObject, i) {
 		if (abstractRelevantMode[i]==0) {
 			showAbstractRelevant(i);
 			highlight(rdObject[i]);
+			showResult(0, rdObject);
 		}
 	};
 	temp.href = "#";
