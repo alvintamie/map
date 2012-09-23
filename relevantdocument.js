@@ -58,7 +58,7 @@ function initializeRelevantDocument () {
 	divCountryDistributionRelevantDocument = document.createElement('div');
 	divCountryDistributionRelevantDocument.style.background = '#F2F1EF';
 	divCountryDistributionRelevantDocument.style.position = 'absolute';
-	divCountryDistributionRelevantDocument.style.width = '200px';
+	divCountryDistributionRelevantDocument.style.width = '130px';
 	divCountryDistributionRelevantDocument.style.height = '300px';
 	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 27 + 'px';
 	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 8 + 'px';
@@ -249,12 +249,13 @@ function showOverallCountryRelevantDocument(crdObject) {
 	divCountryDistributionRelevantDocument.appendChild(hrefCountryTypeRelevantDocument);
 	divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	for (var i=0; i<crdObject.length; i++) {
-		divCountryDistributionRelevantDocument.appendChild(document.createTextNode(crdObject[i].name + " : " + crdObject[i].hitCount));
-		divCountryDistributionRelevantDocument.appendChild(document.createTextNode("	"));
+		 crdObject[i].hitCount));
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryRelevantDocument('"+crdObject[i].name+"')";
-		temp.textContent = "focus to this country";
+		temp.textContent = crdObject[i].name;
+		temp.style.textDecoration = 'none';
 		divCountryDistributionRelevantDocument.appendChild(temp);
+		divCountryDistributionRelevantDocument.appendChild(document.createTextNode(" ("+crdObject[i].hitCount+")"));
 		divCountryDistributionRelevantDocument.appendChild(document.createElement('br'));
 	}
 }
