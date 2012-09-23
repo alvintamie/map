@@ -46,7 +46,7 @@ function initializeReference() {
 	headerReference.style.height = '23px';
 	headerReference.style.width = referenceWidth + 'px';
 	headerReference.style.paddingLeft = '5px';
-	headerReference.style.color = '#08088A';
+	headerReference.style.color = 'white';
 	headerReference.appendChild(document.createTextNode("Reference"));
 	divReference.appendChild(headerReference);
 	headerReference.onselectstart = function() {return false};
@@ -72,7 +72,7 @@ function initializeReference() {
 	divCountryDistributionReference.style.width = '130px';
 	divCountryDistributionReference.style.height = '300px';
 	divCountryDistributionReference.style.top = referencePosY + 27 + 'px';
-	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 'px';
+	divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 2 + 'px';
 	divCountryDistributionReference.style['z-index'] = 0;
 	divCountryDistributionReference.style.overflow = 'auto';
 	divCountryDistributionReference.style['border-radius'] = '4px';
@@ -353,7 +353,7 @@ function referenceDisplacement(e){
 			referencePosY = 0;
 		}
 		divCountryDistributionReference.style.top = referencePosY + 27 + "px";
-		divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 'px';
+		divCountryDistributionReference.style.left = referencePosX-parseInt(divCountryDistributionReference.style.width) + 2 + 'px';
 		
 		/*
 		if(divReference.offsetLeft<0){
