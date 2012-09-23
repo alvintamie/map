@@ -128,7 +128,6 @@ function insertReference(rObject, i) {
 	row.insertCell(0).appendChild(temp);
 	temp = document.createElement("a");
 	temp.style['font-weight'] = 'bold';
-	temp.style['padding=left'] = '10px';
 	temp.style.textDecoration = 'none';
 	temp.href = "#";
 	temp.textContent = i + " " + rObject[i].title;
@@ -153,6 +152,7 @@ function insertReference(rObject, i) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rObject[i].url + "')";
+		temp2.style.textDecoration = 'none';
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
 	}
@@ -160,6 +160,7 @@ function insertReference(rObject, i) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Set as main article";
 		temp2.href = "#";
+		temp2.style.textDecoration = 'none';
 		temp2.onclick = function() {newMainArticle(rObject[i]);};
 		temp.appendChild(temp2);
 		temp.appendChild(document.createElement('br'));
