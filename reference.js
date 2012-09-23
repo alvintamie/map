@@ -220,11 +220,13 @@ function showOverallCountryReference(crObject) {
 	}
 	//divCountryDistributionReference.appendChild(hrefCountryTypeReference);
 	//divCountryDistributionReference.appendChild(document.createElement('br'));
+	
+	//CHANGED:
+	console.log(crObject);
+	///////////////
 	for (var i=0; i<crObject.length; i++) {
 		var temp = document.createElement('a');
-		//CHANGED:
-		console.log(crObject);
-		///////////////
+
 		temp.href = "javascript:focusToCountryReference('"+crObject[i].name+"');";
 		temp.textContent = crObject[i].name;
 		temp.style.textDecoration = 'none';
