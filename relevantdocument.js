@@ -56,12 +56,12 @@ function initializeRelevantDocument () {
 	}*/
 	
 	divCountryDistributionRelevantDocument = document.createElement('div');
-	divCountryDistributionRelevantDocument.style.background = 'yellow';
+	divCountryDistributionRelevantDocument.style.background = '#D8D8D8';
 	divCountryDistributionRelevantDocument.style.position = 'absolute';
 	divCountryDistributionRelevantDocument.style.width = '200px';
 	divCountryDistributionRelevantDocument.style.height = '300px';
-	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 'px';
-	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 'px';
+	divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 27 + 'px';
+	divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 8 + 'px';
 	divCountryDistributionRelevantDocument.style['z-index'] = 0;
 	divCountryDistributionRelevantDocument.style.overflow = 'auto';
 	divCountryDistributionRelevantDocument.style.display = 'none';
@@ -390,8 +390,8 @@ function relevantDocumentDisplacement(e){
 			divRelevantDocument.style.top="0px";
 			relevantDocumentPosY = 0;
 		}
-		divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + "px";
-		divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 'px';
+		divCountryDistributionRelevantDocument.style.top = relevantDocumentPosY + 27 + "px";
+		divCountryDistributionRelevantDocument.style.left = relevantDocumentPosX-parseInt(divCountryDistributionRelevantDocument.style.width) + 8 + 'px';
 		
 		/*
 		if(divRelevantDocument.offsetLeft<0){
