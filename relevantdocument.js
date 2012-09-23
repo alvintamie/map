@@ -57,7 +57,7 @@ function initializeRelevantDocument () {
 	divRelevantDocument.appendChild(contentRelevantDocument);
 	contentRelevantDocument.setAttribute('id', "contentRelevantDocument");
 	contentRelevantDocument.style.position = 'relative';
-	contentRelevantDocument.style.top = topbarHeight-9 + 'px';
+	//contentRelevantDocument.style.top = topbarHeight-9 + 'px';
 	contentRelevantDocument.style.left = 1 + 'px';
 	contentRelevantDocument.style.width = citedByWidth-2 + 'px';
 	contentRelevantDocument.style.height = citedByHeight-parseInt(headerRelevantDocument.style.height) +'px';
