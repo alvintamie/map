@@ -76,6 +76,7 @@ function initializeReference() {
 	divCountryDistributionReference.style['border-radius'] = '4px';
 	divCountryDistributionReference.style['-moz-border-radius'] = '4px';
 	divCountryDistributionReference.style['-webkit-border-radius'] = '4px';
+	divCountryDistributionReference.style.paddingLeft = '5px';
 	divCountryDistributionReference.style.display = 'block';
 	document.body.appendChild(divCountryDistributionReference);
 	
