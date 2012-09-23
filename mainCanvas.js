@@ -24,7 +24,7 @@ function initializeMainCanvas(){
 		mainArticleDiv.style.paddingLeft = "5px";
 		mainArticleDiv.style.width = "500px";
 		mainArticleDiv.innerHTML = "test";
-		setDivInnerHTML(mainArticleDiv, authorObject);
+	//	setDivInnerHTML(mainArticleDiv, authorObject);
 		document.body.appendChild(mainArticleDiv);
 		
 		
@@ -109,7 +109,7 @@ function renderCanvas(){
 			//displayCountry();
 			if (highlightObjStatus == 1) renderHighlight();
 
-			setDivPosition(mainArticleDiv, canvas.offsetLeft + canvas.width + 20, canvas.offsetTop + 20);
+		//	setDivPosition(mainArticleDiv, canvas.offsetLeft + canvas.width + 20, canvas.offsetTop + 20);
 	}
 }
 function renderScroll(){
