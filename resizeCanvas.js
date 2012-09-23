@@ -100,7 +100,7 @@ function renderResize(){
 	else{
 	 canvasResizeRight.style.left=canvas.offsetLeft+canvas.width+"px";
 	 canvasResizeBoth.style.left=canvas.offsetLeft+canvas.width+"px";
-	 canvasResizeBottom.width=canvas.offsetLeft+canvas.width;}
+	 canvasResizeBottom.width=canvas.width;}
 	 }
 	 
 	 if(isResizeHeight){
@@ -111,7 +111,7 @@ function renderResize(){
 	else{
 	 canvasResizeBottom.style.top=canvas.offsetTop+canvas.height+"px";
 	 canvasResizeBoth.style.top=canvas.offsetTop+canvas.height+"px";
-	 canvasResizeRight.height=canvas.offsetTop+canvas.height;}
+	 canvasResizeRight.height=canvas.height;}
 	 }
 	 
 	 	if(isResizeBoth){
@@ -123,7 +123,7 @@ function renderResize(){
 	else{
 	 canvasResizeRight.style.left=canvas.offsetLeft+canvas.width+"px";
 	 canvasResizeBoth.style.left=canvas.offsetLeft+canvas.width+"px";
-	 canvasResizeBottom.width=canvas.offsetLeft+canvas.width;}
+	 canvasResizeBottom.width=canvas.width;}
 	 
 	if(canvas.offsetTop+canvas.height>canvasMaxSizeY){
 	canvasResizeBottom.style.top=canvasMaxSizeY+"px";
@@ -133,7 +133,7 @@ function renderResize(){
 	else{
 	 canvasResizeBottom.style.top=canvas.offsetTop+canvas.height+"px";
 	  canvasResizeBoth.style.top=canvas.offsetTop+canvas.height+"px";
-	 canvasResizeRight.height=canvas.offsetTop+canvas.height;}
+	 canvasResizeRight.height=canvas.height;}
 	 }
 	
 	ctxResizeBottom.fillStyle = "rgb(220,220,220)";
