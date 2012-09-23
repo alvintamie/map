@@ -82,8 +82,7 @@ function setDivPosition(_divObj, _posX, _posY)
 
 function setDivInnerHTML (_divObj, _sourceObj)
 {
-	console.log("authorObject:")
-	console.log(_sourceObj);
+	_divObj.innerHTML = "";
 	if (_sourceObj != null)
 	{
 		if (!(_sourceObj.title === undefined))_divObj.innerHTML = _sourceObj.title + "<br>";
@@ -92,8 +91,9 @@ function setDivInnerHTML (_divObj, _sourceObj)
 		if (!(_sourceObj.city === undefined))_divObj.innerHTML +="Affiliation-City: " +  _sourceObj.city + "<br>";
 		if (!(_sourceObj.country === undefined))_divObj.innerHTML +="Affiliation-Country: " +  _sourceObj.country + "<br>";
 	}
+	console.log("authorObject:")
+	console.log(_divObj.innerHTML);
 
-	
 }
 
 
