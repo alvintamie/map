@@ -129,9 +129,7 @@ function insertReference(rObject, i) {
 	temp = document.createElement("a");
 	temp.style['font-weight'] = 'bold';
 	temp.style['padding=left'] = '10px';
-	temp.style.link['text-decoration'] = 'none';
-	temp.style.visited['text-decoration'] = 'none';
-	temp.style.hover['text-decoration'] = 'underline';
+	temp.style.textDecoration = 'none';
 	temp.href = "#";
 	temp.textContent = i + " " + rObject[i].title;
 	temp.onclick = function () {
