@@ -54,7 +54,7 @@ function drawText(text,x,y){
 	ctx.strokeWidth = "0px";
 	//ctx.lineWidth = 1;
 	ctx.fillStyle = "#000000";
-	ctx.strokeStyle = "white";
+	ctx.strokeStyle = "#D4D0FC";
 	if(readyScroll<0) { 
 	//	ctx.fillText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);	
 		ctx.strokeText(text,nready_x+x*obj_dis_x,y*obj_dis_y+imageTempCoords[1]);
