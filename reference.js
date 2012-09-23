@@ -15,7 +15,7 @@ var abstractRefState = new Array();
 var abstractRefMode = new Array();
 var abstractRefTotal = 20;
 var contentReference;
-var showReferenceinMap = 1;
+//var showReferenceinMap = 1;
 var showReferenceHref;
 var divCountryDistributionReference;
 var modeCountryDistributionReference = 0;
@@ -46,17 +46,9 @@ function initializeReference() {
 	
 	showReferenceHref = document.createElement('a');
 	showReferenceHref.href = "#";
+	showReferenceHref.textContent = "Show documents in map";
 	showReferenceHref.onclick = function () {
-		if  (showReferenceinMap==0) {
-			showReferenceinMap = 1;
-			showResult(0, citedbyObject);
-			showReferenceHref.textContent = "Hide documents in map";
-		}
-		else {
-			showReferenceinMap = 0;
-			clearCanvasObject();
-			showReferenceHref.textContent = "Show documents in map";
-		}
+		showResult(0, citedbyObject);
 	}
 	showReferenceHref.textContent = "Hide documents in map";
 	
@@ -130,6 +122,7 @@ function insertReference(rObject, i) {
 		if (abstractRefMode[i]==0) {
 			showAbstractRef(i);
 		}
+		showResult(0, rObject);
 		highlight(rObject[i]);
 	};
 	document.getElementById("Reference"+i).appendChild(temp);
