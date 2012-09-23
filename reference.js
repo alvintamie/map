@@ -44,17 +44,18 @@ function initializeReference() {
 	headerReference.style.left ='0px';
 	headerReference.style.height = '30px';
 	headerReference.style.width = referenceWidth + 'px';
+	header.appendChild(document.createTextNode("Reference"));
 	divReference.appendChild(headerReference);
-	headerReference.onselectmenu = function() {return false};
+	headerReference.onselectstart = function() {return false};
 	
 	contentReference = document.createElement('div');
 	divReference.appendChild(contentReference);
 	contentReference.setAttribute('id', "contentReference");
-	contentReference.style.position = 'absolute';
+	contentReference.style.position = 'relative';
 	//contentReference.style.top = topbarHeight-9 + 'px';
 	contentReference.style.left = 1 + 'px';
 	contentReference.style.width = referenceWidth-2 + 'px';
-	contentReference.style.height = referenceHeight-topbarHeight+7 +'px';
+	contentReference.style.height = referenceHeight-parseInt(headerReference.style.height)+7 +'px';
 	contentReference.style['overflow-x'] = 'hidden';
 	contentReference.style['overflow-y'] = 'auto';
 	
