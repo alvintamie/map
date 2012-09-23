@@ -92,7 +92,7 @@ function setDivInnerHTML (_divObj, _sourceObj)
 		if (!(_sourceObj.country === undefined))_divObj.innerHTML +="Affiliation-Country: " +  _sourceObj.country + "<br>";
 	}
 	console.log("authorObject:")
-	console.log(!(sourceObj.title === undefined));
+	console.log(!(_sourceObj.title === undefined));
 
 }
 
