@@ -510,7 +510,7 @@ function insertSearch(sObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (sObject[i].affilname) {
-		temp.appendChild(document.createTextNode(sObject[i].affilname));
+		temp.appendChild(document.createTextNode(sObject[i].affilname.split('|')[0]));
 		temp.appendChild(document.createElement('br'));
 	}
 	
