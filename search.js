@@ -510,7 +510,7 @@ function showOverallCountrySearch(csObject) {
 	}
 }
 
-function focusToCountryReference(csObjectName) {
+function focusToCountrySearch(csObjectName) {
 	
 }
 
