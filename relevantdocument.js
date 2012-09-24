@@ -227,8 +227,13 @@ function insertRelevantDocument(rdObject, i) {
 	};
 	temp.href = "#";
 	temp.style.color = 'blue';
+	if (rdObject[i].title) {
+		row.insertCell(1).appendChild(rdObject[i].title);
+	}
+	else row.insertCell(1).appendChild(rdObject[i].sourcetitle);
 	
 	temp = document.createElement('div');
+	temp.style.paddingLeft = '10px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	
 	if (rdObject[i].affilname) {
