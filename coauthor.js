@@ -66,7 +66,7 @@ function initializeCoAuthor() {
 	showCoAuthorHref = document.createElement('a');
 	showCoAuthorHref.href = "#";
 	showCoAuthorHref.style.color = 'blue';
-	showCoAuthorHref.textContent = "Show documents in map";
+	showCoAuthorHref.textContent = "Show in map";
 
 	divCountryDistributionCoAuthor = document.createElement('div');
 	divCountryDistributionCoAuthor.style.background = '#F2F1EF';
@@ -219,7 +219,7 @@ function insertCoauthors(caObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (caObject[i].documentCount) {
-		temp.appendChild(document.createTextNode("Documents published : " + caObject[i].documentCount));
+		temp.appendChild(document.createTextNode("Document count : " + caObject[i].documentCount));
 		temp.appendChild(document.createElement('br'));
 	}
 	temp.style.overflow = 'hidden';
