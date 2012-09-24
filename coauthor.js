@@ -207,15 +207,19 @@ function insertCoauthors(caObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (caObject[i].affiliationName) {
-		temp.appendChild(document.createTextNode("Affiliation: " + caObject[i].affiliationName));;
+		temp.appendChild(document.createTextNode("Affiliation : " + caObject[i].affiliationName));;
 		temp.appendChild(document.createElement('br'));
 	}
 	if (caObject[i].city) {
-		temp.appendChild(document.createTextNode("City: " + caObject[i].city));
+		temp.appendChild(document.createTextNode("City : " + caObject[i].city));
 		temp.appendChild(document.createElement('br'));
 	}
 	if (caObject[i].country) {
-		temp.appendChild(document.createTextNode("Country:" + caObject[i].country));
+		temp.appendChild(document.createTextNode("Country :" + caObject[i].country));
+		temp.appendChild(document.createElement('br'));
+	}
+	if (caObject[i].documentCount) {
+		temp.appendChild(document.createTextNode("Document published :" + caObject[i].documentCount));
 		temp.appendChild(document.createElement('br'));
 	}
 	temp.style.overflow = 'hidden';
