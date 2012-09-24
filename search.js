@@ -137,6 +137,7 @@ function initializeSearch() {
 
 	showSearchHref = document.createElement('a');
 	showSearchHref.href = "#";
+	showSearchHref.style.color = 'blue';
 	showSearchHref.onclick = function () {
 		if  (showSearchinMap==0) {
 			showSearchinMap = 1;
@@ -164,8 +165,9 @@ function initializeSearch() {
 	document.body.appendChild(divCountryDistributionSearch);
 
 	hrefCountryTypeSearch = document.createElement('a');
-	hrefCountryTypeSearch.textContent = "View 25 result distribution";
 	hrefCountryTypeSearch.href = "#";
+	hrefCountryTypeSearch.style.color = 'blue';
+	hrefCountryTypeSearch.textContent = "View 25 result distribution";
 	hrefCountryTypeSearch.onclick = function () {
 		if (modeCountryTypeSearch==0) {
 			modeCountryTypeSearch = 1;
@@ -180,8 +182,9 @@ function initializeSearch() {
 	showOverallCountrySearch(queryCtry);
 	
 	hrefCDS = document.createElement('a');
-	hrefCDS.textContent = "View country distribution";
 	hrefCDS.href = "#";
+	hrefCDS.style.color = 'blue';
+	hrefCDS.textContent = "View country distribution";
 	hrefCDS.onclick = function () {
 		showSearchCountryDistribution();
 		if (modeCountryDistributionSearch==0)
@@ -210,16 +213,19 @@ function updatecontentSearchQuery() {
 			searchCategory.appendChild(searchSelect);
 			
 			var searchAccept = document.createElement('a');
-			searchAccept.textContent = "accept";
 			searchCategory.appendChild(searchAccept);
 			searchAccept.href = "#";
+			searchAccept.style.cololr ='blue';
+			searchAccept.textContent = "accept";
 			searchAccept.onclick = function() {acceptQueryChange();};
 			searchCategory.appendChild(document.createTextNode(" "));
 			
 			var searchCancel = document.createElement('a');
-			searchCancel.textContent = "cancel";
 			searchCategory.appendChild(searchCancel);
 			searchCancel.href = "#";
+			searchCancel.style.color = 'blue';
+			searchCancel.textContent = "cancel";
+			search
 			searchCancel.onclick = function() {cancelQueryChange();};
 		}
 		else {
@@ -258,16 +264,18 @@ function updatecontentSearchQuery() {
 		searchField.appendChild(searchSelect);
 		
 		var searchAdd = document.createElement('a');
-		searchAdd.textContent = "add";
 		searchField.appendChild(searchAdd);
 		searchAdd.href = "#";
+		searchAdd.style.color = 'blue';
+		searchAdd.textContent = "add";
 		searchAdd.onclick = function() {addSearchQuery();};
 		searchField.appendChild(document.createTextNode(" "));
 		
 		var searchReset = document.createElement('a');
+		searchReset.href = "#";
+		searchReset.style.color = 'blue';
 		searchReset.textContent = "reset";
 		searchField.appendChild(searchReset);
-		searchReset.href = "#";
 		searchReset.onclick = function() {resetSearchQuery();};
 		searchField.appendChild(document.createElement('br'));
 		
@@ -380,6 +388,7 @@ function updateSearch(sObject, sMode) {
 		if (sMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
+			temp.style.color = 'blue';
 			temp.onclick = function () {updateSearch(queryResults, 0);};
 			temp.textContent = "Show all result";
 			contentSearchResult.appendChild(temp);
@@ -442,6 +451,7 @@ function insertSearch(sObject, i) {
 		}
 	};
 	temp.href = "#";
+	temp.style.color = 'blue';
 	temp.textContent = (currentLevelSearchEngine-1)*100+i+1 + " " + sObject[i].title;
 	row.insertCell(1).appendChild(temp);
 	
@@ -462,10 +472,11 @@ function insertSearch(sObject, i) {
 	}
 	if (sObject[i].authorId && sObject[i].scopusId) {
 		var temp2 = document.createElement('a');
-		temp2.textContent = "Set as main article";
 		temp2.href = "#";
+		temp2.style.color = 'blue';
 		temp2.style.textDecoration = 'none';
 		temp2.style.cssFloat = 'right';
+		temp2.textContent = "Set as main article";
 		temp2.onclick = function() {newMainArticle(sObject[i]);};
 		temp.appendChild(temp2);
 		//temp.appendChild(document.createElement('br'));
