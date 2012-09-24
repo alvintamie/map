@@ -274,13 +274,15 @@ function insertCitedBy(cbObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (cbObject[i].author) {
-		temp.appendChild(document.createTextNode(cbObject[i].author[0].authname));
+		if ( typeof(cbObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(cbObject[i].author[0].authname));
+		else temp.appendChild(document.createTextNode(cbObject[i].author[0]["ce:indexed-name"]));
 		for (var j=1; j<cbObject[i].author.length; j++) {
 			if (j==3) {
 				temp.appendChild(document.createTextNode(", et al."));
 				break;
 			}
-			temp.appendChild(document.createTextNode(", "+cbObject[i].author[j].authname));
+			if ( typeof(cbObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+cbObject[i].author[j].authname));
+			else temp.appendChild(document.createTextNode(cbObject[i].author[j]["ce:indexed-name"]));
 		}
 		temp.appendChild(document.createElement('br'));
 	}
