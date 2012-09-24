@@ -83,7 +83,6 @@ function initializeMainCanvas(){
   			return false;
   			
 		});
-		showResult(referenceMode, new Array(authorObject))
 }
 
 function renderLoading(){
