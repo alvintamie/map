@@ -213,7 +213,7 @@ function insertReference(rObject, i) {
 			if (rObject[i].citedby) {
 				temp.appendChild(document.createTextNode(", cited "+rObject[i].citedby+" times"));
 			}
-			else if (rdObject[i].citedbyCount) {
+			else if (rObject[i].citedbyCount) {
 				temp.appendChild(document.createTextNode(", cited "+rObject[i].citedbyCount+" times"));
 			}
 		}
