@@ -102,7 +102,7 @@ function updateReference (rObject, rMode) {
 	{
 		headerReference.removeChild(headerReference.firstChild);
 	}	
-	headerReference.appendChild(document.createTextNode("References(" +total_Reference +")"));
+	headerReference.appendChild(document.createTextNode("References(" +rObject.length +")"));
 	//////////////////////
 //	contentReference.appendChild(document.createElement('br'));
 	console.log("updatereference");
