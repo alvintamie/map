@@ -382,7 +382,8 @@ function focusToCountryRelevantDocument(crdObjectName) {
 	modeInMap = relevantDocumentMode;
 	if (modeCountryTypeRelevantDocument==0) {
 		defaultChangedRelevantDocument = 1;
-		hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
+		modeCountryTypeRelevantDocument = 1;
+		hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
 		var temp=new Object;
 		temp.country=crdObjectName;
 		getRelevantDocumentFilter1(new Array(temp));
