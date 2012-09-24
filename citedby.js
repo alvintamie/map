@@ -116,6 +116,15 @@ function updateCitedBy (cbObject, cbMode) {
 	removecontentCitedByChild();
 	//console.log("wewe");
 	//console.log(cbObject);
+	//CHANGED:
+	while (headerCitedBy.firstChild) 
+	{
+		headerCitedBy.removeChild(headerCitedBy.firstChild);
+	}	
+	headerCitedBy.appendChild(document.createTextNode("Cited by(" +total_Citedby +"):"));
+	
+	
+	//////////////////
 	if (cbObject.length>0) {
 		showCitedByHref.onclick = function () {showResult(0, cbObject)};
 		contentCitedBy.appendChild(showCitedByHref);
