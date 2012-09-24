@@ -172,7 +172,7 @@ function insertReference(rObject, i) {
 	temp.style.color = 'blue';
 	//CHANGED:
 	var toStartOne = i+1;
-	if ( rObject[i].title) != 'undefined')temp.textContent = toStartOne + " " + rObject[i].title;
+	if ( typeof(rObject[i].title) != 'undefined') temp.textContent = toStartOne + " " + rObject[i].title;
 	else temp.textContent = toStartOne + " " + rObject[i].sourcetitle;
 	///////////////////////////
 	temp.onclick = function () {
