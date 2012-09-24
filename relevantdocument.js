@@ -232,8 +232,12 @@ function insertRelevantDocument(rdObject, i) {
 	if (rdObject[i].title) {
 		temp.textContent = rdObject[i].title;
 	}
-	else {
+	else if (rdObject[i].sourcetitle){
 		temp.textContent = rdObject[i].sourcetitle;
+		st=1;
+	}
+	else (rdObject[i].publicationName) {
+		temp.textContent = rdObject[i].publicationName;
 		st=1;
 	}
 	row.insertCell(1).appendChild(temp);
@@ -243,10 +247,18 @@ function insertRelevantDocument(rdObject, i) {
 	temp.style.paddingLeft = '18px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	console.log("aa " + rdObject[i].sourcetitle);
-	if (rdObject[i].sourcetitle && st==0) {
-		temp.appendChild (document.createTextNode(rdObject[i].sourcetitle));
-		if (rdObject[i].citedby) {
-			temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
+	if (st==0) {
+		if (rdObject[i].sourcetitle) {
+			temp.appendChild (document.createTextNode(rdObject[i].sourcetitle));
+			if (rdObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
+			}
+		}
+		else if (rdObject[i].publicationName) {
+			temp.appendChild (document.createTextNode(rdObject[i].publicationName));
+			if (rdObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
+			}
 		}
 		temp.appendChild(document.createElement('br'));
 	}
