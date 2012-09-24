@@ -236,7 +236,7 @@ function insertRelevantDocument(rdObject, i) {
 		temp.textContent = rdObject[i].sourcetitle;
 		st=1;
 	}
-	else (rdObject[i].publicationName) {
+	else if (rdObject[i].publicationName) {
 		temp.textContent = rdObject[i].publicationName;
 		st=1;
 	}
