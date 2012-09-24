@@ -65,8 +65,8 @@ function initializeRelevantDocument () {
 	contentRelevantDocument.style['overflow-y'] = 'auto';
 	
 	showRelevantDocumentHref= document.createElement('a');
-	showRelevantDocumentHref.href = "#";
 	showRelevantDocumentHref.style.color = 'blue';
+	showRelevantDocumentHref.href = "#";
 	showRelevantDocumentHref.textContent = "Show in map";
 	/*
 	showRelevantDocumentHref.onclick = function () {
@@ -87,8 +87,8 @@ function initializeRelevantDocument () {
 	document.body.appendChild(divCountryDistributionRelevantDocument);
 	
 	hrefCountryTypeRelevantDocument = document.createElement('a');
-	hrefCountryTypeRelevantDocument.href = "#";
 	hrefCountryTypeRelevantDocument.style.color = 'blue';
+	hrefCountryTypeRelevantDocument.href = "#";
 	hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
 	hrefCountryTypeRelevantDocument.onclick = function () {
 		//console.log("bbbbb");
@@ -111,8 +111,8 @@ function initializeRelevantDocument () {
 	//showOverallCountryRelevantDocument(countryRelevantDocument);
 	
 	hrefCDRD = document.createElement('a');
-	hrefCDRD.href = "#";
 	hrefCDRD.style.color = 'blue';
+	hrefCDRD.href = "#";
 	hrefCDRD.textContent = "View country distribution";
 	hrefCDRD.onclick = function () {
 		showRelevantDocumentCountryDistribution();
@@ -222,9 +222,10 @@ function insertRelevantDocument(rdObject, i) {
 		showResult(relevantDocumentMode, rdObject);
 		highlight(rdObject[i]);
 	};
-	temp.href = "#";
 	temp.style.color = 'blue';
-	temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
+	temp.href = "#";
+	//temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
+	temp.textContent = rdObject[i].title;
 	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	
@@ -246,11 +247,11 @@ function insertRelevantDocument(rdObject, i) {
 	}
 	if (rdObject[i].authorId && rdObject[i].scopusId) {
 		var temp2 = document.createElement('a');
+		temp2.style.color = 'blue';
 		temp2.href = "#";
 		temp2.onclick = function() {newMainArticle(rdObject[i]);};
 		temp2.style.textDecoration = 'none';
 		temp2.style.cssFloat = 'right';
-		temp2.style.color = 'blue';
 		temp2.textContent = "Set as main article";
 		temp.appendChild(temp2);
 		//temp.appendChild(document.createElement('br'));
