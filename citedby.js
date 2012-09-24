@@ -159,6 +159,7 @@ function updateCitedBy (cbObject, cbMode) {
 		
 		for (var i=0; i<cbObject.length; i++) {
 			var temp = document.createElement('div');
+			temp.style.fontSize = '13';
 			document.getElementById("contentCitedBy").appendChild(temp);
 			temp.setAttribute('id', "CitedBy" + i);
 			temp.style.position = 'relative';
@@ -217,9 +218,64 @@ function insertCitedBy(cbObject, i) {
 	//temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
 	temp.style.color = 'blue';
 	temp.textContent = cbObject[i].title;
+	var st = 0;
+	if (cbObject[i].title) {
+		temp.textContent = cbObject[i].title;
+	}
+	else if (cbObject[i].sourcetitle){
+		temp.textContent = cbObject[i].sourcetitle;
+		st=1;
+	}
+	else if (cbObject[i].publicationName) {
+		temp.textContent = cbObject[i].publicationName;
+		st=1;
+	}
 	row.insertCell(1).appendChild(temp);
-	
+
 	temp = document.createElement('div');
+	temp.style.fontSize = '11px';
+	temp.style.paddingLeft = '18px';
+	document.getElementById("CitedBy"+i).appendChild(temp);
+	console.log("aa " + cbObject[i].sourcetitle);
+	if (st==0) {
+		if (cbObject[i].sourcetitle) {
+			temp.appendChild (document.createTextNode(cbObject[i].sourcetitle));
+			if (cbObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedby+" times"));
+			}
+			else if (cbObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedbyCount+" times"));
+			}
+		}
+		else if (cbObject[i].publicationName) {
+			temp.appendChild (document.createTextNode(cbObject[i].publicationName));
+			if (cbObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedby+" times"));
+			}
+			else if (cbObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedbyCount+" times"));
+			}
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	if (cbObject[i].author) {
+		temp.appendChild(document.createTextNode(cbObject[i].author[0].authname));
+		for (var j=1; j<cbObject[i].author.length; j++) {
+			if (j==3) {
+				temp.appendChild(document.createTextNode(", et al."));
+				break;
+			}
+			temp.appendChild(document.createTextNode(", "+cbObject[i].author[j].authname));
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	if (cbObject[i].affilname) {
+		temp.appendChild(document.createTextNode(cbObject[i].affilname));
+		temp.appendChild(document.createElement('br'));
+	}
+
+	temp = document.createElement('div');
+	temp.style.fontSize = '11px';
 	temp.align = 'justify';
 	document.getElementById("CitedBy"+i).appendChild(temp);
 	temp.setAttribute('id', "CitedBy" + i + "_abstract");
@@ -247,8 +303,11 @@ function insertCitedBy(cbObject, i) {
 		//temp.appendChild(document.createElement('br'));
 	}
 	temp.appendChild(document.createElement('br'));
-	if (cbObject[i].Abstract)
+	if (cbObject[i].Abstract) {
+		temp.appendChild(document.createTextNode("Abstract:"));
+		temp.appendChild(document.createElement('br'));
 		temp.appendChild(document.createTextNode(cbObject[i].Abstract));
+	}
 	else temp.appendChild(document.createTextNode("Abstract not available"));
 	temp.style.overflow = 'hidden';
 	abstractCitedHeight[i] = temp.clientHeight;
