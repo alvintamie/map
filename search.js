@@ -213,19 +213,18 @@ function updatecontentSearchQuery() {
 			searchCategory.appendChild(searchSelect);
 			
 			var searchAccept = document.createElement('a');
-			searchCategory.appendChild(searchAccept);
 			searchAccept.href = "#";
-			searchAccept.style.cololr ='blue';
+			searchAccept.style.color ='blue';
 			searchAccept.textContent = "accept";
 			searchAccept.onclick = function() {acceptQueryChange();};
+			searchCategory.appendChild(searchAccept);
 			searchCategory.appendChild(document.createTextNode(" "));
 			
 			var searchCancel = document.createElement('a');
-			searchCategory.appendChild(searchCancel);
 			searchCancel.href = "#";
 			searchCancel.style.color = 'blue';
 			searchCancel.textContent = "cancel";
-			search
+			searchCategory.appendChild(searchCancel);
 			searchCancel.onclick = function() {cancelQueryChange();};
 		}
 		else {
