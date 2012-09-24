@@ -253,11 +253,17 @@ function insertRelevantDocument(rdObject, i) {
 			if (rdObject[i].citedby) {
 				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
 			}
+			else if (rdObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedbyCount+" times"));
+			}
 		}
 		else if (rdObject[i].publicationName) {
 			temp.appendChild (document.createTextNode(rdObject[i].publicationName));
 			if (rdObject[i].citedby) {
 				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
+			}
+			else if (rdObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedbyCount+" times"));
 			}
 		}
 		temp.appendChild(document.createElement('br'));
