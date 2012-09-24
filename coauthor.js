@@ -215,11 +215,11 @@ function insertCoauthors(caObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (caObject[i].country) {
-		temp.appendChild(document.createTextNode("Country :" + caObject[i].country));
+		temp.appendChild(document.createTextNode("Country : " + caObject[i].country));
 		temp.appendChild(document.createElement('br'));
 	}
 	if (caObject[i].documentCount) {
-		temp.appendChild(document.createTextNode("Document published :" + caObject[i].documentCount));
+		temp.appendChild(document.createTextNode("Documents published : " + caObject[i].documentCount));
 		temp.appendChild(document.createElement('br'));
 	}
 	temp.style.overflow = 'hidden';
