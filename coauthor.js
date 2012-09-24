@@ -94,6 +94,7 @@ function initializeCoAuthor() {
 
 function updateCoauthors (caObject, caMode) {
 	removecontentCoAuthorChild();
+	headerCoAuthor.appendChild(document.createTextNode("(" + caObject.length +")"));
 	//console.log("update");
 	//console.log(caObject);
 	if (caObject.length>0) {
