@@ -161,6 +161,7 @@ function insertReference(rObject, i) {
 	
 	////////////////////
 	temp.href = "#";
+	temp.style.color = 'blue';
 	//CHANGED:
 	var toStartOne = i+1;
 	if ( typeof(rObject[i].title) != 'undefined')temp.textContent = toStartOne + " " + rObject[i].title;
@@ -187,6 +188,7 @@ function insertReference(rObject, i) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rObject[i].url + "')";
+		temp2.style.color = 'blue';
 		temp2.style.textDecoration = 'none';
 		temp.appendChild(temp2);
 		//temp.appendChild(document.createElement('br'));
@@ -196,6 +198,7 @@ function insertReference(rObject, i) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Set as main article";
 		temp2.href = "#";
+		temp2.style.color = 'blue';
 		temp2.style.textDecoration = 'none';
 		temp2.style.cssFloat = 'right';
 		temp2.onclick = function() {newMainArticle(rObject[i]);};
@@ -241,6 +244,7 @@ function showOverallCountryReference(crObject) {
 	for (var i=0; i<crObject.length; i++) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryReference('" + crObject[i].name + "')";
+		temp.style.color = 'blue';
 //		temp.href = "javascript:console.log('" + crObject[i].name + "')";
 		temp.textContent = crObject[i].name;
 		temp.style.textDecoration = 'none';
