@@ -246,6 +246,7 @@ function insertRelevantDocument(rdObject, i) {
 	//console.log("rel2");
 	
 	if (rdObject[i].affilname) {
+		console.log("affilname");
 		row = tempTable.insertRow(counts);
 		row.insertCell(1).innerHTML = rdObject[i].affilname;
 		counts += 1;
