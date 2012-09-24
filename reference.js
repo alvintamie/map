@@ -97,7 +97,13 @@ function initializeReference() {
 
 function updateReference (rObject, rMode) {
 	removecontentReferenceChild();
-	headerReference.appendChild(document.createTextNode("(" + rObject.length +")"));
+	//CHANGED
+	while (headerReference.firstChild) 
+	{
+		headerReference.removeChild(headerReference.firstChild);
+	}	
+	headerReference.appendChild(document.createTextNode("Co-Authors(" +total_Reference +")"));
+	//////////////////////
 //	contentReference.appendChild(document.createElement('br'));
 	console.log("updatereference");
 	console.log (rObject);
