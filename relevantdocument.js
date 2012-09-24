@@ -98,6 +98,7 @@ function initializeRelevantDocument () {
 			modeInMap = relevantDocumentMode;
 			hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
 			changeModeRelevantDocument();
+			showResult(relevantDocumentMode, relevantDocumentObject);
 		}
 		else {
 			modeCountryTypeRelevantDocument = 0;
@@ -105,6 +106,7 @@ function initializeRelevantDocument () {
 			modeInMap = relevantDocumentMode;
 			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 			showOverallCountryRelevantDocument(countryRelevantDocument);
+			showResult(relevantDocumentMode, countryRelevantDocument);
 		}
 		//showOverallCountryRelevantDocument(countryRelevantDocument);
 	}
