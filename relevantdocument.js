@@ -254,6 +254,7 @@ function insertRelevantDocument(rdObject, i) {
 	}
 	
 	temp = document.createElement('div');
+	temp.style.fontSize = '11px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	temp.align = 'justify';
 	temp.setAttribute('id', "RelevantDocument" + i + "_abstract");
