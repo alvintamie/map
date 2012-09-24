@@ -276,10 +276,11 @@ function showOverallCountryCoAuthor(ccaObject) {
 }
 
 function focusToCountryCoAuthor(ccaObjectName) {
-	//console.log("focus country");
+	console.log("focus country");
 	viewAllModeActive = 0;
 	modeInMap = coAuthorsMode;
 	getCoauthorsFilter(new Array(ccaObjectName));
+	console.log(ccaObjectName)
 	highlight(getObject(ccaObjectName));
 }
 
