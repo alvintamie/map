@@ -151,6 +151,11 @@ function insertReference(rObject, i) {
 	temp = document.createElement("a");
 	temp.style['font-weight'] = 'bold';
 	temp.style.textDecoration = 'none';
+	//CHANGED:
+	temp.style.top = "0px"
+	
+	
+	////////////////////
 	temp.href = "#";
 	//CHANGED:
 	var toStartOne = i+1;
