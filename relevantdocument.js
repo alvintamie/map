@@ -59,8 +59,8 @@ function initializeRelevantDocument () {
 	contentRelevantDocument.style.position = 'relative';
 	//contentRelevantDocument.style.top = topbarHeight-9 + 'px';
 	contentRelevantDocument.style.left = 1 + 'px';
-	contentRelevantDocument.style.width = citedByWidth-2 + 'px';
-	contentRelevantDocument.style.height = citedByHeight-parseInt(headerRelevantDocument.style.height) +'px';
+	contentRelevantDocument.style.width = relevantDocumentWidth-2 + 'px';
+	contentRelevantDocument.style.height = relevantDocumentHeight-parseInt(headerRelevantDocument.style.height) +'px';
 	contentRelevantDocument.style['overflow-x'] = 'hidden';
 	contentRelevantDocument.style['overflow-y'] = 'auto';
 	
@@ -242,7 +242,7 @@ function insertRelevantDocument(rdObject, i) {
 	if (rdObject[i].sourcetitle && st==0) {
 		temp.appendChild (document.createTextNode(rdObject[i].sourcetitle));
 		if (rdObject[i].citedby) {
-			temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times");
+			temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
 		}
 		temp.appendChild(document.createElement('br'));
 	}
