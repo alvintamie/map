@@ -230,6 +230,7 @@ function insertRelevantDocument(rdObject, i) {
 	else temp.textContent = rdObject[i].sourcetitle;
 	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
+	/*
 	var counts = 1;
 	console.log("rel1")
 	if (rdObject[i].author) {
@@ -247,7 +248,7 @@ function insertRelevantDocument(rdObject, i) {
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
 		counts++;
 	}
-	
+	*/
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	temp.align = 'justify';
