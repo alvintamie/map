@@ -430,11 +430,11 @@ function updateSearch(sObject, sMode) {
 			contentSearchResult.appendChild(document.createElement('br'));
 		}
 		
-		contentSearchResult.appendChild(hrefCDS);
-		contentSearchResult.appendChild(document.createElement('br'));
-		
-		//contentSearchResult.appendChild(showSearchHref);
+		//contentSearchResult.appendChild(hrefCDS);
 		//contentSearchResult.appendChild(document.createElement('br'));
+		
+		contentSearchResult.appendChild(showSearchHref);
+		contentSearchResult.appendChild(document.createElement('br'));
 
 		for (var i=0; i<sObject.length; i++) {
 			var temp = document.createElement('div');
