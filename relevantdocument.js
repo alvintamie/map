@@ -281,7 +281,7 @@ function insertRelevantDocument(rdObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (rdObject[i].affilname) {
-		temp.appendChild(document.createTextNode(rdObject[i].affilname));
+		temp.appendChild(document.createTextNode(rdObject[i].affilname.split('|')[0]));
 		temp.appendChild(document.createElement('br'));
 	}
 	
