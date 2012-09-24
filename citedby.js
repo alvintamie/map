@@ -205,145 +205,148 @@ function updateCitedBy (cbObject, cbMode) {
 }
 
 function insertCitedBy(cbObject, i) {
-	var tempTable = document.createElement('table');
-	//tempTable.align = 'justify';
-	document.getElementById("CitedBy"+i).appendChild(tempTable);
-	
-	var temp = document.createElement("IMG");
-	temp.setAttribute('id', "CitedBy" + i + "_image");
-	temp.src = imgExpand.src;
-	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
-	temp.onclick = function () {showAbstractCited(i);};
-	var row = tempTable.insertRow(0);
-	row.insertCell(0).appendChild(temp);
-	
-	temp = document.createElement("a");
-	temp.style['font-weight'] = 'bold';
-	temp.style.textDecoration = 'none';
-	temp.onclick = function () {
-		if (abstractCitedMode[i]==0) {
-			showAbstractCited(i);
-		}
-			viewAllModeActive = 0;
-			modeInMap = citedByMode;
-			showResult (citedByMode, cbObject);
-			highlight(cbObject[i]);
-	};
-	temp.href = "#";
-	//temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
-	temp.style.color = 'blue';
-	temp.textContent = cbObject[i].title;
-	var st = 0;
-	if (cbObject[i].title) {
+	if (typeof(rObject[i].title) != 'undefined' || rObject[i].sourcetitle || rObject[i].publicationName)
+	{
+		var tempTable = document.createElement('table');
+		//tempTable.align = 'justify';
+		document.getElementById("CitedBy"+i).appendChild(tempTable);
+		
+		var temp = document.createElement("IMG");
+		temp.setAttribute('id', "CitedBy" + i + "_image");
+		temp.src = imgExpand.src;
+		//temp.setAttribute('onclick', "showAbstractRef("+i+")");
+		temp.onclick = function () {showAbstractCited(i);};
+		var row = tempTable.insertRow(0);
+		row.insertCell(0).appendChild(temp);
+		
+		temp = document.createElement("a");
+		temp.style['font-weight'] = 'bold';
+		temp.style.textDecoration = 'none';
+		temp.onclick = function () {
+			if (abstractCitedMode[i]==0) {
+				showAbstractCited(i);
+			}
+				viewAllModeActive = 0;
+				modeInMap = citedByMode;
+				showResult (citedByMode, cbObject);
+				highlight(cbObject[i]);
+		};
+		temp.href = "#";
+		//temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
+		temp.style.color = 'blue';
 		temp.textContent = cbObject[i].title;
-	}
-	else if (cbObject[i].sourcetitle){
-		temp.textContent = cbObject[i].sourcetitle;
-		st=1;
-	}
-	else if (cbObject[i].publicationName) {
-		temp.textContent = cbObject[i].publicationName;
-		st=1;
-	}
-	row.insertCell(1).appendChild(temp);
-
-	temp = document.createElement('div');
-	temp.style.fontSize = '11px';
-	temp.style.paddingLeft = '18px';
-	document.getElementById("CitedBy"+i).appendChild(temp);
-	console.log("aa " + cbObject[i].sourcetitle);
-	if (st==0) {
-		if (cbObject[i].sourcetitle) {
-			temp.appendChild (document.createTextNode(cbObject[i].sourcetitle));
-			if (cbObject[i].citedby) {
-				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedby+" times"));
-			}
-			else if (cbObject[i].citedbyCount) {
-				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedbyCount+" times"));
-			}
+		var st = 0;
+		if (cbObject[i].title) {
+			temp.textContent = cbObject[i].title;
+		}
+		else if (cbObject[i].sourcetitle){
+			temp.textContent = cbObject[i].sourcetitle;
+			st=1;
 		}
 		else if (cbObject[i].publicationName) {
-			temp.appendChild (document.createTextNode(cbObject[i].publicationName));
-			if (cbObject[i].citedby) {
-				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedby+" times"));
-			}
-			else if (cbObject[i].citedbyCount) {
-				temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedbyCount+" times"));
-			}
+			temp.textContent = cbObject[i].publicationName;
+			st=1;
 		}
-		temp.appendChild(document.createElement('br'));
-	}
-	if (cbObject[i].author) {
-		if ( typeof(cbObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(cbObject[i].author[0].authname));
-		else temp.appendChild(document.createTextNode(cbObject[i].author[0]["ce:indexed-name"]));
-		for (var j=1; j<cbObject[i].author.length; j++) {
-			if (j==3) {
-				temp.appendChild(document.createTextNode(", et al."));
-				break;
-			}
-			if ( typeof(cbObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+cbObject[i].author[j].authname));
-			else temp.appendChild(document.createTextNode(cbObject[i].author[j]["ce:indexed-name"]));
-		}
-		temp.appendChild(document.createElement('br'));
-	}
-	if (cbObject[i].affilname) {
-		temp.appendChild(document.createTextNode(cbObject[i].affilname.split('|')[0]));
-		temp.appendChild(document.createElement('br'));
-	}
+		row.insertCell(1).appendChild(temp);
 	
-	if (cbObject[i].city) {
-		temp.appendChild(document.createTextNode(cbObject[i].city));
-		if (cbObject[i].country) {
-			temp.appendChild(document.createTextNode(", "+cbObject[i].country));
+		temp = document.createElement('div');
+		temp.style.fontSize = '11px';
+		temp.style.paddingLeft = '18px';
+		document.getElementById("CitedBy"+i).appendChild(temp);
+		console.log("aa " + cbObject[i].sourcetitle);
+		if (st==0) {
+			if (cbObject[i].sourcetitle) {
+				temp.appendChild (document.createTextNode(cbObject[i].sourcetitle));
+				if (cbObject[i].citedby) {
+					temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedby+" times"));
+				}
+				else if (cbObject[i].citedbyCount) {
+					temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedbyCount+" times"));
+				}
+			}
+			else if (cbObject[i].publicationName) {
+				temp.appendChild (document.createTextNode(cbObject[i].publicationName));
+				if (cbObject[i].citedby) {
+					temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedby+" times"));
+				}
+				else if (cbObject[i].citedbyCount) {
+					temp.appendChild(document.createTextNode(", cited "+cbObject[i].citedbyCount+" times"));
+				}
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		if (cbObject[i].author) {
+			if ( typeof(cbObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(cbObject[i].author[0].authname));
+			else temp.appendChild(document.createTextNode(cbObject[i].author[0]["ce:indexed-name"]));
+			for (var j=1; j<cbObject[i].author.length; j++) {
+				if (j==3) {
+					temp.appendChild(document.createTextNode(", et al."));
+					break;
+				}
+				if ( typeof(cbObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+cbObject[i].author[j].authname));
+				else temp.appendChild(document.createTextNode(cbObject[i].author[j]["ce:indexed-name"]));
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		if (cbObject[i].affilname) {
+			temp.appendChild(document.createTextNode(cbObject[i].affilname.split('|')[0]));
+			temp.appendChild(document.createElement('br'));
+		}
+		
+		if (cbObject[i].city) {
+			temp.appendChild(document.createTextNode(cbObject[i].city));
+			if (cbObject[i].country) {
+				temp.appendChild(document.createTextNode(", "+cbObject[i].country));
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		else if (cbObject[i].country) {
+			temp.appendChild(document.createTextNode(cbObject[i].country));
+			temp.appendChild(document.createElement('br'));
+		}
+	
+		temp = document.createElement('div');
+		temp.style.fontSize = '11px';
+		temp.align = 'justify';
+		document.getElementById("CitedBy"+i).appendChild(temp);
+		temp.setAttribute('id', "CitedBy" + i + "_abstract");
+		temp.style.position = 'relative';
+		temp.style.left = 18 + 'px';
+		temp.style.width = citedByWidth - 43 + 'px';
+		if (cbObject[i].url) {
+			var temp2 = document.createElement('a');
+			temp2.style.color = 'blue';
+			temp2.textContent = "Show in Scopus";
+			temp2.href = "javascript:window.open('" + cbObject[i].url + "')";
+			temp2.style.textDecoration = 'none';
+			temp.appendChild(temp2);
+			//temp.appendChild(document.createElement('br'));
+		}
+		if (cbObject[i].authorId && cbObject[i].scopusId) {
+			var temp2 = document.createElement('a');
+			temp2.style.color = 'blue';
+			temp2.textContent = "Set as main article";
+			temp2.href = "#";
+			temp2.style.textDecoration = 'none';
+			temp2.style.cssFloat = 'right';
+			temp2.onclick = function() {newMainArticle(cbObject[i]);};
+			temp.appendChild(temp2);
+			//temp.appendChild(document.createElement('br'));
 		}
 		temp.appendChild(document.createElement('br'));
+		if (cbObject[i].Abstract) {
+			temp.appendChild(document.createTextNode("Abstract:"));
+			temp.appendChild(document.createElement('br'));
+			temp.appendChild(document.createTextNode(cbObject[i].Abstract));
+		}
+		else temp.appendChild(document.createTextNode("Abstract not available"));
+		temp.style.overflow = 'hidden';
+		abstractCitedHeight[i] = temp.clientHeight;
+		temp.style.height = 0 + 'px';
+		//temp.style.display = 'none';
+		abstractCitedState[i] = 0;
+		abstractCitedMode[i] = 0;
 	}
-	else if (cbObject[i].country) {
-		temp.appendChild(document.createTextNode(cbObject[i].country));
-		temp.appendChild(document.createElement('br'));
-	}
-
-	temp = document.createElement('div');
-	temp.style.fontSize = '11px';
-	temp.align = 'justify';
-	document.getElementById("CitedBy"+i).appendChild(temp);
-	temp.setAttribute('id', "CitedBy" + i + "_abstract");
-	temp.style.position = 'relative';
-	temp.style.left = 18 + 'px';
-	temp.style.width = citedByWidth - 43 + 'px';
-	if (cbObject[i].url) {
-		var temp2 = document.createElement('a');
-		temp2.style.color = 'blue';
-		temp2.textContent = "Show in Scopus";
-		temp2.href = "javascript:window.open('" + cbObject[i].url + "')";
-		temp2.style.textDecoration = 'none';
-		temp.appendChild(temp2);
-		//temp.appendChild(document.createElement('br'));
-	}
-	if (cbObject[i].authorId && cbObject[i].scopusId) {
-		var temp2 = document.createElement('a');
-		temp2.style.color = 'blue';
-		temp2.textContent = "Set as main article";
-		temp2.href = "#";
-		temp2.style.textDecoration = 'none';
-		temp2.style.cssFloat = 'right';
-		temp2.onclick = function() {newMainArticle(cbObject[i]);};
-		temp.appendChild(temp2);
-		//temp.appendChild(document.createElement('br'));
-	}
-	temp.appendChild(document.createElement('br'));
-	if (cbObject[i].Abstract) {
-		temp.appendChild(document.createTextNode("Abstract:"));
-		temp.appendChild(document.createElement('br'));
-		temp.appendChild(document.createTextNode(cbObject[i].Abstract));
-	}
-	else temp.appendChild(document.createTextNode("Abstract not available"));
-	temp.style.overflow = 'hidden';
-	abstractCitedHeight[i] = temp.clientHeight;
-	temp.style.height = 0 + 'px';
-	//temp.style.display = 'none';
-	abstractCitedState[i] = 0;
-	abstractCitedMode[i] = 0;
 }
 
 function showCitedByCountryDistribution() {
