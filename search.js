@@ -42,6 +42,7 @@ var showSearchinMap = 1;
 var showSearchHref;
 var divCountryDistributionSearch;
 var modeCountryDistributionSearch = 0;
+var defaultChangedSearch = 0;
 var modeCountryTypeSearch = 0;
 var hrefCountryTypeSearch;
 var hrefCDS;
@@ -163,16 +164,24 @@ function initializeSearch() {
 	hrefCountryTypeSearch.textContent = "view 100 result distribution";
 	hrefCountryTypeSearch.onclick = function () {
 		if (modeCountryTypeSearch==0) {
+			viewAllModeActive = 0;
+			modeInMap = searchMode;
 			modeCountryTypeSearch = 1;
 			hrefCountryTypeSearch.textContent = "View overall result distribution";
+			//changeModeSearch();								**
+			showResult(searchMode, searchObject);
 		}
 		else {
+			viewAllModeActive = 1;
+			modeInMap = searchMode;
 			modeCountryTypeSearch = 0;
 			hrefCountryTypeSearch.textContent = "View 100 result distribution";
+			showOverallCountryCitedBy(queryCtry);
+			showResult(searchMode, queryCtry);
 		}
-		showOverallCountrySearch(queryCtry);
+		//showOverallCountrySearch(queryCtry);
 	}
-	showOverallCountrySearch(queryCtry);
+	//showOverallCountrySearch(queryCtry);
 	
 	hrefCDS = document.createElement('a');
 	hrefCDS.href = "#";
@@ -341,6 +350,9 @@ function submitSearchQuery() {
 		}
 		modeInMap = searchMode;
 		viewAllModeActive = 1;
+		modeCountryDistributionSearch = 0;
+		hrefCountryTypeSearch.textContent = "view 100 result distribution";
+		defaultChangedSearch = 0;
 		changeDate(searchYearFromString[searchYearFromSelect.value], searchYearToString[searchYearToSelect.value])
 		changeSort(searchSortBySelect.value)
 		submitQuery(0);
@@ -385,21 +397,38 @@ function updateSearch(sObject, sMode) {
 	searchYearToSelect.value = 0;
 	updatecontentSearchQuery();
 	removecontentSearchResultChild();
-	console.log(sObject);
+	//console.log(sObject);
 	if (sObject.length>0) {
-		contentSearchResult.appendChild(showSearchHref);
-		contentSearchResult.appendChild(document.createElement('br'));
-		if (sMode==1) {
+		if (sMode==1 || defaultChangedSearch==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
 			temp.style.color = 'blue';
-			temp.onclick = function () {updateSearch(queryResults, 0);};
+			temp.onclick = function () {
+				if (defaultChangedSearch==1) {
+					modeInMap = searchMode;
+					viewAllModeActive = 0;
+					defaultChangedSearch = 0;
+					//resetQueryCitedby();						**
+				}
+				else {
+					viewAllModeActive = 0;
+					modeInMap = searchMode;
+					showResult(searchMode, searchObject);
+					updateSearch(queryResults, 0);
+					showOverallCountryCitedBy(queryCtry);
+				}
+				modeCountryTypeSearch = 1;
+				hrefCountryTypeSearch.textContent = "View overall result distribution";
+			};
 			temp.textContent = "Show all result";
 			contentSearchResult.appendChild(temp);
 			contentSearchResult.appendChild(document.createElement('br'));
 		}
 		
 		contentSearchResult.appendChild(hrefCDS);
+		contentSearchResult.appendChild(document.createElement('br'));
+		
+		contentSearchResult.appendChild(showSearchHref);
 		contentSearchResult.appendChild(document.createElement('br'));
 
 		for (var i=0; i<sObject.length; i++) {
@@ -455,8 +484,11 @@ function insertSearch(sObject, i) {
 		temp.onclick = function () {
 			if (abstractSearchMode[i]==0) {
 				showAbstractSearch(i);
-				highlight(sObject[i]);
 			}
+			viewAllModeActive = 0;
+			modeInMap = searchMode;
+			showResult (searchMode, sObject);
+			highlight(sObject[i]);
 		};
 		temp.href = "#";
 		temp.style.color = 'blue';
@@ -603,7 +635,20 @@ function showOverallCountrySearch(csObject) {
 }
 
 function focusToCountrySearch(csObjectName) {
-	
+	viewAllModeActive = 0;
+	modeInMap = searchMode;
+	if (modeCountryTypeSearch==0) {
+		defaultChangedSearch = 1;
+		modeCountryTypeSearch = 1;
+		hrefCountryTypeSearch.textContent = "View overall result distribution";
+		var temp=new Object;
+		temp.country=csObjectName;
+		//getCitedbyFilter1(new Array(temp));							**
+	}
+	else {
+		//getCitedbyFilter2(new Array(csObjectName));						**
+	}
+	highlight(getObject(csObjectName));
 }
 
 function showAbstractSearch(i) {
