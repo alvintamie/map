@@ -227,37 +227,17 @@ function insertRelevantDocument(rdObject, i) {
 	};
 	temp.href = "#";
 	temp.style.color = 'blue';
-	//temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
-	if (rdObject[i].title) temp.textContent =  rdObject[i].title;
-	else temp.textContent = rdObject[i].sourcetitle;
-	row.insertCell(1).appendChild(temp);
-	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	
-	var counts = 1;
-	console.log("rel1");
-	console.log(rdObject[i].affilname);
-	if (rdObject[i].affilname) console.log(rdObject[i].affilname);
-	if (rdObject[i].author) {
-		row = tempTable.insertRow(counts);
-		counts++;
-	}
-	//row = tempTable.insertRow(1);
-	//row.insertCell(0);
-	//row.insertCell(1).appendChild(document.createTextNode(rdobject[i].affilname));
-	//console.log("rel2");
-	/*
+	temp = document.createElement('div');
+	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	
 	if (rdObject[i].affilname) {
-		console.log("affilname");
-		row = tempTable.insertRow(counts);
-		row.insertCell(1).innerHTML = rdObject[i].affilname;
-		counts += 1;
+		temp.appendChild(document.createTextNode(rdObject[i].affilname));
+		temp.appendChild(document.createElement('br'));
 	}
-	*/
 	if (rdObject[i].city && rdObject[i].country) {
-		console.log("citycountry");
-		row = tempTable.insertRow(counts);
-		row.insertCell(1).innerHTML = rdObject[i].city+", "+rdObject[i].country;
-		counts++;
+		temp.appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
+		temp.appendChild(document.createElement('br'));
 	}
 	
 	temp = document.createElement('div');
