@@ -5,7 +5,7 @@ var yForDoubleClick=0;
 var mainArticleDiv;
 
 function initializeMainCanvas(){
-		canvasButtonScroll.style.display = 'none';
+		document.getElementById("canvasButtonScroll").style.display = 'none';
 		showInfoDiv = document.createElement("div");
 		document.body.appendChild(showInfoDiv);
 		showInfoDiv.style.width = "220px";
