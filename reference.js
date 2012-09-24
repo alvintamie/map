@@ -152,8 +152,8 @@ function insertReference(rObject, i) {
 	temp.style['font-weight'] = 'bold';
 	temp.style.textDecoration = 'none';
 	//CHANGED:
-	temp.style.position = "absolute";
-	temp.style.top = "0px";
+//	temp.style.position = "absolute";
+//	temp.style.top = "0px";
 	
 	
 	////////////////////
