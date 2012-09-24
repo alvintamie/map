@@ -234,7 +234,8 @@ function insertRelevantDocument(rdObject, i) {
 	row.insertCell(1).appendChild(temp);
 	
 	temp = document.createElement('div');
-	temp.style.paddingLeft = '10px';
+	temp.style.fontSize = '9px';
+	temp.style.paddingLeft = '15px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	if (rdObject[i].author) {
 		temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
