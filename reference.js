@@ -135,6 +135,7 @@ function updateReference (rObject, rMode) {
 
 		for (var i=0; i<rObject.length; i++) {
 			var temp = document.createElement('div');
+			temp.style.fontSize = '13px';
 			document.getElementById("contentReference").appendChild(temp);
 			temp.setAttribute('id', "Reference" + i);
 			temp.style.position = 'relative';
@@ -168,13 +169,6 @@ function insertReference(rObject, i) {
 	
 	
 	////////////////////
-	temp.href = "#";
-	temp.style.color = 'blue';
-	//CHANGED:
-	var toStartOne = i+1;
-	if ( typeof(rObject[i].title) != 'undefined') temp.textContent = toStartOne + " " + rObject[i].title;
-	else temp.textContent = toStartOne + " " + rObject[i].sourcetitle;
-	///////////////////////////
 	temp.onclick = function () {
 		if (abstractRefMode[i]==0) {
 			showAbstractRef(i);
@@ -184,6 +178,72 @@ function insertReference(rObject, i) {
 		showResult(referenceMode, rObject);
 		highlight(rObject[i]);
 	};
+	temp.href = "#";
+	temp.style.color = 'blue';
+	//CHANGED:
+	/*var toStartOne = i+1;
+	if ( typeof(rObject[i].title) != 'undefined') temp.textContent = toStartOne + " " + rObject[i].title;
+	else temp.textContent = toStartOne + " " + rObject[i].sourcetitle;
+	///////////////////////////
+	*/
+	var st = 0;
+	if (rObject[i].title) {
+		temp.textContent = rObject[i].title;
+	}
+	else if (rObject[i].sourcetitle){
+		temp.textContent = rObject[i].sourcetitle;
+		st=1;
+	}
+	else if (rObject[i].publicationName) {
+		temp.textContent = rObject[i].publicationName;
+		st=1;
+	}
+	row.insertCell(1).appendChild(temp);
+
+	temp = document.createElement('div');
+	temp.style.fontSize = '11px';
+	temp.style.paddingLeft = '18px';
+	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	//console.log("aa " + rObject[i].sourcetitle);
+	if (st==0) {
+		if (rObject[i].sourcetitle) {
+			temp.appendChild (document.createTextNode(rObject[i].sourcetitle));
+			if (rObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+rObject[i].citedby+" times"));
+			}
+			else if (rdObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+rObject[i].citedbyCount+" times"));
+			}
+		}
+		else if (rObject[i].publicationName) {
+			temp.appendChild (document.createTextNode(rObject[i].publicationName));
+			if (rObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+rObject[i].citedby+" times"));
+			}
+			else if (rObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+rObject[i].citedbyCount+" times"));
+			}
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	if (rObject[i].author) {
+		temp.appendChild(document.createTextNode(rObject[i].author[0].authname));
+		for (var j=1; j<rObject[i].author.length; j++) {
+			if (j==3) {
+				temp.appendChild(document.createTextNode(", et al."));
+				break;
+			}
+			temp.appendChild(document.createTextNode(", "+rObject[i].author[j].authname));
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	if (rObject[i].affilname) {
+		temp.appendChild(document.createTextNode(rObject[i].affilname));
+		temp.appendChild(document.createElement('br'));
+	}
+
+	temp = document.createElement('div');
+	temp.style.fontSize = '11px';
 	row.insertCell(1).appendChild(temp);
 	temp = document.createElement('div');
 	temp.align = 'justify';
