@@ -101,9 +101,9 @@ function initializeRelevantDocument () {
 			showResult(relevantDocumentMode, relevantDocumentObject);
 		}
 		else {
-			modeCountryTypeRelevantDocument = 0;
 			viewAllModeActive = 1;
 			modeInMap = relevantDocumentMode;
+			modeCountryTypeRelevantDocument = 0;
 			hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 			showOverallCountryRelevantDocument(countryRelevantDocument);
 			showResult(relevantDocumentMode, countryRelevantDocument);
@@ -382,6 +382,7 @@ function focusToCountryRelevantDocument(crdObjectName) {
 	modeInMap = relevantDocumentMode;
 	if (modeCountryTypeRelevantDocument==0) {
 		defaultChangedRelevantDocument = 1;
+		hrefCountryTypeRelevantDocument.textContent = "View 25 result distribution";
 		var temp=new Object;
 		temp.country=crdObjectName;
 		getRelevantDocumentFilter1(new Array(temp));
