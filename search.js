@@ -339,6 +339,8 @@ function submitSearchQuery() {
 			addQuery(searchStringQuery[i], searchIndexQuery[i], 1-searchBoolQuery[i]);
 			//console.log(!searchBoolQuery[i]);
 		}
+		modeInMap = searchMode;
+		viewAllModeActive = 1;
 		changeDate(searchYearFromString[searchYearFromSelect.value], searchYearToString[searchYearToSelect.value])
 		changeSort(searchSortBySelect.value)
 		submitQuery(0);
