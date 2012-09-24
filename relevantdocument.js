@@ -129,7 +129,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 	{
 		headerRelevantDocument.removeChild(headerRelevantDocument.firstChild);
 	}	
-	headerRelevantDocument.appendChild(document.createTextNode("Relevant Documents(" +total_RelevantDocuments +")"));
+	headerRelevantDocument.appendChild(document.createTextNode("Relevant Documents(" +total_Relevant_Document +")"));
 		
 	/////////////////
 	if (rdObject.length>0) {
