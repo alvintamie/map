@@ -46,6 +46,7 @@ var defaultChangedSearch = 0;
 var modeCountryTypeSearch = 0;
 var hrefCountryTypeSearch;
 var hrefCDS;
+var callShowOverallSearch = 1;
 var imgSearch = new Array();
 imgSearch[0] = imgObject[8];
 imgSearch[1] = imgObject[13];
@@ -395,6 +396,10 @@ function updateSearch(sObject, sMode) {
 	console.log(sObject);
 	searchYearFromSelect.value = searchYearFromString.length-1;
 	searchYearToSelect.value = 0;
+	if (callShowOverallSearch==1) {
+		showOverallCountrySearch(queryCtry);
+		callShowOverallSearch = 0;
+	}
 	updatecontentSearchQuery();
 	removecontentSearchResultChild();
 	//console.log(sObject);
