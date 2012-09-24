@@ -236,7 +236,7 @@ function insertRelevantDocument(rdObject, i) {
 	
 	temp = document.createElement('div');
 	temp.style.fontSize = '11px';
-	temp.style.paddingLeft = '15px';
+	temp.style.paddingLeft = '18px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	if (rdObject[i].author) {
 		temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
