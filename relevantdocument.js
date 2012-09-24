@@ -247,7 +247,7 @@ function insertRelevantDocument(rdObject, i) {
 	
 	if (rdObject[i].affilname) {
 		row = tempTable.insertRow(counts);
-		row.insertCell(1).appendChild.innerHTML = rdObject[i].affilname;
+		row.insertCell(1).innerHTML = rdObject[i].affilname;
 		counts += 1;
 	}
 	
