@@ -139,18 +139,11 @@ function initializeSearch() {
 	showSearchHref.href = "#";
 	showSearchHref.style.color = 'blue';
 	showSearchHref.onclick = function () {
-		if  (showSearchinMap==0) {
-			showSearchinMap = 1;
-			showResult(0, queryResults);
-			showSearchHref.textContent = "Hide documents in map";
-		}
-		else {
-			showSearchinMap = 0;
-			clearCanvasObject();
-			showSearchHref.textContent = "Show documents in map";
-		}
+		modeInMap = searchMode;
+		viewAllModeActive = 0;
+		showResult(searchMode, queryResults);
 	}
-	showSearchHref.textContent = "Hide documents in map";
+	showSearchHref.textContent = "Show in map";
 
 	divCountryDistributionSearch = document.createElement('div');
 	divCountryDistributionSearch.style.background = '#F2F1EF';
