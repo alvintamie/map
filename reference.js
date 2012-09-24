@@ -249,7 +249,7 @@ function insertReference(rObject, i) {
 		if (rObject[i].country) {
 			temp.appendChild(document.createTextNode(", "+rObject[i].country));
 		}
-		temp.appendChild(document.createElement('br');
+		temp.appendChild(document.createElement('br'));
 	}
 	else if (rObject[i].country) {
 		temp.appendChild(document.createTextNode(rObject[i].country));
