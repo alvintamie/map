@@ -124,6 +124,14 @@ function initializeRelevantDocument () {
 
 function updateRelevantDocument (rdObject, rdMode) {
 	removecontentRelevantDocumentChild();
+	//CHANGED:
+	while (headerRelevantDocument.firstChild) 
+	{
+		headerRelevantDocument.removeChild(headerRelevantDocument.firstChild);
+	}	
+	headerRelevantDocument.appendChild(document.createTextNode("Relevant Documents(" +total_RelevantDocuments +")"));
+		
+	/////////////////
 	if (rdObject.length>0) {
 		if (rdMode==1 || defaultChangedRelevantDocument==1) {
 			var temp = document.createElement('a');
