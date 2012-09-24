@@ -170,6 +170,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 				contentRelevantDocument.appendChild(document.createTextNode(rdObject[i].country));
 			}
 			var temp = document.createElement('div');
+			temp.style.fontSize = '13px';
 			document.getElementById("contentRelevantDocument").appendChild(temp);
 			temp.setAttribute('id', "RelevantDocument" + i);
 			temp.style.position = 'relative';
