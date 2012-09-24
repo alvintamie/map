@@ -205,7 +205,7 @@ function updateCitedBy (cbObject, cbMode) {
 }
 
 function insertCitedBy(cbObject, i) {
-	if (typeof(rObject[i].title) != 'undefined' || rObject[i].sourcetitle || rObject[i].publicationName)
+	if (typeof(cbObject[i].title) != 'undefined' || cbObject[i].sourcetitle || cbObject[i].publicationName)
 	{
 		var tempTable = document.createElement('table');
 		//tempTable.align = 'justify';
