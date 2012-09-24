@@ -235,25 +235,25 @@ function insertRelevantDocument(rdObject, i) {
 	
 	var counts = 1;
 	console.log("rel1")
-	/*
+	
 	if (rdObject[i].author) {
 		row = tempTable.insertRow(counts);
 		counts++;
 	}
-	*/
 	console.log("rel2");
+	/*
 	if (rdObject[i].affilname) {
 		row = tempTable.insertRow(counts);
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].affilname));
 		counts += 1;
-	}
-	/*
+	}*/
+	
 	if (rdObject[i].city && rdObject[i].country) {
 		row = tempTable.insertRow(counts);
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
 		counts++;
 	}
-	*/
+	
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	temp.align = 'justify';
