@@ -65,7 +65,7 @@ function initializeReference() {
 	showReferenceHref = document.createElement('a');
 	showReferenceHref.style.color = 'blue';
 	showReferenceHref.href = "#";
-	showReferenceHref.textContent = "Show documents in map";
+	showReferenceHref.textContent = "Show in map";
 	
 	divCountryDistributionReference = document.createElement('div');
 	divCountryDistributionReference.style.background = '#F2F1EF';
@@ -241,6 +241,18 @@ function insertReference(rObject, i) {
 	}
 	if (rObject[i].affilname) {
 		temp.appendChild(document.createTextNode(rObject[i].affilname));
+		temp.appendChild(document.createElement('br'));
+	}
+	
+	if (rObject[i].city) {
+		temp.appendChild(document.createTextNode(rObject[i].city));
+		if (rObject[i].country) {
+			temp.appendChild(document.createTextNode(", "+rObject[i].country));
+		}
+		temp.appendChild(document.createElement('br');
+	}
+	else if (rObject[i].country) {
+		temp.appendChild(document.createTextNode(rObject[i].country));
 		temp.appendChild(document.createElement('br'));
 	}
 
