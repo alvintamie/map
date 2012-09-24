@@ -374,7 +374,7 @@ function showOverallCountryCitedBy(ccbObject) {
 	divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	for (var i=0; i<ccbObject.length; i++) {
 		var temp = document.createElement('a');
-		temp.href = "javascript:focusToCountryCitedBy(new Array('"+ccbObject[i].name+"'))";
+		temp.href = "javascript:focusToCountryCitedBy('"+ccbObject[i].name+"')";
 		temp.style.color = 'blue';
 		temp.textContent = ccbObject[i].name;
 		temp.style.textDecoration = 'none';
