@@ -65,6 +65,7 @@ function initializeCoAuthor() {
 	
 	showCoAuthorHref = document.createElement('a');
 	showCoAuthorHref.href = "#";
+	showCoAuthorHref.style.color = 'blue';
 	showCoAuthorHref.textContent = "Show documents in map";
 
 	divCountryDistributionCoAuthor = document.createElement('div');
@@ -82,6 +83,7 @@ function initializeCoAuthor() {
 	hrefCDCA = document.createElement('a');
 	hrefCDCA.textContent = "View country distribution";
 	hrefCDCA.href = "#";
+	hrefCDCA.style.color = 'blue';
 	hrefCDCA.onclick = function () {
 		showCoAuthorCountryDistribution();
 		if (modeCountryDistributionCoAuthor==0)
@@ -98,6 +100,7 @@ function updateCoauthors (caObject, caMode) {
 		if (caMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
+			temp.style.color ='blue';
 			temp.onclick = function () {
 				modeInMap = coAuthorsMode;
 				viewAllModeACtive = 0;
@@ -172,6 +175,7 @@ function insertCoauthors(caObject, i) {
 		highlight(caObject[i]);
 	};
 	temp.href = "#";
+	temp.style.color = 'blue';
 	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + caObject[i].name['given-name'] + ", " + caObject[i].name.surname;
 	row.insertCell(1).appendChild(temp);
 	
