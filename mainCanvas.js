@@ -91,9 +91,6 @@ function renderLoading(){
 	}
 	else
 	document.getElementById("loading").className = "loading-invisible";
-	document.getElementById("loading").style.left= canvas.width + canvas.offsetLeft + 100 + "px";
-	
-	document.getElementById("instruction").style.left = canvas.width + canvas.offsetLeft + 100 + "px";
 }
 
 function renderCanvas(){
