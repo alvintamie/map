@@ -66,6 +66,7 @@ function initializeRelevantDocument () {
 	
 	showRelevantDocumentHref= document.createElement('a');
 	showRelevantDocumentHref.href = "#";
+	showRelevantDocumentHref.style.color = 'blue';
 	showRelevantDocumentHref.textContent = "Show in map";
 	/*
 	showRelevantDocumentHref.onclick = function () {
@@ -86,8 +87,9 @@ function initializeRelevantDocument () {
 	document.body.appendChild(divCountryDistributionRelevantDocument);
 	
 	hrefCountryTypeRelevantDocument = document.createElement('a');
-	hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
 	hrefCountryTypeRelevantDocument.href = "#";
+	hrefCountryTypeRelevantDocument.style.color = 'blue';
+	hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
 	hrefCountryTypeRelevantDocument.onclick = function () {
 		//console.log("bbbbb");
 		if (modeCountryTypeRelevantDocument==0) {
@@ -109,8 +111,9 @@ function initializeRelevantDocument () {
 	//showOverallCountryRelevantDocument(countryRelevantDocument);
 	
 	hrefCDRD = document.createElement('a');
-	hrefCDRD.textContent = "View country distribution";
 	hrefCDRD.href = "#";
+	hrefCDRD.style.color = 'blue';
+	hrefCDRD.textContent = "View country distribution";
 	hrefCDRD.onclick = function () {
 		showRelevantDocumentCountryDistribution();
 		if (modeCountryDistributionRelevantDocument==0)
@@ -177,6 +180,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 				temp = document.createElement('a');
 				document.getElementById("contentRelevantDocument").appendChild(temp);
 				temp.href="javascript:downRelevantDocument()";
+				temp.style.color = 'blue';
 				temp.textContent = "Previous";
 				contentRelevantDocument.appendChild(document.createTextNode(" "));
 			}
@@ -184,6 +188,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 				temp = document.createElement('a');
 				document.getElementById("contentRelevantDocument"). appendChild(temp);
 				temp.href = "javascript:upRelevantDocument()";
+				temp.style.color ='blue';
 				temp.textContent = "Next";
 			}
 		}
@@ -218,6 +223,7 @@ function insertRelevantDocument(rdObject, i) {
 		highlight(rdObject[i]);
 	};
 	temp.href = "#";
+	temp.style.color = 'blue';
 	temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
 	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
@@ -231,6 +237,7 @@ function insertRelevantDocument(rdObject, i) {
 	temp.style.width = relevantDocumentWidth - 43 + 'px';
 	if (rdObject[i].url) {
 		var temp2 = document.createElement('a');
+		temp2.style.color = 'blue';
 		temp2.textContent = "Show in Scopus";
 		temp2.href = "javascript:window.open('" + rdObject[i].url + "')";
 		temp2.style.textDecoration = 'none';
@@ -239,11 +246,12 @@ function insertRelevantDocument(rdObject, i) {
 	}
 	if (rdObject[i].authorId && rdObject[i].scopusId) {
 		var temp2 = document.createElement('a');
-		temp2.textContent = "Set as main article";
 		temp2.href = "#";
 		temp2.onclick = function() {newMainArticle(rdObject[i]);};
 		temp2.style.textDecoration = 'none';
 		temp2.style.cssFloat = 'right';
+		temp2.style.color = 'blue';
+		temp2.textContent = "Set as main article";
 		temp.appendChild(temp2);
 		//temp.appendChild(document.createElement('br'));
 	}
@@ -282,6 +290,7 @@ function showOverallCountryRelevantDocument(crdObject) {
 	for (var i=0; i<crdObject.length; i++) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryRelevantDocument('"+crdObject[i].name+"')";
+		temp.style.color = 'blue';
 		temp.textContent = crdObject[i].name;
 		temp.style.textDecoration = 'none';
 		divCountryDistributionRelevantDocument.appendChild(temp);
