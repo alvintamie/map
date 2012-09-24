@@ -206,144 +206,147 @@ function updateRelevantDocument (rdObject, rdMode) {
 }
 
 function insertRelevantDocument(rdObject, i) {
-	var tempTable = document.createElement('table');
-	//tempTable.align = 'justify';
-	document.getElementById("RelevantDocument"+i).appendChild(tempTable);
-	
-	var temp = document.createElement("IMG");
-	temp.setAttribute('id', "RelevantDocument" + i + "_image");
-	temp.src = imgExpand.src;
-	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
-	temp.onclick = function () {showAbstractRelevant(i);};
-	var row = tempTable.insertRow(0);
-	row.insertCell(0).appendChild(temp);
-	temp = document.createElement("a");
-	temp.style['font-weight'] = 'bold';
-	temp.style.textDecoration = 'none';
-	temp.onclick = function () {
-		if (abstractRelevantMode[i]==0) {
-			showAbstractRelevant(i);
+	if (typeof(rdObject[i].title) != 'undefined' || rdObject[i].sourcetitle || rdObject[i].publicationName)
+	{
+		var tempTable = document.createElement('table');
+		//tempTable.align = 'justify';
+		document.getElementById("RelevantDocument"+i).appendChild(tempTable);
+		
+		var temp = document.createElement("IMG");
+		temp.setAttribute('id', "RelevantDocument" + i + "_image");
+		temp.src = imgExpand.src;
+		//temp.setAttribute('onclick', "showAbstractRef("+i+")");
+		temp.onclick = function () {showAbstractRelevant(i);};
+		var row = tempTable.insertRow(0);
+		row.insertCell(0).appendChild(temp);
+		temp = document.createElement("a");
+		temp.style['font-weight'] = 'bold';
+		temp.style.textDecoration = 'none';
+		temp.onclick = function () {
+			if (abstractRelevantMode[i]==0) {
+				showAbstractRelevant(i);
+			}
+			viewAllModeActive = 0;
+			modeInMap = relevantDocumentMode;
+			showResult(relevantDocumentMode, rdObject);
+			highlight(rdObject[i]);
+		};
+		temp.href = "#";
+		temp.style.color = 'blue';
+		var st = 0;
+		if (rdObject[i].title) {
+			temp.textContent = rdObject[i].title;
 		}
-		viewAllModeActive = 0;
-		modeInMap = relevantDocumentMode;
-		showResult(relevantDocumentMode, rdObject);
-		highlight(rdObject[i]);
-	};
-	temp.href = "#";
-	temp.style.color = 'blue';
-	var st = 0;
-	if (rdObject[i].title) {
-		temp.textContent = rdObject[i].title;
-	}
-	else if (rdObject[i].sourcetitle){
-		temp.textContent = rdObject[i].sourcetitle;
-		st=1;
-	}
-	else if (rdObject[i].publicationName) {
-		temp.textContent = rdObject[i].publicationName;
-		st=1;
-	}
-	row.insertCell(1).appendChild(temp);
-	
-	temp = document.createElement('div');
-	temp.style.fontSize = '11px';
-	temp.style.paddingLeft = '18px';
-	document.getElementById("RelevantDocument"+i).appendChild(temp);
-	console.log("aa " + rdObject[i].sourcetitle);
-	if (st==0) {
-		if (rdObject[i].sourcetitle) {
-			temp.appendChild (document.createTextNode(rdObject[i].sourcetitle));
-			if (rdObject[i].citedby) {
-				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
-			}
-			else if (rdObject[i].citedbyCount) {
-				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedbyCount+" times"));
-			}
+		else if (rdObject[i].sourcetitle){
+			temp.textContent = rdObject[i].sourcetitle;
+			st=1;
 		}
 		else if (rdObject[i].publicationName) {
-			temp.appendChild (document.createTextNode(rdObject[i].publicationName));
-			if (rdObject[i].citedby) {
-				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
-			}
-			else if (rdObject[i].citedbyCount) {
-				temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedbyCount+" times"));
-			}
+			temp.textContent = rdObject[i].publicationName;
+			st=1;
 		}
-		temp.appendChild(document.createElement('br'));
-	}
-	if (rdObject[i].author) {
-		if ( typeof(rdObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
-		else temp.appendChild(document.createTextNode(rdObject[i].author[0]["ce:indexed-name"]));
-		for (var j=1; j<rdObject[i].author.length; j++) {
-			if (j==3) {
-				temp.appendChild(document.createTextNode(", et al."));
-				break;
-			}
-			if ( typeof(rdObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+rdObject[i].author[j].authname));
-			else temp.appendChild(document.createTextNode(rdObject[i].author[j]["ce:indexed-name"]));
+		row.insertCell(1).appendChild(temp);
 		
+		temp = document.createElement('div');
+		temp.style.fontSize = '11px';
+		temp.style.paddingLeft = '18px';
+		document.getElementById("RelevantDocument"+i).appendChild(temp);
+		console.log("aa " + rdObject[i].sourcetitle);
+		if (st==0) {
+			if (rdObject[i].sourcetitle) {
+				temp.appendChild (document.createTextNode(rdObject[i].sourcetitle));
+				if (rdObject[i].citedby) {
+					temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
+				}
+				else if (rdObject[i].citedbyCount) {
+					temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedbyCount+" times"));
+				}
+			}
+			else if (rdObject[i].publicationName) {
+				temp.appendChild (document.createTextNode(rdObject[i].publicationName));
+				if (rdObject[i].citedby) {
+					temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times"));
+				}
+				else if (rdObject[i].citedbyCount) {
+					temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedbyCount+" times"));
+				}
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		if (rdObject[i].author) {
+			if ( typeof(rdObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
+			else temp.appendChild(document.createTextNode(rdObject[i].author[0]["ce:indexed-name"]));
+			for (var j=1; j<rdObject[i].author.length; j++) {
+				if (j==3) {
+					temp.appendChild(document.createTextNode(", et al."));
+					break;
+				}
+				if ( typeof(rdObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+rdObject[i].author[j].authname));
+				else temp.appendChild(document.createTextNode(rdObject[i].author[j]["ce:indexed-name"]));
+			
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		if (rdObject[i].affilname) {
+			temp.appendChild(document.createTextNode(rdObject[i].affilname.split('|')[0]));
+			temp.appendChild(document.createElement('br'));
+		}
+		
+		if (rdObject[i].city) {
+			temp.appendChild(document.createTextNode(rdObject[i].city));
+			if (rdObject[i].country) {
+				temp.appendChild(document.createTextNode(", "+rdObject[i].country));
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		else if (rdObject[i].country) {
+			temp.appendChild(document.createTextNode(rdObject[i].country));
+			temp.appendChild(document.createElement('br'));
+		}
+		
+		temp = document.createElement('div');
+		temp.style.fontSize = '11px';
+		document.getElementById("RelevantDocument"+i).appendChild(temp);
+		temp.align = 'justify';
+		temp.setAttribute('id', "RelevantDocument" + i + "_abstract");
+		temp.style.position = 'relative';
+		temp.style.left = 18 + 'px';
+		temp.style.width = relevantDocumentWidth - 43 + 'px';
+		if (rdObject[i].url) {
+			var temp2 = document.createElement('a');
+			temp2.style.color = 'blue';
+			temp2.textContent = "Show in Scopus";
+			temp2.href = "javascript:window.open('" + rdObject[i].url + "')";
+			temp2.style.textDecoration = 'none';
+			temp.appendChild(temp2);
+			//temp.appendChild(document.createElement('br'));
+		}
+		if (rdObject[i].authorId && rdObject[i].scopusId) {
+			var temp2 = document.createElement('a');
+			temp2.href = "#";
+			temp2.style.color = 'blue';
+			temp2.onclick = function() {newMainArticle(rdObject[i]);};
+			temp2.style.textDecoration = 'none';
+			temp2.style.cssFloat = 'right';
+			temp2.textContent = "Set as main article";
+			temp.appendChild(temp2);
+			//temp.appendChild(document.createElement('br'));
 		}
 		temp.appendChild(document.createElement('br'));
-	}
-	if (rdObject[i].affilname) {
-		temp.appendChild(document.createTextNode(rdObject[i].affilname.split('|')[0]));
-		temp.appendChild(document.createElement('br'));
-	}
-	
-	if (rdObject[i].city) {
-		temp.appendChild(document.createTextNode(rdObject[i].city));
-		if (rdObject[i].country) {
-			temp.appendChild(document.createTextNode(", "+rdObject[i].country));
+		if (rdObject[i].Abstract) {
+			temp.appendChild(document.createTextNode("Abstract:"));
+			temp.appendChild(document.createElement('br'));
+			temp.appendChild(document.createTextNode(rdObject[i].Abstract));
 		}
-		temp.appendChild(document.createElement('br'));
+		else temp.appendChild(document.createTextNode("Abstract not available"));
+		abstractRelevantHeight[i] = temp.clientHeight;
+		temp.style.overflow = 'hidden';
+		//console.log(abstractRelevantHeight[i]);
+		temp.style.height = 0 + 'px';
+		//temp.style.display = 'none';
+		abstractRelevantState[i] = 0;
+		abstractRelevantMode[i] = 0;
 	}
-	else if (rdObject[i].country) {
-		temp.appendChild(document.createTextNode(rdObject[i].country));
-		temp.appendChild(document.createElement('br'));
-	}
-	
-	temp = document.createElement('div');
-	temp.style.fontSize = '11px';
-	document.getElementById("RelevantDocument"+i).appendChild(temp);
-	temp.align = 'justify';
-	temp.setAttribute('id', "RelevantDocument" + i + "_abstract");
-	temp.style.position = 'relative';
-	temp.style.left = 18 + 'px';
-	temp.style.width = relevantDocumentWidth - 43 + 'px';
-	if (rdObject[i].url) {
-		var temp2 = document.createElement('a');
-		temp2.style.color = 'blue';
-		temp2.textContent = "Show in Scopus";
-		temp2.href = "javascript:window.open('" + rdObject[i].url + "')";
-		temp2.style.textDecoration = 'none';
-		temp.appendChild(temp2);
-		//temp.appendChild(document.createElement('br'));
-	}
-	if (rdObject[i].authorId && rdObject[i].scopusId) {
-		var temp2 = document.createElement('a');
-		temp2.href = "#";
-		temp2.style.color = 'blue';
-		temp2.onclick = function() {newMainArticle(rdObject[i]);};
-		temp2.style.textDecoration = 'none';
-		temp2.style.cssFloat = 'right';
-		temp2.textContent = "Set as main article";
-		temp.appendChild(temp2);
-		//temp.appendChild(document.createElement('br'));
-	}
-	temp.appendChild(document.createElement('br'));
-	if (rdObject[i].Abstract) {
-		temp.appendChild(document.createTextNode("Abstract:"));
-		temp.appendChild(document.createElement('br'));
-		temp.appendChild(document.createTextNode(rdObject[i].Abstract));
-	}
-	else temp.appendChild(document.createTextNode("Abstract not available"));
-	abstractRelevantHeight[i] = temp.clientHeight;
-	temp.style.overflow = 'hidden';
-	//console.log(abstractRelevantHeight[i]);
-	temp.style.height = 0 + 'px';
-	//temp.style.display = 'none';
-	abstractRelevantState[i] = 0;
-	abstractRelevantMode[i] = 0;
 }
 
 function showRelevantDocumentCountryDistribution() {
