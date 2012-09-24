@@ -132,6 +132,7 @@ function updateCoauthors (caObject, caMode) {
 		contentCoAuthor.appendChild(document.createElement('br'));
 		for (var i=0; i<caObject.length; i++) {
 			var temp = document.createElement('div');
+			temp.style.fontSize = '13px';
 			document.getElementById("contentCoAuthor").appendChild(temp);
 			temp.setAttribute('id', "CoAuthor" + i);
 			temp.style.position = 'relative';
@@ -187,6 +188,7 @@ function insertCoauthors(caObject, i) {
 	row.insertCell(1).appendChild(temp);
 	
 	temp = document.createElement('div');
+	temp.style.fontSize = '12px';
 	temp.align = 'justify';
 	document.getElementById("CoAuthor"+i).appendChild(temp);
 	temp.setAttribute('id', "CoAuthor" + i + "_affiliation");
