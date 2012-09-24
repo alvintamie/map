@@ -63,6 +63,7 @@ function initializeReference() {
 	contentReference.style['overflow-y'] = 'auto';
 	
 	showReferenceHref = document.createElement('a');
+	showReferenceHref.style.color = 'blue';
 	showReferenceHref.href = "#";
 	showReferenceHref.textContent = "Show documents in map";
 	
@@ -83,6 +84,7 @@ function initializeReference() {
 	document.body.appendChild(divCountryDistributionReference);
 	
 	hrefCDR = document.createElement('a');
+	hrefCDR.style.color = 'blue';
 	hrefCDR.textContent = "View country distribution";
 	hrefCDR.href = "#";
 	hrefCDR.onclick = function () {
@@ -101,6 +103,7 @@ function updateReference (rObject, rMode) {
 		if (rMode==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
+			temp.style.color = 'blue';
 			temp.onclick = function () {
 				modeInMap = referenceMode;
 				viewAllModeActive = 0;
