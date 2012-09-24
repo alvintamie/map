@@ -8,7 +8,7 @@ function initializeMainCanvas(){
 		
 		showInfoDiv = document.createElement("div");
 		document.body.appendChild(showInfoDiv);
-		showInfoDiv.style.width = "200px";
+		showInfoDiv.style.width = "220px";
 		showInfoDiv.style.background = "#FFD39B";
 		showInfoDiv.style.display = "none";
 		showInfoDiv.style.position = "absolute";
