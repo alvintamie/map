@@ -143,8 +143,8 @@ function updateCitedBy (cbObject, cbMode) {
 				else {
 					viewAllModeActive = 0;
 					modeInMap = citedByMode;
-					updateCitedBy(citedbyObject, 0);
 					showResult(0, cbObject);
+					updateCitedBy(citedbyObject, 0);
 					showOverallCountryCitedBy(countryCitedby);
 
 				}
@@ -223,9 +223,11 @@ function insertCitedBy(cbObject, i) {
 	temp.onclick = function () {
 		if (abstractCitedMode[i]==0) {
 			showAbstractCited(i);
-			highlight(cbObject[i]);
-			showResult (0, cbObject);
 		}
+			viewAllModeActive = 0;
+			modeInMap = citedByMode;
+			showResult (citedByMode, cbObject);
+			highlight(cbObject[i]);
 	};
 	temp.href = "#";
 	//temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
