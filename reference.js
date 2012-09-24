@@ -276,8 +276,11 @@ function insertReference(rObject, i) {
 		//temp.appendChild(document.createElement('br'));
 	}
 	temp.appendChild(document.createElement('br'));
-	if (rObject[i].Abstract)
+	if (rObject[i].Abstract) {
+		temp.appendChild(document.createTextNode("Abstract:"));
+		temp.appendChild(document.createElement('br'));
 		temp.appendChild(document.createTextNode(rObject[i].Abstract));
+	}
 	else temp.appendChild(document.createTextNode("Abstract not available"));
 	temp.style.overflow = 'hidden';
 	abstractRefHeight[i] = temp.clientHeight;
