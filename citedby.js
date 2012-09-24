@@ -126,31 +126,44 @@ function updateCitedBy (cbObject, cbMode) {
 	
 	//////////////////
 	if (cbObject.length>0) {
-		showCitedByHref.onclick = function () {showResult(0, cbObject)};
-		contentCitedBy.appendChild(showCitedByHref);
-		contentCitedBy.appendChild(document.createElement('br'));
+		
+	
 		if (cbMode==1 || defaultChangedCitedBy==1) {
 			var temp = document.createElement('a');
 			temp.href = "#";
 			temp.style.color = 'blue';
 			temp.onclick = function () {
 				if (defaultChangedCitedBy==1) {
-					resetQueryCitedby();
+					modeInMap = citedByMode;
+					viewAllModeActive = 0;
 					defaultChangedCitedBy = 0;
+					resetQueryCitedby();
+
 				}
 				else {
+					viewAllModeActive = 0;
+					modeInMap = citedByMode;
 					updateCitedBy(citedbyObject, 0);
 					showResult(0, cbObject);
+					showOverallCountryCitedBy(countryCitedby);
 
 				}
 				modeCountryTypeCitedBy = 1;
 				hrefCountryTypeCitedBy.textContent = "View overall result distribution";
-				showOverallCountryCitedBy(countryCitedby);
 			}
 			temp.textContent = "Show all result";
 			contentCitedBy.appendChild(temp);
 			contentCitedBy.appendChild(document.createElement('br'));
 		}
+		
+		showCitedByHref.onclick = function () {
+		viewAllModeActive = 0;
+		modeInMap = citedByMode;
+		showResult(citedByMode, cbObject);		
+		};
+		
+		contentCitedBy.appendChild(showCitedByHref);
+		contentCitedBy.appendChild(document.createElement('br'));
 		
 		contentCitedBy.appendChild(hrefCDCB);
 		contentCitedBy.appendChild(document.createElement('br'));
