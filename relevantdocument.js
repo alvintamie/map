@@ -237,13 +237,14 @@ function insertRelevantDocument(rdObject, i) {
 		row = tempTable.insertRow(counts);
 		counts++;
 	}
-	/*
+	
 	console.log("rel2");
 	if (rdObject[i].affilname) {
 		row = tempTable.insertRow(counts);
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].affilname));
 		counts++;
 	}
+	/*
 	if (rdObject[i].city && rdObject[i].country) {
 		row = tempTable.insertRow(counts);
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
