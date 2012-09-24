@@ -159,7 +159,7 @@ function updateCitedBy (cbObject, cbMode) {
 		
 		for (var i=0; i<cbObject.length; i++) {
 			var temp = document.createElement('div');
-			temp.style.fontSize = '13';
+			temp.style.fontSize = '13px';
 			document.getElementById("contentCitedBy").appendChild(temp);
 			temp.setAttribute('id', "CitedBy" + i);
 			temp.style.position = 'relative';
@@ -271,6 +271,18 @@ function insertCitedBy(cbObject, i) {
 	}
 	if (cbObject[i].affilname) {
 		temp.appendChild(document.createTextNode(cbObject[i].affilname));
+		temp.appendChild(document.createElement('br'));
+	}
+	
+	if (cbObject[i].city) {
+		temp.appendChild(document.createTextNode(cbObject[i].city));
+		if (cbObject[i].country) {
+			temp.appendChild(document.createTextNode(", "+cbObject[i].country));
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	else if (cbObject[i].country) {
+		temp.appendChild(document.createTextNode(cbObject[i].country));
 		temp.appendChild(document.createElement('br'));
 	}
 
