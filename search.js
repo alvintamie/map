@@ -160,7 +160,7 @@ function initializeSearch() {
 	hrefCountryTypeSearch = document.createElement('a');
 	hrefCountryTypeSearch.href = "#";
 	hrefCountryTypeSearch.style.color = 'blue';
-	hrefCountryTypeSearch.textContent = "View 25 result distribution";
+	hrefCountryTypeSearch.textContent = "view 100 result distribution";
 	hrefCountryTypeSearch.onclick = function () {
 		if (modeCountryTypeSearch==0) {
 			modeCountryTypeSearch = 1;
@@ -168,7 +168,7 @@ function initializeSearch() {
 		}
 		else {
 			modeCountryTypeSearch = 0;
-			hrefCountryTypeSearch.textContent = "View 25 result distribution";
+			hrefCountryTypeSearch.textContent = "View 100 result distribution";
 		}
 		showOverallCountrySearch(queryCtry);
 	}
