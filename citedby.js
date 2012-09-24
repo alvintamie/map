@@ -270,7 +270,7 @@ function insertCitedBy(cbObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (cbObject[i].affilname) {
-		temp.appendChild(document.createTextNode(cbObject[i].affilname));
+		temp.appendChild(document.createTextNode(cbObject[i].affilname.split('|')[0]));
 		temp.appendChild(document.createElement('br'));
 	}
 	
