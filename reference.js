@@ -193,8 +193,7 @@ function insertReference(rObject, i) {
 		temp.textContent = rObject[i].title;
 	}
 	else if (rObject[i].sourcetitle){
-		if (typeof(rObject[i].sourcetitle.$) != 'undefined')temp.textContent = rObject[i].sourcetitle.$;
-		else temp.textContent = rObject[i].sourcetitle;
+		temp.textContent = rObject[i].sourcetitle;
 		st=1;
 	}
 	else if (rObject[i].publicationName) {
