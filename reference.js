@@ -224,7 +224,13 @@ function showReferenceCountryDistribution() {
 //ADDED TEMPORARILY:
 function testing(_obj)
 {
-	console.log(_obj);
+//	console.log("focus country");
+	viewAllModeActive = 0;
+	modeInMap = referenceMode;
+	getReferenceFilter(new Array(crObjectName));
+//	console.log(crObjectName);
+//	console.log(getObject(crObjectName));
+	highlight(getObject(crObjectName));
 }
 
 
