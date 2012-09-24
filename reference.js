@@ -205,7 +205,7 @@ function insertReference(rObject, i) {
 	temp = document.createElement('div');
 	temp.style.fontSize = '11px';
 	temp.style.paddingLeft = '18px';
-	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	document.getElementById("Reference"+i).appendChild(temp);
 	//console.log("aa " + rObject[i].sourcetitle);
 	if (st==0) {
 		if (rObject[i].sourcetitle) {
