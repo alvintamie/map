@@ -19,7 +19,7 @@ var headerCitedBy;
 var showCitedByinMap = 1;
 var showCitedByHref;
 var divCountryDistributionCitedBy;
-var modeCountryDistributionCitedBy = 0;
+var modeCountryDistributionCitedBy = 1;
 var modeCountryTypeCitedBy = 0;
 var defaultChangedCitedBy = 0;
 var hrefCountryTypeCitedBy;
@@ -84,7 +84,7 @@ function initializeCitedBy() {
 	hrefCountryTypeCitedBy = document.createElement('a');
 	hrefCountryTypeCitedBy.href = "#";
 	hrefCountryTypeCitedBy.style.color = 'blue';
-	hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
+	hrefCountryTypeCitedBy.textContent = "View overall result distribution";
 	hrefCountryTypeCitedBy.onclick = function () {
 		if (modeCountryTypeCitedBy==0) {
 			viewAllModeActive = 0;
