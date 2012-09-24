@@ -230,20 +230,22 @@ function insertRelevantDocument(rdObject, i) {
 	else temp.textContent = rdObject[i].sourcetitle;
 	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
-	var count = 1;
+	var counts = 1;
+	console.log("rel1")
 	if (rdObject[i].author) {
-		row = tempTable.insertRow(count);
-		count++;
+		row = tempTable.insertRow(counts);
+		counts++;
 	}
+	console.log("rel2");
 	if (rdObject[i].affilname) {
-		row = tempTable.insertRow(count);
+		row = tempTable.insertRow(counts);
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].affilname));
-		count++;
+		counts++;
 	}
 	if (rdObject[i].city && rdObject[i].country) {
-		row = tempTable.insertRow(count);
+		row = tempTable.insertRow(counts);
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
-		count++;
+		counts++;
 	}
 	
 	temp = document.createElement('div');
