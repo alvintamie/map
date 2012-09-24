@@ -221,18 +221,7 @@ function showReferenceCountryDistribution() {
 		divCountryDistributionReference.style.display = 'none';
 	}
 }
-//ADDED TEMPORARILY:
-function testing(crObjectName)
-{
-//	console.log("focus country");
-	viewAllModeActive = 0;
-	modeInMap = referenceMode;
-	getReferenceFilter(new Array(crObjectName));
-//	console.log(crObjectName);
-//	console.log(getObject(crObjectName));
-	highlight(getObject(crObjectName));
-}
-/////////////////////
+
 
 function showOverallCountryReference(crObject) {
 	while (divCountryDistributionReference.firstChild) {
@@ -244,7 +233,6 @@ function showOverallCountryReference(crObject) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:focusToCountryReference2('" + crObject[i].name + "')";
 //		temp.href = "javascript:console.log('" + crObject[i].name + "')";
-//		temp.href = "javascript:testing('" + crObject[i].name + "');";
 		temp.textContent = crObject[i].name;
 		temp.style.textDecoration = 'none';
 		divCountryDistributionReference.appendChild(temp);
