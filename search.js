@@ -434,140 +434,143 @@ function updateSearch(sObject, sMode) {
 }
 
 function insertSearch(sObject, i) {
-	var tempTable = document.createElement('table');
-	//tempTable.align = 'justify';
-	document.getElementById("Search"+i).appendChild(tempTable);
-	
-	var temp = document.createElement("IMG");
-	temp.setAttribute('id', "Search" + i + "_image");
-	temp.src = imgExpand.src;
-	//temp.setAttribute('onclick', "showAbstractRef("+i+")");
-	temp.onclick = function () {showAbstractSearch(i);};
-	var row = tempTable.insertRow(0);
-	row.insertCell(0).appendChild(temp);
-	
-	temp = document.createElement("a");
-	temp.style['font-weight'] = 'bold';
-	temp.style.textDecoration = 'none';
-	temp.onclick = function () {
-		if (abstractSearchMode[i]==0) {
-			showAbstractSearch(i);
-			highlight(sObject[i]);
+	if (typeof(sObject[i].title) != 'undefined' || sObject[i].sourcetitle || sObject[i].publicationName)
+	{
+		var tempTable = document.createElement('table');
+		//tempTable.align = 'justify';
+		document.getElementById("Search"+i).appendChild(tempTable);
+		
+		var temp = document.createElement("IMG");
+		temp.setAttribute('id', "Search" + i + "_image");
+		temp.src = imgExpand.src;
+		//temp.setAttribute('onclick', "showAbstractRef("+i+")");
+		temp.onclick = function () {showAbstractSearch(i);};
+		var row = tempTable.insertRow(0);
+		row.insertCell(0).appendChild(temp);
+		
+		temp = document.createElement("a");
+		temp.style['font-weight'] = 'bold';
+		temp.style.textDecoration = 'none';
+		temp.onclick = function () {
+			if (abstractSearchMode[i]==0) {
+				showAbstractSearch(i);
+				highlight(sObject[i]);
+			}
+		};
+		temp.href = "#";
+		temp.style.color = 'blue';
+		//temp.textContent = (currentLevelSearchEngine-1)*100+i+1 + " " + sObject[i].title;
+		var st = 0;
+		if (sObject[i].title) {
+			temp.textContent = sObject[i].title;
 		}
-	};
-	temp.href = "#";
-	temp.style.color = 'blue';
-	//temp.textContent = (currentLevelSearchEngine-1)*100+i+1 + " " + sObject[i].title;
-	var st = 0;
-	if (sObject[i].title) {
-		temp.textContent = sObject[i].title;
-	}
-	else if (sObject[i].sourcetitle){
-		temp.textContent = sObject[i].sourcetitle;
-		st=1;
-	}
-	else if (sObject[i].publicationName) {
-		temp.textContent = sObject[i].publicationName;
-		st=1;
-	}
-	row.insertCell(1).appendChild(temp);
-
-	temp = document.createElement('div');
-	temp.style.fontSize = '11px';
-	temp.style.paddingLeft = '18px';
-	document.getElementById("Search"+i).appendChild(temp);
-	//console.log("aa " + sObject[i].sourcetitle);
-	if (st==0) {
-		if (sObject[i].sourcetitle) {
-			temp.appendChild (document.createTextNode(sObject[i].sourcetitle));
-			if (sObject[i].citedby) {
-				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedby+" times"));
-			}
-			else if (sObject[i].citedbyCount) {
-				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedbyCount+" times"));
-			}
+		else if (sObject[i].sourcetitle){
+			temp.textContent = sObject[i].sourcetitle;
+			st=1;
 		}
 		else if (sObject[i].publicationName) {
-			temp.appendChild (document.createTextNode(sObject[i].publicationName));
-			if (sObject[i].citedby) {
-				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedby+" times"));
-			}
-			else if (sObject[i].citedbyCount) {
-				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedbyCount+" times"));
-			}
+			temp.textContent = sObject[i].publicationName;
+			st=1;
 		}
-		temp.appendChild(document.createElement('br'));
-	}
-	if (sObject[i].author) {
-		if ( typeof(sObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(sObject[i].author[0].authname));
-		else temp.appendChild(document.createTextNode(sObject[i].author[0]["ce:indexed-name"]));
-		for (var j=1; j<sObject[i].author.length; j++) {
-			if (j==3) {
-				temp.appendChild(document.createTextNode(", et al."));
-				break;
-			}
-			if ( typeof(sObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+sObject[i].author[j].authname));
-			else temp.appendChild(document.createTextNode(sObject[i].author[j]["ce:indexed-name"]));
-		}
-		temp.appendChild(document.createElement('br'));
-	}
-	if (sObject[i].affilname) {
-		temp.appendChild(document.createTextNode(sObject[i].affilname.split('|')[0]));
-		temp.appendChild(document.createElement('br'));
-	}
+		row.insertCell(1).appendChild(temp);
 	
-	if (sObject[i].city) {
-		temp.appendChild(document.createTextNode(sObject[i].city));
-		if (sObject[i].country) {
-			temp.appendChild(document.createTextNode(", "+sObject[i].country));
+		temp = document.createElement('div');
+		temp.style.fontSize = '11px';
+		temp.style.paddingLeft = '18px';
+		document.getElementById("Search"+i).appendChild(temp);
+		//console.log("aa " + sObject[i].sourcetitle);
+		if (st==0) {
+			if (sObject[i].sourcetitle) {
+				temp.appendChild (document.createTextNode(sObject[i].sourcetitle));
+				if (sObject[i].citedby) {
+					temp.appendChild(document.createTextNode(", cited "+sObject[i].citedby+" times"));
+				}
+				else if (sObject[i].citedbyCount) {
+					temp.appendChild(document.createTextNode(", cited "+sObject[i].citedbyCount+" times"));
+				}
+			}
+			else if (sObject[i].publicationName) {
+				temp.appendChild (document.createTextNode(sObject[i].publicationName));
+				if (sObject[i].citedby) {
+					temp.appendChild(document.createTextNode(", cited "+sObject[i].citedby+" times"));
+				}
+				else if (sObject[i].citedbyCount) {
+					temp.appendChild(document.createTextNode(", cited "+sObject[i].citedbyCount+" times"));
+				}
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		if (sObject[i].author) {
+			if ( typeof(sObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(sObject[i].author[0].authname));
+			else temp.appendChild(document.createTextNode(sObject[i].author[0]["ce:indexed-name"]));
+			for (var j=1; j<sObject[i].author.length; j++) {
+				if (j==3) {
+					temp.appendChild(document.createTextNode(", et al."));
+					break;
+				}
+				if ( typeof(sObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+sObject[i].author[j].authname));
+				else temp.appendChild(document.createTextNode(sObject[i].author[j]["ce:indexed-name"]));
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		if (sObject[i].affilname) {
+			temp.appendChild(document.createTextNode(sObject[i].affilname.split('|')[0]));
+			temp.appendChild(document.createElement('br'));
+		}
+		
+		if (sObject[i].city) {
+			temp.appendChild(document.createTextNode(sObject[i].city));
+			if (sObject[i].country) {
+				temp.appendChild(document.createTextNode(", "+sObject[i].country));
+			}
+			temp.appendChild(document.createElement('br'));
+		}
+		else if (sObject[i].country) {
+			temp.appendChild(document.createTextNode(sObject[i].country));
+			temp.appendChild(document.createElement('br'));
+		}
+	
+		temp = document.createElement('div');
+		temp.style.fontSize = '11px';
+		temp.align = 'justify';
+		document.getElementById("Search"+i).appendChild(temp);
+		temp.setAttribute('id', "Search" + i + "_abstract");
+		temp.style.position = 'relative';
+		temp.style.left = 18 + 'px';
+		temp.style.width = searchWidth - 43 + 'px';
+		if (sObject[i].url) {
+			var temp2 = document.createElement('a');
+			temp2.textContent = "Show in Scopus";
+			temp2.href = "javascript:window.open('" + sObject[i].url + "')";
+			temp2.style.textDecoration = 'none';
+			temp.appendChild(temp2);
+			//temp.appendChild(document.createElement('br'));
+		}
+		if (sObject[i].authorId && sObject[i].scopusId) {
+			var temp2 = document.createElement('a');
+			temp2.href = "#";
+			temp2.style.color = 'blue';
+			temp2.style.textDecoration = 'none';
+			temp2.style.cssFloat = 'right';
+			temp2.textContent = "Set as main article";
+			temp2.onclick = function() {newMainArticle(sObject[i]);};
+			temp.appendChild(temp2);
+			//temp.appendChild(document.createElement('br'));
 		}
 		temp.appendChild(document.createElement('br'));
+		if (sObject[i].Abstract) {
+			temp.appendChild(document.createTextNode("Abstract:"));
+			temp.appendChild(document.createElement('br'));
+			temp.appendChild(document.createTextNode(sObject[i].Abstract));
+		}
+		else temp.appendChild(document.createTextNode("Abstract not available"));
+		temp.style.overflow = 'hidden';
+		abstractSearchHeight[i] = temp.clientHeight;
+		temp.style.height = 0 + 'px';
+		//temp.style.display = 'none';
+		abstractSearchState[i] = 0;
+		abstractSearchMode[i] = 0;
 	}
-	else if (sObject[i].country) {
-		temp.appendChild(document.createTextNode(sObject[i].country));
-		temp.appendChild(document.createElement('br'));
-	}
-
-	temp = document.createElement('div');
-	temp.style.fontSize = '11px';
-	temp.align = 'justify';
-	document.getElementById("Search"+i).appendChild(temp);
-	temp.setAttribute('id', "Search" + i + "_abstract");
-	temp.style.position = 'relative';
-	temp.style.left = 18 + 'px';
-	temp.style.width = searchWidth - 43 + 'px';
-	if (sObject[i].url) {
-		var temp2 = document.createElement('a');
-		temp2.textContent = "Show in Scopus";
-		temp2.href = "javascript:window.open('" + sObject[i].url + "')";
-		temp2.style.textDecoration = 'none';
-		temp.appendChild(temp2);
-		//temp.appendChild(document.createElement('br'));
-	}
-	if (sObject[i].authorId && sObject[i].scopusId) {
-		var temp2 = document.createElement('a');
-		temp2.href = "#";
-		temp2.style.color = 'blue';
-		temp2.style.textDecoration = 'none';
-		temp2.style.cssFloat = 'right';
-		temp2.textContent = "Set as main article";
-		temp2.onclick = function() {newMainArticle(sObject[i]);};
-		temp.appendChild(temp2);
-		//temp.appendChild(document.createElement('br'));
-	}
-	temp.appendChild(document.createElement('br'));
-	if (sObject[i].Abstract) {
-		temp.appendChild(document.createTextNode("Abstract:"));
-		temp.appendChild(document.createElement('br'));
-		temp.appendChild(document.createTextNode(sObject[i].Abstract));
-	}
-	else temp.appendChild(document.createTextNode("Abstract not available"));
-	temp.style.overflow = 'hidden';
-	abstractSearchHeight[i] = temp.clientHeight;
-	temp.style.height = 0 + 'px';
-	//temp.style.display = 'none';
-	abstractSearchState[i] = 0;
-	abstractSearchMode[i] = 0;
 }
 
 function showSearchCountryDistribution() {
