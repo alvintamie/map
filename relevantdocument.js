@@ -237,7 +237,11 @@ function insertRelevantDocument(rdObject, i) {
 	temp.style.paddingLeft = '10px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	if (rdObject[i].author) {
-		temp.appendChild(document.createTextNode(rdObject[i].author[0].name));
+		temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
+		for (var i=1; i<rdObject[i].author.length) {
+			if (i==3) break;
+			temp.appendChild(document.createTextNode(", "+rdObject[i].author[i].authname));
+		}
 		temp.appendChild(document.createTextnode('br'));
 	}
 	if (rdObject[i].affilname) {
