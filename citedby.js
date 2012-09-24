@@ -66,6 +66,7 @@ function initializeCitedBy() {
 	showCitedByHref = document.createElement('a');
 	showCitedByHref.href = "#";
 	showCitedByHref.textContent = "Show in map";
+	showCitedByHref.style.color = 'blue';
 	
 	divCountryDistributionCitedBy = document.createElement('div');
 	divCountryDistributionCitedBy.style.background = '#F2F1EF';
@@ -81,6 +82,7 @@ function initializeCitedBy() {
 	
 	hrefCountryTypeCitedBy = document.createElement('a');
 	hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
+	hrefCountryTypeCitedBy.style.color = 'blue';
 	hrefCountryTypeCitedBy.href = "#";
 	hrefCountryTypeCitedBy.onclick = function () {
 		if (modeCountryTypeCitedBy==0) {
@@ -99,6 +101,7 @@ function initializeCitedBy() {
 	
 	hrefCDCB = document.createElement('a');
 	hrefCDCB.textContent = "View country distribution";
+	hrefCDCB.style.color = 'blue';
 	hrefCDCB.href = "#";
 	hrefCDCB.onclick = function () {
 		showCitedByCountryDistribution();
@@ -134,6 +137,7 @@ function updateCitedBy (cbObject, cbMode) {
 				showOverallCountryCitedBy(countryCitedby);
 			}
 			temp.textContent = "Show all result";
+			temp.style.color = 'blue';
 			contentCitedBy.appendChild(temp);
 			contentCitedBy.appendChild(document.createElement('br'));
 		}
@@ -157,6 +161,7 @@ function updateCitedBy (cbObject, cbMode) {
 				document.getElementById("contentCitedBy").appendChild(temp);
 				temp.href="javascript:downCitedby()";
 				temp.textContent = "Previous";
+				temp.style.color = 'blue';
 				contentCitedBy.appendChild(document.createTextNode(" "));
 			}
 			
@@ -165,6 +170,8 @@ function updateCitedBy (cbObject, cbMode) {
 				document.getElementById("contentCitedBy"). appendChild(temp);
 				temp.href = "javascript:upCitedby()";
 				temp.textContent = "Next";
+				temp.style.color = 'blue';
+				temp.style.cssFloat = 'right';
 			}
 		}
 	}
@@ -197,7 +204,9 @@ function insertCitedBy(cbObject, i) {
 		}
 	};
 	temp.href = "#";
-	temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
+	//temp.textContent = (currentLevelCitation-1)*25+i+1 + " " + cbObject[i].title;
+	temp.textContent = cbObject[i].title;
+	temp.style.color = 'blue';
 	row.insertCell(1).appendChild(temp);
 	
 	temp = document.createElement('div');
@@ -210,6 +219,7 @@ function insertCitedBy(cbObject, i) {
 	if (cbObject[i].url) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Show in Scopus";
+		temp2.style.color = 'blue';
 		temp2.href = "javascript:window.open('" + cbObject[i].url + "')";
 		temp2.style.textDecoration = 'none';
 		temp.appendChild(temp2);
@@ -218,6 +228,7 @@ function insertCitedBy(cbObject, i) {
 	if (cbObject[i].authorId && cbObject[i].scopusId) {
 		var temp2 = document.createElement('a');
 		temp2.textContent = "Set as main article";
+		temp2.style.color = 'blue';
 		temp2.href = "#";
 		temp2.style.textDecoration = 'none';
 		temp2.style.cssFloat = 'right';
@@ -258,6 +269,7 @@ function showOverallCountryCitedBy(ccbObject) {
 		var temp = document.createElement('a');
 		temp.href = "javascript:findCountryDocumentCitedBy(new Array('"+ccbObject[i].name+"'))";
 		temp.textContent = ccbObject[i].name;
+		temp.style.color = 'blue';
 		temp.style.textDecoration = 'none';
 		divCountryDistributionCitedBy.appendChild(temp);
 		divCountryDistributionCitedBy.appendChild(document.createTextNode(" ("+ccbObject[i].hitCount+")"));
@@ -348,6 +360,7 @@ function changeViewCitedBy() {
 	modeCountryDistributionCitedBy = 0;
 	divCountryDistributionCitedBy.style.display = 'none';
 	hrefCDCB.textContent = "View country distribution";
+	hrefCDCB.style.color = 'blue';
 	if (citedByStatus <= 0 && citedByIncrement==-1) {
 		citedByStatus = 1;
 	}
