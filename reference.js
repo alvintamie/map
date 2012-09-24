@@ -97,6 +97,8 @@ function initializeReference() {
 
 function updateReference (rObject, rMode) {
 	removecontentReferenceChild();
+	console.log("updatereference");
+	console.log(rObject);
 	//CHANGED
 	while (headerReference.firstChild) 
 	{
