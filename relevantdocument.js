@@ -234,13 +234,13 @@ function insertRelevantDocument(rdObject, i) {
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	
 	var counts = 1;
-	console.log("rel1")
+//	console.log("rel1")
 	
 	if (rdObject[i].author) {
 		row = tempTable.insertRow(counts);
 		counts++;
 	}
-	console.log("rel2");
+	//console.log("rel2");
 	/*
 	if (rdObject[i].affilname) {
 		row = tempTable.insertRow(counts);
@@ -249,6 +249,7 @@ function insertRelevantDocument(rdObject, i) {
 	}*/
 	
 	if (rdObject[i].city && rdObject[i].country) {
+		console.log("citycountry");
 		row = tempTable.insertRow(counts);
 		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
 		counts++;
