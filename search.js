@@ -428,6 +428,7 @@ function updateSearch(sObject, sMode) {
 				temp = document.createElement('a');
 				contentSearchResult. appendChild(temp);
 				temp.href = "javascript:upSearchEngine()";
+				temp.style.cssFloat = 'right';
 				temp.textContent = "Next";
 			}
 		}
