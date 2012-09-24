@@ -104,7 +104,7 @@ function renderResize(){
 	 }
 	 
 	 if(isResizeHeight){
-	if(canvas.offsetTop+canvas.height>canvasMaxSizeY){
+	if(canvas.height>canvasMaxSizeY){
 	canvasResizeBottom.style.top=canvasMaxSizeY+"px";
 	canvasResizeBoth.style.top=canvasMaxSizeY+"px";
 	canvasResizeRight.height=canvasMaxSizeY+10;}
