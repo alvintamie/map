@@ -98,7 +98,7 @@ function initializeReference() {
 function updateReference (rObject, rMode) {
 	removecontentReferenceChild();
 	contentReference.appendChild(document.createTextNode("test test"));
-	contentReference.appendChild('<br>');
+	contentReference.appendChild(document.createElement('br'));
 	console.log("updatereference");
 	console.log (rObject);
 	if (rObject.length>0) {
