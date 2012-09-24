@@ -232,13 +232,17 @@ function insertRelevantDocument(rdObject, i) {
 	if (rdObject[i].title) {
 		temp.textContent = rdObject[i].title;
 	}
-	else {temp.textContent = rdObject[i].sourcetitle; st=1;}
+	else {
+		temp.textContent = rdObject[i].sourcetitle;
+		st=1;
+	}
 	row.insertCell(1).appendChild(temp);
 	
 	temp = document.createElement('div');
 	temp.style.fontSize = '11px';
 	temp.style.paddingLeft = '18px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	console.log("aa " + rdObject[i].sourcetitle);
 	if (rdObject[i].sourcetitle && st==0) {
 		temp.appendChild (document.createTextNode(rdObject[i].sourcetitle));
 		if (rdObject[i].citedby) {
