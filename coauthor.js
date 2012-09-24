@@ -94,6 +94,8 @@ function initializeCoAuthor() {
 
 function updateCoauthors (caObject, caMode) {
 	removecontentCoAuthorChild();
+	console.log ("updatecoauthors");
+	console.log(caObject);
 	//CHANGED
 	while (headerCoAuthor.firstChild) 
 	{
@@ -184,7 +186,8 @@ function insertCoauthors(caObject, i) {
 	};
 	temp.href = "#";
 	temp.style.color = 'blue';
-	temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + caObject[i].name['given-name'] + ", " + caObject[i].name.surname;
+	//temp.textContent = (currentLevelCoauthors-1)*200+i+1 + " " + caObject[i].name['given-name'] + ", " + caObject[i].name.surname;
+	temp.textContent = caObject[i].name['given-name'] + ", " + caObject[i].name.surname;
 	row.insertCell(1).appendChild(temp);
 	
 	temp = document.createElement('div');
