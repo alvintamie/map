@@ -285,6 +285,18 @@ function insertRelevantDocument(rdObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	
+	if (rdObject[i].city) {
+		temp.appendChild(document.createTextNode(rdObject[i].city));
+		if (rdObject[i].country) {
+			temp.appendChild(document.createTextNode(", "+rdObject[i].country));
+		}
+		temp.appendChild(document.createElement('br');
+	}
+	else if (rdObject[i].country) {
+		temp.appendChild(document.createTextNode(rdObject[i].country));
+		temp.appendChild(document.createElement('br'));
+	}
+	
 	temp = document.createElement('div');
 	temp.style.fontSize = '11px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
