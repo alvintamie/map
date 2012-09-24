@@ -272,13 +272,16 @@ function insertRelevantDocument(rdObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (rdObject[i].author) {
-		temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
+		if ( typeof(rdObject[i].author[0].authname)!= 'undefined' )temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
+		else temp.appendChild(document.createTextNode(rdObject[i].author[0]["ce:indexed-name"]));
 		for (var j=1; j<rdObject[i].author.length; j++) {
 			if (j==3) {
 				temp.appendChild(document.createTextNode(", et al."));
 				break;
 			}
-			temp.appendChild(document.createTextNode(", "+rdObject[i].author[j].authname));
+			if ( typeof(rdObject[i].author[j].authname)!= 'undefined' )temp.appendChild(document.createTextNode(", "+rdObject[i].author[j].authname));
+			else temp.appendChild(document.createTextNode(rdObject[i].author[j]["ce:indexed-name"]));
+		
 		}
 		temp.appendChild(document.createElement('br'));
 	}
