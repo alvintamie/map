@@ -290,7 +290,7 @@ function insertRelevantDocument(rdObject, i) {
 		if (rdObject[i].country) {
 			temp.appendChild(document.createTextNode(", "+rdObject[i].country));
 		}
-		temp.appendChild(document.createElement('br');
+		temp.appendChild(document.createElement('br'));
 	}
 	else if (rdObject[i].country) {
 		temp.appendChild(document.createTextNode(rdObject[i].country));
