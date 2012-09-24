@@ -113,8 +113,8 @@ var obj_dis_x;
 	imgAuthor.src = 'https://raw.github.com/alvi0010/map/master/image/author.jpg';
 	
 // for resize canvas
-	var canvasMaxSizeX=1025;
-	var canvasMaxSizeY=552;
+	var canvasMaxSizeX=830;
+	var canvasMaxSizeY=500;
 	var resizeBuffer1=1000;
 	var resizeBuffer2=600;
 	var resizeBufferRight=1000;
