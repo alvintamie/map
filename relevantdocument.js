@@ -228,16 +228,24 @@ function insertRelevantDocument(rdObject, i) {
 	};
 	temp.href = "#";
 	temp.style.color = 'blue';
+	var st = 0;
 	if (rdObject[i].title) {
 		temp.textContent = rdObject[i].title;
 	}
-	else temp.textContent = rdObject[i].sourcetitle;
+	else {temp.textContent = rdObject[i].sourcetitle; st=1;}
 	row.insertCell(1).appendChild(temp);
 	
 	temp = document.createElement('div');
 	temp.style.fontSize = '11px';
 	temp.style.paddingLeft = '18px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
+	if (rdObject[i].sourcetitle && st==0) {
+		temp.appendChild (document.createTextNode(rdObject[i].sourcetitle));
+		if (rdObject[i].citedby) {
+			temp.appendChild(document.createTextNode(", cited "+rdObject[i].citedby+" times");
+		}
+		temp.appendChild(document.createElement('br'));
+	}
 	if (rdObject[i].author) {
 		temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
 		for (var j=1; j<rdObject[i].author.length; j++) {
