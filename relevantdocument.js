@@ -124,6 +124,8 @@ function initializeRelevantDocument () {
 
 function updateRelevantDocument (rdObject, rdMode) {
 	removecontentRelevantDocumentChild();
+	console.log("ini rdObject");
+	console.log(rdObject);
 	if (rdObject.length>0) {
 		if (rdMode==1 || defaultChangedRelevantDocument==1) {
 			var temp = document.createElement('a');
