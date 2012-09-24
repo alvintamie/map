@@ -237,7 +237,7 @@ function insertRelevantDocument(rdObject, i) {
 	}
 	if (rdObject[i].affilname) {
 		row = tempTable.insertRow(count);
-		row.insertCell(1).appendChild(document.createTextNode(rdobject[i].affilname));
+		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].affilname));
 		count++;
 	}
 	if (rdObject[i].city && rdObject[i].country) {
