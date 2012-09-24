@@ -96,7 +96,7 @@ function initializeCitedBy() {
 		}
 		else {
 			viewAllModeActive = 1;
-			modeInMap = citedMode;
+			modeInMap = citedByMode;
 			modeCountryTypeCitedBy = 0;
 			hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
 			showOverallCountryCitedBy(countryCitedby);
