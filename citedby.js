@@ -87,14 +87,20 @@ function initializeCitedBy() {
 	hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
 	hrefCountryTypeCitedBy.onclick = function () {
 		if (modeCountryTypeCitedBy==0) {
+			viewAllModeActive = 0;
+			modeInMap = citedByMode;
 			modeCountryTypeCitedBy = 1;
 			hrefCountryTypeCitedBy.textContent = "View overall result distribution";
 			changeModeCitedby();
+			showResult(citedByMode, citedbyObject);
 		}
 		else {
+			viewAllModeActive = 1;
+			modeInMap = citedMode;
 			modeCountryTypeCitedBy = 0;
 			hrefCountryTypeCitedBy.textContent = "View 25 result distribution";
 			showOverallCountryCitedBy(countryCitedby);
+			showResult(citedByMode, countryCitedby);
 		}
 		//showOverallCountryCitedBy(countryCitedby);
 	}
@@ -143,7 +149,7 @@ function updateCitedBy (cbObject, cbMode) {
 				else {
 					viewAllModeActive = 0;
 					modeInMap = citedByMode;
-					showResult(0, cbObject);
+					showResult(citedByMode, citedbyObject);
 					updateCitedBy(citedbyObject, 0);
 					showOverallCountryCitedBy(countryCitedby);
 
@@ -157,9 +163,9 @@ function updateCitedBy (cbObject, cbMode) {
 		}
 		
 		showCitedByHref.onclick = function () {
-		viewAllModeActive = 0;
-		modeInMap = citedByMode;
-		showResult(citedByMode, cbObject);		
+			viewAllModeActive = 0;
+			modeInMap = citedByMode;
+			showResult(citedByMode, cbObject);		
 		};
 		
 		contentCitedBy.appendChild(showCitedByHref);
@@ -368,7 +374,7 @@ function showOverallCountryCitedBy(ccbObject) {
 	divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	for (var i=0; i<ccbObject.length; i++) {
 		var temp = document.createElement('a');
-		temp.href = "javascript:findCountryDocumentCitedBy(new Array('"+ccbObject[i].name+"'))";
+		temp.href = "javascript:focusToCountryCitedBy(new Array('"+ccbObject[i].name+"'))";
 		temp.style.color = 'blue';
 		temp.textContent = ccbObject[i].name;
 		temp.style.textDecoration = 'none';
@@ -378,6 +384,23 @@ function showOverallCountryCitedBy(ccbObject) {
 	}
 }
 
+function focusToCountryCitedBy (ccbObjectName) {
+	viewAllModeActive = 0;
+	modeInMap = citedByMode;
+	if (modeCountryTypeCitedBy==0) {
+		defaultChangedCitedBy = 1;
+		modeCountryTypeCitedBy = 1;
+		hrefCountryTypeRelevantDocument.textContent = "View overall result distribution";
+		var temp=new Object;
+		temp.country=ccbObjectName;
+		getCitedbyFilter1(new Array(temp));
+	}
+	else {
+		getCitedbyFilter2(new Array(ccbObjectName));
+	}
+	highlight(getObject(ccbObjectName));
+}
+/*
 function findCountryDocumentCitedBy(ccbString) {
 	defaultChangedCitedBy = 1;
 console.log("111111111111111");
@@ -392,7 +415,7 @@ console.log("111111111111111");
 	console.log("ini string");
 	console.log(ccbString);
 	highlight(getObject(ccbString[0]));
-}
+}*/
 
 function showAbstractCited(i) {
 	//console.log("show");
