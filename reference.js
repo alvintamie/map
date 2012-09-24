@@ -222,7 +222,7 @@ function showReferenceCountryDistribution() {
 	}
 }
 //ADDED TEMPORARILY:
-function testing(_obj)
+function testing(crObjectName)
 {
 //	console.log("focus country");
 	viewAllModeActive = 0;
