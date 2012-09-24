@@ -232,7 +232,7 @@ function testing(crObjectName)
 //	console.log(getObject(crObjectName));
 	highlight(getObject(crObjectName));
 }
-
+/////////////////////
 
 function showOverallCountryReference(crObject) {
 	while (divCountryDistributionReference.firstChild) {
@@ -242,9 +242,9 @@ function showOverallCountryReference(crObject) {
 	//divCountryDistributionReference.appendChild(document.createElement('br'));
 	for (var i=0; i<crObject.length; i++) {
 		var temp = document.createElement('a');
-//		temp.href = "javascript:focusToCountryReference('" + crObject[i].name + "')";
+		temp.href = "javascript:focusToCountryReference2('" + crObject[i].name + "')";
 //		temp.href = "javascript:console.log('" + crObject[i].name + "')";
-		temp.href = "javascript:testing('" + crObject[i].name + "');";
+//		temp.href = "javascript:testing('" + crObject[i].name + "');";
 		temp.textContent = crObject[i].name;
 		temp.style.textDecoration = 'none';
 		divCountryDistributionReference.appendChild(temp);
@@ -254,7 +254,7 @@ function showOverallCountryReference(crObject) {
 }
 
 
-function focusToCountryReference(crObjectName) {
+function focusToCountryReference2(crObjectName) {
 	console.log("focus country");
 	viewAllModeActive = 0;
 	modeInMap = referenceMode;
