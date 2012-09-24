@@ -240,7 +240,7 @@ function insertReference(rObject, i) {
 		temp.appendChild(document.createElement('br'));
 	}
 	if (rObject[i].affilname) {
-		temp.appendChild(document.createTextNode(rObject[i].affilname));
+		temp.appendChild(document.createTextNode(rObject[i].affilname.split('|')[0]));
 		temp.appendChild(document.createElement('br'));
 	}
 	
