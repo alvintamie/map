@@ -96,7 +96,7 @@ function updateCoauthors (caObject, caMode) {
 	removecontentCoAuthorChild();
 	//CHANGED
 	while (headerReference.firstChild) {
-	headerReference.removeChild(headerReference.firstChild;
+	headerCoAuthor.removeChild(headerReference.firstChild);
 	}	
 	headerCoAuthor.appendChild(document.createTextNode("(" +total_Coauthors +")"));
 	////////////////////////////////////////
