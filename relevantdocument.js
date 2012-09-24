@@ -226,7 +226,7 @@ function insertRelevantDocument(rdObject, i) {
 	temp.href = "#";
 	temp.style.color = 'blue';
 	//temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
-	if ( typeof(rdObject[i].title) != 'undefined')temp.textContent =  rdObject[i].title;
+	if (rdObject[i].title) temp.textContent =  rdObject[i].title;
 	else temp.textContent = rdObject[i].sourcetitle;
 	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
