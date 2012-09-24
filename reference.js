@@ -222,9 +222,9 @@ function showReferenceCountryDistribution() {
 	}
 }
 //ADDED TEMPORARILY:
-function testing()
+function testing(_obj)
 {
-	console.log("testOk");
+	console.log(_obj);
 }
 
 
@@ -238,7 +238,7 @@ function showOverallCountryReference(crObject) {
 		var temp = document.createElement('a');
 //		temp.href = "javascript:focusToCountryReference('" + crObject[i].name + "')";
 //		temp.href = "javascript:console.log('" + crObject[i].name + "')";
-		temp.href = "javascript:testing();";
+		temp.href = "javascript:testing('" + crObject[i].name + "');";
 		temp.textContent = crObject[i].name;
 		temp.style.textDecoration = 'none';
 		divCountryDistributionReference.appendChild(temp);
