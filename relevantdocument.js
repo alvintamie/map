@@ -124,14 +124,6 @@ function initializeRelevantDocument () {
 
 function updateRelevantDocument (rdObject, rdMode) {
 	removecontentRelevantDocumentChild();
-	//CHANGED:
-	while (headerRelevantDocument.firstChild) 
-	{
-		headerRelevantDocument.removeChild(headerRelevantDocument.firstChild);
-	}	
-	headerRelevantDocument.appendChild(document.createTextNode("Relevant Documents(" +total_Relevant_Document +")"));
-		
-	/////////////////
 	if (rdObject.length>0) {
 		if (rdMode==1 || defaultChangedRelevantDocument==1) {
 			var temp = document.createElement('a');
@@ -234,9 +226,25 @@ function insertRelevantDocument(rdObject, i) {
 	temp.href = "#";
 	temp.style.color = 'blue';
 	//temp.textContent = (currentLevelRelevantDocument-1)*25+i+1 + " " + rdObject[i].title;
-	temp.textContent = rdObject[i].title;
+	if ( typeof(rdObject[i].title) != 'undefined')temp.textContent =  rdObject[i].title;
+	else temp.textContent = rdObject[i].sourcetitle;
 	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
+	var count = 1;
+	if (rdObject[i].author) {
+		row = tempTable.insertRow(count);
+		count++;
+	}
+	if (rdObject[i].affilname) {
+		row = tempTable.insertRow(count);
+		row.insertCell(1).appendChild(document.createTextNode(rdobject[i].affilname));
+		count++;
+	}
+	if (rdObject[i].city && rdObject[i].country) {
+		row = tempTable.insertRow(count);
+		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
+		count++;
+	}
 	
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
