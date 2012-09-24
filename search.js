@@ -408,6 +408,7 @@ function updateSearch(sObject, sMode) {
 
 		for (var i=0; i<sObject.length; i++) {
 			var temp = document.createElement('div');
+			temp.style.fontSize = '13px';
 			contentSearchResult.appendChild(temp);
 			temp.setAttribute('id', "Search" + i);
 			temp.style.position = 'relative';
@@ -460,10 +461,65 @@ function insertSearch(sObject, i) {
 	};
 	temp.href = "#";
 	temp.style.color = 'blue';
-	temp.textContent = (currentLevelSearchEngine-1)*100+i+1 + " " + sObject[i].title;
+	//temp.textContent = (currentLevelSearchEngine-1)*100+i+1 + " " + sObject[i].title;
+	var st = 0;
+	if (sObject[i].title) {
+		temp.textContent = sObject[i].title;
+	}
+	else if (rObject[i].sourcetitle){
+		temp.textContent = sObject[i].sourcetitle;
+		st=1;
+	}
+	else if (rObject[i].publicationName) {
+		temp.textContent = sObject[i].publicationName;
+		st=1;
+	}
 	row.insertCell(1).appendChild(temp);
-	
+
 	temp = document.createElement('div');
+	temp.style.fontSize = '11px';
+	temp.style.paddingLeft = '18px';
+	document.getElementById("Search"+i).appendChild(temp);
+	//console.log("aa " + rObject[i].sourcetitle);
+	if (st==0) {
+		if (sObject[i].sourcetitle) {
+			temp.appendChild (document.createTextNode(rObject[i].sourcetitle));
+			if (sObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedby+" times"));
+			}
+			else if (sObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedbyCount+" times"));
+			}
+		}
+		else if (sObject[i].publicationName) {
+			temp.appendChild (document.createTextNode(sObject[i].publicationName));
+			if (sObject[i].citedby) {
+				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedby+" times"));
+			}
+			else if (sObject[i].citedbyCount) {
+				temp.appendChild(document.createTextNode(", cited "+sObject[i].citedbyCount+" times"));
+			}
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	if (sObject[i].author) {
+		temp.appendChild(document.createTextNode(sObject[i].author[0].authname));
+		for (var j=1; j<sObject[i].author.length; j++) {
+			if (j==3) {
+				temp.appendChild(document.createTextNode(", et al."));
+				break;
+			}
+			temp.appendChild(document.createTextNode(", "+sObject[i].author[j].authname));
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	if (sObject[i].affilname) {
+		temp.appendChild(document.createTextNode(rObject[i].affilname));
+		temp.appendChild(document.createElement('br'));
+	}
+
+	temp = document.createElement('div');
+	temp.style.fontSize = '11px';
 	temp.align = 'justify';
 	document.getElementById("Search"+i).appendChild(temp);
 	temp.setAttribute('id', "Search" + i + "_abstract");
@@ -490,8 +546,11 @@ function insertSearch(sObject, i) {
 		//temp.appendChild(document.createElement('br'));
 	}
 	temp.appendChild(document.createElement('br'));
-	if (sObject[i].Abstract)
+	if (sObject[i].Abstract) {
+		temp.appendChild(document.createTextnode("Abstract:"));
+		temp.appendChild(document.createElement('br'));
 		temp.appendChild(document.createTextNode(sObject[i].Abstract));
+	}
 	else temp.appendChild(document.createTextNode("Abstract not available"));
 	temp.style.overflow = 'hidden';
 	abstractSearchHeight[i] = temp.clientHeight;
