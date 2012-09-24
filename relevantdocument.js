@@ -234,15 +234,15 @@ function insertRelevantDocument(rdObject, i) {
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
 	
 	var counts = 1;
-//	console.log("rel1")
-	
+	console.log("rel1")
+	console.log(rdObject[i].affilname);
 	if (rdObject[i].author) {
 		row = tempTable.insertRow(counts);
 		counts++;
 	}
-	row = tempTable.insertRow(1);
-	row.insertCell(0);
-	row.insertCell(1).appendChild(document.createTextNode(rdobject[i].affilname));
+	//row = tempTable.insertRow(1);
+	//row.insertCell(0);
+	//row.insertCell(1).appendChild(document.createTextNode(rdobject[i].affilname));
 	//console.log("rel2");
 	/*
 	if (rdObject[i].affilname) {
