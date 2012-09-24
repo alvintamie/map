@@ -236,7 +236,7 @@ function insertRelevantDocument(rdObject, i) {
 	var counts = 1;
 	console.log("rel1");
 	console.log(rdObject[i].affilname);
-	
+	if (rdObject[i].affilname) console.log(rdObject[i].affilname);
 	if (rdObject[i].author) {
 		row = tempTable.insertRow(counts);
 		counts++;
