@@ -193,6 +193,7 @@ function updateRelevantDocument (rdObject, rdMode) {
 				document.getElementById("contentRelevantDocument"). appendChild(temp);
 				temp.href = "javascript:upRelevantDocument()";
 				temp.style.color ='blue';
+				temp.style.cssFloat = 'right';
 				temp.textContent = "Next";
 			}
 		}
