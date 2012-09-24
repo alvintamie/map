@@ -241,7 +241,7 @@ function insertRelevantDocument(rdObject, i) {
 		temp.appendChild(document.createTextNode(rdObject[i].affilname));
 		temp.appendChild(document.createElement('br'));
 	}
-	if (rdObject[i].city && rdObject[i].country) {
+	if (rdObject[i].city) {
 		temp.appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
 		temp.appendChild(document.createElement('br'));
 	}
