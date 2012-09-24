@@ -259,7 +259,7 @@ function showOverallCountryCitedBy(ccbObject) {
 		temp.href = "javascript:findCountryDocumentCitedBy(new Array('"+ccbObject[i].name+"'))";
 		temp.textContent = ccbObject[i].name;
 		temp.style.textDecoration = 'none';
-		divCountryDistributionRelevantDocument.appendChild(temp);
+		divCountryDistributionCitedBy.appendChild(temp);
 		divCountryDistributionCitedBy.appendChild(document.createTextNode(" ("+ccbObject[i].hitCount+")"));
 		divCountryDistributionCitedBy.appendChild(document.createElement('br'));
 	}
