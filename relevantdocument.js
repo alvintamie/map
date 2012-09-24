@@ -228,9 +228,10 @@ function insertRelevantDocument(rdObject, i) {
 	temp.href = "#";
 	temp.style.color = 'blue';
 	if (rdObject[i].title) {
-		row.insertCell(1).appendChild(rdObject[i].title);
+		temp.textContent = rdObject[i].title;
 	}
-	else row.insertCell(1).appendChild(rdObject[i].sourcetitle);
+	else temp.textContent = rdObject[i].sourcetitle;
+	row.insertCell(1).appendChild(temp);
 	
 	temp = document.createElement('div');
 	temp.style.paddingLeft = '10px';
