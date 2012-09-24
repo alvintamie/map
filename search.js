@@ -380,6 +380,7 @@ function cancelQueryChange() {
 
 function updateSearch(sObject, sMode) {
 	console.log("search haha");
+	console.log(sObject);
 	searchYearFromSelect.value = searchYearFromString.length-1;
 	searchYearToSelect.value = 0;
 	updatecontentSearchQuery();
