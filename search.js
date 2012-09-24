@@ -196,6 +196,7 @@ function initializeSearch() {
 function updatecontentSearchQuery() {
 	removecontentSearchQueryChild();
 	var contentSearch_query = document.getElementById("contentSearch_query");
+	/*
 	//CHANGED:
 	while (headerSearch.firstChild) 
 	{
@@ -204,6 +205,7 @@ function updatecontentSearchQuery() {
 	headerSearch.appendChild(document.createTextNode("Search(" +total_Search_Engine +")"));
 	
 	/////////////////////
+	*/
 	var searchCategory = document.createElement('div');
 	searchCategory.setAttribute('id', "contentSearchQuery_categor1");
 	contentSearch_query.appendChild(searchCategory);
