@@ -230,13 +230,14 @@ function insertRelevantDocument(rdObject, i) {
 	else temp.textContent = rdObject[i].sourcetitle;
 	row.insertCell(1).appendChild(temp);
 	//temp.setAttribute('onclick', 'window.open(temp.href)');
-	/*
+	
 	var counts = 1;
 	console.log("rel1")
 	if (rdObject[i].author) {
 		row = tempTable.insertRow(counts);
 		counts++;
 	}
+	/*
 	console.log("rel2");
 	if (rdObject[i].affilname) {
 		row = tempTable.insertRow(counts);
