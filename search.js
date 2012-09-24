@@ -547,7 +547,7 @@ function insertSearch(sObject, i) {
 	}
 	temp.appendChild(document.createElement('br'));
 	if (sObject[i].Abstract) {
-		temp.appendChild(document.createTextnode("Abstract:"));
+		temp.appendChild(document.createTextNode("Abstract:"));
 		temp.appendChild(document.createElement('br'));
 		temp.appendChild(document.createTextNode(sObject[i].Abstract));
 	}
