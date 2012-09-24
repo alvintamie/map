@@ -81,8 +81,8 @@ function initializeSearch() {
 	temp.style.position = 'relative';
 	//temp.style.top = topbarHeight-9 + 'px';
 	temp.style.left = 1 + 'px';
-	temp.style.width = citedByWidth-2 + 'px';
-	temp.style.height = citedByHeight-parseInt(headerSearch.style.height) +'px';
+	temp.style.width = searchWidth-2 + 'px';
+	temp.style.height = searchHeight-parseInt(headerSearch.style.height) +'px';
 	temp.style['overflow-x'] = 'hidden';
 	temp.style['overflow-y'] = 'auto';
 	
@@ -176,7 +176,7 @@ function initializeSearch() {
 			modeInMap = searchMode;
 			modeCountryTypeSearch = 0;
 			hrefCountryTypeSearch.textContent = "View 100 result distribution";
-			showOverallCountryCitedBy(queryCtry);
+			showOverallCountrySearch(queryCtry);
 			showResult(searchMode, queryCtry);
 		}
 		//showOverallCountrySearch(queryCtry);
@@ -415,7 +415,7 @@ function updateSearch(sObject, sMode) {
 					modeInMap = searchMode;
 					showResult(searchMode, searchObject);
 					updateSearch(queryResults, 0);
-					showOverallCountryCitedBy(queryCtry);
+					showOverallCountrySearch(queryCtry);
 				}
 				modeCountryTypeSearch = 1;
 				hrefCountryTypeSearch.textContent = "View overall result distribution";
