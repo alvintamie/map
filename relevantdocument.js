@@ -236,14 +236,14 @@ function insertRelevantDocument(rdObject, i) {
 	temp = document.createElement('div');
 	temp.style.paddingLeft = '10px';
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
-	
+	if (rdObject[i].author) {
+		temp.appendChild(document.createTextNode(rdObject[i].author[0].name));
+		temp.appendChild(document.createTextnode('br'));
+	}
 	if (rdObject[i].affilname) {
 		temp.appendChild(document.createTextNode(rdObject[i].affilname));
 		temp.appendChild(document.createElement('br'));
 	}
-
-	temp.appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
-	temp.appendChild(document.createElement('br'));
 	
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
