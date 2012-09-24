@@ -511,6 +511,18 @@ function insertSearch(sObject, i) {
 		temp.appendChild(document.createTextNode(sObject[i].affilname));
 		temp.appendChild(document.createElement('br'));
 	}
+	
+	if (sObject[i].city) {
+		temp.appendChild(document.createTextNode(sObject[i].city));
+		if (sObject[i].country) {
+			temp.appendChild(document.createTextNode(", "+sObject[i].country));
+		}
+		temp.appendChild(document.createElement('br'));
+	}
+	else if (sObject[i].country) {
+		temp.appendChild(document.createTextNode(sObject[i].country));
+		temp.appendChild(document.createElement('br'));
+	}
 
 	temp = document.createElement('div');
 	temp.style.fontSize = '11px';
