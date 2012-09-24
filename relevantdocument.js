@@ -238,7 +238,7 @@ function insertRelevantDocument(rdObject, i) {
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
 	if (rdObject[i].author) {
 		temp.appendChild(document.createTextNode(rdObject[i].author[0].authname));
-		for (var i=1; i<rdObject[i].author.length) {
+		for (var i=1; i<rdObject[i].author.length; i++) {
 			if (i==3) break;
 			temp.appendChild(document.createTextNode(", "+rdObject[i].author[i].authname));
 		}
