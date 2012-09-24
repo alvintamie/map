@@ -99,9 +99,9 @@ function updateCoauthors (caObject, caMode) {
 	{
 		headerCoAuthor.removeChild(headerCoAuthor.firstChild);
 	}	
-	headerCoAuthor.appendChild(document.createTextNode("(" +total_Coauthors +")"));
+	headerCoAuthor.appendChild(document.createTextNode("Co-Authors(" +total_Coauthors +")"));
 	////////////////////////////////////////
-	//console.log("update");
+	console.log("update");
 	//console.log(caObject);
 	if (caObject.length>0) {
 		if (caMode==1) {
