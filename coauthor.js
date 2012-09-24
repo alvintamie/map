@@ -95,7 +95,7 @@ function initializeCoAuthor() {
 function updateCoauthors (caObject, caMode) {
 	removecontentCoAuthorChild();
 	//CHANGED
-	while (headerReference.firstChild) 
+	while (headerCoAuthor.firstChild) 
 	{
 		headerCoAuthor.removeChild(headerCoAuthor.firstChild);
 	}	
