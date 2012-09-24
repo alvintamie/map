@@ -244,19 +244,19 @@ function insertRelevantDocument(rdObject, i) {
 	//row.insertCell(0);
 	//row.insertCell(1).appendChild(document.createTextNode(rdobject[i].affilname));
 	//console.log("rel2");
-	/*
+	
 	if (rdObject[i].affilname) {
 		row = tempTable.insertRow(counts);
-		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].affilname));
+		row.insertCell(1).appendChild.innerHTML = rdObject[i].affilname;
 		counts += 1;
 	}
 	
 	if (rdObject[i].city && rdObject[i].country) {
 		console.log("citycountry");
 		row = tempTable.insertRow(counts);
-		row.insertCell(1).appendChild(document.createTextNode(rdObject[i].city+", "+rdObject[i].country));
+		row.insertCell(1).innerHTML = rdObject[i].city+", "+rdObject[i].country;
 		counts++;
-	}*/
+	}
 	
 	temp = document.createElement('div');
 	document.getElementById("RelevantDocument"+i).appendChild(temp);
