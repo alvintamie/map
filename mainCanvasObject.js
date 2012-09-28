@@ -164,7 +164,6 @@ function clearCanvasObject(){
 //	console.log("test clear canvas");
 	canvasObjectAuthor= new Object();
 	canvasObjectHighlight=[];
-	highlightObjStatus = 0;
 	canvasObjectAuthor.status=-1;
 	canvasObject=[];
 	}
