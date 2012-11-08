@@ -65,6 +65,7 @@ function initializeMainCanvas(){
 			console.log("double clicked")
   			if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
 			multiplier=1;
+			console.log("haleluya")
 			timeBefore = 0;
 			if(zoom<2){
 				readyScroll=-1;
