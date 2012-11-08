@@ -63,6 +63,7 @@ function initializeMainCanvas(){
 		}
 		canvas.addEventListener('dblclick', function(){ 
 			console.log("double clicked")
+			_readyScroll = 1
   			if(_readyScroll==1 && readyScroll==1 && mouseInCanvas){
 			multiplier=1;
 			console.log("haleluya")
